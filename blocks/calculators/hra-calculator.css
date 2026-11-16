@@ -1,0 +1,37 @@
+.calculator-main.hra-calculator .hra-metro-switch {
+    margin-top: var(--spacing-md);
+}
+
+.calculator-main.hra-calculator .tobacco-field {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calculator-main.hra-calculator .tobacco-field .tobacco-switch {
+    width: 36px;
+    height: 20px;
+}
+
+.calculator-main.hra-calculator .tobacco-field .tobacco-switch-track {
+    background: #fa1432;
+}
+
+.calculator-main.hra-calculator .tobacco-field .tobacco-switch-track::after {
+    width: 16px;
+    height: 16px;
+}
+
+.calculator-main .result-summary-panel-wrapper .result-summary-panel .result-summary-content .hra-result-details {
+    flex-direction: row !important;
+}
+
+.calculator-main .result-summary-panel-wrapper .result-summary-panel .result-summary-content .hra-result-details .illustration-wrap {
+    align-self: end !important;
+}
+
+@media (width >= 900px) {
+    .calculator-main.hra-calculator .tobacco-field {
+        flex-direction: column;
+    }
+}

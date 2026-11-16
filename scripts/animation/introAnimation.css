@@ -1,0 +1,45 @@
+/* On-load intro for video-banner (section style "Intro Animation"), see introAnimation.js */
+
+/* Intro video plays once on top of the loop video */
+.video-banner .video-banner-media .intro-animation-video {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Hero text waits for the intro to finish */
+.video-banner.intro-animation-pending .video-banner-content {
+  opacity: 0;
+}
+
+/* Shutter: two halves meeting at a thin centre line that split open */
+.video-banner .intro-animation-shutter {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.video-banner .intro-animation-shutter .shutter-half {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: calc(50% - 1.5px);
+  background:
+    linear-gradient(to bottom, transparent 88%, #fff 100%),
+    linear-gradient(135deg, #ffeedf 0%, #f0e4e8 30%, #e1dff0 55%, #d2e0f4 75%, #cfcaeb 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
+  will-change: transform;
+}
+
+.video-banner .intro-animation-shutter .shutter-top {
+  top: 0;
+  background-position: top;
+}
+
+.video-banner .intro-animation-shutter .shutter-bottom {
+  bottom: 0;
+  background-position: bottom;
+}

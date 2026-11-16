@@ -1,0 +1,273 @@
+{
+  "definitions": [
+    {
+      "title": "How It Works",
+      "id": "how-it-works",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "How It Works",
+              "model": "how-it-works",
+              "filter": "how-it-works",
+              "classes": "text-list",
+              "video_source": "dam",
+              "content_linkText": "Buy Online"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Step",
+      "id": "how-it-works-step",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Step",
+              "model": "how-it-works-step"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "how-it-works",
+      "fields": [
+        {
+          "component": "select",
+          "name": "classes",
+          "label": "Content Type",
+          "description": "Text List: numbered steps (add Step items). Image: infographic image. Video: poster with a video that plays in place",
+          "valueType": "string",
+          "value": "text-list",
+          "options": [
+            {
+              "name": "Text List",
+              "value": "text-list"
+            },
+            {
+              "name": "Image",
+              "value": "image"
+            },
+            {
+              "name": "Video",
+              "value": "video"
+            }
+          ]
+        },
+        {
+          "component": "richtext",
+          "name": "content_text",
+          "label": "Heading And Subtitle",
+          "description": "Heading 2 (Shift+Enter for the second line, bold the highlighted words) followed by a short subtitle",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "content_link",
+          "label": "Button Link"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "content_linkText",
+          "label": "Button Text",
+          "value": "Buy Online"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "media_image",
+          "label": "Image (Desktop)",
+          "multi": false,
+          "condition": {
+            "===": [
+              {
+                "var": "classes"
+              },
+              "image"
+            ]
+          }
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "media_imageMobile",
+          "label": "Image (Mobile)",
+          "description": "Optional. Used below 900px, the desktop image is used when empty",
+          "multi": false,
+          "condition": {
+            "===": [
+              {
+                "var": "classes"
+              },
+              "image"
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "media_imageAlt",
+          "label": "Image Description",
+          "description": "Describes the infographic for screen readers (key figures included)",
+          "value": "",
+          "condition": {
+            "===": [
+              {
+                "var": "classes"
+              },
+              "image"
+            ]
+          }
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "video_poster",
+          "label": "Video Poster",
+          "description": "Shown until the video plays. Optional for YouTube (the YouTube thumbnail is used)",
+          "multi": false,
+          "condition": {
+            "===": [
+              {
+                "var": "classes"
+              },
+              "video"
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "video_posterAlt",
+          "label": "Video Description",
+          "value": "",
+          "condition": {
+            "===": [
+              {
+                "var": "classes"
+              },
+              "video"
+            ]
+          }
+        },
+        {
+          "component": "select",
+          "name": "video_source",
+          "label": "Video Source",
+          "valueType": "string",
+          "value": "dam",
+          "options": [
+            {
+              "name": "AEM Assets (DAM)",
+              "value": "dam"
+            },
+            {
+              "name": "YouTube",
+              "value": "youtube"
+            }
+          ],
+          "condition": {
+            "===": [
+              {
+                "var": "classes"
+              },
+              "video"
+            ]
+          }
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "video_dam",
+          "label": "Video (AEM Assets)",
+          "description": "MP4 from Assets",
+          "condition": {
+            "and": [
+              {
+                "===": [
+                  {
+                    "var": "classes"
+                  },
+                  "video"
+                ]
+              },
+              {
+                "!==": [
+                  {
+                    "var": "video_source"
+                  },
+                  "youtube"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "video_youtube",
+          "label": "YouTube URL",
+          "description": "e.g. https://youtu.be/VIDEO_ID",
+          "value": "",
+          "condition": {
+            "and": [
+              {
+                "===": [
+                  {
+                    "var": "classes"
+                  },
+                  "video"
+                ]
+              },
+              {
+                "===": [
+                  {
+                    "var": "video_source"
+                  },
+                  "youtube"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "how-it-works-step",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Step Title",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "label": "Step Description",
+          "value": "",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "how-it-works",
+      "components": [
+        "how-it-works-step"
+      ]
+    }
+  ]
+}

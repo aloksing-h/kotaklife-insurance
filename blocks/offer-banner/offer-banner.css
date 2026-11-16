@@ -1,0 +1,463 @@
+@import url('../swiper/swiper-bundle.min.css');
+
+/* ==========================================================================
+   Offer Banner (second home banner, e.g. Zero% GST): heading, text and button
+   on the left, a cut-out image on the right over decorative art (Figma:
+   desktop 1200 x 550, mobile 360 x 592). In the section of an infinity
+   banner the banners become a slider with pagination dots.
+   ========================================================================== */
+
+main>.section.offer-banner-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* full width, like the infinity banner */
+main>.section>.offer-banner-wrapper {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.offer-banner {
+  display: grid;
+
+  /* the row is the banner: the image may run past its bottom, never stretch it */
+  grid-template: 'stage' minmax(0, 1fr) / 100%;
+  isolation: isolate;
+  box-sizing: border-box;
+  min-height: 520px;
+  overflow: hidden;
+  background: var(--base-white, #fff);
+  font-family: var(--body-font-family);
+  color: #181d27;
+
+  /* background:
+    radial-gradient(
+      ellipse at 12% 100%,
+      #f7b84f 0%,
+      rgba(247, 184, 79, 85%) 22%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 58% 100%,
+      #ee9d76 0%,
+      rgba(238, 157, 118, 85%) 28%,
+      transparent 60%
+    ),
+    linear-gradient(
+      115deg,
+      #fdf8f3 0%,
+      #fffdfb 38%,
+      #fce9dc 65%,
+      #f6c6b6 100%
+    ); */
+}
+
+.offer-banner .offer-banner-art,
+.offer-banner .offer-banner-content {
+  grid-area: stage;
+  min-width: 0;
+}
+
+/* decorative art: the mobile art below 900 px, the desktop art above */
+.offer-banner .offer-banner-art {
+  /* the art fills the banner, it never sizes it */
+  contain: size;
+  display: grid;
+  grid-template: 100% / 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.offer-banner .offer-banner-art>* {
+  grid-area: 1 / 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+.offer-banner .offer-banner-art picture {
+  display: contents;
+}
+
+.offer-banner .offer-banner-art img {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.offer-banner .offer-banner-art .offer-banner-art-fill,
+.offer-banner .offer-banner-art-desktop img {
+  display: none;
+}
+
+/* layout: copy on top, the image at the bottom right */
+.offer-banner .offer-banner-content {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 40px 16px 0;
+}
+
+.offer-banner .offer-banner-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.offer-banner .offer-banner-copy>* {
+  margin: 0;
+}
+
+.offer-banner .offer-banner-title {
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: #181d27;
+}
+
+/* the big part: 100% */
+.offer-banner .offer-banner-title strong {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: -0.64px;
+  color: #181D27;
+}
+
+.offer-banner .offer-banner-percent {
+  color: var(--text-text-primary, #181D27);
+  font-family: var(--font-family-font-family-body, Manrope);
+  font-size: var(--font-size-body-1, 16px);
+  font-style: normal;
+  font-weight: 300;
+  line-height: var(--line-height-sub-heading-2, 20px)
+}
+
+
+.offer-banner .offer-banner-title strong .offer-banner-percent {
+  color: var(--text-text-primary, #181D27);
+  font-family: var(--font-family-font-family-display, Manrope);
+  font-size: var(--font-size-heading-4, 24px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--line-height-heading-4, 28px);
+}
+
+.offer-banner .offer-banner-text {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #535862;
+}
+
+/* button */
+.offer-banner .offer-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  height: 38px;
+  margin-top: 16px;
+  padding: 0 4px 0 20px;
+  border-radius: 999px;
+  background: #e1122d;
+  color: var(--base-white, #fff);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 16px;
+  text-decoration: none;
+  transition: gap 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.offer-banner .offer-banner-cta:hover,
+.offer-banner .offer-banner-cta:focus-visible {
+  gap: 20px;
+}
+
+.offer-banner .offer-banner-cta:focus-visible {
+  outline: 2px solid #1e4679;
+  outline-offset: 2px;
+}
+
+.offer-banner .offer-banner-cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background-color: var(--base-white, #fff);
+  color: #181d27;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.offer-banner .offer-banner-cta:hover .offer-banner-cta-icon,
+.offer-banner .offer-banner-cta:focus-visible .offer-banner-cta-icon {
+  background-color: var(--base-black, #000);
+  color: var(--base-white, #fff);
+}
+
+/* the cut-out image: 84% of the width at the bottom right, running off the
+   right and bottom edges (Figma mobile: 301 x 326 from x 59, y 292) */
+.offer-banner .offer-banner-visual {
+  align-self: flex-end;
+  width: 91.8%;
+  max-width: 420px;
+  margin: auto -16px -7.2% 0;
+  padding-top: 24px;
+}
+
+.offer-banner .offer-banner-visual picture,
+.offer-banner .offer-banner-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* an image of its own for mobile and tablet, when set */
+.offer-banner .offer-banner-visual.has-mobile-image .offer-banner-image-desktop {
+  display: none;
+}
+
+/* no mobile art: the desktop art everywhere */
+.offer-banner .offer-banner-art-single .offer-banner-art-desktop img {
+  display: block;
+}
+
+/* tablet: the mobile layout, roomier */
+@media (width >=600px) {
+  .offer-banner .offer-banner-content {
+    padding: 48px 32px 0;
+  }
+
+  .offer-banner .offer-banner-title {
+    font-size: var(--font-size-title, 52px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: var(--line-height-heading-1, 60px);
+  }
+
+  .offer-banner .offer-banner-text {
+    max-width: 480px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .offer-banner .offer-banner-visual {
+    margin-right: -32px;
+    margin-bottom: -40px;
+  }
+
+  .offer-banner .offer-banner-percent {
+    font-size: var(--font-size-heading-2, 40px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: var(--line-height-heading-2, 48px);
+  }
+
+  .offer-banner .offer-banner-title strong {
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 78.724px;
+  }
+
+  .offer-banner .offer-banner-title strong .offer-banner-percent {
+    font-size: var(--font-size-heading-2, 40px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-heading-2, 48px)
+  }
+}
+
+/* desktop (Figma 1200 x 550): copy 76 px from the left, the image 556 px
+   wide 70 px from the top and 10 px past the right edge */
+@media (width >=900px) {
+  .offer-banner {
+    height: 550px;
+  }
+
+  .offer-banner .offer-banner-art-mobile img {
+    display: none;
+  }
+
+  .offer-banner .offer-banner-visual.has-mobile-image .offer-banner-image-desktop {
+    display: block;
+  }
+
+  .offer-banner .offer-banner-visual .offer-banner-image-mobile {
+    display: none;
+  }
+
+  .offer-banner .offer-banner-art-desktop img {
+    display: block;
+    width: min(100%, 1200px);
+    justify-self: center;
+    object-position: right center;
+  }
+
+  .offer-banner .offer-banner-content {
+    display: grid;
+    grid-template: 100% / minmax(0, 480px) minmax(0, 1fr);
+    align-items: flex-start;
+    height: 100%;
+    padding: 0 0 0 49px;
+  }
+
+  .offer-banner .offer-banner-copy {
+    margin-bottom: 25px;
+    margin-top: 125px;
+  }
+
+  .offer-banner .offer-banner-title {
+    font-size: clamp(42px, 4.34vw, 52px);
+    line-height: 1.154;
+  }
+
+  .offer-banner .offer-banner-text {
+    max-width: 350px;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 20px;
+
+    /* color: #181d27; */
+  }
+
+  .offer-banner .offer-banner-cta {
+    height: 40px;
+    margin-top: 24px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .offer-banner .offer-banner-cta-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .offer-banner .offer-banner-visual {
+    place-self: start end;
+    width: min(556px, 46.4vw);
+    max-width: none;
+    margin: 70px 0 0;
+    padding: 0;
+  }
+}
+
+/* wider than the design: the art stays 1200 px wide; on its left a mirrored
+   copy continues it seamlessly, on its right the page stays white */
+@media (width >=1201px) {
+  .offer-banner .offer-banner-art {
+    grid-template: 100% / 1fr minmax(0, 1200px) 1fr;
+  }
+
+  .offer-banner .offer-banner-art-desktop img {
+    grid-area: 1 / 2;
+    width: 100%;
+    mask-image: linear-gradient(90deg, #000 calc(100% - 80px), transparent 100%);
+  }
+
+  .offer-banner .offer-banner-art .offer-banner-art-fill {
+    grid-area: 1 / 1;
+
+    /* display: block; */
+    display: none;
+    object-position: left center;
+    transform: scaleX(-1);
+  }
+}
+
+/* --- slider: the banners of the section side by side, pagination dots --- */
+main>.section>.offer-banner-slider {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #eff8ff 0%, rgb(236 244 255 / 0%) max(44.7%, calc(50% - 64px)));
+  padding-top: 96px;
+  margin-top: -96px;
+}
+
+/* as tall as the tallest banner (Swiper's 100% would follow the window) */
+.offer-banner-slider .swiper-wrapper,
+.offer-banner-slider .swiper-slide {
+  height: auto;
+}
+
+/* stacked layouts: as tall as the tallest slide (desktop is 550 px) */
+.offer-banner-slider .offer-banner {
+  height: 100%;
+}
+
+@media (width >=900px) {
+  main>.section>.offer-banner-slider {
+    background: linear-gradient(90deg, #eff8ff 0%, rgb(236 244 255 / 0%) max(44.7%, calc(50% - 64px)));
+  }
+
+  .offer-banner-slider .offer-banner {
+    height: 550px;
+  }
+
+  .offer-banner-slider .swiper-wrapper,
+  .offer-banner-slider .swiper-slide {
+    height: 550px;
+  }
+}
+
+main>.section>.offer-banner-dots {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  min-height: 30px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.offer-banner-dots .offer-banner-dot {
+  box-sizing: border-box;
+  width: 6px;
+  height: 6px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #a4a7ae;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition: width 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.offer-banner-dots .offer-banner-dot.is-active {
+  width: 32px;
+  border-color: #e1122d;
+  background: #e1122d;
+}
+
+.offer-banner-dots .offer-banner-dot:focus-visible {
+  outline: 2px solid #1e4679;
+  outline-offset: 2px;
+}
+
+@media (width >=900px) {
+  main>.section>.offer-banner-dots {
+    padding: 0 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offer-banner-dots .offer-banner-dot {
+    transition: none;
+  }
+}

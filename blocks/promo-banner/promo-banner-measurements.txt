@@ -1,0 +1,78 @@
+VISUAL MEASUREMENT CHECKLIST FOR promo-banner
+================================================
+Extracted from Figma file dNz5n9gtGpR4Fq094VO8au
+  Desktop node: 6068:23755 ("Banner Section", slide instance 6068:23756)
+  Mobile node:  6068:23983 ("Banner Section", slide instance 6068:23985)
+Date: 2026-10-14
+
+LAYOUT & DIMENSIONS
+☑ Container width: 1100px desktop / 328px mobile (source: metadata Banner Section width)
+☑ Container height: 170px desktop slide / 400px mobile slide (source: metadata Best Seller - Banner)
+☑ Container padding: desktop top 16px left 24px; mobile 24px all sides (source: Content x/y offsets 4590-4566, 1459-1443; 5865-5841, 1872-1848)
+☑ Grid/Flex gap: 8px between mobile slides (source: 6177 - 6169)
+☑ Column count: 1 slide visible desktop; 1 + peek on mobile (source: screenshots)
+☑ Item width: 1100px desktop / 328px mobile (source: metadata)
+☑ Item height: 170px desktop / 400px mobile (source: metadata)
+
+SPACING (EXACT PIXELS)
+☑ Section padding: 0px (source: slide fills Banner Section frame)
+☑ Item internal padding: 16px 0 0 24px desktop; 24px 24px 0 24px mobile (source: Content frame position)
+☑ Gap between items: 8px mobile (source: Cards frame x offsets)
+☑ Margin between text elements: desktop badge→title 8px, title→desc 4px, desc→button 12px; mobile badge→title 4px, title→desc 4px, desc→button 16px (source: text node y positions)
+☑ Image margin/padding: desktop visual frame right 120px, 277x170, image offset -80px/-14px at 379.5px wide; mobile visual frame left 24px bottom 0, 280x204, image offset -61px/-15px at 328px wide (source: Visual / Frame 2071860875 metadata)
+☑ Pagination offset: 12px below slides, right aligned, 4px gap (source: Line Pagination y 1625 - 1613, gap-[4px])
+
+COLORS (EXACT HEX + OPACITY)
+☑ Background color: blue abstract image + shades overlay (red #fa1432 → pink #fed0d6 43% → navy #1e4679 68%, greys #a4a7ae/#535862 → #f5f5f5 60%), horizontal on desktop, vertical on mobile (source: Shades Rectangle 2045-2048). Blend modes are not exposed by the API; overlay re-fitted against sampled render pixels
+☑ Mobile bottom fade: linear-gradient(180deg, rgba(31,35,91,0) 0%, #102a56 100%), 64px tall (source: Rectangle 2178)
+☑ Primary text color: #ffffff desktop, #f5f5f5 mobile title (source: text-[#ffffff] / text-[#f5f5f5])
+☑ Secondary text color: #ffffff (source: Description text-[#ffffff])
+☑ Accent/link color: #fa1432 CTA icon circle (source: Icon bg-[#fa1432])
+☑ Border color: #ffffff badge (opacity: 100%) (source: Badge border-[#ffffff])
+☑ Hover background: none specified (source: no hover variant in Figma)
+☑ Hover text color: none specified (source: no hover variant in Figma)
+☑ Pagination active: linear-gradient(180deg, #af0e23 0%, #fb2c47 100%) (source: dot indicator 118:25805)
+☑ Pagination inactive: transparent with 1px #a4a7ae border (source: dot indicator 118:25806)
+
+TYPOGRAPHY (ALL PROPERTIES)
+☑ Heading font-family: Manrope (source: font-['Manrope'])
+☑ Heading font-size: 32px desktop / 24px mobile (source: text-[32px] / text-[24px])
+☑ Heading font-weight: 600 (source: font-semibold)
+☑ Heading line-height: 36px desktop / 28px mobile (source: leading-[36px] / leading-[28px])
+☑ Heading letter-spacing: -0.64px desktop / 0 mobile (source: tracking-[-0.64px]; none on mobile)
+☑ Heading text-transform: none (source: no uppercase class)
+☑ Heading font-style: normal (source: no italic class)
+☑ Body font-family: Manrope (source: font-['Manrope'])
+☑ Body font-size: 18px (source: text-[18px])
+☑ Body font-weight: 400 (source: font-normal)
+☑ Body line-height: 20px (source: leading-[20px])
+☑ Body letter-spacing: 0 (source: no tracking class)
+☑ Body font-style: normal (source: no italic class)
+☑ Badge font: Manrope 500 12px/14px, #ffffff (source: BEST SELLER text node)
+☑ Button font: Manrope 800 14px/16px, #181d27 (source: Button CTA text node)
+
+BORDERS & RADIUS (⚠️ CRITICAL - DO NOT ASSUME)
+☑ Border width: 1px badge / 1px inactive dot (source: border-[1px])
+☑ Border style: solid (source: border-solid)
+☑ Border color: #ffffff badge / #a4a7ae dot (source: border-[#...])
+☑ Border radius: slide 8px, badge 2px, button 999px, icon full, dots 999px (source: rounded-[8px], rounded-[2px], rounded-[999px])
+
+SHADOWS (EXACT VALUES)
+☑ Box-shadow offset-x: 0px (source: no shadow classes)
+☑ Box-shadow offset-y: 0px (source: no shadow classes)
+☑ Box-shadow blur: 0px (source: no shadow classes)
+☑ Box-shadow spread: 0px (source: no shadow classes)
+☑ Box-shadow color: none (source: no shadow classes)
+
+EFFECTS & TRANSITIONS
+☑ Hover transform: none (source: no hover state in Figma)
+☑ Transition duration: 300ms for pagination width change (source: not in Figma, interaction default)
+☑ Transition timing: ease (source: not in Figma, interaction default)
+☑ Opacity changes: none (source: no opacity in extraction)
+
+BUTTON
+☑ Button height: 38px (source: h-[38px])
+☑ Button padding: 0 4px 0 16px (source: pr-[4px] pl-[16px])
+☑ Button gap: 12px (source: gap-[12px])
+☑ Button background: #ffffff (source: bg-[#ffffff])
+☑ Button icon: 30px circle #fa1432 with white arrow (source: Icon w-[30px] h-[30px] bg-[#fa1432])

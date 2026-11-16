@@ -1,0 +1,217 @@
+/* Pulse path editor: loaded only for authors, see pulse-editor.js */
+main > .pulse-editor-layer {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 900;
+
+  /* main > div gets section margins from styles.css */
+  margin: 0;
+  cursor: crosshair;
+  background: rgb(0 0 0 / 3%);
+}
+
+main > .pulse-editor-layer[hidden] {
+  display: none;
+}
+
+main > .pulse-editor-layer .pulse-editor-guide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 1px dashed rgb(0 120 255 / 35%);
+  pointer-events: none;
+}
+
+main > .pulse-editor-layer .pulse-editor-boundary {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 1px dashed rgb(231 76 60 / 45%);
+  padding: 2px 6px;
+  font: 600 11px/1.4 sans-serif;
+  color: #c0392b;
+  pointer-events: none;
+}
+
+/* positioned by GSAP (x/y, centred with xPercent/yPercent) */
+main > .pulse-editor-layer .pulse-editor-handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #e74c3c;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 40%);
+  color: #fff;
+  font: 700 10px/1 sans-serif;
+  cursor: grab;
+  touch-action: none;
+}
+
+main > .pulse-editor-layer .pulse-editor-handle:active {
+  cursor: grabbing;
+}
+
+main > .pulse-editor-layer .pulse-editor-handle.is-selected {
+  background: #1d4ed8;
+  outline: 3px solid rgb(29 78 216 / 35%);
+}
+
+/* a point past the screen edge: shown pinned to the edge, with its x value */
+main > .pulse-editor-layer .pulse-editor-handle.is-outside {
+  border-style: dashed;
+}
+
+main > .pulse-editor-layer .pulse-editor-handle.is-outside::after {
+  content: attr(data-value);
+  position: absolute;
+  top: 50%;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: #222;
+  color: #fff;
+  font: 600 10px/1.4 sans-serif;
+  white-space: nowrap;
+  transform: translateY(-50%);
+}
+
+main > .pulse-editor-layer .pulse-editor-handle[data-side='left']::after {
+  left: calc(100% + 4px);
+  content: '\2190  ' attr(data-value);
+}
+
+main > .pulse-editor-layer .pulse-editor-handle[data-side='right']::after {
+  right: calc(100% + 4px);
+  content: attr(data-value) '  \2192';
+}
+
+.pulse-editor-panel {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10000;
+  width: min(420px, calc(100vw - 32px));
+  max-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 25%);
+  font: 13px/1.4 sans-serif;
+  color: #222;
+}
+
+.pulse-editor-panel .pulse-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+  user-select: none;
+  touch-action: none;
+}
+
+.pulse-editor-panel .pulse-editor-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.pulse-editor-panel .pulse-editor-collapse {
+  min-width: 28px;
+}
+
+.pulse-editor-panel button {
+  padding: 3px 10px;
+  border: 1px solid #e74c3c;
+  border-radius: 4px;
+  background: #fff;
+  color: #e74c3c;
+  font: inherit;
+  cursor: pointer;
+}
+
+.pulse-editor-panel button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.pulse-editor-panel .pulse-editor-toggle {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.pulse-editor-panel p {
+  margin: 0;
+}
+
+.pulse-editor-panel .pulse-editor-mode {
+  font-weight: 600;
+}
+
+.pulse-editor-panel .pulse-editor-help {
+  color: #666;
+  font-size: 12px;
+}
+
+.pulse-editor-panel .pulse-editor-list {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.pulse-editor-panel .pulse-editor-list li {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 4px;
+  align-items: center;
+  padding: 4px 0;
+  border-top: 1px solid #eee;
+}
+
+.pulse-editor-panel .pulse-editor-label {
+  grid-column: 1 / -1;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.pulse-editor-panel .pulse-editor-list input {
+  min-width: 0;
+  padding: 3px 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: 12px/1.4 monospace;
+}
+
+.pulse-editor-panel:not(.is-enabled) .pulse-editor-mode,
+.pulse-editor-panel:not(.is-enabled) .pulse-editor-help,
+.pulse-editor-panel:not(.is-enabled) .pulse-editor-list {
+  display: none;
+}
+
+.pulse-editor-panel .pulse-editor-source {
+  font-weight: 400;
+  color: #666;
+}
+
+.pulse-editor-panel .pulse-editor-source.is-custom {
+  color: #c0392b;
+}
+
+.pulse-editor-panel.is-collapsed .pulse-editor-mode,
+.pulse-editor-panel.is-collapsed .pulse-editor-help,
+.pulse-editor-panel.is-collapsed .pulse-editor-list {
+  display: none;
+}
+
+.pulse-editor-panel .pulse-editor-list input.is-invalid {
+  border-color: #e74c3c;
+  background: #fdecea;
+}

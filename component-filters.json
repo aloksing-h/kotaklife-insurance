@@ -2,7 +2,8 @@
   {
     "id": "main",
     "components": [
-      "section"
+      "section",
+      "tab-panel"
     ]
   },
   {
@@ -12,16 +13,112 @@
       "image",
       "button",
       "title",
-      "hero",
+      "accordion",
+      "banner",
       "cards",
+      "carousel",
       "columns",
-      "fragment"
+      "custom-cards",
+      "custom-rte",
+      "embed",
+      "form",
+      "fragment",
+      "hero",
+      "popular-search",
+      "profile-cta",
+      "quote",
+      "search",
+      "rte",
+      "rteV2",
+      "tabs",
+      "subnav",
+      "video",
+      "tab-list",
+      "invest-form",
+      "timeline",
+      "video-banner",
+      "promo",
+      "banner-v2",
+      "insu-banner",
+      "accessibility-button",
+      "calculators",
+      "result-summary-panel",
+      "result-summary-panel-v2",
+      "result-summary-with-canvas",
+      "fund-tab",
+      "tag-cards",
+      "testimonials",
+      "how-it-works",
+      "customer-testimonials",
+      "calculator-metrics-grid",
+      "rating-banner",
+      "pulse-animation",
+      "promo-banner",
+      "compare-plans",
+      "plan-options",
+      "eligibility-tabs",
+      "life-stages-journey",
+      "plan-timeline",
+      "fund-highlight",
+      "plan-highlight",
+      "gen2gen-tabs",
+      "rider-cards",
+      "fund-nav-detail",
+      "fund-cards",
+      "infinity-intro",
+      "infinity-banner",
+      "offer-banner",
+      "blog-listing",
+      "impact-cards",
+      "agentic-search",
+      "category-links",
+      "category-cards",
+      "author-card",
+      "branch-locator",
+      "blog-navigation"
+    ]
+  },
+  {
+    "id": "accessibility-button",
+    "components": [
+      "accessibility-button"
+    ]
+  },
+  {
+    "id": "accordion",
+    "components": [
+      "accordion-item"
+    ]
+  },
+  {
+    "id": "agentic-search",
+    "components": [
+      "agentic-search-card",
+      "agentic-search-slide"
+    ]
+  },
+  {
+    "id": "banner-v2",
+    "components": [
+      "banner-v2"
+    ]
+  },
+  {
+    "id": "banner",
+    "components": [
+      "banner"
     ]
   },
   {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "carousel-slide"
     ]
   },
   {
@@ -37,6 +134,467 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "compare-plans",
+    "components": [
+      "compare-plans-current",
+      "compare-plans-item"
+    ]
+  },
+  {
+    "id": "contact-form",
+    "components": [
+      "contact-form-field"
+    ]
+  },
+  {
+    "id": "contact-help",
+    "components": [
+      "contact-help-card"
+    ]
+  },
+  {
+    "id": "custom-cards",
+    "components": [
+      "custom-cards-item"
+    ]
+  },
+  {
+    "id": "custom-rte",
+    "components": [
+      "custom-rte-item",
+      "custom-image-item",
+      "rte-image-item",
+      "fund-cards-item"
+    ]
+  },
+  {
+    "id": "customer-testimonials",
+    "components": [
+      "customer-testimonials-item"
+    ]
+  },
+  {
+    "id": "eligibility-tabs",
+    "components": [
+      "eligibility-tabs-item",
+      "eligibility-tabs-row"
+    ]
+  },
+  {
+    "id": "fund-cards",
+    "components": [
+      "fund-cards-item"
+    ]
+  },
+  {
+    "id": "fund-highlight",
+    "components": [
+      "fund-highlight-item"
+    ]
+  },
+  {
+    "id": "fund-tab",
+    "components": [
+      "fund-tab-item"
+    ]
+  },
+  {
+    "id": "gen2gen-tabs",
+    "components": [
+      "gen2gen-tabs-item",
+      "gen2gen-tabs-video"
+    ]
+  },
+  {
+    "id": "how-it-works",
+    "components": [
+      "how-it-works-step"
+    ]
+  },
+  {
+    "id": "impact-cards",
+    "components": [
+      "impact-stat",
+      "impact-quote"
+    ]
+  },
+  {
+    "id": "infinity-banner",
+    "components": [
+      "infinity-banner-card"
+    ]
+  },
+  {
+    "id": "insight-cards",
+    "components": [
+      "insight-card"
+    ]
+  },
+  {
+    "id": "life-stages-journey",
+    "components": [
+      "life-stages-persona",
+      "life-stages-milestone",
+      "life-stages-outcome",
+      "life-stages-disclaimer"
+    ]
+  },
+  {
+    "id": "plan-cards",
+    "components": [
+      "plan-card",
+      "plan-tab"
+    ]
+  },
+  {
+    "id": "plan-options",
+    "components": [
+      "plan-options-item"
+    ]
+  },
+  {
+    "id": "plan-timeline",
+    "components": [
+      "plan-timeline-item"
+    ]
+  },
+  {
+    "id": "popular-search",
+    "components": [
+      "popular-search"
+    ]
+  },
+  {
+    "id": "profile-cta",
+    "components": [
+      "profile-cta"
+    ]
+  },
+  {
+    "id": "promo-banner",
+    "components": [
+      "promo-banner-item"
+    ]
+  },
+  {
+    "id": "promo-stack",
+    "components": [
+      "promo-stack-card"
+    ]
+  },
+  {
+    "id": "rating-banner",
+    "components": [
+      "rating-banner"
+    ]
+  },
+  {
+    "id": "rider-cards",
+    "components": [
+      "rider-cards-item"
+    ]
+  },
+  {
+    "id": "rteV2",
+    "rteV2": {
+      "toolbar": {
+        "list": [
+          "bullet_list",
+          "ordered_list"
+        ],
+        "blocks": [
+          "paragraph",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6"
+        ],
+        "format": [
+          "bold",
+          "italic"
+        ],
+        "insert": [
+          "link",
+          "unlink",
+          "table",
+          "image",
+          "special_characters"
+        ],
+        "sections": [
+          "format",
+          "blocks",
+          "list",
+          "insert"
+        ]
+      },
+      "actions": {
+        "table": {
+          "wrapInParagraphs": false,
+          "label": "Insert Table",
+          "shortcut": "Mod-Alt-T"
+        },
+        "link": {
+          "hideTarget": false,
+          "label": "Insert Link",
+          "shortcut": "Mod-K"
+        },
+        "unlink": {
+          "label": "Remove Link",
+          "shortcut": "Mod-Shift-K"
+        },
+        "bold": {
+          "tag": "strong",
+          "shortcut": "Mod-B",
+          "label": "Bold"
+        },
+        "italic": {
+          "tag": "em",
+          "shortcut": "Mod-I"
+        },
+        "bullet_list": {
+          "wrapInParagraphs": true,
+          "label": "Bullet List"
+        },
+        "ordered_list": {
+          "wrapInParagraphs": false
+        },
+        "image": {
+          "wrapInPicture": false,
+          "shortcut": "Mod-Shift-I",
+          "label": "Insert Image"
+        },
+        "special_characters": {
+          "label": "Special Characters",
+          "appendCharacters": [
+            {
+              "character": "★",
+              "title": "Black star"
+            }
+          ]
+        },
+        "h1": {
+          "shortcut": "Mod-Alt-1",
+          "label": "Main Heading"
+        }
+      }
+    },
+    "components": []
+  },
+  {
+    "id": "rte",
+    "rte": {
+      "toolbar": {
+        "list": [
+          "bullet_list",
+          "ordered_list"
+        ],
+        "blocks": [
+          "paragraph",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6"
+        ],
+        "format": [
+          "bold",
+          "italic"
+        ],
+        "insert": [
+          "link",
+          "unlink",
+          "table",
+          "image",
+          "special_characters"
+        ],
+        "sections": [
+          "format",
+          "blocks",
+          "list",
+          "insert"
+        ]
+      },
+      "actions": {
+        "table": {
+          "wrapInParagraphs": false,
+          "label": "Insert Table",
+          "shortcut": "Mod-Alt-T"
+        },
+        "link": {
+          "hideTarget": false,
+          "label": "Insert Link",
+          "shortcut": "Mod-K"
+        },
+        "unlink": {
+          "label": "Remove Link",
+          "shortcut": "Mod-Shift-K"
+        },
+        "bold": {
+          "tag": "strong",
+          "shortcut": "Mod-B",
+          "label": "Bold"
+        },
+        "italic": {
+          "tag": "em",
+          "shortcut": "Mod-I"
+        },
+        "bullet_list": {
+          "wrapInParagraphs": true,
+          "label": "Bullet List"
+        },
+        "ordered_list": {
+          "wrapInParagraphs": false
+        },
+        "image": {
+          "wrapInPicture": false,
+          "shortcut": "Mod-Shift-I",
+          "label": "Insert Image"
+        },
+        "special_characters": {
+          "label": "Special Characters",
+          "appendCharacters": [
+            {
+              "character": "★",
+              "title": "Black star"
+            }
+          ]
+        },
+        "h1": {
+          "shortcut": "Mod-Alt-1",
+          "label": "Main Heading"
+        }
+      }
+    },
+    "components": [
+      "richtext"
+    ]
+  },
+  {
+    "id": "tabs",
+    "components": [
+      "tabs-item"
+    ]
+  },
+  {
+    "id": "tag-cards",
+    "components": [
+      "tag-card"
+    ]
+  },
+  {
+    "id": "testimonials",
+    "components": [
+      "testimonials-item",
+      "customer-review-item"
+    ]
+  },
+  {
+    "id": "timeline",
+    "components": [
+      "timeline-item",
+      "timeline-card"
+    ]
+  },
+  {
+    "id": "video-testimonials",
+    "components": [
+      "video-testimonials-item"
+    ]
+  },
+  {
+    "id": "rte",
+    "rte": {
+      "toolbar": {
+        "list": [
+          "bullet_list",
+          "ordered_list"
+        ],
+        "blocks": [
+          "paragraph",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6"
+        ],
+        "format": [
+          "bold",
+          "italic"
+        ],
+        "insert": [
+          "link",
+          "unlink",
+          "table",
+          "image",
+          "special_characters"
+        ],
+        "sections": [
+          "format",
+          "blocks",
+          "list",
+          "insert"
+        ]
+      },
+      "actions": {
+        "table": {
+          "wrapInParagraphs": false,
+          "label": "Insert Table",
+          "shortcut": "Mod-Alt-T"
+        },
+        "link": {
+          "hideTarget": false,
+          "label": "Insert Link",
+          "shortcut": "Mod-K"
+        },
+        "unlink": {
+          "label": "Remove Link",
+          "shortcut": "Mod-Shift-K"
+        },
+        "bold": {
+          "tag": "strong",
+          "shortcut": "Mod-B",
+          "label": "Bold"
+        },
+        "italic": {
+          "tag": "em",
+          "shortcut": "Mod-I"
+        },
+        "bullet_list": {
+          "wrapInParagraphs": true,
+          "label": "Bullet List"
+        },
+        "ordered_list": {
+          "wrapInParagraphs": false
+        },
+        "image": {
+          "wrapInPicture": false,
+          "shortcut": "Mod-Shift-I",
+          "label": "Insert Image"
+        },
+        "special_characters": {
+          "label": "Special Characters",
+          "appendCharacters": [
+            {
+              "character": "★",
+              "title": "Black star"
+            }
+          ]
+        },
+        "h1": {
+          "shortcut": "Mod-Alt-1",
+          "label": "Main Heading"
+        }
+      }
+    },
+    "components": [
+      "richtext"
     ]
   }
 ]

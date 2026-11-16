@@ -1,0 +1,272 @@
+{
+	"definitions": [
+		{
+			"title": "Result Summary Panel",
+			"id": "result-summary-panel",
+			"plugins": {
+				"xwalk": {
+					"page": {
+						"resourceType": "core/franklin/components/block/v1/block",
+						"template": {
+							"name": "Result Summary Panel",
+							"model": "result-summary-panel"
+						}
+					}
+				}
+			}
+		}
+	],
+	"models": [
+		{
+			"id": "result-summary-panel",
+			"fields": [
+				{
+					"component": "select",
+					"name": "calculator-type",
+					"label": "Calculator type",
+					"value": "retirement",
+					"options": [
+						{ "name": "Retirement calculator", "value": "retirement" },
+						{ "name": "Savings calculator", "value": "savings" },
+						{ "name": "HRA calculator", "value": "hra" },
+						{ "name": "HLV calculator", "value": "hlv" }
+					]
+				},
+				{
+					"component": "text",
+					"name": "fund-title",
+					"condition": { "===": [{ "var": "calculator-type" }, "retirement"] },
+					"label": "Fund title",
+					"value": "Estimated retirement fund",
+					"description": "Label shown above the calculated retirement fund."
+				},
+				{
+					"component": "reference",
+					"name": "illustration",
+					"condition": { "===": [{ "var": "calculator-type" }, "retirement"] },
+					"label": "Illustration",
+					"multi": false,
+					"description": "Optional image shown beside the retirement result."
+				},
+				{
+					"component": "text",
+					"name": "illustrationAlt",
+					"condition": { "===": [{ "var": "calculator-type" }, "retirement"] },
+					"label": "Illustration description",
+					"value": "",
+					"description": "Describe the illustration, or leave blank if decorative."
+				},
+				{
+					"component": "text",
+					"name": "monthly-label",
+					"condition": { "===": [{ "var": "calculator-type" }, "retirement"] },
+					"label": "Monthly toggle label",
+					"value": "Monthly"
+				},
+				{
+					"component": "text",
+					"name": "yearly-label",
+					"condition": { "===": [{ "var": "calculator-type" }, "retirement"] },
+					"label": "Yearly toggle label",
+					"value": "Yearly"
+				},
+				{
+					"component": "text",
+					"name": "monthly-savings-title",
+					"condition": { "===": [{ "var": "calculator-type" }, "retirement"] },
+					"label": "Monthly savings title",
+					"value": "Required monthly savings"
+				},
+				{
+					"component": "text",
+					"name": "yearly-savings-title",
+					"condition": { "===": [{ "var": "calculator-type" }, "retirement"] },
+					"label": "Yearly savings title",
+					"value": "Required yearly savings"
+				},
+				{
+					"component": "text",
+					"name": "cta-label",
+					"condition": { "===": [{ "var": "calculator-type" }, "retirement"] },
+					"label": "CTA label",
+					"value": "Start Your Planning Now"
+				},
+				{
+					"component": "aem-content",
+					"name": "cta-link",
+					"condition": { "===": [{ "var": "calculator-type" }, "retirement"] },
+					"label": "CTA destination",
+					"description": "Page or URL opened by the call-to-action button."
+				},
+				{
+					"component": "text",
+					"name": "savings-result-heading",
+					"label": "Savings result heading",
+					"value": "To reach your desired goal, you need to save:",
+					"description": "Heading above the savings contribution result.",
+					"condition": { "===": [{ "var": "calculator-type" }, "savings"] }
+				},
+				{
+					"component": "text",
+					"name": "savings-monthly-label",
+					"label": "Savings monthly toggle label",
+					"value": "Monthly",
+					"condition": { "===": [{ "var": "calculator-type" }, "savings"] }
+				},
+				{
+					"component": "text",
+					"name": "savings-annual-label",
+					"label": "Savings annual toggle label",
+					"value": "Annually",
+					"condition": { "===": [{ "var": "calculator-type" }, "savings"] }
+				},
+				{
+					"component": "text",
+					"name": "savings-monthly-caption",
+					"label": "Savings monthly amount caption",
+					"value": "per month",
+					"condition": { "===": [{ "var": "calculator-type" }, "savings"] }
+				},
+				{
+					"component": "text",
+					"name": "savings-annual-caption",
+					"label": "Savings annual amount caption",
+					"value": "per year",
+					"condition": { "===": [{ "var": "calculator-type" }, "savings"] }
+				},
+				{
+					"component": "text",
+					"name": "savings-covered-message",
+					"label": "Savings goal already covered message",
+					"value": "No additional savings needed",
+					"condition": { "===": [{ "var": "calculator-type" }, "savings"] }
+				},
+				{
+					"component": "text",
+					"name": "savings-cta-label",
+					"label": "Savings CTA label",
+					"value": "Invest Now",
+					"condition": { "===": [{ "var": "calculator-type" }, "savings"] }
+				},
+				{
+					"component": "aem-content",
+					"name": "savings-cta-link",
+					"label": "Savings CTA destination",
+					"description": "Page or URL opened by the savings call-to-action button.",
+					"condition": { "===": [{ "var": "calculator-type" }, "savings"] }
+				},
+				{
+					"component": "reference",
+					"name": "savings-illustration",
+					"label": "Savings illustration",
+					"multi": false,
+					"description": "Image shown beside the savings result.",
+					"condition": { "===": [{ "var": "calculator-type" }, "savings"] }
+				},
+				{
+					"component": "text",
+					"name": "savings-illustrationAlt",
+					"label": "Savings illustration description",
+					"value": "",
+					"description": "Alternative text for the savings illustration.",
+					"condition": { "===": [{ "var": "calculator-type" }, "savings"] }
+				},
+				{
+					"component": "text",
+					"name": "hra-exempted-label",
+					"label": "HRA exemption result label",
+					"value": "Exempted HRA",
+					"condition": { "===": [{ "var": "calculator-type" }, "hra"] }
+				},
+				{
+					"component": "text",
+					"name": "hra-taxable-label",
+					"label": "Taxable HRA result label",
+					"value": "Taxable HRA",
+					"condition": { "===": [{ "var": "calculator-type" }, "hra"] }
+				},
+				{
+					"component": "text",
+					"name": "hra-cta-label",
+					"label": "HRA CTA label",
+					"value": "Start Your Planning Now",
+					"condition": { "===": [{ "var": "calculator-type" }, "hra"] }
+				},
+				{
+					"component": "aem-content",
+					"name": "hra-cta-link",
+					"label": "HRA CTA destination",
+					"description": "Page or URL opened by the HRA call-to-action button.",
+					"condition": { "===": [{ "var": "calculator-type" }, "hra"] }
+				},
+				{
+					"component": "select",
+					"name": "hra-metro-city",
+					"label": "Do you live in metro city like Delhi, Mumbai, Kolkata or Chennai?",
+					"value": "yes",
+					"options": [
+						{ "name": "No", "value": "no" },
+						{ "name": "Yes", "value": "yes" }
+					],
+					"description": "Sets the initial value of the Metro City switch in the result panel.",
+					"condition": { "===": [{ "var": "calculator-type" }, "hra"] }
+				},
+				{
+					"component": "reference",
+					"name": "hra-illustration",
+					"label": "HRA illustration",
+					"multi": false,
+					"description": "Optional image shown beside the HRA result.",
+					"condition": { "===": [{ "var": "calculator-type" }, "hra"] }
+				},
+				{
+					"component": "text",
+					"name": "hra-illustrationAlt",
+					"label": "HRA illustration description",
+					"value": "",
+					"description": "Describe the illustration, or leave blank if decorative.",
+					"condition": { "===": [{ "var": "calculator-type" }, "hra"] }
+				},
+				{
+					"component": "text",
+					"name": "hlv-result-label",
+					"label": "HLV result label",
+					"value": "Your Human Life Value (HLV) is:",
+					"description": "Label displayed above the calculated HLV amount.",
+					"condition": { "===": [{ "var": "calculator-type" }, "hlv"] }
+				},
+				{
+					"component": "text",
+					"name": "hlv-cta-label",
+					"label": "HLV CTA label",
+					"value": "Explore Plans",
+					"condition": { "===": [{ "var": "calculator-type" }, "hlv"] }
+				},
+				{
+					"component": "aem-content",
+					"name": "hlv-cta-link",
+					"label": "HLV CTA destination",
+					"description": "Page or URL opened by the HLV call-to-action button.",
+					"condition": { "===": [{ "var": "calculator-type" }, "hlv"] }
+				},
+				{
+					"component": "reference",
+					"name": "hlv-illustration",
+					"label": "HLV illustration",
+					"multi": false,
+					"description": "Optional image shown beside the HLV result.",
+					"condition": { "===": [{ "var": "calculator-type" }, "hlv"] }
+				},
+				{
+					"component": "text",
+					"name": "hlv-illustrationAlt",
+					"label": "HLV illustration description",
+					"value": "",
+					"description": "Describe the illustration, or leave blank if decorative.",
+					"condition": { "===": [{ "var": "calculator-type" }, "hlv"] }
+				}
+			]
+		}
+	],
+	"filters": []
+}

@@ -1,0 +1,203 @@
+/* promo-banner component tokens — values from promo-banner-measurements.txt (mobile first) */
+
+.promo-banner {
+  /* ===== LAYOUT ===== */
+  --promo-banner-slide-width: 100%;
+  --promo-banner-slide-height: 400px;
+  --promo-banner-slide-gap: var(--spacing-md);
+  --promo-banner-slide-radius: var(--radius-md);
+  --promo-banner-bleed: var(--spacing-xl);
+  --promo-banner-padding-top: var(--spacing-3xl);
+  --promo-banner-padding-inline: var(--spacing-3xl);
+  --promo-banner-content-max-width: 100%;
+
+  /* ===== BACKGROUND ===== */
+  --promo-banner-background: var(--brand-blue-500);
+  --promo-banner-bg-width: auto;
+  --promo-banner-bg-height: 145.75%;
+  --promo-banner-bg-left: auto;
+  --promo-banner-bg-right: -10px;
+  --promo-banner-bg-top: -33px;
+  --promo-banner-bg-position: center;
+  --promo-banner-shade-direction: 180deg;
+  --promo-banner-shade-grey-1: var(--gray-400);
+  --promo-banner-shade-grey-2: var(--gray-600);
+  --promo-banner-shade-grey-3: var(--gray-600);
+  --promo-banner-shade-light: var(--gray-100);
+  --promo-banner-shade-colour: linear-gradient(
+    var(--promo-banner-shade-direction),
+    var(--red-500) 0%,
+    var(--red-50) 43%,
+    var(--navy-blue-500) 68%
+  );
+  --promo-banner-fade-height: 64px;
+  --promo-banner-fade: linear-gradient(180deg, rgb(31 35 91 / 0%) 0%, #102a56 100%);
+
+  /* ===== BADGE ===== */
+  --promo-banner-badge-font-size: 0.75rem;
+  --promo-banner-badge-line-height: 0.875rem;
+  --promo-banner-badge-font-weight: var(--font-weight-medium);
+  --promo-banner-badge-padding: var(--spacing-xxs) var(--spacing-md);
+  --promo-banner-badge-border: 1px solid var(--base-white);
+  --promo-banner-badge-radius: var(--radius-xxs);
+  --promo-banner-badge-color: var(--base-white);
+  --promo-banner-badge-margin-bottom: var(--spacing-xs);
+
+  /* ===== HEADING ===== */
+  --promo-banner-heading-font-family: var(--font-family-manrope);
+  --promo-banner-heading-font-size: var(--heading-4-font-size);
+  --promo-banner-heading-line-height: var(--heading-4-line-height);
+  --promo-banner-heading-font-weight: var(--font-weight-semibold);
+  --promo-banner-heading-font-style: normal;
+  --promo-banner-heading-letter-spacing: 0;
+  --promo-banner-heading-text-transform: none;
+  --promo-banner-heading-color: var(--gray-100);
+  --promo-banner-heading-margin-bottom: var(--spacing-xs);
+
+  /* ===== BODY ===== */
+  --promo-banner-body-font-family: var(--font-family-manrope);
+  --promo-banner-body-font-size: var(--sub-heading-2-font-size);
+  --promo-banner-body-line-height: var(--sub-heading-2-line-height);
+  --promo-banner-body-font-weight: var(--font-weight-regular);
+  --promo-banner-body-font-style: normal;
+  --promo-banner-body-letter-spacing: 0;
+  --promo-banner-body-color: var(--base-white);
+  --promo-banner-body-margin-bottom: var(--spacing-xl);
+
+  /* ===== BUTTON ===== */
+  --promo-banner-button-height: 38px;
+  --promo-banner-button-padding: 0 var(--spacing-xs) 0 var(--spacing-xl);
+  --promo-banner-button-gap: var(--spacing-lg);
+  --promo-banner-button-background: var(--base-white);
+  --promo-banner-button-radius: 999px;
+  --promo-banner-button-color: var(--gray-900);
+  --promo-banner-button-font-family: var(--font-family-manrope);
+  --promo-banner-button-font-size: var(--button-2-font-size);
+  --promo-banner-button-line-height: var(--button-2-line-height);
+  --promo-banner-button-font-weight: var(--font-weight-extrabold);
+  --promo-banner-button-font-style: normal;
+  --promo-banner-button-letter-spacing: 0;
+  --promo-banner-button-text-transform: none;
+  --promo-banner-button-icon-size: 30px;
+  --promo-banner-button-focus-outline: 2px solid var(--base-white);
+  --promo-banner-button-focus-offset: 2px;
+
+  /* ===== VISUAL ===== */
+  --promo-banner-visual-left: var(--spacing-3xl);
+  --promo-banner-visual-right: auto;
+  --promo-banner-visual-width: 280px;
+  --promo-banner-visual-height: 204px;
+  --promo-banner-photo-height: auto;
+  --promo-banner-curve-top: 45px;
+  --promo-banner-curve-left: 7px;
+  --promo-banner-curve-width: 259px;
+
+  /* ===== PAGINATION ===== */
+  --promo-banner-dots-margin-top: var(--spacing-lg);
+  --promo-banner-dots-gap: var(--spacing-xs);
+  --promo-banner-dot-size: 6px;
+  --promo-banner-dot-active-width: 32px;
+  --promo-banner-dot-radius: 999px;
+  --promo-banner-dot-border: 1px solid var(--gray-400);
+  --promo-banner-dot-active-background: linear-gradient(180deg, var(--brand-red-800) 0%, var(--brand-red-400) 100%);
+
+  /* ===== TRANSITIONS ===== */
+  --promo-banner-transition-duration: 300ms;
+  --promo-banner-transition-timing: ease;
+}
+
+@media (width >= 769px) {
+  .promo-banner {
+    --promo-banner-bleed: var(--spacing-2xl);
+    --promo-banner-slide-width: 328px;
+  }
+}
+
+@media (width >= 1024px) {
+  .promo-banner {
+    --promo-banner-bleed: 0px;
+    --promo-banner-slide-width: 100%;
+    --promo-banner-slide-height: 170px;
+    --promo-banner-slide-gap: 0px;
+    --promo-banner-padding-top: var(--spacing-xl);
+    --promo-banner-content-max-width: 430px;
+    --promo-banner-bg-width: 100%;
+    --promo-banner-bg-height: 100%;
+    --promo-banner-bg-left: 0;
+    --promo-banner-bg-right: auto;
+    --promo-banner-bg-top: 0;
+    --promo-banner-bg-position: center 37%;
+    --promo-banner-fade-height: 0px;
+    --promo-banner-shade-direction: 90deg;
+    --promo-banner-shade-grey-2: var(--gray-400);
+    --promo-banner-badge-margin-bottom: var(--spacing-md);
+    --promo-banner-heading-font-size: var(--heading-3-font-size);
+    --promo-banner-heading-line-height: var(--heading-3-line-height);
+    --promo-banner-heading-letter-spacing: var(--heading-3-letter-spacing);
+    --promo-banner-heading-color: var(--base-white);
+    --promo-banner-body-margin-bottom: var(--spacing-lg);
+    --promo-banner-visual-left: auto;
+    --promo-banner-visual-right: 120px;
+    --promo-banner-visual-width: 277px;
+    --promo-banner-visual-height: 170px;
+    --promo-banner-photo-height: 253px;
+    --promo-banner-curve-top: 77px;
+    --promo-banner-curve-left: 5px;
+    --promo-banner-curve-width: 265px;
+  }
+}
+
+/* ===== PHOTO PLACEMENT PRESETS (Figma: Left = Best Seller slide, Right = family slide) ===== */
+.promo-banner .promo-banner-visual-left {
+  --promo-banner-photo-top: -15px;
+  --promo-banner-photo-left: -61px;
+  --promo-banner-photo-width: 328px;
+  --promo-banner-photo-shift: none;
+}
+
+.promo-banner .promo-banner-visual-center {
+  --promo-banner-photo-top: -10px;
+  --promo-banner-photo-left: 50%;
+  --promo-banner-photo-width: 323px;
+  --promo-banner-photo-shift: translateX(-50%);
+}
+
+.promo-banner .promo-banner-visual-right {
+  --promo-banner-photo-top: -5px;
+  --promo-banner-photo-left: 26px;
+  --promo-banner-photo-width: 318px;
+  --promo-banner-photo-shift: none;
+}
+
+/* ===== SLIDE WITHOUT BADGE (Figma: Protect today slide) ===== */
+.promo-banner .promo-banner-slide:not(.has-badge) {
+  --promo-banner-heading-margin-bottom: var(--spacing-md);
+  --promo-banner-body-margin-bottom: var(--spacing-lg);
+  --promo-banner-button-height: 32px;
+  --promo-banner-fade-height: 82px;
+}
+
+@media (width >= 1024px) {
+  .promo-banner .promo-banner-visual-left {
+    --promo-banner-photo-top: -14px;
+    --promo-banner-photo-left: -80px;
+    --promo-banner-photo-width: auto;
+  }
+
+  .promo-banner .promo-banner-visual-center {
+    --promo-banner-photo-top: -3px;
+    --promo-banner-photo-width: auto;
+  }
+
+  .promo-banner .promo-banner-visual-right {
+    --promo-banner-photo-top: 8px;
+    --promo-banner-photo-left: 28px;
+    --promo-banner-photo-width: auto;
+  }
+
+  .promo-banner .promo-banner-slide:not(.has-badge) {
+    --promo-banner-heading-margin-bottom: var(--spacing-xs);
+    --promo-banner-body-margin-bottom: var(--spacing-xs);
+    --promo-banner-button-height: 38px;
+  }
+}

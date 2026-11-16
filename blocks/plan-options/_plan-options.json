@@ -1,0 +1,118 @@
+{
+  "definitions": [
+    {
+      "title": "Plan Options",
+      "id": "plan-options",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Plan Options",
+              "model": "plan-options",
+              "filter": "plan-options"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Plan Option Card",
+      "id": "plan-options-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Plan Option Card",
+              "model": "plan-options-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "plan-options",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "text",
+          "label": "Heading & Subtitle",
+          "description": "Heading 2 (bold the second line) followed by a short subtitle",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "name": "link",
+          "label": "Button Link"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "linkText",
+          "label": "Button Text",
+          "value": "Buy Online"
+        }
+      ]
+    },
+    {
+      "id": "plan-options-item",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Icon",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Icon Alt",
+          "description": "Leave empty when the icon is decorative",
+          "value": ""
+        },
+        {
+          "component": "hidden",
+          "name": "imageMimeType",
+          "value": "image/png"
+        },
+        {
+          "component": "richtext",
+          "name": "content_title",
+          "label": "Plan Name",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "content_list",
+          "label": "Benefits",
+          "description": "Bulleted list, each item gets a red check",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "badge",
+          "label": "Badge",
+          "description": "Optional, e.g. Recommended",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "plan-options",
+      "components": [
+        "plan-options-item"
+      ]
+    }
+  ]
+}

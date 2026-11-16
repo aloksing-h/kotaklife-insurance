@@ -75,6 +75,23 @@
               }
             }
           }
+        },
+        {
+          "title": "Tab Panel",
+          "id": "tab-panel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Tab Panel",
+                  "model": "tab-panel",
+                  "filter": "section",
+                  "tab-label": "Tab"
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -82,6 +99,222 @@
       "title": "Blocks",
       "id": "blocks",
       "components": [
+        {
+          "title": "Accessibility Button",
+          "id": "accessibility-button",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Accessibility Button",
+                  "model": "accessibility-button"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Accordion",
+          "id": "accordion",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Accordion",
+                  "filter": "accordion",
+                  "model": "accordion"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Accordion Item",
+          "id": "accordion-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Accordion Item",
+                  "model": "accordion-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Agentic Search Banner",
+          "id": "agentic-search",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Agentic Search",
+                  "model": "agentic-search",
+                  "filter": "agentic-search",
+                  "prefix": "I want to"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Plan Card",
+          "id": "agentic-search-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Plan Card",
+                  "model": "agentic-search-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Banner Slide",
+          "id": "agentic-search-slide",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Banner Slide",
+                  "model": "agentic-search-slide",
+                  "cta_linkText": "Buy Now"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Author Card",
+          "id": "author-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Author Card",
+                  "model": "author-card",
+                  "author_role": "Written by"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Banner V2",
+          "id": "banner-v2",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Banner V2",
+                  "model": "banner-v2"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Banner",
+          "id": "banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Banner",
+                  "model": "banner"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Blog Listing",
+          "id": "blog-listing",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Blog Listing",
+                  "model": "blog-listing",
+                  "source": "/query-insurance-index.json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Blog Navigation",
+          "id": "blog-navigation",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Blog Navigation",
+                  "model": "blog-navigation"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Branch Locator",
+          "id": "branch-locator",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Branch Locator",
+                  "model": "branch-locator"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Calculator Metrics Grid",
+          "id": "calculator-metrics-grid",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Calculator Metrics Grid",
+                  "model": "calculator-metrics-grid"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Calculators",
+          "id": "calculators",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Calculators",
+                  "model": "calculators"
+                }
+              }
+            }
+          }
+        },
         {
           "title": "Cards",
           "id": "cards",
@@ -91,7 +324,8 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Cards",
-                  "filter": "cards"
+                  "filter": "cards",
+                  "model": "cards"
                 }
               }
             }
@@ -113,6 +347,67 @@
           }
         },
         {
+          "title": "Carousel",
+          "id": "carousel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Carousel",
+                  "filter": "carousel"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Carousel Slide",
+          "id": "carousel-slide",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Carousel Slide",
+                  "model": "carousel-slide"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Category Cards",
+          "id": "category-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Category Cards",
+                  "model": "category-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Category Links",
+          "id": "category-links",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Category Links",
+                  "model": "category-links",
+                  "title": "Explore other categories"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Columns",
           "id": "columns",
           "plugins": {
@@ -122,6 +417,345 @@
                 "template": {
                   "columns": "2",
                   "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Compare Plans",
+          "id": "compare-plans",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Compare Plans",
+                  "model": "compare-plans",
+                  "filter": "compare-plans",
+                  "labels_compare": "Compare Now",
+                  "labels_price": "Starts from",
+                  "labels_cta": "Get Now",
+                  "labels_limit": "Only three cards can be compared at a time."
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Current Plan Card",
+          "id": "compare-plans-current",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Current Plan Card",
+                  "model": "compare-plans-current"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Compare Plan Card",
+          "id": "compare-plans-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Compare Plan Card",
+                  "model": "compare-plans-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Contact Form",
+          "id": "contact-form",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Contact Form",
+                  "model": "contact-form",
+                  "filter": "contact-form",
+                  "submit_profile": "life-advisor"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Contact Form Field",
+          "id": "contact-form-field",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Contact Form Field",
+                  "model": "contact-form-field",
+                  "type": "text",
+                  "type_settings": [
+                    "required"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Contact Help",
+          "id": "contact-help",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Contact Help",
+                  "model": "contact-help",
+                  "filter": "contact-help"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Contact Card",
+          "id": "contact-help-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Contact Card",
+                  "model": "contact-help-card",
+                  "icon": "phone"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Contact Hero",
+          "id": "contact-hero",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Contact Hero",
+                  "model": "contact-hero"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Custom Cards",
+          "id": "custom-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Custom Cards",
+                  "model": "custom-cards",
+                  "filter": "custom-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Custom Card",
+          "id": "custom-cards-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Custom Card",
+                  "model": "custom-cards-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Custom RTE",
+          "id": "custom-rte",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Custom RTE",
+                  "filter": "custom-rte",
+                  "model": "custom-rte"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Custom RTE Item",
+          "id": "custom-rte-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Custom RTE Item",
+                  "model": "custom-rte-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Custom Image Item",
+          "id": "custom-image-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Custom Image Item",
+                  "model": "custom-image-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "RTE Image Item",
+          "id": "rte-image-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "RTE Image Item",
+                  "model": "rte-image-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Customer Testimonials",
+          "id": "customer-testimonials",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Customer Testimonials",
+                  "model": "customer-testimonials",
+                  "filter": "customer-testimonials",
+                  "labels_readMore": "Read more",
+                  "labels_close": "Close",
+                  "labels_previous": "Previous",
+                  "labels_next": "Next"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Testimonial",
+          "id": "customer-testimonials-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Testimonial",
+                  "model": "customer-testimonials-item",
+                  "format": "text",
+                  "person_role": "Kotak Life Customer",
+                  "media_source": "dam"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Eligibility Tabs",
+          "id": "eligibility-tabs",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Eligibility Tabs",
+                  "model": "eligibility-tabs",
+                  "filter": "eligibility-tabs"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Eligibility Tab (variations 1 and 3)",
+          "id": "eligibility-tabs-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Eligibility Tab",
+                  "model": "eligibility-tabs-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Eligibility Row (variation 2)",
+          "id": "eligibility-tabs-row",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Eligibility Row",
+                  "model": "eligibility-tabs-row"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Embed",
+          "id": "embed",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Embed",
+                  "model": "embed"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Form",
+          "id": "form",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Form",
+                  "model": "form"
                 }
               }
             }
@@ -143,6 +777,185 @@
           }
         },
         {
+          "title": "Fund Cards",
+          "id": "fund-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Fund Cards",
+                  "model": "fund-cards",
+                  "filter": "fund-cards",
+                  "labels_nav": "NAV",
+                  "labels_risk": "Risk profile"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fund Card",
+          "id": "fund-cards-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Fund Card",
+                  "model": "fund-cards-item",
+                  "nav_risk": "high",
+                  "linkText": "Explore"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fund Highlight",
+          "id": "fund-highlight",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Fund Highlight",
+                  "model": "fund-highlight",
+                  "filter": "fund-highlight",
+                  "labels_returns": "Fund returns",
+                  "labels_benchmark": "Bench mark"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fund Period",
+          "id": "fund-highlight-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Fund Period",
+                  "model": "fund-highlight-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fund Nav Detail",
+          "id": "fund-nav-detail",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Fund Nav Detail",
+                  "model": "fund-nav-detail",
+                  "key-value": true,
+                  "defaultRange": "ytd",
+                  "dateColumnLabel": "Date",
+                  "navColumnLabel": "NAV"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fund Tab",
+          "id": "fund-tab",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Fund Tab",
+                  "filter": "fund-tab",
+                  "model": "fund-tab"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fund Tab Item",
+          "id": "fund-tab-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Fund Tab Item",
+                  "model": "fund-tab-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fund Update",
+          "id": "fund-update",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Fund Update",
+                  "model": "fund-update"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Gen2Gen Tabs",
+          "id": "gen2gen-tabs",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Gen2Gen Tabs",
+                  "model": "gen2gen-tabs",
+                  "filter": "gen2gen-tabs"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Gen2Gen Tab",
+          "id": "gen2gen-tabs-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Gen2Gen Tab",
+                  "model": "gen2gen-tabs-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Gen2Gen Video Tab",
+          "id": "gen2gen-tabs-video",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Gen2Gen Video Tab",
+                  "model": "gen2gen-tabs-video"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Hero",
           "id": "hero",
           "plugins": {
@@ -152,6 +965,945 @@
                 "template": {
                   "name": "Hero",
                   "model": "hero"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "How It Works",
+          "id": "how-it-works",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "How It Works",
+                  "model": "how-it-works",
+                  "filter": "how-it-works",
+                  "classes": "text-list",
+                  "video_source": "dam",
+                  "content_linkText": "Buy Online"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Step",
+          "id": "how-it-works-step",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Step",
+                  "model": "how-it-works-step"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Impact Cards",
+          "id": "impact-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Impact Cards",
+                  "model": "impact-cards",
+                  "filter": "impact-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Impact Stat",
+          "id": "impact-stat",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Impact Stat",
+                  "model": "impact-stat",
+                  "theme": "light"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Impact Quote",
+          "id": "impact-quote",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Impact Quote",
+                  "model": "impact-quote"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Infinity Banner (Rajiv Rao)",
+          "id": "infinity-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Infinity Banner",
+                  "model": "infinity-banner",
+                  "filter": "infinity-banner",
+                  "cta_linkText": "Start Now"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Product Card",
+          "id": "infinity-banner-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Product Card",
+                  "model": "infinity-banner-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Infinity Intro Video",
+          "id": "infinity-intro",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Infinity Intro",
+                  "model": "infinity-intro",
+                  "label": "Scroll down"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Insight Cards",
+          "id": "insight-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Insight Cards",
+                  "model": "insight-cards",
+                  "filter": "insight-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Insight Card",
+          "id": "insight-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Insight Card",
+                  "model": "insight-card",
+                  "tag": "blog",
+                  "icon": "arrow"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Insu Banner",
+          "id": "insu-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Insu Banner",
+                  "model": "insu-banner"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Invest form",
+          "id": "invest-form",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Invest form",
+                  "model": "invest-form"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Life Advisor",
+          "id": "life-advisor",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Life Advisor",
+                  "model": "life-advisor",
+                  "linkType": "primary"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Life Stages Journey",
+          "id": "life-stages-journey",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Life Stages Journey",
+                  "model": "life-stages-journey",
+                  "filter": "life-stages-journey"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Life Stages Persona",
+          "id": "life-stages-persona",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Life Stages Persona",
+                  "model": "life-stages-persona"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Life Stages Milestone",
+          "id": "life-stages-milestone",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Life Stages Milestone",
+                  "model": "life-stages-milestone"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Life Stages Outcome",
+          "id": "life-stages-outcome",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Life Stages Outcome",
+                  "model": "life-stages-outcome"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Life Stages Disclaimer",
+          "id": "life-stages-disclaimer",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Life Stages Disclaimer",
+                  "model": "life-stages-disclaimer"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Offer Banner",
+          "id": "offer-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Offer Banner",
+                  "model": "offer-banner",
+                  "content_ctaText": "Buy Now"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Plan Cards",
+          "id": "plan-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Plan Cards",
+                  "model": "plan-cards",
+                  "filter": "plan-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Plan Tab",
+          "id": "plan-tab",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Plan Tab",
+                  "model": "plan-tab",
+                  "label": "Term Plans",
+                  "labelMobile": "Term"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Plan Card",
+          "id": "plan-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Plan Card",
+                  "model": "plan-card",
+                  "glow": "red"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Plan Highlight",
+          "id": "plan-highlight",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Plan Highlight",
+                  "model": "plan-highlight"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Plan Options",
+          "id": "plan-options",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Plan Options",
+                  "model": "plan-options",
+                  "filter": "plan-options"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Plan Option Card",
+          "id": "plan-options-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Plan Option Card",
+                  "model": "plan-options-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Plan Timeline",
+          "id": "plan-timeline",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Plan Timeline",
+                  "model": "plan-timeline",
+                  "filter": "plan-timeline"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Plan Timeline Card",
+          "id": "plan-timeline-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Plan Timeline Card",
+                  "model": "plan-timeline-item",
+                  "variant": "stat"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Popular Search",
+          "id": "popular-search",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Popular Search",
+                  "model": "popular-search"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Profile CTA",
+          "id": "profile-cta",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Profile CTA",
+                  "model": "profile-cta"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Promo Banner",
+          "id": "promo-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Promo Banner",
+                  "filter": "promo-banner"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Promo Banner Slide",
+          "id": "promo-banner-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Promo Banner Slide",
+                  "model": "promo-banner-item",
+                  "image_position": "left",
+                  "image_curve": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Promo Stack",
+          "id": "promo-stack",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Promo Stack",
+                  "model": "promo-stack",
+                  "filter": "promo-stack"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Promo Card",
+          "id": "promo-stack-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Promo Card",
+                  "model": "promo-stack-card",
+                  "tag": "Term plan",
+                  "theme": "red"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Pulse Animation",
+          "id": "pulse-animation",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Pulse Animation",
+                  "model": "pulse-animation"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Quote",
+          "id": "quote",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Quote",
+                  "model": "quote"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Rating Banner",
+          "id": "rating-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Rating Banner",
+                  "model": "rating-banner"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Result Summary Panel V2",
+          "id": "result-summary-panel-v2",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Result Summary panel V2",
+                  "model": "result-summary-panel-v2"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Result Summary Panel",
+          "id": "result-summary-panel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Result Summary Panel",
+                  "model": "result-summary-panel"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Result Summary With Canvas",
+          "id": "result-summary-with-canvas",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Result Summary With Canvas",
+                  "model": "result-summary-with-canvas"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Rider Cards",
+          "id": "rider-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Rider Cards",
+                  "model": "rider-cards",
+                  "filter": "rider-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Rider Card",
+          "id": "rider-cards-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Rider Card",
+                  "model": "rider-cards-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "RTE V2",
+          "id": "rteV2",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "RTE V2",
+                  "model": "rteV2",
+                  "filter": "rteV2"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "RTE",
+          "id": "rte",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "RTE",
+                  "model": "rte",
+                  "filter": "rte",
+                  "modelId": "rte",
+                  "filterId": "rte"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Search",
+          "id": "search",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Search",
+                  "model": "search"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Tab Panel",
+          "id": "tab-panel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Tab Panel",
+                  "model": "tab-panel",
+                  "filter": "section",
+                  "tab-label": "Tab"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Tab List",
+          "id": "tab-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Tab List",
+                  "model": "tab-list"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Tabs",
+          "id": "tabs",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Tabs",
+                  "filter": "tabs",
+                  "model": "tabs"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Tabs Item",
+          "id": "tabs-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Tabs Item",
+                  "model": "tabs-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Tag Cards",
+          "id": "tag-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Tag Cards",
+                  "filter": "tag-cards",
+                  "model": "tag-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Tag Card",
+          "id": "tag-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Tag Card",
+                  "model": "tag-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Testimonials",
+          "id": "testimonials",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Testimonials",
+                  "model": "testimonials",
+                  "filter": "testimonials"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Testimonials Item",
+          "id": "testimonials-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Testimonials Item",
+                  "model": "testimonials-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Customer Review Item",
+          "id": "customer-review-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Customer Review Item",
+                  "model": "customer-review-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Timeline",
+          "id": "timeline",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Timeline",
+                  "model": "timeline",
+                  "filter": "timeline"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Timeline Item",
+          "id": "timeline-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Timeline Item",
+                  "model": "timeline-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Timeline Card",
+          "id": "timeline-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Timeline Card",
+                  "model": "timeline-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Video Banner",
+          "id": "video-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Video Banner",
+                  "model": "video-banner"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Video Testimonials",
+          "id": "video-testimonials",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Video Testimonials",
+                  "model": "video-testimonials",
+                  "filter": "video-testimonials"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Video Testimonial",
+          "id": "video-testimonials-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Video Testimonial",
+                  "model": "video-testimonials-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Video",
+          "id": "video",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Video",
+                  "model": "video"
                 }
               }
             }

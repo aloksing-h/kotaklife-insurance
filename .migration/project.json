@@ -1,0 +1,13 @@
+{
+  "sites": {
+    "kli": {
+      "previewOrg": "kotaklife-eds",
+      "previewSite": "kli",
+      "contentHostUrl": "author-p190053-e2194583.adobeaemcloud.com",
+      "aemSitePath": "/content/kotaklife-eds",
+      "aemAssetsFolderPath": "/content/dam/kotaklife-eds",
+      "aemSiteName": "kotaklife-eds",
+      "aemSiteTitle": "Kotak Life EDS"
+    }
+  }
+}

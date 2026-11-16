@@ -1,0 +1,1084 @@
+@import url('../swiper/swiper-bundle.min.css');
+@import url('calc-card.css');
+
+/* @import url('../ourleadership/ourleadership.css'); */
+@import url('investment-team.css');
+@import url('red-logo-bg.css');
+@import url('investment-philosophy-debts.css');
+@import url('investment-philosophy-equity.css');
+@import url('protection-riders.css');
+
+/* ==========================================================================
+   Get Cover Plans / Promotion Block (Mobile First Baseline < 900px)
+   ========================================================================== */
+
+.get-cover-plans.section {
+    display: flex;
+    align-items: flex-start;
+
+    /* justify-content: space-between; */
+    flex-direction: column;
+    
+    /* gap: 32px; */
+    gap: 12px;
+    background-color: var(--bg-primary, #fff);
+    overflow: hidden;
+    max-width: 1100px;
+    box-sizing: border-box;
+
+    /* margin: 0 auto; */
+    
+    /* margin: 0 auto 89px; */
+    margin: 42px auto 100px;
+
+    /* padding: 48px 16px; */
+    padding: 44px 16px 28px;
+}
+
+.get-cover-plans .default-content-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Headings & Subtitles */
+.get-cover-plans .default-content-wrapper h3 {
+    color: var(--text-primary, #181d27);
+    font-family: var(--heading-font-family);
+    font-size: var(--heading-3-font-size, 32px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: var(--heading-3-line-height, 36px);
+    margin: 0;
+}
+
+.get-cover-plans .default-content-wrapper h3 strong {
+    font-weight: 600;
+    letter-spacing: -0.64px;
+}
+
+.get-cover-plans .default-content-wrapper p:not(.button-wrapper) {
+    color: var(--text-quaternary, #717680);
+    font-family: var(--heading-font-family);
+    font-size: var(--body-2-font-size, 14px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: var(--body-1-line-height, 18px);
+    margin: 8px 0 20px;
+    width: 100%;
+}
+
+/* CTA "Calculate Your Premium" Pill Button */
+.get-cover-plans .default-content-wrapper a.get-cover-cta {
+    text-decoration: none;
+    transition: gap 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    height: 38px;
+    padding: 0 var(--spacing-xs, 4px) 0 var(--spacing-2xl, 20px);
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-white, #fff);
+    text-align: center;
+    font-family: var(--heading-font-family);
+    font-size: var(--button-2-font-size, 14px);
+    font-style: normal;
+    font-weight: 800;
+    line-height: var(--button-2-line-height, 16px);
+    border-radius: var(--radius-full, 9999px);
+    background: var(--brand-red-600, #e1122d);
+    box-sizing: border-box;
+}
+
+.get-cover-plans .default-content-wrapper a.get-cover-cta:hover,
+.get-cover-plans .default-content-wrapper a.get-cover-cta:focus-visible {
+    gap: 20px;
+}
+
+.get-cover-plans .default-content-wrapper .btn-arrow {
+    width: 29px;
+    height: 29px;
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--bg-primary, #fff);
+    background-image: url('/icons/black-right-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+    flex-shrink: 0;
+    transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-image 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.get-cover-plans .default-content-wrapper a.get-cover-cta:hover .btn-arrow,
+.get-cover-plans .default-content-wrapper a.get-cover-cta:focus-visible .btn-arrow {
+    background-color: var(--base-black, #000);
+    background-image: url('/icons/write-arrow-right.svg');
+}
+
+/* ==========================================================================
+   3D Card Deck Container & Base Card Styling
+   ========================================================================== */
+
+.get-cover-plans .custom-rte-wrapper:has(.custom-rte.promotion) {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    /* height: 270px; */
+    height: 260px;
+}
+
+.get-cover-plans .custom-rte.promotion {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.get-cover-plans .promotion .custom-rte-cards {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    height: 100%;
+    overflow: clip;
+    touch-action: pan-y;
+    user-select: none;
+
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-user-select: none;
+
+    /* height: 340px; */
+}
+
+/* Base Card Attributes */
+.get-cover-plans .promotion .custom-rte-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--radius-md, 8px);
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    padding: 0 var(--spacing-3xl, 24px) var(--spacing-6xl, 48px) var(--spacing-3xl, 24px);
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: var(--spacing-md, 8px);
+    color: var(--text-white, #fff);
+
+    /* Smooth multi-property transition timing */
+    transition:
+        transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+        width 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+        height 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+        opacity 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+/* ==========================================================================
+   Inherent Card Theme Colors (Tied to Card Identity, NOT Stack Position)
+   ========================================================================== */
+
+.get-cover-plans .promotion .custom-rte-cards.is-transitioning .custom-rte-card {
+    transition: none;
+}
+
+/* Card 1 Identity (or .theme-red-gradient) */
+.get-cover-plans .promotion .custom-rte-cards>li:nth-child(3n + 1).custom-rte-card,
+.get-cover-plans .promotion .custom-rte-card.theme-red-gradient {
+    /* background: linear-gradient(180deg, #a71930 0%, #e31837 100%); */
+    border-radius: var(--radius-md, 8px);
+    border: 1px solid var(--decorative-red-decorative-red-100, #FEB9C2);
+    background: var(--gradient-red-card, linear-gradient(7deg, var(--decorative-red-decorative-red-400, #FB2C47) -43.93%, var(--decorative-red-decorative-red-500, #FA1432) 3.36%, var(--decorative-red-decorative-red-900, #7F2224) 88.98%));
+}
+
+/* Card 2 Identity (or .theme-navy-blue) */
+.get-cover-plans .promotion .custom-rte-cards>li:nth-child(3n + 2).custom-rte-card,
+.get-cover-plans .promotion .custom-rte-card.theme-navy-blue {
+    border-radius: var(--radius-md, 7.111px);
+    border: 0.889px solid var(--decorative-navy-blue-decorative-navy-blue-100, #BCC8D7);
+    background: var(--gradient-blue-card, linear-gradient(7deg, var(--decorative-navy-blue-decorative-navy-blue-500, #1E4679) -43.93%, var(--decorative-navy-blue-decorative-navy-blue-500, #1E4679) 3.36%, var(--decorative-navy-blue-decorative-navy-blue-900, #0C1C30) 88.98%));
+}
+
+/* Card 3 Identity (or .theme-burgundy) */
+.get-cover-plans .promotion .custom-rte-cards>li:nth-child(3n + 3).custom-rte-card,
+.get-cover-plans .promotion .custom-rte-card.theme-burgundy {
+    border-radius: var(--radius-md, 6.711px);
+    border: 0.839px solid var(--decorative-red-decorative-red-100, #FEB9C2);
+    background: var(--gradient-red-card, linear-gradient(7deg, var(--decorative-red-decorative-red-400, #FB2C47) -43.93%, var(--decorative-red-decorative-red-500, #FA1432) 3.36%, var(--decorative-red-decorative-red-900, #7F2224) 88.98%));
+}
+
+/* ==========================================================================
+   Positional Stack Mechanics (Pure Spatial & Layer Controls)
+   ========================================================================== */
+
+/* Layer 0: Front / Active Card */
+.get-cover-plans .promotion .custom-rte-card.is-active {
+    z-index: 3;
+    transform: translate(0, 0) scale(1);
+    width: calc(100% - 48px);
+    height: 260px;
+    opacity: 1;
+    
+    /* box-shadow: 0 16px 32px rgb(167 25 48 / 25%); */
+}
+
+/* Layer 1: Middle Stack Card */
+.get-cover-plans .promotion .custom-rte-card.stack-layer-1 {
+    z-index: 2;
+    transform: translate(46px, 18px) scale(0.98);
+    width: calc(100% - 79px);
+    height: 226px;
+    opacity: 0.95;
+    box-shadow: none;
+}
+
+/* Layer 2: Back Stack Card */
+.get-cover-plans .promotion .custom-rte-card.stack-layer-2 {
+    z-index: 1;
+    transform: translate(64px, 31px) scale(0.96);
+    width: calc(100% - 84px);
+    height: 201px;
+    opacity: 0.9;
+    box-shadow: none;
+}
+
+/* Layer 3+: Hidden Off-Screen Stack Cards */
+.get-cover-plans .promotion .custom-rte-card.stack-hidden {
+    z-index: 0;
+    transform: translate(80px, 40px) scale(0.94);
+    width: calc(100% - 88px);
+    height: 180px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Card Content Typography & Badges
+   ========================================================================== */
+
+.get-cover-plans .promotion .plan-badge {
+    align-self: flex-end;
+    text-transform: uppercase;
+    margin-top: 24px;
+    display: flex;
+    padding: var(--spacing-xs, 4px) 10px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--spacing-sm, 6px);
+    border-radius: var(--radius-xs, 4px);
+    border: 1px solid var(--border-border-white, #FFF);
+    color: var(--text-text-white, #FFF);
+    font-family: var(--heading-font-family);
+    font-size: var(--font-size-caption, 12px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-caption, 14px);
+    letter-spacing: 1.92px;
+}
+
+.get-cover-plans .promotion .plan-card-body {
+    margin-top: auto;
+    z-index: 2;
+}
+
+.get-cover-plans .promotion .plan-card-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.get-cover-plans .promotion .plan-card-body li {
+    color: var(--text-white, #FFF);
+    font-family: var(--heading-font-family);
+    font-size: var(--heading-3-font-size, 32px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: var(--heading-3-line-height, 36px);
+    
+    /* margin-bottom: 6px; */
+    margin-bottom: 8px;
+}
+
+.get-cover-plans .promotion .plan-card-body li strong {
+    font-weight: 600;
+    color: var(--text-white, #fff);
+}
+
+.get-cover-plans .promotion .plan-card-body li:last-child {
+    color: var(--text-white, #FFF);
+    font-family: var(--heading-font-family);
+    font-size: var(--heading-4-font-size, 24px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--heading-4-line-height, 28px);
+}
+
+/* ==========================================================================
+   Step Pagination & Animated Duration Line (01 ━━━━ 02 03)
+   ========================================================================== */
+
+.get-cover-plans .promotion .plan-pagination {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 4px;
+    margin-top: 8px;
+
+    /* margin-top: 16px; */
+    margin-left: 34px;
+}
+
+.get-cover-plans .promotion .steps-container {
+    width: 212px;
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Step Numbers (01, 02, 03) */
+.get-cover-plans .promotion .step-indicator {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-text-quaternary, #717680);
+    text-align: center;
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-2, 14px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-body-1, 18px);
+    cursor: pointer;
+    transition: color 0.3s ease, font-size 0.3s ease;
+    opacity: 0.5;
+}
+
+.get-cover-plans .promotion .step-indicator.is-active {
+    color: var(--text-text-quaternary, #717680);
+    text-align: center;
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-2, 14px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-body-1, 18px);
+    background: var(--gradient-red-card,
+            linear-gradient(7deg,
+                #FB2C47 -43.93%,
+                #FA1432 3.36%,
+                #7F2224 88.98%));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1;
+}
+
+/* Progress Track Line Container */
+.get-cover-plans .promotion .progress-track-wrapper {
+    width: 131px;
+    height: 1.5px;
+
+    /* background-color: #eaecf0; */
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    stroke-width: 1px;
+    stroke: var(--border-border-primary, #D5D7DA);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='131' height='1' viewBox='0 0 131 1' fill='none'%3E%3Cpath d='M0 0.5L131 0.500011' stroke='%23D5D7DA'/%3E%3C/svg%3E");
+}
+
+.get-cover-plans .promotion .progress-bar-fill {
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-color: #e31837;
+    border-radius: 2px;
+}
+
+/* Active progress animation fill */
+.get-cover-plans .promotion .progress-track-wrapper.animating .progress-bar-fill {
+    animation: progress-fill var(--slide-duration, 3s) linear forwards;
+}
+
+@keyframes progress-fill {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   Desktop Responsive Breakpoints (@media (min-width: 900px))
+   ========================================================================== */
+
+@media (width >=769px) {
+    .get-cover-plans.section {
+        padding: 0 50px;
+        margin-block: 50px;
+        margin-bottom: 110px;
+        overflow: visible;
+    }
+}
+
+@media (width >=900px) {
+    .get-cover-plans.section {
+        margin-top: 100px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .get-cover-plans .default-content-wrapper {
+        width: 43.7%;
+    }
+
+    .get-cover-plans .default-content-wrapper h3 {
+        font-size: var(--heading-1-font-size, 48px);
+        line-height: var(--heading-1-line-height, 60px);
+    }
+
+    .get-cover-plans .custom-rte-wrapper:has(.custom-rte.promotion) {
+        /* width: 42.6%; */
+        width: 433px;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        margin-left: auto;
+    }
+
+    .get-cover-plans .default-content-wrapper p:not(.button-wrapper) {
+        margin: 4px 0 25px;
+    }
+
+    .get-cover-plans .default-content-wrapper a.get-cover-cta {
+        display: inline-flex;
+        height: 40px;
+        padding: 0 var(--spacing-xs, 4px) 0 var(--spacing-2xl, 20px);
+        font-size: var(--font-size-button-1, 16px);
+        line-height: var(--line-height-body-1, 18px);
+    }
+
+    .get-cover-plans .default-content-wrapper .btn-arrow {
+        width: 32px;
+        height: 32px;
+    }
+
+    .get-cover-plans .custom-rte.promotion {
+        margin-left: 0;
+    }
+
+    .get-cover-plans .promotion .custom-rte-cards {
+        height: 350px;
+    }
+
+    /* Desktop Positional Card Dimensions */
+    .get-cover-plans .promotion .custom-rte-card.is-active {
+        width: 360px;
+        height: 332px;
+    }
+
+    .get-cover-plans .promotion .custom-rte-card.stack-layer-1 {
+        transform: translate(44px, 16px) scale(0.98);
+        width: calc(100% - 91px);
+        height: 301.111px;
+    }
+
+    .get-cover-plans .promotion .custom-rte-card.stack-layer-2 {
+        transform: translate(65px, 30px) scale(0.98);
+        width: calc(100% - 96px);
+        height: 272px;
+    }
+
+    .get-cover-plans .promotion .plan-card-body li {
+        font-size: var(--font-size-heading-2, 40px);
+        line-height: var(--line-height-heading-2, 48px);
+    }
+
+    .get-cover-plans .promotion .plan-card-body li strong {
+        font-size: var(--font-size-heading-2, 40px);
+        font-style: normal;
+        font-weight: 600;
+        line-height: var(--line-height-heading-2, 48px);
+    }
+
+    .get-cover-plans .promotion .plan-pagination {
+        margin-top: 13px;
+        margin-left: 40px;
+    }
+
+}
+
+/* ==========================================================================
+   Retirement Calculator Popup (:has(.calc-close-btn) / #calculater-premium)
+   ========================================================================== */
+
+.get-cover-plans.dsp-none,
+.get-cover-plans.section.dsp-none,
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).dsp-none,
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.section.dsp-none {
+    display: none !important;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    border-radius: 0;
+    background-color: #af0e23;
+    background-image: var(--section-bg-mobile, url('./media_11a2111b7c1d70433840db0340613c3f0f3712df4.png?width=750&format=png&optimize=medium'));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 30px 16px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+
+    /* gap: 24px; */
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main .calculator-grid::after,
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main > .fragment-wrapper {
+    display: none;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .default-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    gap: 16px;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .default-content-wrapper :is(h2, h3) {
+    color: var(--text-text-white, #FFF);
+    font-family: var(--font-family-font-family-display, var(--heading-font-family, 'Manrope', sans-serif));
+    font-size: var(--heading-3-font-size, 32px);
+    line-height: var(--heading-3-line-height, 36px);
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0;
+    width: calc(100% - 48px);
+    max-width: 254px;
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .default-content-wrapper :is(h2, h3) strong {
+    font-family: var(--font-family-font-family-display, var(--heading-font-family, 'Manrope', sans-serif));
+    font-size: var(--heading-3-font-size, 32px);
+    line-height: var(--heading-3-line-height, 36px);
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: -0.02em;
+    color: var(--text-text-white, #FFF);
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calc-close-btn {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calc-close-btn:hover {
+    transform: scale(1.08);
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calc-close-btn img {
+    width: 20px;
+    height: 20px;
+    display: block;
+    pointer-events: none;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calculators-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel-wrapper {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    max-width: 100%;
+    margin: -16px auto 0;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .calc-card {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    max-width: 100%;
+    height: 260px;
+    max-height: 260px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(180deg, #FFF 0%, #FED0D6 123.85%) padding-box,
+        linear-gradient(180deg, #D2DAE4 0%, #FED0D6 100%) border-box;
+    border-image-source: linear-gradient(180deg, #D2DAE4 0%, #FED0D6 100%);
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px 0 rgb(16 24 40 / 5%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .fund-estimate-box {
+    border-radius: 6px;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(92.3deg, #FED0D6 0%, #C9DEFF 103.74%) border-box;
+    border-image-source: linear-gradient(92.3deg, #FED0D6 0%, #C9DEFF 103.74%);
+    padding: 6px 12px;
+    box-sizing: border-box;
+    max-height: 54px;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .fund-estimate-box .fund-estimate-value {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .result-summary-content {
+    background: transparent;
+    border-radius: 8px;
+    padding: 12px 12px 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #fff;
+    max-height: 176px;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .result-summary-details {
+    border-radius: 0;
+    max-height: 94px;
+    overflow: hidden;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .result-summary-details .illustration-wrap img {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .result-summary-details .savings-summary-box {
+    padding: 10px 8px 10px 0;
+    gap: 8px;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .result-summary-details .savings-amount-text {
+    font-family: var(--font-family-font-family-body, var(--body-font-family, 'Manrope', sans-serif));
+    font-weight: 600;
+    font-style: normal;
+    font-size: var(--sub-heading-1-font-size, 20px);
+    line-height: var(--sub-heading-1-line-height, 24px);
+    letter-spacing: 0;
+    text-align: center;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .result-summary-action {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .cta-plan-btn {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    min-height: 38px;
+    justify-content: center;
+    padding: 4px 4px 4px 20px;
+    gap: 12px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    margin: 0;
+    box-sizing: border-box;
+    min-width: 233px;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .cta-plan-btn::after {
+    flex-shrink: 0;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calculator-grid .calc-card:first-child {
+    width: 100%;
+    max-width: 100%;
+    max-height: 380px;
+    overflow: hidden auto;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    background: #fff;
+    padding: 12px 0 20px 18px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px 0 rgb(16 24 40 / 5%);
+    margin: 0 auto;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calculator-grid .calc-card:first-child {
+        scrollbar-width: thin;
+        scrollbar-color: color-mix(in srgb, var(--text-text-primary, #181d27) 20%, transparent) #f2f4f7;
+    }
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calculator-grid .calc-card:first-child::-webkit-scrollbar {
+    width: 18px;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calculator-grid .calc-card:first-child::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calculator-grid .calc-card:first-child::-webkit-scrollbar-track {
+    background-color: #f2f4f7;
+    border-radius: 2.82px;
+    border-left: 8px solid #fff;
+    border-right: 8px solid #fff;
+    background-clip: padding-box;
+    margin: 12px 0;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calculator-grid .calc-card:first-child::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--text-text-primary, #181d27) 20%, transparent);
+    border-radius: 2.82px;
+    border-left: 8px solid #fff;
+    border-right: 8px solid #fff;
+    background-clip: padding-box;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calculator-grid .calc-card:first-child::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in srgb, var(--text-text-primary, #181d27) 40%, transparent);
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .age-field .age-input {
+    border-radius: 0;
+    border: 1px solid #d5d7da;
+}
+
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .retirement-expense-ratio-box .wedge-track-wrapper,
+:is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .retirement-expense-ratio-box .wedge-scale-row {
+    width: calc(100% - 9px);
+}
+
+@media (width >= 768px) {
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.section {
+        padding: 24px;
+        border-radius: 16px;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .default-content-wrapper :is(h2, h3) {
+        width: auto;
+        max-width: none;
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .default-content-wrapper :is(h2, h3) strong {
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: 0;
+    }
+
+    /* :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .calc-card,
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calculator-grid .calc-card:first-child {
+        padding: 24px;
+    } */
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .fund-estimate-box .fund-estimate-value {
+        font-size: 24px;
+        line-height: 20px;
+        margin-bottom: 0;
+    }
+}
+
+@media (width >= 1024px) {
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main,
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.section {
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: stretch;
+        gap: 0 21px;
+        padding: 40px 50px;
+        margin: 66px 0 60px;
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 743px;
+        box-sizing: border-box;
+        border-radius: 0;
+        background-color: #af0e23;
+        background-image: var(--section-bg-desktop, url('./media_1556455376a63bb56ecae55b88f6975c817d44dae.png?width=2000&format=webply&optimize=medium'));
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .default-content-wrapper {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 1101px;
+        margin: 0 auto;
+        padding: 0;
+        max-height: 48px;
+        margin-bottom: 24px;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .default-content-wrapper :is(h2, h3) {
+        width: auto;
+        max-width: none;
+        font-family: var(--font-family-font-family-display, var(--heading-font-family, 'Manrope', sans-serif));
+        font-size: var(--heading-2-font-size, 40px);
+        line-height: var(--heading-2-line-height, 48px);
+        font-weight: 300;
+        font-style: normal;
+        letter-spacing: 0;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .default-content-wrapper :is(h2, h3) strong {
+        font-family: var(--font-family-font-family-display, var(--heading-font-family, 'Manrope', sans-serif));
+        font-size: var(--heading-2-font-size, 40px);
+        line-height: var(--heading-2-line-height, 48px);
+        font-weight: 600;
+        font-style: normal;
+        letter-spacing: 0;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calc-close-btn {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.section > .calculators-wrapper {
+        flex: 0 0 calc(58.5% - 10px);
+        width: calc(58.5% - 10px);
+        max-width: 640px;
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.section > .result-summary-panel-wrapper {
+        flex: 0 0 calc(41.5% - 10px);
+        width: calc(41.5% - 10px);
+        max-width: 440px;
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        position: static;
+        z-index: auto;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .calc-card {
+        height: 100%;
+        max-height: unset;
+        max-width: none;
+        margin: 0;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        box-shadow: none;
+        position: static;
+        z-index: auto;
+        padding: 16px;
+        justify-content: flex-start;
+        min-width: 447px;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .fund-estimate-box {
+        padding: 20px 16px;
+        border-radius: 8px;
+        min-height: 106px;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .fund-estimate-box .fund-estimate-value {
+        font-family: var(--font-family-font-family-display, var(--heading-font-family, 'Manrope', sans-serif));
+        font-weight: 600;
+        font-style: normal;
+        font-size: var(--heading-3-font-size, 32px);
+        line-height: var(--heading-3-line-height, 36px);
+        letter-spacing: var(--heading-3-letter-spacing, -0.02em);
+        text-align: center;
+        color: var(--text-text-primary, var(--text-primary, #181D27));
+        margin-bottom: 0;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .result-summary-content {
+        background: linear-gradient(180deg, #FFF 0%, #EFF8FF 100%);
+        padding: 16px;
+        border-radius: 8px;
+        min-height: 435px;
+        gap:20px;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .result-summary-details {
+        height: auto;
+        overflow: visible;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .result-summary-details .illustration-wrap img {
+        max-height: none;
+        width: 100%;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .result-summary-details .savings-summary-box {
+        padding: 23px 0 24px;
+        gap: 0;
+        min-height: 151px;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .result-summary-details .savings-amount-text {
+        font-family: var(--font-family-font-family-display, var(--heading-font-family, 'Manrope', sans-serif));
+        font-weight: 600;
+        font-style: normal;
+        font-size: var(--heading-3-font-size, 32px);
+        line-height: var(--heading-3-line-height, 36px);
+        letter-spacing: var(--heading-3-letter-spacing, -0.02em);
+        text-align: center;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .cta-plan-btn {
+        width: auto;
+        max-width: none;
+        height: auto;
+        padding: 4px 4px 4px 20px;
+        font-size: 16px;
+        line-height: 18px;
+        margin: 0;
+        white-space: nowrap;
+        gap: 12px;
+        transition: gap 0.25s ease, transform 0.25s ease;
+        position: absolute;
+        bottom: 20px;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .cta-plan-btn:hover,
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .cta-plan-btn:focus-visible {
+        gap: 20px;
+        transform: translateX(4px);
+        max-width: none;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .cta-plan-btn::after {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        transform: none;
+        transition: background-color 0.25s ease;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calculator-grid .calc-card:first-child {
+        height: 100%;
+        max-width: none;
+        margin: 0;
+        max-height: 591px;
+        overflow: visible;
+        border-radius: 8px;
+        box-shadow: none;
+        padding: 24px;
+        scrollbar-width: auto;
+        scrollbar-color: auto;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .calculator-grid .calc-card:first-child::-webkit-scrollbar {
+        display: none;
+        width: 0;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .retirement-expense-ratio-box .wedge-track-wrapper,
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .retirement-expense-ratio-box .wedge-scale-row {
+        width: 100%;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.retirement-calculator .age-inputs-row {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        gap: 16px;
+        width: 100%;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.retirement-calculator .age-inputs-row .field-group,
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.retirement-calculator .age-inputs-row .field-group:last-child {
+        flex: 1 1 0;
+        width: calc(33.333% - 8px);
+        max-width: calc(33.333% - 8px);
+        min-width: 0;
+    }
+}
+
+/* ==========================================================================
+   Small Laptop (1024px - 1199px): Prevent second card from dropping
+   ========================================================================== */
+
+@media (width >= 1024px) and (width < 1200px) {
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main,
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.section {
+        gap: 0 16px;
+        padding: 40px 24px;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .default-content-wrapper {
+        max-width: 100%;
+        max-height: 48px;
+        margin-bottom: 24px;
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.section > .calculators-wrapper {
+        flex: 0 0 calc(58% - 8px);
+        width: calc(58% - 8px);
+        max-width: calc(58% - 8px);
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)).calculator-main.section > .result-summary-panel-wrapper {
+        flex: 0 0 calc(42% - 8px);
+        width: calc(42% - 8px);
+        max-width: calc(42% - 8px);
+    }
+
+    :is(#calculater-premium, .calculator-main.retirement-calculator:has(.calc-close-btn)) .result-summary-panel .calc-card {
+        min-width: 0;
+    }
+}
+

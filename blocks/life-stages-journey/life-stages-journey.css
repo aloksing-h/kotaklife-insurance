@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Life Stages Journey Block (Base Styles)
+   ========================================================================== */
+
+.life-stages-journey {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+}
+
+.life-stages-journey .lsj-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.life-stages-journey-wrapper h2,
+.life-stages-journey-wrapper h3,
+.life-stages-journey .lsj-title {
+  margin: 0 0 24px;
+  text-align: center;
+  font-family: var(--heading-font-family, 'Manrope', sans-serif);
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 28px;
+  color: var(--gray-900, #181d27);
+  letter-spacing: -0.01em;
+}
+
+.life-stages-journey .lsj-title p,
+.life-stages-journey .lsj-title h1,
+.life-stages-journey .lsj-title h2,
+.life-stages-journey .lsj-title h3,
+.life-stages-journey .lsj-title h4,
+.life-stages-journey .lsj-title h5,
+.life-stages-journey .lsj-title h6 {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+.life-stages-journey-wrapper h2 strong,
+.life-stages-journey-wrapper h3 strong,
+.life-stages-journey .lsj-title strong {
+  font-weight: 600;
+}

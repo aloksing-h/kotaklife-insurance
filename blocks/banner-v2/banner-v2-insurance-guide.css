@@ -1,0 +1,304 @@
+/*
+ * Banner V2, style "Insurance Guide Banner" (insurance-guide-banner):
+ * Figma Inner page banners 9142:9813 (mobile 360) / 9142:9325 (desktop 1200).
+ * Loaded only for this style. Every rule is scoped to the class and sets each
+ * property the shared banner-v2 rules touch, so those never leak in.
+ */
+
+/* Figma: #e1122d under blurred #7f2224 shadows (Ellipse 984 / 986 / 987), fitted
+   as the dark red with lighter red glows; bright only at the bottom */
+.banner-v2.block.insurance-guide-banner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  min-height: 439px;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  color: #fff;
+  background:
+    radial-gradient(ellipse 120px 120px at 0 0, rgb(225 18 45 / 60%), rgb(225 18 45 / 0%)),
+    radial-gradient(ellipse 140px 200px at 0 140px, rgb(225 18 45 / 45%), rgb(225 18 45 / 0%)),
+    radial-gradient(ellipse 140px 160px at 100% 140px, rgb(225 18 45 / 25%), rgb(225 18 45 / 0%)),
+    radial-gradient(ellipse 420px 420px at 33% 480px, rgb(225 18 45 / 70%) 35%, rgb(225 18 45 / 0%)),
+    #7f2224;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-inner {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  min-height: 439px;
+  margin: 0 auto;
+  padding: 132px 16px 0;
+}
+
+/* text */
+.banner-v2.block.insurance-guide-banner .banner-v2-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-self: auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-align: left;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-title {
+  margin: 0;
+  font-family: var(--heading-font-family, manrope, sans-serif);
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 36px;
+  letter-spacing: -0.64px;
+  color: #fff;
+  text-align: left;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-title strong,
+.banner-v2.block.insurance-guide-banner .banner-v2-title b {
+  font-weight: 600;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-description {
+  max-width: 100%;
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #fff;
+  text-align: left;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-description:focus {
+  outline: none;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-read-more {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-read-more:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* illustration with the Kotak symbol (white, 10%) behind it, bottom right */
+.banner-v2.block.insurance-guide-banner .banner-v2-visual {
+  position: absolute;
+  inset: auto 0 4px auto;
+  z-index: 1;
+  display: block;
+  flex: none;
+  align-self: auto;
+  width: 200px;
+  height: 183px;
+  margin: 0;
+  line-height: 0;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-visual::before {
+  content: '';
+  position: absolute;
+  top: 31px;
+  left: 0;
+  width: 231px;
+  height: 138px;
+  background: url('./insurance-guide-symbol.png') left top / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-visual .banner-v2-visual-desktop,
+.banner-v2.block.insurance-guide-banner .banner-v2-visual .banner-v2-visual-mobile {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-visual .banner-v2-visual-desktop:not(.banner-v2-visual-single) {
+  display: none;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-visual picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-v2.block.insurance-guide-banner .banner-v2-visual img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+/* tablet */
+@media (width >= 600px) {
+  .banner-v2.block.insurance-guide-banner {
+    min-height: 440px;
+    background:
+      radial-gradient(ellipse 260px 240px at calc(50% - 600px) 0, rgb(225 18 45 / 45%), rgb(225 18 45 / 0%)),
+      radial-gradient(ellipse 230px 200px at calc(50% + 50px) 30px, rgb(225 18 45 / 50%), rgb(225 18 45 / 0%)),
+      radial-gradient(ellipse 220px 260px at calc(50% + 600px) 80px, rgb(225 18 45 / 30%), rgb(225 18 45 / 0%)),
+      radial-gradient(ellipse 760px 480px at calc(50% - 40px) 560px, #e1122d 35%, rgb(225 18 45 / 0%)),
+      #7f2224;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-inner {
+    min-height: 440px;
+    padding: 150px 32px 60px;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-content {
+    max-width: 50%;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-title {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-description {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-visual {
+    inset: auto 24px 0 auto;
+    width: 300px;
+    height: 274px;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-visual::before {
+    top: 14px;
+    left: -52px;
+    width: 415px;
+    height: 250px;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-visual .banner-v2-visual-desktop:not(.banner-v2-visual-single) {
+    display: block;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-visual .banner-v2-visual-desktop:not(.banner-v2-visual-single) + .banner-v2-visual-mobile {
+    display: none;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-visual img {
+    object-position: center bottom;
+  }
+}
+
+/* desktop: Figma 1200 frame, 496 high */
+@media (width >= 900px) {
+  .banner-v2.block.insurance-guide-banner,
+  .banner-v2.block.insurance-guide-banner .banner-v2-inner {
+    height: 496px;
+    min-height: 496px;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-inner {
+    padding: 160px 50px 0;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-content {
+    max-width: min(449px, calc(100% - 420px));
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-description {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-visual {
+    inset: 150px auto auto calc(100% - 400px);
+    width: 360px;
+    height: 329px;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-visual::before {
+    top: 16px;
+    left: -62px;
+    width: 498px;
+    height: 300px;
+  }
+}
+
+@media (width >= 1200px) {
+  .banner-v2.block.insurance-guide-banner .banner-v2-content {
+    max-width: 449px;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-title {
+    font-size: 52px;
+    line-height: 60px;
+  }
+
+  /* image 441 x 403 at 683, 119 in the frame; symbol 610 x 367 at 607, 139 */
+  .banner-v2.block.insurance-guide-banner .banner-v2-visual {
+    inset: 119px auto auto calc(100% - 517px);
+    width: 441px;
+    height: 403px;
+  }
+
+  .banner-v2.block.insurance-guide-banner .banner-v2-visual::before {
+    top: 20px;
+    left: -76px;
+    width: 610px;
+    height: 367px;
+  }
+}
+
+/* the page breadcrumb (breadcrumb-pos) lines up with the text, as in Figma */
+main > .section:has(.banner-v2.insurance-guide-banner) .breadcrumb-container {
+  width: fit-content;
+  min-width: 287px;
+  max-width: 100%;
+}
+
+main > .section:has(.banner-v2.insurance-guide-banner) .breadcrumb > nav {
+  padding-right: 48px;
+  padding-left: 16px;
+}
+
+@media (width >= 600px) {
+  main > .section:has(.banner-v2.insurance-guide-banner) .breadcrumb > nav {
+    padding-left: 32px;
+  }
+}
+
+@media (width >= 900px) {
+  main > .section:has(.banner-v2.insurance-guide-banner) .breadcrumb > nav {
+    padding-left: max(50px, calc(50vw - 550px));
+  }
+}

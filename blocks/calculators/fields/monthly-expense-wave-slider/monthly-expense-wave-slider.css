@@ -1,0 +1,351 @@
+/* Path: fields/monthly-expense-wave-slider/monthly-expense-wave-slider.css */
+.calculator-main .slider-box {
+    padding: 12px 12px 24px;
+    border-radius: 8px;
+border: 1px solid #D5D7DA;
+}
+
+.calculator-main .slider-box#npsannuitypercentageslot {
+  padding: 0;
+  border: none;
+}
+
+.calculator-main .wave-slider-field {
+  display: flex;
+  flex-direction: column;
+
+  /* gap: 4px; */
+  width: 100%;
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Segoe UI", Roboto, sans-serif;
+}
+
+.calculator-main .wave-slider-field .wave-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.calculator-main .wave-slider-field .wave-slider-title {
+  display: inline;
+  color: #414651;
+font-family: var(--font-family-font-family-body, Manrope);
+font-size: 14px;
+font-weight: 500;
+line-height: 18px;
+letter-spacing: -0.64px;
+width: 60%;
+margin-block: 0;
+}
+
+.calculator-main .wave-slider-field .required-star {
+  color: #FA1432;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.calculator-main .wave-slider-field img {
+  width: 12px;
+  height: 12px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.calculator-main .wave-slider-field .wave-slider-info {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  vertical-align: middle;
+  cursor: help;
+}
+
+.calculator-main.hra-calculator .wave-slider-field .wave-slider-info {
+  margin: 0;
+}
+
+.calculator-main .wave-slider-field .wave-slider-info img {
+  margin: 0;
+}
+
+.calculator-main .wave-slider-field .wave-slider-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  z-index: 11;
+  width: 220px;
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #333;
+  color: #fff;
+  font-family: var(--font-family-font-family-body, Manrope);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  white-space: normal;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-50%, -4px);
+  pointer-events: none;
+}
+
+.calculator-main .wave-slider-field .wave-slider-tooltip::after {
+  position: absolute;
+  top: 100%;
+  left: var(--tooltip-arrow-left, 50%);
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-top-color: #333;
+  content: '';
+  transform: translateX(-50%);
+}
+
+.calculator-main .wave-slider-field .wave-slider-info:hover .wave-slider-tooltip,
+.calculator-main .wave-slider-field .wave-slider-info:focus-visible .wave-slider-tooltip,
+.calculator-main .wave-slider-field .wave-slider-info[aria-expanded="true"] .wave-slider-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.calculator-main .wave-slider-field .wave-slider-tooltip.is-below {
+  top: calc(100% + 8px);
+  bottom: auto;
+}
+
+.calculator-main .wave-slider-field .wave-slider-tooltip.is-below::after {
+  top: auto;
+  bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: #333;
+}
+
+.calculator-main .wave-slider-field .wave-slider-info:focus-visible {
+  border-radius: 50%;
+  outline: 2px solid var(--brand-blue-600);
+  outline-offset: 2px;
+}
+
+.calculator-main .wave-slider-field .info-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 11px;
+  font-style: italic;
+  color: #717680;
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  cursor: help;
+}
+
+.calculator-main .wave-slider-field .wave-slider-value-display {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+.calculator-main .wave-slider-field .wave-slider-value-display.badge-expense {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 0;
+border: 1px solid #D5D7DA;
+background: #FFF;
+padding: 9.2px 5px;
+max-width: 100px;
+}
+
+.calculator-main.term-insurance-calculator .wave-slider-field .wave-slider-value-display.badge-expense {
+    padding: 8px 14px;
+    max-width: 135px;
+}
+
+.calculator-main.hra-calculator .wave-slider-field .wave-slider-value-display.badge-expense,
+.calculator-main.hlv-calculator .wave-slider-field .wave-slider-value-display.badge-expense {
+  max-width: 114px;
+}
+
+.calculator-main.hlv-calculator .wave-slider-field .wave-slider-value-display.badge-expense {
+  max-width: 118px;
+}
+
+.calculator-main.savings-calculator .wave-slider-field .wave-slider-value-display.badge-expense {
+  max-width: 112px;
+}
+
+.calculator-main.swp-calculator .wave-slider-field .wave-slider-value-display.badge-expense {
+  max-width: 112px;
+}
+
+.calculator-main.ulip-calculator .wave-slider-field .wave-slider-value-display.badge-expense {
+  width: 112px;
+}
+
+.calculator-main .wave-slider-field .wave-slider-value-display .badge-affix {
+color: #181D27;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+font-size: 16px;
+font-weight: 500;
+line-height: 20px;
+}
+
+.calculator-main .wave-slider-field .wave-slider-value-input {
+  border: none;
+  background: transparent;
+  padding: 0;
+color: #181D27;
+font-family: var(--font-family-font-family-body, Manrope);
+font-size: 16px;
+font-weight: 500;
+line-height: 20px;
+width: 100%;
+text-align: center;
+}
+
+.calculator-main .wave-slider-field .wave-slider-value-input:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid #181d27;
+  outline-offset: 2px;
+}
+
+.calculator-main .wave-slider-field .wave-slider-labels-row {
+  position: relative;
+  width: 100%;
+
+  /* height: 8px; */
+}
+
+.calculator-main .wave-slider-field .wave-slider-milestone-label {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 500;
+  color: #717680;
+  white-space: nowrap;
+  transition: top 0.2s ease, color 0.15s ease, font-weight 0.15s ease;
+  font-family: var(--font-family-font-family-body, Manrope);
+}
+
+.calculator-main .wave-slider-field .wave-slider-milestone-label.active {
+  top: -8px;
+  color: #181D27;
+text-align: center;
+font-family: var(--font-family-font-family-body, Manrope);
+font-size: 12px;
+font-weight: 500;
+line-height: 14px;
+}
+
+.calculator-main .wave-slider-field .wave-slider-track-wrapper {
+  position: relative;
+  width: 100%;
+  height: 49px;
+  cursor: default;
+}
+
+.calculator-main .wave-slider-field .wave-slider-track-wrapper:focus-visible {
+  outline-offset: 2px;
+  border-radius: 8px;
+  outline: 2px solid #181d27;
+}
+
+.calculator-main .wave-slider-field .wave-slider-svg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.calculator-main .wave-slider-field .wave-slider-thumb-handle {
+  position: absolute;
+  top: 48px;
+  width: 17px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  z-index: 10;
+  touch-action: none;
+}
+
+.calculator-main .wave-slider-field .wave-slider-baseline-hit-area {
+  position: absolute;
+  top: calc(100% * 62 / 64);
+  width: 100%;
+  height: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  touch-action: none;
+}
+
+.calculator-main .wave-slider-field .wave-slider-thumb-handle:active {
+  cursor: grabbing;
+}
+
+@media (width >=600px) {
+  .calculator-main .wave-slider-field .wave-slider-value-display {
+    font-size: 20px;
+  }
+}
+
+@media (width >= 900px) {
+    .calculator-main .wave-slider-field .wave-slider-header {
+        margin-bottom: 14px;
+    }
+
+    .calculator-main .slider-box {
+        padding: 16px 16px 32px;
+    }
+
+    .calculator-main .wave-slider-field .wave-slider-milestone-label {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .calculator-main .wave-slider-field .wave-slider-track-wrapper {
+      height: 59px;
+    }
+
+    .calculator-main .wave-slider-field .wave-slider-thumb-handle {
+      top: 57px;
+    }
+
+    .calculator-main.ulip-calculator .wave-slider-field .wave-slider-value-display.badge-expense {
+      max-width: 120px;
+    }
+
+    .calculator-main .wave-slider-field .required-star {
+      margin-left: 6px;
+    }
+
+    .calculator-main.hra-calculator .wave-slider-field .wave-slider-info {
+      margin-left: 6px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calculator-main .wave-slider-field .wave-slider-milestone-label,
+  .calculator-main .wave-slider-field .wave-slider-tooltip {
+    transition: none;
+  }
+}

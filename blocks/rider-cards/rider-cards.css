@@ -1,0 +1,343 @@
+/* ==========================================================================
+   Rider Cards: section header + rider cards with optional links.
+   Mobile (< 900px): stacked list, cards after the third behind Show More.
+   Desktop (>= 900px): swipeable carousel (3 cards in view) with dots.
+   ========================================================================== */
+
+.rider-cards {
+  --rc-header-gap: 30px;
+  --rc-card-gap: var(--spacing-lg);
+  --rc-title-size: var(--body-1-font-size);
+  --rc-title-line: var(--body-1-line-height);
+  --rc-body-gap: var(--spacing-xs);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--rc-header-gap);
+  font-family: var(--font-family-manrope);
+  color: var(--gray-900);
+}
+
+/* header */
+.rider-cards .rider-cards-heading {
+  margin: 0 0 var(--spacing-md);
+  font-family: var(--font-family-manrope);
+  font-size: var(--heading-3-font-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--heading-3-line-height);
+  color: var(--gray-900);
+}
+
+.rider-cards .rider-cards-heading strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.rider-cards .rider-cards-aside p {
+  margin: 0;
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-600);
+}
+
+/* cards */
+.rider-cards .rider-cards-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.rider-cards .rider-cards-track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rc-card-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rider-cards .rider-cards-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+  box-sizing: border-box;
+  margin: 0;
+  padding: var(--spacing-2xl);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, var(--base-white) 0%, var(--blue-50) 100%);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.rider-cards .rider-cards-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+}
+
+.rider-cards .rider-cards-icon,
+.rider-cards .rider-cards-icon img {
+  display: block;
+  width: var(--spacing-5xl);
+  height: var(--spacing-5xl);
+}
+
+.rider-cards .rider-cards-arrow {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: var(--spacing-4xl);
+  height: var(--spacing-4xl);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: url('../../icons/right-red-filled.svg') no-repeat center / contain;
+  transition: all 0.3s ease-in-out;
+}
+
+.rider-cards .rider-cards-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rc-body-gap);
+}
+
+.rider-cards .rider-cards-title {
+  margin: 0;
+  font-family: var(--font-family-manrope);
+  font-size: var(--rc-title-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--rc-title-line);
+  letter-spacing: 0;
+  color: var(--gray-900);
+}
+
+.rider-cards .rider-cards-description {
+  margin: 0;
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  color: var(--gray-700);
+}
+
+/* linked card: the title link stretches over the whole card */
+.rider-cards .rider-cards-link,
+.rider-cards .rider-cards-link:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rider-cards .rider-cards-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+}
+
+.rider-cards .rider-cards-link:focus-visible {
+  outline: none;
+}
+
+/* drawn inside the card so the desktop scroll track doesn't clip it */
+.rider-cards .rider-cards-link:focus-visible::after {
+  outline: var(--spacing-xxs) solid var(--navy-blue-500);
+  outline-offset: calc(-1 * var(--spacing-xxs));
+}
+
+.rider-cards .rider-cards-card-linked:hover,
+.rider-cards .rider-cards-card-linked:active,
+.rider-cards .rider-cards-card-linked:focus-within,
+.rider-cards .rider-cards-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--red-600, #af0e23);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+}
+
+.rider-cards .rider-cards-card-linked:hover .rider-cards-arrow,
+.rider-cards .rider-cards-card-linked:active .rider-cards-arrow,
+.rider-cards .rider-cards-card-linked:focus-within .rider-cards-arrow,
+.rider-cards .rider-cards-card:hover .rider-cards-arrow {
+  background: url('../../icons/right-black-filled.svg') no-repeat center / contain;
+}
+
+/* desktop dots, hidden on mobile */
+.rider-cards .rider-cards-dots {
+  display: none;
+}
+
+/* mobile show more */
+.rider-cards .rider-cards-toggle {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  gap: var(--spacing-md);
+  height: var(--spacing-4xl);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: none;
+  color: var(--gray-900);
+  font-family: var(--font-family-manrope);
+  font-size: var(--button-2-font-size);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--button-2-line-height);
+  cursor: pointer;
+}
+
+.rider-cards .rider-cards-toggle:focus-visible {
+  outline: var(--spacing-xxs) solid var(--navy-blue-500);
+  outline-offset: var(--spacing-xxs);
+}
+
+.rider-cards .rider-cards-toggle-icon {
+  width: var(--spacing-2xl);
+  height: var(--spacing-2xl);
+  background: url('../../icons/add-circle.svg') no-repeat center / contain;
+}
+
+.rider-cards .rider-cards-toggle[aria-expanded='true'] .rider-cards-toggle-icon {
+  background-image: url('../../icons/minus-circle.svg');
+}
+
+@media (width < 900px) {
+  .rider-cards .rider-cards-track:not(.is-expanded) .rider-cards-card:nth-child(n + 4) {
+    display: none;
+  }
+}
+
+@media (width >= 900px) {
+  .rider-cards {
+    --rc-header-gap: 50px;
+    --rc-card-gap: var(--spacing-2xl);
+    --rc-title-size: var(--sub-heading-1-font-size);
+    --rc-title-line: var(--sub-heading-1-line-height);
+    --rc-body-gap: var(--spacing-md);
+    --rc-peek: 30px;
+  }
+
+  .rider-cards .rider-cards-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+  }
+
+  .rider-cards .rider-cards-heading {
+    flex: 0 1 633px;
+    margin: 0;
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+  }
+
+  .rider-cards .rider-cards-aside {
+    flex: 0 1 353px;
+    text-align: right;
+  }
+
+  /* the track runs on to the viewport edge (--rc-bleed, set by JS) so the
+     fourth card peeks in; the end padding lets the last card stop at the
+     content edge, and the cards still size to the content column */
+  .rider-cards .rider-cards-track {
+    flex-direction: row;
+    margin-top: -15px;
+    margin-right: calc(-1 * var(--rc-bleed, 0px));
+    margin-bottom: -15px;
+    padding-top: 15px;
+    padding-right: var(--rc-bleed, 0);
+    padding-bottom: 15px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .rider-cards .rider-cards-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rider-cards .rider-cards-track.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    user-select: none;
+  }
+
+  /* three cards fill the content column; where the side margin is too narrow
+     for the fourth card to show (Figma: 30px), the cards give up the difference */
+  .rider-cards .rider-cards-card {
+    flex: 0 0 calc((100% - 2 * var(--rc-card-gap) - max(0px, var(--rc-card-gap) + var(--rc-peek) - var(--rc-bleed, 0px))) / 3);
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    min-height: 206px;
+    scroll-snap-align: start;
+  }
+
+  .rider-cards .rider-cards-card-linked:hover,
+  .rider-cards .rider-cards-card-linked:active,
+  .rider-cards .rider-cards-card-linked:focus-within,
+  .rider-cards .rider-cards-card:hover {
+    transform: translateY(-10px);
+    border: 1px solid transparent;
+    background:
+      linear-gradient(#f5faff, #f5faff) padding-box,
+      linear-gradient(7.21deg, #e1122d -43.93%, #e1122d 34.03%, #7f2224 88.98%) border-box;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+  }
+
+  .rider-cards .rider-cards-toggle {
+    display: none;
+  }
+
+  .rider-cards .rider-cards-card-linked:hover .rider-cards-arrow,
+  .rider-cards .rider-cards-card:hover .rider-cards-arrow {
+    background: url('../../icons/right-black-filled.svg') no-repeat center / contain;
+  }
+
+  .rider-cards .rider-cards-dots:not([hidden]) {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    gap: var(--spacing-xs);
+  }
+
+  .rider-cards .rider-cards-dot {
+    position: relative;
+    box-sizing: border-box;
+    width: 6px;
+    height: 6px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--gray-400);
+    border-radius: var(--radius-full);
+    background: transparent;
+    cursor: pointer;
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
+
+  /* larger hit area than the 6px dot */
+  .rider-cards .rider-cards-dot::after {
+    content: '';
+    position: absolute;
+    inset: -9px -2px;
+  }
+
+  .rider-cards .rider-cards-dot[aria-current='true'] {
+    width: var(--spacing-4xl);
+    border: 0;
+    background: linear-gradient(180deg, #af0e23 0%, #fb2c47 100%);
+  }
+
+  .rider-cards .rider-cards-dot:focus-visible {
+    outline: var(--spacing-xxs) solid var(--navy-blue-500);
+    outline-offset: var(--spacing-xxs);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rider-cards .rider-cards-card,
+  .rider-cards .rider-cards-arrow,
+  .rider-cards .rider-cards-dot {
+    transition: none;
+    transform: none;
+  }
+}

@@ -1,0 +1,1355 @@
+/* ==========================================================================
+   Insurance Plans (Term Insurance Cards) - Custom Cards Styling
+   Clean, scoped, mobile-first, and Stylelint-compliant
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Section Layout & Header (Mobile First)
+   -------------------------------------------------------------------------- */
+.section:has(.insurance-plans),
+.custom-cards-container:has(.insurance-plans) {
+  padding-block: 0;
+  position: relative;
+  overflow: clip visible;
+}
+
+.section:has(.insurance-plans) .default-content-wrapper,
+.custom-cards-container:has(.insurance-plans) .default-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  padding-inline: 16px;
+  position: relative;
+}
+
+.section:has(.insurance-plans) .default-content-wrapper h1,
+.section:has(.insurance-plans) .default-content-wrapper h2,
+.section:has(.insurance-plans) .default-content-wrapper h3,
+.custom-cards-container:has(.insurance-plans) .default-content-wrapper h1,
+.custom-cards-container:has(.insurance-plans) .default-content-wrapper h2,
+.custom-cards-container:has(.insurance-plans) .default-content-wrapper h3 {
+  margin: 0;
+  padding: 0;
+  color: var(--text-text-primary, #181d27);
+  font-family: var(--heading-font-family, 'Manrope', sans-serif);
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+}
+
+.section:has(.insurance-plans) .default-content-wrapper strong,
+.custom-cards-container:has(.insurance-plans) .default-content-wrapper strong {
+  color: var(--text-text-primary, #181d27);
+  font-weight: 600;
+}
+
+.section:has(.insurance-plans) .default-content-wrapper p,
+.custom-cards-container:has(.insurance-plans) .default-content-wrapper p {
+  color: var(--text-text-tertiary, #535862);
+  font-family: var(--font-family-font-family-body, 'Manrope', sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Carousel Navigation Controls (Hidden on Mobile)
+   -------------------------------------------------------------------------- */
+.insurance-carousel-nav {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.insurance-nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: var(--button-btn-brand-red, #e1122d);
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.15s ease;
+}
+
+.insurance-nav-btn .icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.insurance-nav-btn .icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.insurance-nav-btn:disabled,
+.insurance-nav-btn.is-disabled {
+  background-color: #f5f5f5;
+  color: #a4a7ae;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.insurance-nav-btn:disabled .icon img,
+.insurance-nav-btn.is-disabled .icon img {
+  filter: brightness(0);
+}
+
+.insurance-nav-btn:hover:not(:disabled) {
+  background-color: var(--base-black, #000);
+}
+
+.insurance-nav-btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+/* --------------------------------------------------------------------------
+   Custom Cards Wrapper & Container
+   -------------------------------------------------------------------------- */
+.custom-cards-wrapper.insurance-plans {
+  position: relative;
+  padding-inline: 16px;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+
+.custom-cards-wrapper.insurance-plans::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-cards.insurance-plans.swiper {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* Base override for card list: swiper wrapper or fallback grid */
+.custom-cards.insurance-plans>ul {
+  display: flex;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.custom-cards.insurance-plans:not(.swiper)>ul {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Mobile Swiper Slide Page (4 cards in 2x2 grid) */
+.custom-cards.insurance-plans li.insurance-slide-page {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 414px !important;
+  max-height: none !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.custom-cards.insurance-plans li.insurance-slide-page::before,
+.custom-cards.insurance-plans li.insurance-slide-page::after {
+  content: none !important;
+  display: none !important;
+}
+
+.custom-cards.insurance-plans .insurance-page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 160px);
+  grid-template-rows: repeat(2, 203px);
+  grid-auto-rows: 203px;
+  place-content: start center;
+  gap: 8px;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  box-sizing: border-box;
+  max-width: 328px;
+  width: 328px;
+  min-height: 414px;
+}
+
+/* Screen width < 360px (down to 280px): 2 cards vertically per slide */
+@media (width < 360px) {
+  .custom-cards-wrapper.insurance-plans {
+    padding-inline: 12px;
+  }
+
+  .custom-cards.insurance-plans li.insurance-slide-page {
+    min-height: 418px !important;
+  }
+
+  .custom-cards.insurance-plans .insurance-page-grid {
+    grid-template-columns: minmax(0, 240px);
+    grid-template-rows: repeat(2, 203px);
+    grid-auto-rows: 203px;
+    max-width: 240px;
+    width: 100%;
+    min-height: 418px;
+    gap: 12px;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 240px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Individual Card (Default Normal State)
+   -------------------------------------------------------------------------- */
+.custom-cards.insurance-plans li.insurance-card {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  width: 160px;
+  min-width: 160px;
+  max-width: 160px;
+  height: 203px;
+  min-height: 203px;
+  max-height: 203px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #d2dae4;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin: 0 auto;
+  padding: 0;
+  transition:
+    height 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    min-height 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    max-height 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    margin-top 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    margin-bottom 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Background glows (alternating red / blue) & glass effect */
+
+/* .custom-cards.insurance-plans li.insurance-card:nth-child(odd)::before { */
+.custom-cards.insurance-plans li.insurance-card:nth-child(even)::before {
+  background-image: url('/icons/red-shape.svg');
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 300ms ease;
+}
+
+/* .custom-cards.insurance-plans li.insurance-card:nth-child(even)::before { */
+.custom-cards.insurance-plans li.insurance-card:nth-child(odd)::before {
+  background-image: url('/icons/shape-blue.svg');
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 300ms ease;
+}
+
+.custom-cards.insurance-plans li.insurance-card::after {
+  background-image: url('/icons/glass-effect.svg');
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0ms ease;
+}
+
+/* --------------------------------------------------------------------------
+   Card Image / Artwork (Bottom in Default State)
+   -------------------------------------------------------------------------- */
+.custom-cards.insurance-plans .custom-cards-card-image {
+  width: 100%;
+  height: 68px;
+  margin: auto 0 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  line-height: 0;
+}
+
+.custom-cards.insurance-plans .custom-cards-card-image p {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.custom-cards.insurance-plans .custom-cards-card-image picture,
+.custom-cards.insurance-plans .custom-cards-card-image picture.primary-image,
+.custom-cards.insurance-plans .custom-cards-card-image picture.secondary-image {
+  width: 100%;
+  height: 68px;
+  aspect-ratio: unset;
+  display: block;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-cards.insurance-plans .custom-cards-card-image picture.primary-image {
+  display: block;
+}
+
+.custom-cards.insurance-plans .custom-cards-card-image picture.secondary-image {
+  display: none;
+}
+
+.custom-cards.insurance-plans .custom-cards-card-image img {
+  width: 100%;
+  height: 68px;
+  min-height: 68px;
+  max-height: 68px;
+  aspect-ratio: unset;
+  object-fit: contain;
+  object-position: bottom;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Card Body Content (Top in Default State)
+   -------------------------------------------------------------------------- */
+.custom-cards.insurance-plans .custom-cards-card-body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  z-index: 2;
+  padding: 48px 16px 0;
+  box-sizing: border-box;
+  width: 100%;
+  gap: 0;
+}
+
+/* 1) ONLINE Pill Badge */
+.custom-cards.insurance-plans .insurance-card-badge {
+  position: absolute;
+  top: 17px;
+  right: 16px;
+  height: 24px;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 999px;
+  border: 1px solid #1e4679;
+  color: #1e4679;
+  background: #fff;
+  font-family: var(--font-family-font-family-body, 'Manrope', sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 4;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.custom-cards.insurance-plans .insurance-card-badge .icon {
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-cards.insurance-plans .insurance-card-badge .icon img {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+/* 2) Plan Title */
+.custom-cards.insurance-plans .insurance-card-title,
+.custom-cards.insurance-plans .custom-cards-card-body h3 {
+  color: #181d27;
+  font-family: var(--font-family-font-family-body, 'Manrope', sans-serif);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.custom-cards.insurance-plans .insurance-title-brand,
+.custom-cards.insurance-plans .insurance-title-plan {
+  display: block;
+  color: #181d27;
+  font-weight: 600;
+}
+
+.custom-cards.insurance-plans .insurance-title-plan strong,
+.custom-cards.insurance-plans .insurance-card-title strong {
+  color: #fa1432;
+  font-weight: 600;
+}
+
+/* 3) Before-hover Description */
+.custom-cards.insurance-plans .insurance-card-desc {
+  color: #535862;
+  font-family: var(--font-family-font-family-body, 'Manrope', sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 8px 0 0;
+  padding: 0;
+  display: none;
+  list-style: none;
+}
+
+.custom-cards.insurance-plans .custom-cards-card-body>ul:first-of-type {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.custom-cards.insurance-plans .custom-cards-card-body>ul.insurance-card-hover-content,
+.custom-cards.insurance-plans .custom-cards-card-body>ul:not(:first-of-type) {
+  display: none;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Hover Description */
+.custom-cards.insurance-plans .insurance-hover-desc {
+  color: #fff;
+  font-family: var(--font-family-font-family-body, 'Manrope', sans-serif);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: 14px;
+  margin: 0 0 4px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Bullet Items */
+.custom-cards.insurance-plans .insurance-bullet-item {
+  color: #fff;
+  position: relative;
+  padding-left: 10px;
+  font-family: var(--font-family-font-family-body, 'Manrope', sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 13px;
+  margin-top: 3px;
+  list-style: none;
+}
+
+.custom-cards.insurance-plans .insurance-bullet-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* 4) Explore Now Action */
+.custom-cards.insurance-plans .insurance-action-explore {
+  margin-top: 6px;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+}
+
+.custom-cards.insurance-plans .insurance-action-explore a {
+  color: #fff;
+  font-family: var(--font-family-font-family-body, 'Manrope', sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s ease;
+}
+
+.custom-cards.insurance-plans .insurance-action-explore .icon {
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.custom-cards.insurance-plans .insurance-action-explore .icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+/* 5 & 6) Bottom Actions Row */
+.custom-cards.insurance-plans .insurance-card-bottom-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 5) Primary Pill Button */
+.custom-cards.insurance-plans .insurance-action-primary {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.custom-cards.insurance-plans .insurance-action-primary a.insurance-btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  /* width: 100%; */
+  height: 32px;
+  background: #fff;
+  border-radius: 999px;
+  padding: 3px 3px 3px 12px;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: gap 0.3s ease, box-shadow 0.2s ease;
+}
+
+.custom-cards.insurance-plans .insurance-action-primary a.insurance-btn-pill:hover,
+.custom-cards.insurance-plans li.insurance-card:hover .insurance-action-primary a.insurance-btn-pill:hover,
+.custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-action-primary a.insurance-btn-pill:hover {
+  gap: 20px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+}
+
+.custom-cards.insurance-plans .insurance-btn-text {
+  color: #181d27;
+  font-family: var(--font-family-font-family-body, 'Manrope', sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.custom-cards.insurance-plans .insurance-btn-arrow {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 0;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-cards.insurance-plans .insurance-btn-arrow .icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.2s ease;
+}
+
+.custom-cards.insurance-plans .insurance-btn-arrow .insurance-arrow-hover {
+  opacity: 0;
+}
+
+.custom-cards.insurance-plans .insurance-btn-arrow .icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* .custom-cards.insurance-plans .insurance-action-primary a.insurance-btn-pill:hover .insurance-btn-arrow {
+  width: 32px;
+} */
+
+.custom-cards.insurance-plans .insurance-action-primary a.insurance-btn-pill:hover .insurance-arrow-default {
+  opacity: 0;
+}
+
+.custom-cards.insurance-plans .insurance-action-primary a.insurance-btn-pill:hover .insurance-arrow-hover {
+  opacity: 1;
+}
+
+/* 6) Download Icon Button */
+.custom-cards.insurance-plans .insurance-action-save {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.custom-cards.insurance-plans .insurance-action-save a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-cards.insurance-plans .insurance-action-save .icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-cards.insurance-plans .insurance-action-save .icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.custom-cards.insurance-plans .insurance-action-explore .icon~.icon {
+  display: none;
+}
+
+.custom-cards.insurance-plans .insurance-action-explore a:hover .icon {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   Mobile State: Cards remain static without hover effect
+   -------------------------------------------------------------------------- */
+.custom-cards.insurance-plans .insurance-card-hover-content {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Large Mobile / Small Tablet (500px - 767px): bigger 2x2 cards, no image crop
+   -------------------------------------------------------------------------- */
+@media (width >= 500px) and (width < 768px) {
+  .custom-cards.insurance-plans li.insurance-slide-page {
+    min-height: 560px !important;
+  }
+
+  .custom-cards.insurance-plans .insurance-page-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 274px);
+    grid-auto-rows: 274px;
+    gap: 12px;
+    max-width: 460px;
+    width: 100%;
+    min-height: 560px;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: 274px;
+    min-height: 274px;
+    max-height: 274px;
+    border-radius: 12px;
+  }
+
+  .custom-cards.insurance-plans .custom-cards-card-image,
+  .custom-cards.insurance-plans .custom-cards-card-image picture,
+  .custom-cards.insurance-plans .custom-cards-card-image picture.primary-image,
+  .custom-cards.insurance-plans .custom-cards-card-image picture.secondary-image,
+  .custom-cards.insurance-plans .custom-cards-card-image img {
+    height: 112px;
+    min-height: 112px;
+    max-height: 112px;
+  }
+
+  .custom-cards.insurance-plans .custom-cards-card-body {
+    padding: 64px 20px 0;
+  }
+
+  .custom-cards.insurance-plans .insurance-card-badge {
+    top: 20px;
+    right: 20px;
+    height: 26px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .custom-cards.insurance-plans .insurance-card-title,
+  .custom-cards.insurance-plans .custom-cards-card-body h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Swiper Line Pagination
+   -------------------------------------------------------------------------- */
+.custom-cards.insurance-plans .insurance-pagination-dots {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 24px;
+}
+
+.custom-cards.insurance-plans .insurance-pagination-dots .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  border: 1px solid #a4a7ae;
+  background: transparent;
+  opacity: 1;
+  margin: 0;
+  transition: width 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-cards.insurance-plans .insurance-pagination-dots .swiper-pagination-bullet-active {
+  width: 32px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #af0e23 0%, #fb2c47 100%);
+  border-color: transparent;
+}
+
+.insurance-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.insurance-header-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.insurance-header-text .insurance-header-cta {
+  max-width: 100%;
+  margin-top: 12px;
+}
+
+.insurance-section-header .insurance-header-text .insurance-header-cta > a {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+  min-height: 40px;
+  margin: 0;
+  padding: 4px 4px 4px 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--brand-red-600);
+  color: var(--text-white);
+  font-family: var(--font-family-manrope);
+  font-size: var(--button-2-font-size);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--button-2-line-height);
+  text-align: left;
+  text-decoration: none;
+  transition: gap 0.25s ease, background-color 0.2s ease, transform 0.25s ease;
+}
+
+.section .insurance-section-header .insurance-header-text .insurance-header-cta > a .icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+}
+
+.insurance-section-header .insurance-header-text .insurance-header-cta > a .icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.section .insurance-section-header .insurance-header-text .insurance-header-cta > a .icon+.icon {
+  display: none;
+}
+
+.insurance-section-header .insurance-header-text .insurance-header-cta > a:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .insurance-section-header .insurance-header-text .insurance-header-cta > a {
+    transition: none;
+  }
+}
+
+@media (hover: hover) {
+  .insurance-section-header .insurance-header-text .insurance-header-cta > a:hover {
+    gap: 20px;
+    color: var(--text-white);
+    text-decoration: none;
+  }
+
+  .insurance-section-header .insurance-header-text .insurance-header-cta > a:hover .icon+.icon {
+    display: block;
+  }
+
+  .insurance-section-header .insurance-header-text .insurance-header-cta > a:hover .icon:first-of-type:not(:only-child) {
+    display: none;
+  }
+}
+
+.section:has(.insurance-plans),
+.horizontal-heading.custom-cards-container:has(.insurance-plans) {
+  padding-block: 0;
+}
+
+/* ==========================================================================
+   Desktop Responsive Breakpoints (width >= 768px)
+   ========================================================================== */
+@media (width >= 768px) {
+  .section:has(.insurance-plans) .default-content-wrapper,
+  .custom-cards-container:has(.insurance-plans) .default-content-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-inline: 24px;
+    margin-bottom: 32px;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  .insurance-header-text {
+    max-width: 650px;
+  }
+
+  .section:has(.insurance-plans) .default-content-wrapper h1,
+  .section:has(.insurance-plans) .default-content-wrapper h2,
+  .section:has(.insurance-plans) .default-content-wrapper h3,
+  .custom-cards-container:has(.insurance-plans) .default-content-wrapper h1,
+  .custom-cards-container:has(.insurance-plans) .default-content-wrapper h2,
+  .custom-cards-container:has(.insurance-plans) .default-content-wrapper h3 {
+    font-size: 40px;
+    line-height: 48px;
+    max-width: 633px;
+  }
+
+  .insurance-carousel-nav {
+    display: flex;
+    margin-top: 0;
+    flex-shrink: 0;
+  }
+
+  .insurance-carousel-nav.nav-hidden {
+    display: none !important;
+  }
+
+  .custom-cards-wrapper.insurance-plans {
+    padding-inline: 24px;
+    padding-top: 51px;
+  }
+
+  .custom-cards.insurance-plans.swiper {
+    overflow: visible;
+  }
+
+  .custom-cards.insurance-plans>ul {
+    display: flex;
+    grid-template-columns: none;
+    justify-content: flex-start;
+    gap: 0;
+    margin-inline: auto;
+  }
+
+  .custom-cards.insurance-plans:not(.swiper)>ul {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .custom-cards.insurance-plans .insurance-card-title,
+  .custom-cards.insurance-plans .custom-cards-card-body h3 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .custom-cards.insurance-plans .insurance-card-desc {
+    display: block;
+  }
+
+  .custom-cards.insurance-plans .insurance-hover-desc {
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 0 6px;
+  }
+
+  .custom-cards.insurance-plans .insurance-bullet-item {
+    padding-left: 12px;
+    font-size: 13px;
+    line-height: 17px;
+    margin-top: 5px;
+  }
+
+  .custom-cards.insurance-plans .insurance-bullet-item::before {
+    top: 6px;
+    width: 4px;
+    height: 4px;
+  }
+
+  .custom-cards.insurance-plans .insurance-action-explore {
+    margin-top: 10px;
+  }
+
+  .custom-cards.insurance-plans .insurance-action-explore a {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .custom-cards.insurance-plans .insurance-action-explore .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .custom-cards.insurance-plans .insurance-card-bottom-actions {
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .custom-cards.insurance-plans .insurance-action-primary a.insurance-btn-pill {
+    height: 40px;
+    padding: 4px 4px 4px 16px;
+  }
+
+  .custom-cards.insurance-plans .insurance-btn-text {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .custom-cards.insurance-plans .insurance-btn-arrow {
+    width: 32px;
+    height: 32px;
+    margin-left: 0;
+  }
+
+  .custom-cards.insurance-plans .insurance-action-save a {
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+  }
+
+  .custom-cards.insurance-plans .insurance-action-save .icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  .custom-cards.insurance-plans .insurance-pagination-dots {
+    display: none;
+  }
+
+  .custom-cards.insurance-plans .custom-cards-card-image,
+  .custom-cards.insurance-plans .custom-cards-card-image picture,
+  .custom-cards.insurance-plans .custom-cards-card-image picture.primary-image,
+  .custom-cards.insurance-plans .custom-cards-card-image picture.secondary-image {
+    height: 136px;
+    min-height: 136px;
+    max-height: 136px;
+    aspect-ratio: unset;
+  }
+
+  .custom-cards.insurance-plans .custom-cards-card-image {
+    position: absolute;
+    top: calc(100% - 136px);
+    left: 0;
+    transition:
+      top 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      height 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .custom-cards.insurance-plans .custom-cards-card-image img,
+  .custom-cards.insurance-plans .custom-cards-card-image picture.primary-image img,
+  .custom-cards.insurance-plans .custom-cards-card-image picture.secondary-image img {
+    width: 95%;
+    height: 136px;
+    min-height: 136px;
+    max-height: 136px;
+    aspect-ratio: unset;
+    object-fit: contain;
+    object-position: bottom;
+    display: block;
+    transition:
+      transform 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      filter 300ms ease;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card {
+    width: 264px;
+    min-width: 264px;
+    max-width: 264px;
+    height: 311px;
+    min-height: 311px;
+    max-height: 311px;
+    border-radius: 16px;
+    box-sizing: border-box;
+  }
+
+  .custom-cards.insurance-plans.swiper li.insurance-card {
+    /* width: 264px; */
+    min-width: 260px;
+
+    /* max-width: 264px; */
+  }
+
+  /* Desktop Hover State */
+  .custom-cards.insurance-plans li.insurance-card:hover,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active {
+    background: linear-gradient(-36deg, #E1122D 0%, #E1122D 32%, #7F2224 100%);
+    border-color: #D2DAE4;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 10;
+    height: 412px;
+    min-height: 412px;
+    max-height: 412px;
+    margin-top: -50px;
+    margin-bottom: -51px;
+    padding: 16px 0 0;
+    transform: none;
+    border-radius: 16px;
+  }
+
+  /* Hide background shapes on desktop hover */
+  .custom-cards.insurance-plans li.insurance-card:hover::before,
+  .custom-cards.insurance-plans li.insurance-card:hover::after,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active::before,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active::after {
+    opacity: 0;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .custom-cards-card-image,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .custom-cards-card-image {
+    top: 16px;
+    margin: 0;
+    height: 160px;
+    min-height: 160px;
+    max-height: 160px;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .custom-cards-card-image picture.primary-image img,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .custom-cards-card-image picture.primary-image img {
+    transform: translateY(-20px);
+    filter: brightness(0) invert(1);
+  }
+
+  /* Desktop Hover Card Body */
+  .custom-cards.insurance-plans li.insurance-card:hover .custom-cards-card-body,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .custom-cards-card-body {
+    position: absolute;
+    inset: 178px 0 0;
+    margin: 0;
+    padding: 0 16px 24px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-card-hover-content,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-card-hover-content {
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-hover-desc,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-hover-desc {
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-hover-desc:first-child,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-hover-desc:first-child {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 4px;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-bullet-item,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-bullet-item {
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 0;
+  }
+
+  /* Hide default content on desktop hover */
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-card-badge,
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-card-title,
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-card-desc,
+  .custom-cards.insurance-plans li.insurance-card:hover .custom-cards-card-body>ul:first-of-type,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-card-badge,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-card-title,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-card-desc,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .custom-cards-card-body>ul:first-of-type {
+    display: none;
+  }
+
+  /* Show hover content on desktop hover */
+  .custom-cards.insurance-plans li.insurance-card:hover .custom-cards-card-body>ul.insurance-card-hover-content,
+  .custom-cards.insurance-plans li.insurance-card:hover .custom-cards-card-body>ul:not(:first-of-type),
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .custom-cards-card-body>ul.insurance-card-hover-content,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .custom-cards-card-body>ul:not(:first-of-type) {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    width: 100%;
+    animation: insurance-content-reveal 500ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-action-explore,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-action-explore {
+    margin-top: 0;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-action-explore a,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-action-explore a {
+    height: 32px;
+    font-size: 14px;
+    line-height: 16px;
+    gap: 8px;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-action-explore .icon,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-action-explore .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-card-bottom-actions,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-card-bottom-actions {
+    gap: 0;
+    margin-top: auto;
+    padding-top: 8px;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-action-primary a.insurance-btn-pill,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-action-primary a.insurance-btn-pill {
+    height: 40px;
+    padding: 4px 4px 4px 16px;
+    gap: 12px;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-btn-text,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-btn-text {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-btn-arrow,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-btn-arrow {
+    width: 32px;
+    height: 32px;
+    margin-left: 0;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-action-save a,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-action-save a {
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+  }
+
+  .custom-cards.insurance-plans li.insurance-card:hover .insurance-action-save .icon,
+  .custom-cards.insurance-plans li.insurance-card.is-hover-active .insurance-action-save .icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  @media (width < 1024px) {
+    .custom-cards.insurance-plans li.insurance-card:hover .custom-cards-card-body,
+    .custom-cards.insurance-plans li.insurance-card.is-hover-active .custom-cards-card-body {
+      padding: 0 16px 24px;
+    }
+
+    .custom-cards.insurance-plans .insurance-card-bottom-actions {
+      gap: 6px;
+    }
+
+    .custom-cards.insurance-plans .insurance-action-primary a.insurance-btn-pill {
+      padding: 3px 3px 3px 10px;
+    }
+
+    .custom-cards.insurance-plans .insurance-btn-text {
+      font-size: 12px;
+    }
+
+    .custom-cards.insurance-plans .insurance-btn-arrow {
+      width: 26px;
+      height: 26px;
+    }
+
+    .custom-cards.insurance-plans .insurance-action-save a {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+@media (width >=900px) {
+  .section.horizontal-heading:has(.insurance-plans)>.default-content-wrapper.insurance-section-header {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
+  .section.horizontal-heading:has(.insurance-plans) .insurance-section-header .insurance-header-text {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    max-width: none;
+  }
+
+  .section.horizontal-heading:has(.insurance-plans) .insurance-section-header .insurance-header-copy {
+    flex: 0 1 353px;
+    align-items: flex-end;
+    gap: 16px;
+    text-align: right;
+  }
+
+  .section.horizontal-heading:has(.insurance-plans) .insurance-section-header .insurance-header-cta {
+    margin-top: 0;
+  }
+
+  .section.horizontal-heading:has(.insurance-plans) .insurance-section-header .insurance-header-cta > a {
+    font-size: var(--button-1-font-size);
+    line-height: var(--button-1-line-height);
+  }
+
+  @media (hover: hover) {
+    .insurance-section-header .insurance-header-text .insurance-header-cta > a:hover {
+      transform: translateX(8px);
+    }
+  }
+
+  .section.horizontal-heading:has(.insurance-plans) .insurance-section-header .insurance-carousel-nav {
+    align-self: end;
+  }
+}
+
+@media (width >= 1024px) {
+  .section:has(.insurance-plans) .default-content-wrapper,
+  .custom-cards-container:has(.insurance-plans) .default-content-wrapper {
+    padding-inline: 50px;
+    margin-bottom: 41px;
+  }
+
+  .section:has(.insurance-plans) .default-content-wrapper h1,
+  .section:has(.insurance-plans) .default-content-wrapper h2,
+  .section:has(.insurance-plans) .default-content-wrapper h3,
+  .custom-cards-container:has(.insurance-plans) .default-content-wrapper h1,
+  .custom-cards-container:has(.insurance-plans) .default-content-wrapper h2,
+  .custom-cards-container:has(.insurance-plans) .default-content-wrapper h3 {
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  .custom-cards-wrapper.insurance-plans {
+    padding-inline: 50px;
+    scrollbar-width: none;
+    overflow-x: clip;
+
+    /* For Internet Explorer and Legacy Edge */
+    -ms-overflow-style: none;
+  }
+
+  /* --------------------------------------------------------------------------
+   Keyframes & Animations
+   -------------------------------------------------------------------------- */
+  @keyframes insurance-content-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes insurance-image-rise {
+    from {
+      opacity: 0;
+      transform: translateY(56px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .custom-cards.insurance-plans li.insurance-card {
+      transition: none;
+    }
+
+    .custom-cards.insurance-plans .custom-cards-card-image,
+    .custom-cards.insurance-plans .custom-cards-card-image img {
+      transition: none;
+    }
+
+    .custom-cards.insurance-plans li.insurance-card:hover .custom-cards-card-body>ul.insurance-card-hover-content {
+      animation: none;
+    }
+  }
+}

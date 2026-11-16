@@ -1,0 +1,1036 @@
+/* ==========================================================================
+   Life Stages Journey Block - Young Professionals Variation (Mobile First)
+   ========================================================================== */
+
+.life-stages-journey.young-professionals {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-x: clip;
+}
+
+.life-stages-journey.young-professionals .lsj-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   0. Section Title
+   -------------------------------------------------------------------------- */
+.life-stages-journey-wrapper h2,
+.life-stages-journey-wrapper h3,
+.life-stages-journey.young-professionals .lsj-title {
+  margin: 0 0 14px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  color: var(--gray-900, #181d27);
+  letter-spacing: -0.01em;
+}
+
+.life-stages-journey.young-professionals .lsj-title p,
+.life-stages-journey.young-professionals .lsj-title h1,
+.life-stages-journey.young-professionals .lsj-title h2,
+.life-stages-journey.young-professionals .lsj-title h3,
+.life-stages-journey.young-professionals .lsj-title h4,
+.life-stages-journey.young-professionals .lsj-title h5,
+.life-stages-journey.young-professionals .lsj-title h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+.life-stages-journey-wrapper h2 strong,
+.life-stages-journey-wrapper h3 strong,
+.life-stages-journey.young-professionals .lsj-title strong {
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   1. Persona Section (Intro Avatar + Bio)
+   -------------------------------------------------------------------------- */
+.life-stages-journey.young-professionals .lsj-persona {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0;
+  padding-bottom: 4px;
+  position: relative;
+  z-index: 2;
+  background-color: var(--background-color, #fff);
+}
+
+@media (width < 900px) {
+  /* Horizontal divider below Persona */
+  .life-stages-journey.young-professionals .lsj-persona::after {
+    content: '';
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+    width: 100%;
+    max-width: 140px;
+    height: 1px;
+    background-color: var(--gray-300, #d5d7da);
+    z-index: 1;
+  }
+
+  /* Gray dot on the divider below Persona */
+  .life-stages-journey.young-professionals .lsj-persona::before {
+    content: '';
+    position: absolute;
+    left: 13px;
+    bottom: -3px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--gray-300);
+    z-index: 2;
+  }
+}
+
+.life-stages-journey.young-professionals .lsj-persona-media {
+  position: relative;
+  width: 100%;
+  max-width: 86px;
+  max-height: 96px;
+  height: auto;
+  aspect-ratio: 86 / 96;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* .life-stages-journey.young-professionals .lsj-persona-media::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  width: 100%;
+  max-width: 76px;
+  height: 8px;
+  max-height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgb(0 0 0 / 18%) 0%, transparent 70%);
+  pointer-events: none;
+} */
+
+.life-stages-journey.young-professionals .lsj-persona-media picture,
+.life-stages-journey.young-professionals .lsj-persona-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+.life-stages-journey.young-professionals .lsj-persona-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.life-stages-journey.young-professionals .lsj-persona-info p {
+  margin: 0;
+  color: #181D27;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Timeline & Milestones (Mobile View - Vertical Track)
+   -------------------------------------------------------------------------- */
+.life-stages-journey.young-professionals .lsj-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.life-stages-journey.young-professionals .lsj-track {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.life-stages-journey.young-professionals .lsj-track-top {
+  position: relative;
+}
+
+/* Continuous vertical red dotted line down the left */
+.life-stages-journey.young-professionals .lsj-track-top::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 1px dashed var(--decorative-red-200, #fd8a99);
+  z-index: 0;
+}
+
+.life-stages-journey.young-professionals .lsj-track-bottom::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 0;
+  bottom: 16px;
+  width: 0;
+  border-left: 1px dashed var(--decorative-red-200, #fd8a99);
+  z-index: 0;
+}
+
+.life-stages-journey.young-professionals .lsj-connector-turn {
+  display: none;
+}
+
+.life-stages-journey.young-professionals .lsj-milestone {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--spacing-xl, 16px);
+  padding: 12px 0;
+  border-bottom: none;
+  z-index: 1;
+}
+
+@media (width < 900px) {
+  .life-stages-journey.young-professionals .lsj-milestone:last-child::before,
+  .life-stages-journey.young-professionals .lsj-milestone:last-child::after,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-milestone::before,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-milestone::after {
+    display: none;
+  }
+
+  /* Gray milestone connector dot and horizontal divider on vertical line */
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-milestone:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+    width: 100%;
+    max-width: 140px;
+    height: 1px;
+    background-color: var(--gray-300, #d5d7da);
+    z-index: 1;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-milestone:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 13px;
+    bottom: -3px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--gray-300);
+    z-index: 2;
+  }
+}
+
+/* Milestone Badge (Marker) */
+.life-stages-journey.young-professionals .lsj-milestone-marker {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+  max-width: 56px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  background-color: var(--background-color, #fff);
+
+  /* padding: 4px 0; */
+}
+
+.life-stages-journey.young-professionals .lsj-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 28px;
+  max-height: 28px;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  flex-shrink: 0;
+}
+
+.life-stages-journey.young-professionals .lsj-badge-blue {
+  background-color: #b2ddff;
+  color: var(--gray-700, #414651);
+}
+
+.life-stages-journey.young-professionals .lsj-badge-red {
+  background-color: var(--brand-red-600, #e1122d);
+  color: var(--base-white, #fff);
+}
+
+.life-stages-journey.young-professionals .lsj-badge-unit {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 300;
+  color: var(--gray-600, #535862);
+}
+
+/* Milestone Content */
+.life-stages-journey.young-professionals .lsj-milestone-content {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0;
+}
+
+.life-stages-journey.young-professionals .lsj-milestone-content p {
+  margin: 0;
+  color: var(--gray-900, #181d27);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.life-stages-journey.young-professionals .lsj-milestone-content strong {
+  color: var(--gray-900, #181d27);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   3. Outcome Card (Terminal CTA)
+   -------------------------------------------------------------------------- */
+.life-stages-journey.young-professionals .lsj-outcome {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: var(--spacing-xl, 16px);
+
+  /* padding: 12px 10px; */
+  padding: 10px;
+  background-color: var(--info-50, #eff8ff);
+  border: 1px solid #d2e9fa;
+  border-radius: 5px;
+  box-sizing: border-box;
+  z-index: 2;
+  overflow: visible;
+  width: 100%;
+  max-width: 100%;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-media {
+  width: 100%;
+  max-width: clamp(75px, 29vw, 105px);
+  max-height: 120px;
+  height: auto;
+  flex-shrink: 0;
+  margin-top: -55px;
+  margin-bottom: -45px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 2;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-media picture,
+.life-stages-journey.young-professionals .lsj-outcome-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom left;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-subtitle {
+  margin: 0;
+  color: var(--gray-700, #414651);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: center;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-amount,
+.life-stages-journey.young-professionals .lsj-outcome-text h1,
+.life-stages-journey.young-professionals .lsj-outcome-text h2,
+.life-stages-journey.young-professionals .lsj-outcome-text h3,
+.life-stages-journey.young-professionals .lsj-outcome-text h4,
+.life-stages-journey.young-professionals .lsj-outcome-text h5,
+.life-stages-journey.young-professionals .lsj-outcome-text h6 {
+  margin: 0 0 3px;
+  color: var(--gray-900, #181d27);
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-cta-wrap {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  /* max-width: max-content; */
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 3px 2px 3px 12px;
+  border: 1px solid #E1122D;
+  border-radius: var(--radius-full, 9999px);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.25s ease, border-color 0.25s ease, gap 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-cta::before {
+  content: '';
+  position: absolute;
+  inset: -4px -6px;
+  border-radius: inherit;
+  pointer-events: auto;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-cta:hover,
+.life-stages-journey.young-professionals .lsj-outcome-cta:focus-visible {
+  gap: 14px;
+  transform: translateX(3px);
+  border-color: #C81028;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-cta-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #E1122D;
+  line-height: 14px;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-cta:hover .lsj-outcome-cta-label,
+.life-stages-journey.young-professionals .lsj-outcome-cta:focus-visible .lsj-outcome-cta-label {
+  color: #C81028;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full, 9999px);
+  background-color: #E1122D;
+  position: relative;
+  flex-shrink: 0;
+  transition: background-color 0.25s ease;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-cta:hover .lsj-outcome-cta-icon,
+.life-stages-journey.young-professionals .lsj-outcome-cta:focus-visible .lsj-outcome-cta-icon {
+  background-color: var(--base-black, #000);
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-cta-icon::after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-color: var(--base-white, #fff);
+  mask-image: url('../../icons/arrow-right-2.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transition: background-color 0.25s ease;
+}
+
+.life-stages-journey.young-professionals .lsj-outcome-cta:hover .lsj-outcome-cta-icon::after,
+.life-stages-journey.young-professionals .lsj-outcome-cta:focus-visible .lsj-outcome-cta-icon::after {
+  background-color: var(--base-white, #fff);
+}
+
+/* --------------------------------------------------------------------------
+   4. Disclaimer Footer
+   -------------------------------------------------------------------------- */
+.life-stages-journey.young-professionals .lsj-disclaimer {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.life-stages-journey.young-professionals .lsj-disclaimer p {
+  margin: 0;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 500;
+  color: #414651;
+}
+
+/* ==========================================================================
+   Desktop View (>= 900px) - S-Curve Snake Timeline Matching Figma
+   ========================================================================== */
+@media (width >= 900px) {
+  .life-stages-journey.young-professionals{
+    padding: 0;
+  }
+
+  .life-stages-journey-wrapper h2,
+  .life-stages-journey-wrapper h3,
+  .life-stages-journey.young-professionals .lsj-title {
+    font-size: 20px;
+    line-height: 24px;
+
+    /* margin-bottom: clamp(34px, 3.8vw, 44px); */
+    margin-bottom: 27px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .life-stages-journey.young-professionals .lsj-timeline::before,
+  .life-stages-journey.young-professionals .lsj-timeline::after {
+    display: none;
+  }
+
+  /* ------------------------------------------------------------------------
+     Desktop Track Top (Persona + 30 Yrs + 35 Yrs + 60 Yrs)
+     ------------------------------------------------------------------------ */
+  .life-stages-journey.young-professionals .lsj-track-top {
+    display: grid;
+    grid-template-columns: minmax(130px, 155px) repeat(2, minmax(0, 1fr)) 211px;
+    align-items: center;
+    position: relative;
+    min-height: 152px;
+    height: auto;
+
+    /* padding-right: 28px; */
+  }
+
+  /* Red horizontal dashed timeline on Track Top */
+  .life-stages-journey.young-professionals .lsj-track-top::before {
+    content: '';
+    position: absolute;
+    left: 106px;
+    right: 0;
+    top: 80px;
+    height: 0;
+    width: auto;
+    border-left: none;
+    border-top: 1px dashed var(--decorative-red-200, #fd8a99);
+    z-index: 0;
+  }
+
+  /* Persona at column 1 of Track Top on Desktop */
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-persona {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 152px;
+    height: 100%;
+    margin-bottom: 0;
+    position: relative;
+    z-index: -1;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-persona::before,
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-persona::after {
+    display: none;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-persona-media {
+    position: absolute;
+    bottom: 70px;
+    width: 100%;
+    max-width: 78px;
+    max-height: 80px;
+    height: auto;
+    aspect-ratio: 78 / 80;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-persona-media::after {
+    display: none;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-persona-info {
+    position: absolute;
+    top: 97px;
+    left: 4px;
+    right: 4px;
+    max-width: 137px;
+    text-align: center;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-persona-info p {
+    font-size: 12px;
+    line-height: 14px;
+    color: #181D27;
+    margin: 0;
+  }
+
+  /* Milestones on Desktop Track Top */
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-milestone {
+    position: relative;
+    min-height: 152px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    border-bottom: none;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+
+  /* Vertical light gray guide lines */
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-milestone::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-height: 83px;
+    height: 83px;
+    width: 1px;
+    border-radius: 0;
+    background-color: var(--gray-300, #d5d7da);
+    z-index: 1;
+    display: block;
+  }
+
+  /* Gray intersection dot on timeline */
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-milestone::after {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: 80px;
+    transform: translateY(-50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--gray-300);
+    z-index: 2;
+    display: block ;
+  }
+
+  .life-stages-journey.young-professionals .lsj-milestone-marker {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--background-color, #fff);
+    padding: 0 4px;
+    width: auto;
+    z-index: 2;
+  }
+
+  .life-stages-journey.young-professionals .lsj-badge {
+    width: 100%;
+    max-width: 28px;
+    max-height: 28px;
+    height: 28px;
+    aspect-ratio: 1 / 1;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 600;
+    box-shadow: none;
+  }
+
+  .life-stages-journey.young-professionals .lsj-badge-unit {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 300;
+  }
+
+  /* Desktop Top Position (Text Above Line - Milestones 30, 60) */
+  .life-stages-journey.young-professionals .lsj-pos-top .lsj-milestone-content {
+    position: absolute;
+    bottom: calc(100% - 56px);
+
+    /* left: 20px;
+    right: 20px; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  .life-stages-journey.young-professionals .lsj-pos-top .lsj-milestone-content p {
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--gray-900, #181d27);
+    margin: 0;
+  }
+
+  .life-stages-journey.young-professionals .lsj-pos-top .lsj-milestone-content strong {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--gray-900, #181d27);
+  }
+
+  /* Desktop Bottom Position (Text Below Line - Milestone 35) */
+  .life-stages-journey.young-professionals .lsj-pos-bottom .lsj-milestone-content {
+    position: absolute;
+    top: 103px;
+    left: 10px;
+    right: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  .life-stages-journey.young-professionals .lsj-pos-bottom .lsj-milestone-content p {
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--gray-900, #181d27);
+    margin: 0;
+  }
+
+  .life-stages-journey.young-professionals .lsj-pos-bottom .lsj-milestone-content strong {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--gray-900, #181d27);
+  }
+
+  /* ------------------------------------------------------------------------
+     Desktop Connector Turn (90-Degree Corner with Top Overshoot Matching Figma)
+     ------------------------------------------------------------------------ */
+  .life-stages-journey.young-professionals .lsj-connector-turn {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 0;
+    min-height: 112px;
+    max-height: 112px;
+    height: 112px;
+    border-right: 1px dashed var(--decorative-red-200, #fd8a99);
+    border-top: none;
+    border-bottom: none;
+    border-radius: 0;
+    z-index: 0;
+    pointer-events: none;
+    box-sizing: border-box;
+  }
+
+  /* ------------------------------------------------------------------------
+     Desktop Track Bottom (Outcome Card + 74 Yrs)
+     ------------------------------------------------------------------------ */
+  .life-stages-journey.young-professionals .lsj-track-bottom {
+    display: grid;
+    grid-template-columns: minmax(130px, 150px) repeat(3, minmax(0, 1fr));
+    position: relative;
+    min-height: 152px;
+    height: auto;
+    margin-top: 0;
+
+    /* padding-right: 28px; */
+    align-items: start;
+  }
+
+  /* Red horizontal dashed timeline on Track Bottom */
+  .life-stages-journey.young-professionals .lsj-track-bottom::before {
+    content: '';
+    position: absolute;
+    left: calc(150px + 30%);
+    right: 0;
+    top: 20px;
+    height: 0;
+    width: auto;
+    border-left: none;
+    border-top: 1px dashed var(--decorative-red-200, #fd8a99);
+    z-index: 0;
+  }
+
+  /* Milestone 74 on desktop (Column 4, matching Milestone 60) */
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-milestone {
+    grid-column: 4;
+    grid-row: 1;
+    position: relative;
+    min-height: 152px;
+    height: auto;
+    width: 100%;
+    max-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    border-bottom: none;
+    box-sizing: border-box;
+    margin-right: 0;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-milestone::before,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-milestone::after {
+    display: none;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-milestone .lsj-milestone-marker {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--background-color, #fff);
+    padding: 0 4px;
+    width: auto;
+    z-index: 2;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-milestone .lsj-milestone-content {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-milestone .lsj-milestone-content p {
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--gray-900, #181d27);
+  }
+
+  /* Outcome Card on desktop (Columns 2 & 3, matching Milestones 30 & 35) */
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    justify-self: center;
+    width: 100%;
+    max-width: 237px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    z-index: 2;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-media {
+    width: 100%;
+    max-width: 84px;
+    max-height: 84px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: -22px auto -24px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .life-stages-journey.young-professionals .lsj-outcome-cta-icon::after {
+    width: 22px;
+    height: 22px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: var(--info-50, #eff8ff);
+    border: 1px solid #d2e9fa;
+    border-radius: 5px;
+    padding: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    z-index: 2;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-subtitle {
+    font-size: 12px;
+    line-height: 14px;
+    color: #181D27;
+    margin: 0;
+  }
+
+  .life-stages-journey.young-professionals .lsj-outcome-cta-icon{
+    width: 30px;
+    height: 30px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-outcome-cta-label {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-outcome-cta {
+    padding: 3px 4px 3px 18px;
+    gap: 12px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-outcome-cta:hover,
+  .life-stages-journey.young-professionals .lsj-outcome-cta:focus-visible {
+    gap: 18px;
+    transform: translateX(3px);
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-amount,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-text h1,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-text h2,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-text h3,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-text h4,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-text h5,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-text h6 {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+    color: var(--gray-900, #181d27);
+    margin: 0 0 10px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-disclaimer {
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-milestone:nth-child(2) .lsj-milestone-content {
+    max-width: 141px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-milestone:nth-child(3) {
+    max-width: 152px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-milestone:nth-child(3) .lsj-milestone-content {
+    max-width: 133px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-milestone:nth-child(4) .lsj-milestone-content {
+    max-width: 163px;
+  }
+}
+
+/* ==========================================================================
+   Responsive adjustments for medium desktop / 2-column tab layout (900px to 1100px)
+   ========================================================================== */
+@media (width >= 900px) and (width < 1100px) {
+  .life-stages-journey.young-professionals .lsj-track-top,
+  .life-stages-journey.young-professionals .lsj-track-bottom {
+    grid-template-columns: minmax(95px, 115px) repeat(3, minmax(0, 1fr));
+    padding-right: 32px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top::before {
+    left: 55px;
+    right: 16px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom::before {
+    left: 45%;
+    right: 16px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-connector-turn {
+    right: 16px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-persona-media {
+    max-width: 66px;
+    max-height: 68px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-top .lsj-persona-info p {
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-pos-top .lsj-milestone-content p,
+  .life-stages-journey.young-professionals .lsj-pos-bottom .lsj-milestone-content p,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-milestone .lsj-milestone-content p {
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-pos-top .lsj-milestone-content strong,
+  .life-stages-journey.young-professionals .lsj-pos-bottom .lsj-milestone-content strong {
+    font-size: 12px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome {
+    max-width: 210px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-card {
+    padding: 18px 12px 12px;
+  }
+
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-amount,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-text h1,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-text h2,
+  .life-stages-journey.young-professionals .lsj-track-bottom .lsj-outcome-text h3 {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 2px 0 8px;
+  }
+}
+

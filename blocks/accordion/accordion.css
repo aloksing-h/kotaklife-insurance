@@ -1,0 +1,783 @@
+/* Shared base for both accordion variants */
+.accordion.faq-accordion,
+.disclaimer.block {
+  counter-reset: accordion-counter;
+}
+
+.accordion.faq-accordion h3,
+.accordion.block h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.accordion.faq-accordion details,
+.disclaimer.block details {
+  border: none;
+  border-bottom: 1px solid #dadada;
+}
+
+.accordion.faq-accordion details:first-child,
+.disclaimer.block details:first-child {
+  border-top: 1px solid #dadada;
+}
+
+.accordion.faq-accordion details:last-child,
+.disclaimer.block details:last-child {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   Show More / Show Less Functionality (Figma 6068:23500 & 6068:24382)
+   ========================================================================== */
+
+/* Hidden accordion items beyond threshold */
+.accordion.block>div.faq-hidden {
+  display: none;
+}
+
+/* Control button visibility toggle */
+.faq-show-more-wrapper .faq-ctrl-hidden {
+  display: none;
+}
+
+/* Show More / Show Less container */
+.faq-show-more-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 20px auto 0;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.faq-show-more-wrapper p {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Show More & Show Less button links (Tertiary - Black Pill Button from Figma) */
+.faq-show-more-wrapper a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid transparent;
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--gray-900, #181d27);
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (width >=900px) {
+  .faq-show-more-wrapper {
+    margin-top: 32px;
+  }
+
+  .faq-show-more-wrapper a {
+    height: 40px;
+    padding: 0 20px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .faq-show-more-wrapper a .icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+  }
+}
+
+.faq-show-more-wrapper a:hover {
+  background-color: var(--gray-100, #f5f5f5);
+  color: var(--gray-900, #181d27);
+}
+
+/* Button icons */
+.faq-show-more-wrapper a .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.faq-show-more-wrapper a .icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Opacity of Show Less icon (clear circle) - 0.5 */
+.faq-show-more-wrapper a[title="Show Less"] .icon,
+.faq-show-more-wrapper .faq-show-less-btn a .icon {
+  opacity: 0.5;
+}
+
+.accordion.faq-accordion details p,
+.disclaimer.block details p {
+  text-align: justify;
+  margin-bottom: 0.8em;
+}
+
+.accordion.faq-accordion details summary,
+.disclaimer.block details summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 0.2s;
+}
+
+.accordion.faq-accordion details summary p,
+.disclaimer.block details summary p {
+  margin: 0;
+}
+
+.accordion.faq-accordion details summary::-webkit-details-marker,
+.disclaimer.block details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.faq-accordion details summary::marker,
+.disclaimer.block details summary::marker {
+  content: '';
+}
+
+.accordion.faq-accordion details summary::after,
+.disclaimer.block details summary::after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+  transition: transform 0.2s;
+  width: auto;
+  height: auto;
+  border: none;
+}
+
+.accordion.faq-accordion details .accordion-item-body,
+.disclaimer.block details .accordion-item-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.accordion.faq-accordion details .accordion-item-body-content,
+.disclaimer.block details .accordion-item-body-content {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Disclaimer variant */
+.disclaimer.block details summary {
+  padding: 16px 34px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: .32px;
+  text-transform: capitalize;
+  background-color: #036;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.disclaimer.block .accordion-item-number {
+  display: none;
+}
+
+.disclaimer.block details summary::after {
+  color: #fff;
+}
+
+.accordion.faq-accordion details summary::after {
+  color: #e31837;
+}
+
+.disclaimer.block details[open] summary::after {
+  content: '\2212';
+  transform: translateY(-50%);
+}
+
+.disclaimer.block details .accordion-item-body {
+  padding: 0;
+}
+
+.accordion.faq-accordion details .accordion-item-body {
+  padding: 0 0 0 40px;
+  transition: grid-template-rows 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.disclaimer.block details[open] .accordion-item-body {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding: 0;
+  border-top: none;
+  background-color: transparent;
+}
+
+.disclaimer.block details.closing .accordion-item-body {
+  grid-template-rows: 0fr;
+  opacity: 0;
+  padding: 0;
+}
+
+/* faq-accordion variant */
+.accordion.faq-accordion details summary {
+  padding: 10px 46px 10px 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.accordion.faq-accordion details summary:focus,
+.accordion.faq-accordion details summary:hover {
+  background-color: var(--light-color, #f5f5f5);
+}
+
+.accordion.faq-accordion .accordion-item-number {
+  font-weight: 700;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+
+.accordion.faq-accordion details[open] summary::after {
+  content: '\2212';
+  transform: translateY(-50%);
+}
+
+
+.accordion.faq-accordion details[open] .accordion-item-body {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding: 0 0 16px 40px;
+  border-top: none;
+  background-color: transparent;
+}
+
+.accordion.faq-accordion details.closing .accordion-item-body {
+  grid-template-rows: 0fr;
+  opacity: 0;
+  padding: 0 0 0 40px;
+}
+
+/* ==========================================================================
+   FAQ V2 Variant (Figma Design 5401:9683 & 5401:9932)
+   ========================================================================== */
+
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+.section:has(.faq-v2)>.default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) {
+  margin-bottom: 30px;
+}
+
+.section:has(.faq-v2)>.default-content-wrapper h1,
+.section:has(.faq-v2)>.default-content-wrapper h2,
+.section:has(.faq-v2)>.default-content-wrapper h3,
+.section:has(.faq-v2)>.default-content-wrapper h4 {
+  font-family: var(--heading-font-family, 'Manrope', sans-serif);
+  font-size: var(--heading-3-font-size, 32px);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--heading-3-line-height, 36px);
+  letter-spacing: var(--heading-3-letter-spacing, -0.02em);
+  color: var(--gray-900, #181d27);
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+.section:has(.faq-v2)>.default-content-wrapper p {
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+  font-size: var(--body-2-font-size, 14px);
+  font-weight: var(--font-weight-medium, 500);
+  line-height: var(--body-2-line-height, 18px);
+  color: var(--gray-600, #535862);
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.section:has(.faq-v2)>.default-content-wrapper h1:has(strong),
+.section:has(.faq-v2)>.default-content-wrapper h2:has(strong),
+.section:has(.faq-v2)>.default-content-wrapper h3:has(strong),
+.section:has(.faq-v2)>.default-content-wrapper h4:has(strong) {
+  font-weight: var(--font-weight-light, 300);
+}
+
+.section:has(.faq-v2)>.default-content-wrapper h1 strong,
+.section:has(.faq-v2)>.default-content-wrapper h2 strong,
+.section:has(.faq-v2)>.default-content-wrapper h3 strong,
+.section:has(.faq-v2)>.default-content-wrapper h4 strong {
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+/* Accordion block layout */
+
+/* main>.section.accordion-container {
+  margin-top: 120px;
+} */
+
+.accordion.block.faq-v2,
+.tab-list.accordion-container .accordion.block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.accordion.block.faq-v2>div,
+.tab-list.accordion-container .accordion.block>div {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Accordion item details card */
+.accordion.block.faq-v2 details {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--brand-blue-50, #d2dae4);
+  padding: 16px;
+  border-radius: 4px;
+  transition: border-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion.block.faq-v2 details::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(181deg, #FFF 68.45%, #9CC7FF 269.19%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion.block.faq-v2 details.is-open {
+  border-color: var(--brand-blue-50, #d2dae4);
+  z-index: 2;
+}
+
+.accordion.block.faq-v2 details.is-open::before {
+  opacity: 1;
+}
+
+.accordion.block.faq-v2.product-disclaimer details {
+  border: 1px solid #D2DAE4;
+  background: linear-gradient(180deg, #fff 69%, #b2ddff 270%);
+
+}
+
+/* Hide bottom border of upper accordion when next accordion is open to prevent 2px double border */
+.accordion.block.faq-v2>div:has(+ div > details.is-open) details {
+  border-bottom-color: transparent;
+}
+
+/* Summary element */
+.accordion.block.faq-v2 details summary {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--gray-900, #181d27);
+  text-align: left;
+}
+
+.accordion.block.faq-v2 details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.block.faq-v2 details summary::marker {
+  content: '';
+}
+
+.accordion.block.faq-v2 .accordion-item-number {
+  display: none;
+}
+
+/* Question text row */
+.accordion.block.faq-v2 details summary p,
+.accordion.block.faq-v2 details summary h1,
+.accordion.block.faq-v2 details summary h2,
+.accordion.block.faq-v2 details summary h3,
+.accordion.block.faq-v2 details summary h4,
+.accordion.block.faq-v2 details summary h5,
+.accordion.block.faq-v2 details summary h6 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+}
+
+/* Icon container wrapper */
+.accordion.block.faq-v2 .accordion-item-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  flex-shrink: 0;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+.accordion.block.faq-v2.product-disclaimer .accordion-item-icon-wrapper{
+  width: 32px;
+  height: 32px;
+}
+
+/* .accordion.block.faq-v2.product-disclaimer .accordion-item-icon-wrapper {
+  width: 32px;
+  height: 32px;
+} */
+
+.accordion.block.faq-v2 .accordion-item-icon-wrapper .icon {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border-radius: 999px;
+  box-sizing: border-box;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion.block.faq-v2.product-disclaimer .accordion-item-icon-wrapper .icon {
+  width: 32px;
+  height: 32px;
+}
+
+.accordion.block.faq-v2 .accordion-item-icon-wrapper .icon img {
+  width: 16px;
+  height: 16px;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.accordion.block.faq-v2.product-disclaimer .accordion-item-icon-wrapper .icon img {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* Icon toggling & smooth rotation animation */
+.accordion.block.faq-v2 details:not(.is-open) .accordion-item-icon-wrapper .icon.icon-plus {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  pointer-events: auto;
+}
+
+.accordion.block.faq-v2 details:not(.is-open) .accordion-item-icon-wrapper .icon.icon-minus {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+  pointer-events: none;
+}
+
+.accordion.block.faq-v2 details.is-open .accordion-item-icon-wrapper .icon.icon-plus {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+  pointer-events: none;
+}
+
+.accordion.block.faq-v2 details.is-open .accordion-item-icon-wrapper .icon.icon-minus {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  pointer-events: auto;
+}
+
+/* Body container and smooth CSS Grid height transition */
+.accordion.block.faq-v2 details .accordion-item-body {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: grid-template-rows 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.28s;
+}
+
+.accordion.block.faq-v2 details.is-open .accordion-item-body {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+
+}
+
+
+.accordion.block.faq-v2 details .accordion-item-body-content {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--gray-700, #414651);
+  margin: 0;
+  text-align: left;
+}
+
+.accordion.block.faq-v2 details .accordion-item-body-content p {
+  font-size: 14px;
+  line-height: 18px;
+  color: inherit;
+  margin: 0;
+  text-align: inherit;
+}
+
+.accordion.block.faq-v2 details .accordion-item-body-content p+p {
+  margin-top: 8px;
+}
+
+.section:has(.blog-faq) > .default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h1,
+.section:has(.blog-faq) > .default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h2,
+.section:has(.blog-faq) > .default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h3,
+.section:has(.blog-faq) > .default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h4 {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+}
+
+/* product-disclaimer summary styles */
+.accordion.block.faq-v2.product-disclaimer details summary p,
+.accordion.block.faq-v2.product-disclaimer details summary h1,
+.accordion.block.faq-v2.product-disclaimer details summary h2,
+.accordion.block.faq-v2.product-disclaimer details summary h3,
+.accordion.block.faq-v2.product-disclaimer details summary h4,
+.accordion.block.faq-v2.product-disclaimer details summary h5,
+.accordion.block.faq-v2.product-disclaimer details summary h6 {
+  color: var(--text-text-primary, #181D27);
+
+  /* Body 1/Semibold */
+  font-family: var(--font-family-font-family-body, Manrope);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--line-height-sub-heading-1, 20px);
+}
+
+.accordion.block.faq-v2 details .accordion-item-body-content p:first-child {
+  margin-top: 12px;
+}
+
+.accordion.block.faq-v2 details .accordion-item-body-content a {
+  color: var(--text-text-info, #1570EF);
+  text-decoration: underline;
+}
+
+.accordion.block.faq-v2 details .accordion-item-body-content ul {
+  font-size: 14px;
+  line-height: 18px;
+  padding-left: 20px;
+  margin: 12px 0;
+}
+
+.accordion.block.faq-v2.product-disclaimer details .accordion-item-body-content strong {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 18px;
+  color: var(--text-text-secondary, #414651);
+}
+
+.accordion.block.faq-v2.product-disclaimer details .accordion-item-body-content p:first-child,
+.accordion.block.faq-v2.product-disclaimer details .accordion-item-body-content p:first-of-type {
+  margin-bottom: 12px;
+}
+
+.accordion.block.faq-v2.product-disclaimer details .accordion-item-body-content p:first-child strong,
+.accordion.block.faq-v2.product-disclaimer details .accordion-item-body-content p:first-of-type strong {
+  font-weight: 600;
+  color: var(--text-primary, #181D27);
+  font-size: var(--body-1-font-size, 16px);
+  line-height: var(--line-height-sub-heading-2, 20px);
+}
+
+.insurance-tab-title.section .default-content-wrapper #frequently-asked-questions {
+  text-align: left;
+}
+
+/* Desktop styles (width >= 900px) */
+@media (width >=900px) {
+  .insurance-tab-title.section .default-content-wrapper #frequently-asked-questions {
+    text-align: center;
+  }
+
+  .section:has(.faq-v2)>.default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin: 0 auto 50px;
+  }
+
+  .section:has(.faq-v2)>.default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h1,
+  .section:has(.faq-v2)>.default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h2,
+  .section:has(.faq-v2)>.default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h3,
+  .section:has(.faq-v2)>.default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h4 {
+    font-size: 48px;
+    line-height: 60px;
+    letter-spacing: normal;
+    max-width: 633px;
+  }
+
+  .section:has(.faq-v2)>.default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) p {
+    font-size: var(--body-1-font-size, 16px);
+    line-height: var(--body-1-line-height, 20px);
+    max-width: 353px;
+    text-align: right;
+  }
+
+  .accordion.block.faq-v2,
+  .tab-list.accordion-container .accordion.block {
+    gap: 8px;
+    margin-top: 40px;
+  }
+
+  .accordion.block.faq-v2 details summary {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .accordion.block.faq-v2 .accordion-item-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+  }
+
+  .accordion.block.faq-v2 .accordion-item-icon-wrapper .icon img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .accordion.block.faq-v2 details .accordion-item-body-content {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .accordion.block.faq-v2 details.is-open .accordion-item-body {
+    padding-top: 12px;
+  }
+
+
+  .accordion.block.faq-v2 details .accordion-item-body-content p {
+    color: var(--text-text-secondary, #414651);
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-2, 14px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: var(--line-height-body-1, 18px);
+  }
+
+  .accordion.block.faq-v2.product-disclaimer details summary p {
+    color: var(--text-text-primary, #181D27);
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-1, 16px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-sub-heading-2, 20px);
+  }
+
+  .section:has(.blog-faq) > .default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) {
+    display: block;
+    margin: 0 0 24px;
+  }
+
+  .section:has(.blog-faq) > .default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h1,
+  .section:has(.blog-faq) > .default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h2,
+  .section:has(.blog-faq) > .default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h3,
+  .section:has(.blog-faq) > .default-content-wrapper:not(.faq-show-more-wrapper, :has(a[title*="Show"])) h4 {
+    font-size: 20px;
+    line-height: 24px;
+    max-width: 100%;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .section:has(.blog-faq) .accordion.block.faq-v2 {
+    margin-top: 0;
+  }
+
+  .accordion.block.faq-v2 details .accordion-item-body-content p:first-child {
+    margin-top: 0;
+  }
+
+  .accordion.block.faq-v2 details .accordion-item-body-content p strong {
+    font-weight: 800;
+  }
+}

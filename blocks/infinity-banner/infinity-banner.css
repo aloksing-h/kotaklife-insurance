@@ -1,0 +1,416 @@
+/* ==========================================================================
+   Infinity Banner (Rajiv Rao): heading, text, product card and button on the
+   left, the person on the right with the slogan bubble (Figma: desktop
+   1200 x 550, mobile 360 x 592). It sits in a section of its own; after an
+   infinity-intro it takes the intro's place at the hand-off and hosts the
+   intro video in its infinity. The block is one stacking context, layers in
+   one grid cell: shade 1, infinity video 2, copy and person 5, front ribbon
+   strands 6-7, arm 8, slogan 9.
+   ========================================================================== */
+
+/* full bleed: the section and its wrapper add no margins or padding */
+main>.section.infinity-banner-container {
+  margin: 0;
+  padding: 0;
+}
+
+main>.section.infinity-banner-container>.infinity-banner-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+.infinity-banner {
+  display: grid;
+  grid-template: 'stage' auto / 100%;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--base-white, #fff);
+  font-family: var(--body-font-family);
+  color: #121212;
+}
+
+/* also works inside the intro's own section (older pages): the block box
+   steps aside and its layers join the intro's stage cell */
+main>.section.infinity-intro-container .infinity-banner {
+  display: contents;
+}
+
+.infinity-banner .infinity-banner-art,
+.infinity-banner .infinity-banner-content {
+  grid-area: stage;
+}
+
+/* background shade */
+.infinity-banner .infinity-banner-art {
+  z-index: 1;
+  background: linear-gradient(180deg, #eff8ff 0%, rgb(236 244 255 / 0%) 90%);
+  pointer-events: none;
+}
+
+/* layout (no stacking context of its own: the copy and the figure layers
+   take part in the block's order) */
+.infinity-banner .infinity-banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 40px 16px 0;
+}
+
+@media (350px <= width <= 400px){
+  .infinity-banner .infinity-banner-content {
+    padding: 35px 8px 0;
+  }
+}
+
+.infinity-banner .infinity-banner-copy {
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  will-change: opacity, transform;
+}
+
+.infinity-banner .infinity-banner-copy>* {
+  margin: 0;
+}
+
+.infinity-banner .infinity-banner-title {
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 36px;
+  letter-spacing: 0;
+  color: #181D27;
+}
+
+.infinity-banner .infinity-banner-title:focus {
+  outline: none;
+}
+
+.infinity-banner .infinity-banner-title strong {
+  font-weight: 600;
+  letter-spacing: -0.64px;
+}
+
+.infinity-banner .infinity-banner-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #535862;
+}
+
+.infinity-banner .infinity-banner-offer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* product card: brand on a soft strip, price on the right */
+.infinity-banner .infinity-banner-card {
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  min-height: 64px;
+  overflow: hidden;
+  border: 0.76px solid #e9eaeb;
+  border-radius: 10.67px;
+  background: linear-gradient(90deg, #fff 0%, #eff8ff 100%);
+  fill: linear-gradient(90deg, var(--foreground-fg-white, #FFF) 0%, var(--decorative-blue-decorative-blue-50, #EFF8FF) 100%);
+  stroke-width: 0.762px;
+  stroke: var(--border-border-secondary, #E9EAEB);
+}
+
+.infinity-banner .infinity-banner-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  box-sizing: border-box;
+  width: 97px;
+  padding: 12px 0 13px 12px;
+  background: linear-gradient(180deg, #fff 0%, #eff8ff 50%, #fff 100%);
+}
+
+.infinity-banner .infinity-banner-logo img {
+  display: block;
+  width: auto;
+  height: 7px;
+}
+
+.infinity-banner .infinity-banner-brand-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 12px;
+}
+
+.infinity-banner .infinity-banner-brand-text span:first-child {
+  color: var(--red-brand-500, #E11F1E);
+}
+
+.infinity-banner .infinity-banner-brand-text span:not(:first-child) {
+  color: var(--brand-blue, #1E4679);
+}
+
+.infinity-banner .infinity-banner-divider {
+  display: none;
+}
+
+.infinity-banner .infinity-banner-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 16px 11px 14px;
+}
+
+.infinity-banner .infinity-banner-price p {
+  margin: 0;
+}
+
+.infinity-banner .infinity-banner-amount {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #121212;
+}
+
+.infinity-banner .infinity-banner-note {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12px;
+  letter-spacing: -0.21px;
+  color: #121212;
+}
+
+.infinity-banner .infinity-banner-note strong {
+  font-weight: 800;
+}
+
+/* button */
+.infinity-banner .infinity-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  height: 38px;
+  padding: 0 4px 0 20px;
+  border-radius: 999px;
+  background: #e1122d;
+  color: var(--base-white, #fff);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 16px;
+  text-decoration: none;
+  transition: gap 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.infinity-banner .infinity-banner-cta:hover,
+.infinity-banner .infinity-banner-cta:focus-visible {
+  gap: 20px;
+}
+
+.infinity-banner .infinity-banner-cta:focus-visible {
+  outline: 2px solid #1e4679;
+  outline-offset: 2px;
+}
+
+.infinity-banner .infinity-banner-cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background-color: var(--base-white, #fff);
+  color: #181d27;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.infinity-banner .infinity-banner-cta:hover .infinity-banner-cta-icon,
+.infinity-banner .infinity-banner-cta:focus-visible .infinity-banner-cta-icon {
+  background-color: var(--base-black, #000);
+  color: var(--base-white, #fff);
+}
+
+/* person: the figure is the person image (648 x 804); person, arm and slogan
+   stack in its grid cell. Mobile (Figma): 64% of the width, centred */
+.infinity-banner .infinity-banner-figure {
+  display: grid;
+  align-self: center;
+  width: clamp(220px, 64vw, 360px);
+  aspect-ratio: 648 / 804;
+}
+
+.infinity-banner .infinity-banner-person,
+.infinity-banner .infinity-banner-arm,
+.infinity-banner .infinity-banner-slogan {
+  grid-area: 1 / 1;
+  min-width: 0;
+  min-height: 0;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.infinity-banner .infinity-banner-person {
+  z-index: 5;
+}
+
+/* the arm is cut from the same image, so it lines up with the person */
+.infinity-banner .infinity-banner-arm {
+  z-index: 8;
+}
+
+.infinity-banner .infinity-banner-person picture,
+.infinity-banner .infinity-banner-arm picture {
+  display: contents;
+}
+
+.infinity-banner .infinity-banner-person img,
+.infinity-banner .infinity-banner-arm img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+/* slogan bubble: top right, its right edge 17% beyond the image (Figma) */
+.infinity-banner .infinity-banner-slogan {
+  z-index: 9;
+  place-self: start end;
+  width: 33%;
+  margin: 7.4% -17% 0 0;
+}
+
+.infinity-banner .infinity-banner-slogan img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* tablet: the mobile layout, roomier */
+@media (width >=600px) {
+  .infinity-banner .infinity-banner-content {
+    gap: 16px;
+    padding: 48px 32px 0;
+  }
+
+  .infinity-banner .infinity-banner-title {
+    font-size: 44px;
+    line-height: 52px;
+  }
+
+  .infinity-banner .infinity-banner-text {
+    max-width: 520px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+/* desktop (Figma 1200 x 550): copy 447 px wide 50 px from the left, the
+   person 535 px tall at the bottom, its right edge 151 px from the right */
+@media (width >=900px) {
+  .infinity-banner .infinity-banner-art {
+    background: linear-gradient(90deg, #eff8ff 0%, rgb(236 244 255 / 0%) max(44.7%, calc(50% - 64px)));
+  }
+
+  .infinity-banner .infinity-banner-content {
+    display: grid;
+    grid-template-columns: minmax(0, 447px) auto;
+    gap: 0;
+    height: 550px;
+    padding: 0 0 0 50px;
+  }
+
+  .infinity-banner .infinity-banner-copy {
+    align-self: center;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .infinity-banner .infinity-banner-title {
+    font-size: clamp(42px, 4.34vw, 52px);
+    line-height: 1.154;
+  }
+
+  .infinity-banner .infinity-banner-offer {
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .infinity-banner .infinity-banner-card {
+    min-height: 84px;
+    border: 0;
+    border-radius: 14px;
+  }
+
+  .infinity-banner .infinity-banner-brand {
+    gap: 7px;
+    width: 127px;
+    padding: 12px 0 12px 16px;
+  }
+
+  .infinity-banner .infinity-banner-logo img {
+    height: 9px;
+  }
+
+  .infinity-banner .infinity-banner-brand-text {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .infinity-banner .infinity-banner-price {
+    padding: 12px 24px 12px 16px;
+  }
+
+  .infinity-banner .infinity-banner-amount {
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -0.64px;
+  }
+
+  .infinity-banner .infinity-banner-note {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+  }
+
+  .infinity-banner .infinity-banner-cta {
+    height: 40px;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 800;
+  }
+
+  .infinity-banner .infinity-banner-cta-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .infinity-banner .infinity-banner-figure {
+    place-self: end end;
+    width: auto;
+    height: 535px;
+    margin-right: min(151px, 12.6vw);
+  }
+
+  .infinity-banner .infinity-banner-slogan {
+    width: 28%;
+    margin-top: 10.4%;
+  }
+}
+
+/* hidden until the infinity-intro transition reveals them */
+main>.section.infinity-intro-staged .infinity-banner .infinity-banner-art,
+main>.section.infinity-intro-staged .infinity-banner .infinity-banner-copy,
+main>.section.infinity-intro-staged .infinity-banner .infinity-banner-person,
+main>.section.infinity-intro-staged .infinity-banner .infinity-banner-arm,
+main>.section.infinity-intro-staged .infinity-banner .infinity-banner-slogan {
+  opacity: 0;
+}

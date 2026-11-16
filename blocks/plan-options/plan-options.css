@@ -1,0 +1,279 @@
+/* ==========================================================================
+   Plan Options: heading + CTA beside product cards with benefit checklists.
+   Mobile first (stacked, 2-column cards), desktop >= 900px (side by side).
+   Card paddings match Figma (content sits padding + 1px border from the edge).
+   ========================================================================== */
+
+.plan-options {
+  --po-cards-gap: var(--spacing-md);
+  --po-card-height: 232px;
+  --po-card-pad: var(--spacing-md);
+  --po-card-gap: var(--spacing-lg);
+  --po-list-width: 136px;
+  --po-icon: 24px;
+  --po-head-gap: var(--spacing-xs);
+  --po-title-size: var(--body-1-font-size);
+  --po-title-line: var(--body-1-line-height);
+  --po-item-size: 0.75rem;
+  --po-item-line: 0.875rem;
+  --po-cta-height: 38px;
+  --po-cta-size: var(--button-2-font-size);
+  --po-cta-line: var(--button-2-line-height);
+  --po-cta-icon: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-family: var(--font-family-manrope);
+}
+
+/* card icon (declared early: lower specificity than the CTA icon rule) */
+.plan-options .plan-options-icon,
+.plan-options .plan-options-icon img {
+  display: block;
+  width: var(--po-icon);
+  height: var(--po-icon);
+}
+
+/* header */
+.plan-options .plan-options-header :is(h1, h2, h3) {
+  margin: 0 0 var(--spacing-md);
+  font-family: var(--font-family-manrope);
+  font-size: var(--heading-3-font-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--heading-3-line-height);
+  color: var(--gray-900);
+}
+
+.plan-options .plan-options-header :is(h1, h2, h3) strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.plan-options .plan-options-header p {
+  margin: 0;
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-600);
+}
+
+.plan-options .plan-options-header .plan-options-cta-wrapper {
+  margin-top: var(--spacing-2xl);
+}
+
+.plan-options .plan-options-cta,
+.plan-options .plan-options-cta:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  height: var(--po-cta-height);
+  padding: 3px 4px 3px 20px;
+  border-radius: var(--radius-full);
+  background-color: var(--brand-red-600, #e31837);
+  color: var(--base-white);
+  font-size: var(--po-cta-size);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--po-cta-line);
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  transition: gap 0.25s ease, transform 0.25s ease;
+}
+
+.plan-options .plan-options-cta:hover {
+  gap: 18px;
+}
+
+.plan-options .plan-options-cta:focus-visible {
+  outline: var(--spacing-xxs) solid var(--navy-blue-500);
+  outline-offset: var(--spacing-xxs);
+}
+
+.plan-options .plan-options-cta .icon {
+  background-color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.plan-options .plan-options-cta:hover .icon {
+  background-color: #000;
+}
+
+.plan-options .plan-options-cta .icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: filter 0.2s ease-in-out;
+}
+
+.plan-options .plan-options-cta:hover .icon img {
+  filter: invert(1);
+}
+
+/* cards */
+.plan-options .plan-options-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--po-cards-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-options .plan-options-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--po-card-gap);
+  box-sizing: border-box;
+  min-height: var(--po-card-height);
+  margin: 0;
+  padding: var(--po-card-pad);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, var(--base-white) 0%, var(--blue-50) 100%);
+}
+
+.plan-options .plan-options-card:nth-child(even) {
+  background: linear-gradient(180deg, var(--base-white) 0%, var(--red-25) 100%);
+}
+
+.plan-options .plan-options-badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-end;
+  box-sizing: border-box;
+  height: 24px;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full, 999px);
+  border: 1px solid var(--border-border-brand-blue, #1E4679);
+  background: linear-gradient(92deg, var(--decorative-colors-deco-five-deco-four-e, #8EBBFF) -54.86%, var(--foreground-fg-white, #FFF) 40.44%, var(--foreground-fg-white, #FFF) 135.74%);
+  color: var(--gray-700);
+  font-size: var(--po-item-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--po-item-line);
+  white-space: nowrap;
+}
+
+.plan-options .plan-options-card-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--po-head-gap);
+}
+
+/* badge sits in the flow on mobile, so the card body starts below it */
+.plan-options .plan-options-badge+.plan-options-card-head {
+  margin-top: calc(-1 * var(--po-card-gap));
+}
+
+.plan-options .plan-options-title {
+  margin: 0;
+  font-family: var(--font-family-manrope);
+  font-size: var(--po-title-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--po-title-line);
+  letter-spacing: 0;
+  color: var(--gray-900);
+}
+
+.plan-options .plan-options-list {
+  display: flex;
+  max-width: var(--po-list-width);
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-options .plan-options-list li {
+  position: relative;
+  margin: 0;
+  padding-left: var(--spacing-3xl);
+  font-size: var(--po-item-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--po-item-line);
+  color: var(--gray-700);
+}
+
+.plan-options .plan-options-list li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--spacing-xl);
+  height: var(--spacing-xl);
+  background: url('../../icons/check-circle-red.svg') no-repeat center / contain;
+}
+
+@media (width >=900px) {
+  .plan-options {
+    --po-cards-gap: var(--spacing-2xl);
+    --po-card-height: 236px;
+    --po-card-pad: var(--spacing-xl);
+    --po-card-gap: var(--spacing-3xl);
+    --po-list-width: 100%;
+    --po-icon: var(--spacing-5xl);
+    --po-head-gap: 0px;
+    --po-title-size: var(--sub-heading-1-font-size);
+    --po-title-line: var(--sub-heading-1-line-height);
+    --po-item-size: var(--body-2-font-size);
+    --po-item-line: var(--body-2-line-height);
+    --po-cta-height: 40px;
+    --po-cta-size: var(--button-1-font-size);
+    --po-cta-line: var(--button-1-line-height);
+    --po-cta-icon: var(--spacing-4xl);
+
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-2xl);
+  }
+
+  .plan-options .plan-options-header {
+    flex: 0 1 358px;
+  }
+
+  .plan-options .plan-options-header :is(h1, h2, h3) {
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+  }
+
+  .plan-options .plan-options-cta {
+    padding: 3px 4px 3px 24px;
+    gap: 12px;
+  }
+
+  .plan-options .plan-options-cta:hover {
+    gap: 20px;
+  }
+
+  .plan-options .plan-options-cta .icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .plan-options .plan-options-cards {
+    flex: 0 1 540px;
+  }
+
+  /* on desktop the badge floats top right so both cards keep the same layout */
+  .plan-options .plan-options-badge {
+    position: absolute;
+    top: var(--spacing-xl);
+    right: var(--spacing-xl);
+  }
+
+  .plan-options .plan-options-badge+.plan-options-card-head {
+    margin-top: 0;
+  }
+}

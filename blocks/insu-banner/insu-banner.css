@@ -1,0 +1,593 @@
+/* stylelint-disable media-feature-range-notation */
+
+/* Insu Banner: Figma 9142:10325 (mobile 360) / 9142:10018 (desktop 1200) */
+
+main > .section.insu-banner-container {
+  position: relative;
+  max-width: 100%;
+  margin: -96px 0 30px;
+  padding: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 385px 376px at -44px 81px, #d1e9ff 0%, rgb(209 233 255 / 60%) 45%, rgb(209 233 255 / 0%) 100%),
+    radial-gradient(ellipse 381px 130px at calc(50% + 306px) 157px, rgb(209 233 255 / 85%) 0%, rgb(209 233 255 / 0%) 100%),
+    linear-gradient(180deg, rgb(255 255 255 / 0%) 60%, #fff 100%),
+    #fff;
+}
+
+main > .section.insu-banner-container > .insu-banner-wrapper {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.insu-banner {
+  font-family: var(--body-font-family, manrope, sans-serif);
+  color: #181d27;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.insu-banner .insu-banner-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.insu-banner .insu-banner-hero {
+  min-height: 439px;
+  padding: 118px 16px 28px;
+}
+
+/* text: above the art and the breadcrumb, so the share popover can overlap them */
+.insu-banner .insu-banner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 633px;
+}
+
+.insu-banner .insu-banner-title {
+  margin: 0;
+  font-family: var(--heading-font-family, manrope, sans-serif);
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 36px;
+  letter-spacing: -0.64px;
+  color: #181d27;
+}
+
+.insu-banner .insu-banner-title strong,
+.insu-banner .insu-banner-title b {
+  font-weight: 600;
+}
+
+.insu-banner .insu-banner-description {
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #535862;
+}
+
+/* CTA */
+.insu-banner .insu-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 38px;
+  margin-top: 20px;
+  padding: 0 5px 0 20px;
+  border-radius: 999px;
+  background: #e1122d;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, gap 0.2s ease;
+}
+
+.insu-banner .insu-banner-cta:hover,
+.insu-banner .insu-banner-cta:focus-visible {
+  gap: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.insu-banner .insu-banner-cta:focus-visible {
+  outline: 2px solid #181d27;
+  outline-offset: 2px;
+}
+
+.insu-banner .insu-banner-cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  color: #181d27;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.insu-banner .insu-banner-cta-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.insu-banner .insu-banner-cta:hover .insu-banner-cta-icon,
+.insu-banner .insu-banner-cta:focus-visible .insu-banner-cta-icon {
+  background-color: var(--base-black, #000);
+  color: var(--base-white, #fff);
+}
+
+/* read time, views, share */
+.insu-banner .insu-banner-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 24px;
+  flex-wrap: wrap;
+  max-width: calc(100% - 135px);
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.insu-banner .insu-banner-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #535862;
+  white-space: nowrap;
+}
+
+.insu-banner .insu-banner-meta-item::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  flex: none;
+  background: linear-gradient(7.21deg, #e1122d -43.93%, #e1122d 34.03%, #7f2224 88.98%);
+}
+
+.insu-banner .insu-banner-read-time::before {
+  mask: url('../../icons/calendar-fm.svg') center / contain no-repeat;
+}
+
+.insu-banner .insu-banner-views::before {
+  mask: url('../../icons/eye-img.svg') center / contain no-repeat;
+}
+
+.insu-banner .insu-banner-meta-item svg {
+  display: none;
+}
+
+.insu-banner .insu-banner-meta-share {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+
+/* divider between the counts and the share button: hidden on mobile, shown on tablet/desktop */
+.insu-banner .insu-banner-meta-item + .insu-banner-meta-share::before {
+  content: '';
+  width: 1px;
+  height: 16px;
+  background: #d5d7da;
+}
+
+.insu-banner .insu-banner-share {
+  position: relative;
+}
+
+.insu-banner .insu-banner-share-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #fa1432;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.insu-banner .insu-banner-share-toggle svg {
+  width: 15px;
+  height: 15px;
+}
+
+.insu-banner .insu-banner-share-toggle[aria-expanded='true'],
+.insu-banner .insu-banner-share-toggle:hover {
+  background: #000;
+  color: #fff;
+}
+
+.insu-banner .insu-banner-share-toggle:focus-visible {
+  outline: 2px solid #181d27;
+  outline-offset: 2px;
+}
+
+.insu-banner .insu-banner-share-panel {
+  position: absolute;
+
+  /* top: calc(100% + 8px); */
+  top: calc(100% + 14px);
+
+  /* left: 50%; */
+  left: -12px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  /* padding: 8px 16px; */
+  padding: 5px 16px;
+  border-radius: 8px;
+  background: #fff;
+  outline: 1px solid var(--border-border-tertiary, #F5F5F5);
+
+  /* box-shadow: 0 4px 16px rgb(24 29 39 / 12%); */
+  filter: drop-shadow(0 1px 2px rgb(10 13 18 / 6%)) drop-shadow(0 1px 3px rgb(10 13 18 / 10%));
+
+  /* transform: translateX(calc(-50% + var(--panel-shift, 0px))); */
+  transform: unset;
+}
+
+/* tip connecting the popover to the share toggle above it */
+.insu-banner .insu-banner-share-panel::before {
+  content: '';
+  position: absolute;
+
+  /* top: -5px; */
+  top: -12px;
+  
+  /* left: 50%;
+  width: 14px;
+  height: 14px; */
+  left: 11px;
+  width: 29px;
+  height: 16px;
+  border-radius: 3px;
+  background: #fff;
+
+  /* transform: translateX(calc(-50% - var(--panel-shift, 0px))) rotate(45deg); */
+  background: url('../../icons/polygon-border.svg') center / 17px 8px no-repeat;
+}
+
+.insu-banner .insu-banner-share-panel[hidden] {
+  display: none;
+}
+
+.insu-banner .insu-banner-share-option {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  
+  /* width: 24px;
+  height: 24px; */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: #181d27;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.insu-banner .insu-banner-share-option > svg {
+  display: block;
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.insu-banner .insu-banner-share-option > .insu-banner-share-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.insu-banner .insu-banner-share-option:hover,
+.insu-banner .insu-banner-share-option:focus-visible {
+  color: #e1122d;
+}
+
+.insu-banner .insu-banner-share-option:focus-visible {
+  outline: 2px solid #181d27;
+  outline-offset: 2px;
+}
+
+.insu-banner .insu-banner-share-status {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #181d27;
+  color: #fff;
+  font-size: 12px;
+  line-height: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.insu-banner .insu-banner-share-panel.is-copied .insu-banner-share-status {
+  opacity: 1;
+}
+
+/* illustration, anchored to the bottom right */
+.insu-banner .insu-banner-visual {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 135px;
+  height: 169px;
+  pointer-events: none;
+}
+
+.insu-banner .insu-banner-visual picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.insu-banner .insu-banner-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+.insu-banner .insu-banner-visual.has-mobile .insu-banner-visual-desktop {
+  display: none;
+}
+
+/* breadcrumb (moved in from the page's breadcrumb section): below the art on mobile */
+.insu-banner .insu-banner-inner > .breadcrumb-wrapper {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0 16px;
+  background: linear-gradient(90deg, #EFF8FF 0%, #FFF 100%);
+}
+
+.insu-banner .breadcrumb > nav {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  font-family: var(--body-font-family, manrope, sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.insu-banner .breadcrumb > nav a,
+.insu-banner .breadcrumb > nav > span,
+.insu-banner .breadcrumb > nav > span:last-child,
+.insu-banner .breadcrumb .breadcrumb-separator {
+  display: inline;
+  font-family: var(--body-font-family, manrope, sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #181d27;
+  text-decoration: none;
+}
+
+.insu-banner .breadcrumb .breadcrumb-separator {
+  display: inline;
+  padding: 0 6px;
+}
+
+/* the home icon file is white: paint it in the text colour */
+.insu-banner .breadcrumb > nav a:first-child {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  vertical-align: -1px;
+  background: #181d27;
+  mask: url('/icons/home-icon.svg') center / 12px 12px no-repeat;
+}
+
+.insu-banner .breadcrumb > nav a:first-child img {
+  opacity: 0;
+}
+
+.insu-banner .breadcrumb > nav a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 600px) {
+  .insu-banner .insu-banner-meta-item + .insu-banner-meta-share::before {
+    display: block;
+  }
+
+  main > .section.insu-banner-container {
+    background:
+      radial-gradient(ellipse 718px 668px at calc(50% - 593px) -17px, #d1e9ff 0%, rgb(209 233 255 / 60%) 45%, rgb(209 233 255 / 0%) 100%),
+      radial-gradient(ellipse 557px 205px at calc(50% + 381px) -51px, #d1e9ff 0%, rgb(209 233 255 / 0%) 100%),
+      linear-gradient(180deg, rgb(255 255 255 / 0%) 70%, #fff 100%),
+      #fff;
+      margin-bottom: 50px;
+  }
+
+  .insu-banner .insu-banner-hero {
+    min-height: 496px;
+    padding: 96px 32px 56px;
+  }
+
+  .insu-banner .insu-banner-content {
+    max-width: 58%;
+  }
+
+  .insu-banner .insu-banner-title {
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 0;
+  }
+
+  .insu-banner .insu-banner-description {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .insu-banner .insu-banner-share-panel {
+  position: absolute;
+  left: unset;
+  right: -12px;
+  padding: 18px 16px 12px;
+  min-width: 128px;
+}
+
+.insu-banner .insu-banner-share-panel::before{
+  left: unset;
+  right: 12px;
+}
+
+.insu-banner .insu-banner-share-option {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: #181d27;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+  .insu-banner .insu-banner-cta {
+    height: 40px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .insu-banner .insu-banner-cta-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .insu-banner .insu-banner-cta-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .insu-banner .insu-banner-meta {
+    min-height: 32px;
+    margin-top: 24px;
+
+    /* margin-bottom: 18px; */
+  }
+
+  .insu-banner .insu-banner-share-toggle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .insu-banner .insu-banner-share-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* tablet: the desktop art at 70%, kept clear of the text; it runs past the
+     frame on the right, as in Figma */
+  .insu-banner .insu-banner-visual {
+    inset: 120px auto auto calc(100% - 270px);
+    width: 365px;
+    height: 280px;
+  }
+
+  .insu-banner .insu-banner-visual img {
+    object-position: left top;
+  }
+
+  .insu-banner .insu-banner-visual.has-mobile .insu-banner-visual-desktop {
+    display: block;
+  }
+
+  .insu-banner .insu-banner-visual.has-mobile .insu-banner-visual-mobile {
+    display: none;
+  }
+
+  .insu-banner .insu-banner-inner > .breadcrumb-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 32px;
+    display: flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0;
+    background: transparent;
+  }
+
+  .insu-banner .breadcrumb > nav,
+  .insu-banner .breadcrumb > nav a,
+  .insu-banner .breadcrumb > nav > span,
+  .insu-banner .breadcrumb > nav > span:last-child,
+  .insu-banner .breadcrumb .breadcrumb-separator {
+    line-height: 14px;
+  }
+
+  .insu-banner .breadcrumb > nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 900px) {
+  .insu-banner .insu-banner-hero {
+    padding-inline: 50px;
+  }
+
+  /* the text column stops short of the art until the full 1200px frame */
+  .insu-banner .insu-banner-content {
+    max-width: min(633px, calc(100% - 467px));
+    padding-top: 40px;
+  }
+
+  .insu-banner .insu-banner-visual {
+    inset: 96px auto auto calc(100% - 403px);
+    width: 522px;
+    height: 400px;
+  }
+
+  .insu-banner .insu-banner-inner > .breadcrumb-wrapper {
+    left: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .insu-banner .insu-banner-title {
+    font-size: 48px;
+    line-height: 60px;
+  }
+}

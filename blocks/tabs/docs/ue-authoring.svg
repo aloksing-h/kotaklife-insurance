@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="220" viewBox="0 0 640 220" role="img" aria-labelledby="title description">
+  <title id="title">Find a Plan tab authoring</title>
+  <desc id="description">Existing authored tab labels select their corresponding panels. No new fields are required for the selected outline or hover states.</desc>
+  <rect x="1" y="1" width="638" height="218" fill="white" stroke="#d2dae4"/>
+  <g font-family="sans-serif" font-size="16" fill="#181d27">
+    <text x="24" y="36">Existing tab labels</text>
+    <rect x="24" y="56" width="180" height="44" rx="8" fill="#eff8ff" stroke="#1e4679"/>
+    <text x="40" y="83">Selected tab label</text>
+    <text x="228" y="83">Other tab label</text>
+    <path d="M114 108v24" stroke="#1e4679" stroke-width="2"/>
+    <rect x="24" y="140" width="592" height="56" rx="4" fill="#f5f5f5" stroke="#d2dae4"/>
+    <text x="40" y="174">Corresponding authored panel (unchanged)</text>
+  </g>
+</svg>

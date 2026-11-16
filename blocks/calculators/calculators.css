@@ -1,0 +1,223 @@
+@import url('./retirement-calculator.css');
+@import url('./fields/dropdown-field/dropdown-field.css');
+@import url('./fields/gender-field/gender-field.css');
+@import url('./fields/input-field/input-field.css');
+@import url('./fields/tobacco-field/tobacco-field.css');
+@import url('./fire-calculator.css');
+@import url('./gratuity-calculator.css');
+@import url('./hra-calculator.css');
+@import url('./term-insurance-calculator.css');
+
+.calculators.bmi-text .bmi-field-error {
+    color: var(--error-600);
+    margin: 0;
+    font-size: 10px;
+}
+
+.calculators.bmi-text input[aria-invalid="true"] {
+    border-color: var(--error-600);
+}
+
+.calculators.bmi-text .bmi-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.calculators.bmi-text input:focus-visible {
+    outline: var(--spacing-xxs) solid var(--brand-blue-600);
+    outline-offset: var(--spacing-xxs);
+}
+
+@media (width >= 900px) {
+    .calculators.bmi-text .bmi-fields {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.calculator-main .field-label-copy {
+    min-width: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 6px;
+   
+}
+
+.calculator-main .required-star {
+    vertical-align: top;
+}
+
+.calculator-main.compound-calculator .investment-years-error {
+    margin: -16px 0 0;
+    color: var(--error-600);
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.calculator-main.compound-calculator .rate-field .badge-input[aria-invalid='true'] {
+    border-color: var(--error-600);
+}
+
+.calculator-main .age-inputs-row .field-group:has(> .frequency-dropdown-field) {
+    width: 100%;
+}
+
+.calculator-main.section {
+    margin-top: -83px;
+    position: relative;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+}
+
+.calculator-main .calculators-wrapper {
+    max-width: unset;
+    padding: 0;
+    margin: 0;
+}
+
+/* .calculator-main.term-insurance-calculator .calculators-wrapper {
+        max-height: 300px;
+    overflow: auto;
+} */
+
+.calculator-main.hlv-calculator .age-field-error {
+    margin: 0;
+    color: var(--error-600);
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.calculator-main.hlv-calculator .age-field .age-input[aria-invalid='true'] {
+    border-color: var(--error-600);
+}
+
+.calculator-main #retirement-ration,
+.calculator-main #interest-rate {
+  padding: 0;
+  border: none;
+}
+
+.calculator-main input[type="number"] {
+  appearance: textfield;
+}
+
+.calculator-main input[type="number"]::-webkit-inner-spin-button,
+.calculator-main input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.calculator-main.section>.fragment-wrapper {
+  margin-top: 10px;
+}
+
+.calculator-main.section>.fragment-wrapper p {
+    margin: 0 0 10px;
+    color: #414651;
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 12px;
+}
+
+@media (width >=899px) {
+    .calculator-main .age-inputs-row .field-group:has(> .frequency-dropdown-field) {
+        width: 47%;
+    }
+
+    .calculator-main.section{
+        margin-top: -188px;
+        flex-flow: row wrap;
+        column-gap: 10px;
+        padding: 0 50px;
+    }
+
+    /* .calculator-main.section.bmi-calculator {
+        margin-top: -80px;
+    } */
+
+    .calculator-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 50px;
+        flex-direction: row;
+        gap: 40px;
+        align-items: stretch;
+    }
+
+    .calculator-main .calculators-wrapper {
+        width: 57.55%;
+    }
+
+    .calculator-main .calculators-wrapper,
+    .calculator-main .calculator-metrics-grid-wrapper,
+    .calculator-main .result-summary-with-canvas-wrapper,
+    .calculator-main .result-summary-panel-v2-wrapper {
+        display: flex;
+    }
+
+    .calculator-main .calculators-wrapper > .calculators,
+    .calculator-main .calculator-metrics-grid-wrapper > .calculator-metrics-grid,
+    .calculator-main .result-summary-with-canvas-wrapper > .result-summary-with-canvas,
+    .calculator-main .result-summary-panel-v2-wrapper > .result-summary-panel-v2 {
+        flex: 1;
+    }
+
+    .calculator-main .calculators-wrapper > .calculators,
+    .calculator-main .calculators-wrapper .calculator-modal,
+    .calculator-main .calculators-wrapper .calculator-grid,
+    .calculator-main .calculators-wrapper > .calculators.term-inurance-text,
+    .calculator-main .result-summary-with-canvas-wrapper > .result-summary-with-canvas {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .calculator-main .result-summary-with-canvas-wrapper > .result-summary-with-canvas {
+        min-width: 0;
+    }
+
+    .calculator-main .result-summary-with-canvas > .result-card {
+        flex: 1;
+    }
+
+    .calculator-main .calculators-wrapper .calculator-modal,
+    .calculator-main .calculators-wrapper .calculator-grid,
+    .calculator-main .calculators-wrapper .calculator-grid .calc-card:first-child {
+        flex: 1;
+    }
+
+    .calculator-main.section > .calculators-wrapper {
+        flex: 0 0 57.55%;
+        min-height: 250px;
+    }
+
+    .calculator-main.section > .calculator-metrics-grid-wrapper,
+    .calculator-main.section > .result-summary-with-canvas-wrapper,
+    .calculator-main.section > .result-summary-panel-wrapper,
+    .calculator-main.section > .result-summary-panel-v2-wrapper {
+        flex: 0 0 40.64%;
+    }
+
+    .calculator-main.section > .fragment-wrapper {
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .calculator-main.section > .fragment-wrapper p {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .calculator-main .field-label-copy {
+        display: unset;
+    }
+
+    .calculator-main .rate-field .required-star {
+        margin-left: 6px;
+    }
+}

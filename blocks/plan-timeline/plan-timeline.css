@@ -1,0 +1,331 @@
+/* ==========================================================================
+   Plan Timeline: section header + CTA above a card with an authored
+   infographic (desktop / mobile), a highlight box and stat cards.
+   Mobile first, desktop >= 900px.
+   ========================================================================== */
+
+.plan-timeline {
+  --pt-header-gap: 30px;
+  --pt-card-pad: 23px 13px;
+  --pt-visual-bleed: -6px;
+  --pt-cta-height: 38px;
+  --pt-cta-size: var(--button-2-font-size);
+  --pt-cta-line: var(--button-2-line-height);
+  --pt-cta-icon: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--pt-header-gap);
+  font-family: var(--font-family-manrope);
+  color: var(--gray-900);
+}
+
+/* icons (declared early: lower specificity than the CTA icon rule) */
+.plan-timeline .plan-timeline-icon,
+.plan-timeline .plan-timeline-icon img {
+  display: block;
+  flex-shrink: 0;
+  width: var(--spacing-3xl);
+  height: var(--spacing-3xl);
+}
+
+/* infographic image (declared early for the same reason) */
+.plan-timeline .plan-timeline-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* header */
+.plan-timeline .plan-timeline-title {
+  margin: 0 0 var(--spacing-md);
+  font-family: var(--font-family-manrope);
+  font-size: var(--heading-3-font-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--heading-3-line-height);
+  color: var(--gray-900);
+}
+
+.plan-timeline .plan-timeline-title strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.plan-timeline .plan-timeline-aside p {
+  margin: 0;
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-600);
+}
+
+.plan-timeline .plan-timeline-aside .plan-timeline-cta-wrapper {
+  margin-top: var(--spacing-2xl);
+}
+
+.plan-timeline .plan-timeline-cta,
+.plan-timeline .plan-timeline-cta:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  height: var(--pt-cta-height);
+  padding: 0 var(--spacing-xs) 0 var(--spacing-2xl);
+  border-radius: var(--radius-full);
+  background: var(--red-600);
+  color: var(--base-white);
+  font-size: var(--pt-cta-size);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--pt-cta-line);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.plan-timeline .plan-timeline-cta:hover {
+  background: var(--red-700);
+}
+
+.plan-timeline .plan-timeline-cta:focus-visible {
+  outline: var(--spacing-xxs) solid var(--navy-blue-500);
+  outline-offset: var(--spacing-xxs);
+}
+
+.plan-timeline .plan-timeline-cta .icon,
+.plan-timeline .plan-timeline-cta .icon img {
+  display: block;
+  width: var(--pt-cta-icon);
+  height: var(--pt-cta-icon);
+}
+
+/* card */
+.plan-timeline .plan-timeline-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  box-sizing: border-box;
+  padding: var(--pt-card-pad);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  background: var(--base-white);
+}
+
+/* infographic: the desktop and mobile versions swap at 900px */
+.plan-timeline .plan-timeline-visual {
+  margin-inline: var(--pt-visual-bleed);
+}
+
+.plan-timeline .plan-timeline-visual picture {
+  display: block;
+}
+
+.plan-timeline .plan-timeline-visual:not(.plan-timeline-visual-single) .plan-timeline-visual-desktop {
+  display: none;
+}
+
+/* label + values text shared by the highlight box and the stat cards */
+.plan-timeline .plan-timeline-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.plan-timeline .plan-timeline-text p {
+  margin: 0;
+}
+
+.plan-timeline .plan-timeline-values {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.plan-timeline .plan-timeline-values strong {
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-900);
+}
+
+/* highlight box */
+.plan-timeline .plan-timeline-highlight .plan-timeline-icon,
+.plan-timeline .plan-timeline-highlight .plan-timeline-icon img {
+  width: 34px;
+  height: 34px;
+}
+
+.plan-timeline .plan-timeline-highlight {
+  display: flex;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-3xl);
+  border: 1px solid var(--blue-100);
+  border-radius: var(--radius-md);
+  background: var(--blue-50);
+}
+
+.plan-timeline .plan-timeline-highlight p {
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-900);
+}
+
+/* stat cards */
+.plan-timeline .plan-timeline-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-xl) var(--spacing-md);
+}
+
+.plan-timeline .plan-timeline-divider {
+  display: none;
+}
+
+.plan-timeline .plan-timeline-stat {
+  display: flex;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xl) var(--spacing-md);
+  border-radius: var(--radius-md);
+  background: var(--gray-50);
+}
+
+.plan-timeline .plan-timeline-stat .plan-timeline-label {
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  color: var(--gray-500);
+}
+
+.plan-timeline .plan-timeline-stat .plan-timeline-values p {
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--caption-line-height);
+  color: var(--gray-600);
+  white-space: nowrap;
+}
+
+.plan-timeline .plan-timeline-stat.plan-timeline-stat-wide {
+  grid-column: 1 / -1;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-3xl);
+}
+
+.plan-timeline .plan-timeline-stat-wide .plan-timeline-label {
+  font-size: var(--body-1-font-size);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-900);
+}
+
+.plan-timeline .plan-timeline-stat-wide .plan-timeline-values p {
+  font-size: var(--body-1-font-size);
+  line-height: var(--body-1-line-height);
+}
+
+@media (width >= 900px) {
+  .plan-timeline {
+    --pt-header-gap: var(--spacing-xl);
+    --pt-card-pad: 29px 39px;
+    --pt-visual-bleed: 0px;
+    --pt-cta-height: 40px;
+    --pt-cta-size: var(--button-1-font-size);
+    --pt-cta-line: var(--button-1-line-height);
+    --pt-cta-icon: var(--spacing-4xl);
+  }
+
+  .plan-timeline .plan-timeline-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+  }
+
+  .plan-timeline .plan-timeline-title {
+    flex: 0 1 633px;
+    margin: 0;
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+  }
+
+  .plan-timeline .plan-timeline-aside {
+    display: flex;
+    flex: 0 1 353px;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .plan-timeline .plan-timeline-aside .plan-timeline-cta-wrapper {
+    margin-top: var(--spacing-xl);
+  }
+
+  .plan-timeline .plan-timeline-visual:not(.plan-timeline-visual-single) .plan-timeline-visual-desktop {
+    display: block;
+  }
+
+  .plan-timeline .plan-timeline-visual:not(.plan-timeline-visual-single) .plan-timeline-visual-mobile {
+    display: none;
+  }
+
+  /* highlight box: icon | label | values in one row, centred in the card */
+  .plan-timeline .plan-timeline-highlight {
+    align-self: center;
+    align-items: center;
+  }
+
+  .plan-timeline .plan-timeline-highlight .plan-timeline-text {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-2xl);
+  }
+
+  .plan-timeline .plan-timeline-highlight .plan-timeline-label {
+    max-width: 109px;
+  }
+
+  .plan-timeline .plan-timeline-highlight .plan-timeline-values {
+    gap: var(--spacing-md);
+  }
+
+  /* stat cards: one grey strip with vertical dividers */
+  .plan-timeline .plan-timeline-stats {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0;
+    padding: var(--spacing-xl) var(--spacing-3xl);
+    border-radius: var(--radius-md);
+    background: var(--gray-50);
+  }
+
+  .plan-timeline .plan-timeline-divider {
+    display: block;
+    flex-shrink: 0;
+    width: 1px;
+    height: var(--spacing-7xl);
+    background: var(--gray-300);
+  }
+
+  .plan-timeline .plan-timeline-stat,
+  .plan-timeline .plan-timeline-stat.plan-timeline-stat-wide {
+    gap: var(--spacing-lg);
+    padding: 0;
+    background: none;
+  }
+
+  .plan-timeline .plan-timeline-stat .plan-timeline-text {
+    gap: 10px;
+  }
+
+  .plan-timeline .plan-timeline-stat .plan-timeline-values {
+    gap: 0;
+  }
+
+  .plan-timeline .plan-timeline-stat .plan-timeline-label,
+  .plan-timeline .plan-timeline-stat-wide .plan-timeline-label {
+    font-size: var(--body-1-font-size);
+    line-height: var(--body-1-line-height);
+    color: var(--gray-500);
+  }
+
+  .plan-timeline .plan-timeline-stat .plan-timeline-values p,
+  .plan-timeline .plan-timeline-stat-wide .plan-timeline-values p {
+    font-size: var(--body-2-font-size);
+    line-height: var(--body-1-line-height);
+  }
+}

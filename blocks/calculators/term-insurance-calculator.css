@@ -1,0 +1,111 @@
+.calculator-main .term-insurance-calculator {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #fff;
+    color: #181d27;
+    font-family: Manrope, sans-serif;
+}
+
+@media (width >= 900px) {
+    .calculator-main .calculators.term-inurance-text {
+        position: relative;
+        isolation: isolate;
+    }
+
+    .calculator-main .calculators.term-inurance-text::after {
+        position: absolute;
+        z-index: 0;
+        right: 0;
+        bottom: -26px;
+        left: 50%;
+        width: 60%;
+        height: 100px;
+        border-radius: 50%;
+        background: #E0EAFF;
+        filter: blur(20px);
+        content: '';
+        pointer-events: none;
+        transform: translateX(-50%);
+    }
+
+    .calculator-main .term-insurance-calculator {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+    }
+}
+
+.calculator-main .term-insurance-form,
+.calculator-main .term-insurance-fields {
+    width: 100%;
+}
+
+.calculator-main .term-insurance-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+}
+
+.calculator-main .term-insurance-cover {
+    grid-column: 1 / -1;
+}
+
+.calculator-main .term-insurance-preferences {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.calculator-main .term-calculate-button {
+    display: block;
+    margin: 16px auto 0;
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 20px;
+    background: #e1122d;
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px;
+}
+
+.calculator-main .term-calculate-button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.calculator-main .term-insurance-calculator .term-field-error {
+    margin: 8px 0 0;
+    color: #D92D20;
+    font-size: 14px;
+}
+
+@media (width >= 600px) {
+    .calculator-main .term-insurance-calculator {
+        padding: 24px;
+    }
+
+    .calculator-main .term-insurance-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 16px;
+    }
+
+    .calculator-main .term-insurance-preferences {
+        gap: 16px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .calculator-main .term-calculate-button {
+        width: auto;
+        min-width: 180px;
+        margin-top: 30px;
+    }
+}
+
+@media (width >= 900px) {
+    .calculator-main .term-insurance-fields { gap: 24px; }
+}

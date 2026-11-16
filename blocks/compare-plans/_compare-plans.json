@@ -1,0 +1,230 @@
+{
+  "definitions": [
+    {
+      "title": "Compare Plans",
+      "id": "compare-plans",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Compare Plans",
+              "model": "compare-plans",
+              "filter": "compare-plans",
+              "labels_compare": "Compare Now",
+              "labels_price": "Starts from",
+              "labels_cta": "Get Now",
+              "labels_limit": "Only three cards can be compared at a time."
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Current Plan Card",
+      "id": "compare-plans-current",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Current Plan Card",
+              "model": "compare-plans-current"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Compare Plan Card",
+      "id": "compare-plans-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Compare Plan Card",
+              "model": "compare-plans-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "compare-plans",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "text",
+          "label": "Heading & Subtitle",
+          "description": "Heading 2 (bold the highlighted words) followed by a short subtitle. Also shown at the top of the comparison popup.",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "labels_compare",
+          "label": "Compare Button Text",
+          "value": "Compare Now"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "labels_price",
+          "label": "Price Label",
+          "description": "Shown above the price on each comparison card, e.g. Starts from",
+          "value": "Starts from"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "labels_cta",
+          "label": "Buy Button Text",
+          "description": "Default button text on the comparison cards, e.g. Get Now",
+          "value": "Get Now"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "labels_limit",
+          "label": "Compare Limit Message",
+          "description": "Shown in place of the selection count when a fourth plan is selected (only three plans can be compared at a time); Compare Now is disabled until a plan is cleared",
+          "value": "Only three cards can be compared at a time."
+        }
+      ]
+    },
+    {
+      "id": "compare-plans-current",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "title",
+          "label": "Plan Name",
+          "description": "e.g. Kotak<br>Gen2Gen Term. Shown as the first (red) card in the comparison popup.",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "features",
+          "label": "Features",
+          "description": "Bulleted list of every feature compared. The other plans are checked against this list.",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "price",
+          "label": "Price",
+          "description": "e.g. ₹25/day",
+          "value": ""
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "link",
+          "label": "Buy Link"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "linkText",
+          "label": "Buy Button Text",
+          "description": "Optional, defaults to the block's Buy Button Text",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "compare-plans-item",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "content_title",
+          "label": "Plan Name",
+          "description": "Bold the word to highlight in red, e.g. Kotak <b>e-Term</b> Plan",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "content_price",
+          "label": "Price Text",
+          "description": "e.g. From ₹16/day",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Illustration",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Illustration Alt",
+          "description": "Leave empty when the illustration is decorative",
+          "value": ""
+        },
+        {
+          "component": "hidden",
+          "name": "imageMimeType",
+          "value": "image/png"
+        },
+        {
+          "component": "richtext",
+          "name": "compare_features",
+          "label": "Included Features",
+          "description": "Bulleted list of the features this plan includes, worded as in the Current Plan Card. Features missing from this list show a red cross.",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "compare_price",
+          "label": "Comparison Price",
+          "description": "e.g. ₹22/day",
+          "value": ""
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "compare_link",
+          "label": "Buy Link"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "options_planId",
+          "label": "Plan ID",
+          "description": "Optional, e.g. e-term. Defaults to the plan name.",
+          "value": ""
+        },
+        {
+          "component": "boolean",
+          "name": "options_selected",
+          "label": "Selected by default",
+          "valueType": "boolean",
+          "value": false
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "compare-plans",
+      "components": [
+        "compare-plans-current",
+        "compare-plans-item"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+.blog-navigation {
+  display: flex;
+  gap: 24px;
+  box-sizing: border-box;
+  min-height: 112px;
+  margin: 24px 16px 0;
+  padding-top: 16px;
+  border-top: 1px solid #e9eaeb;
+}
+
+.blog-navigation[aria-busy="true"] {
+  visibility: hidden;
+}
+
+.blog-navigation .blog-article-link {
+  display: flex;
+  flex: 1 1 0;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #181d27;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: left;
+  text-decoration: none;
+}
+
+.blog-navigation .blog-article-link:disabled {
+  color: #a4a7ae;
+  cursor: not-allowed;
+}
+
+.blog-navigation .blog-article-next {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.blog-navigation .blog-article-arrow,
+.blog-navigation .blog-article-link img {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.blog-navigation .blog-article-arrow {
+  color: #a4a7ae;
+  background-color: currentcolor;
+  mask: url('../../icons/arrow-right-2.svg') center / contain no-repeat;
+}
+
+.blog-navigation .blog-article-previous .blog-article-arrow,
+.blog-navigation .blog-article-previous img {
+  transform: rotate(180deg);
+}
+
+.blog-navigation .blog-article-copy {
+  display: flex;
+  flex: 1;
+  max-width: 184px;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.blog-navigation .blog-article-label {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.blog-navigation .blog-article-title {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #717680;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.blog-navigation a.blog-article-link:hover .blog-article-title {
+  text-decoration: underline;
+}
+
+.blog-navigation .blog-article-link:focus-visible {
+  outline: 2px solid #1e4679;
+  outline-offset: 4px;
+}
+
+@media (width >= 900px) {
+  .blog-navigation {
+    margin-inline: 0;
+  }
+
+  .blog-navigation .blog-article-title {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}

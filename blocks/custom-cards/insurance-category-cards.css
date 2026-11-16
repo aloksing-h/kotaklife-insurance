@@ -1,0 +1,579 @@
+/* ==========================================================================
+   Custom Cards - Insurance Category Cards variant (.custom-cards.insurance-category-cards)
+   - Ported from blocks/cards/insurance-category-cards.css to the dual-image
+     custom-cards block so each card can swap to a dedicated hover illustration.
+   - Section heading, sub title and CTA are authored as Rich Text (default content)
+     and styled through the block class, so no section-level class is needed.
+   - Cards: glass effect over a pink / blue tint (alternating), arrow CTA, illustration.
+   Mobile first: 280 (1 col) > 360 (2 col) > 600 > 900 (desktop row) > 1200 (canonical)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Cards
+   Base (280px flip / fold): single column, roomy card (close to desktop card width)
+   -------------------------------------------------------------------------- */
+
+.custom-cards.insurance-category-cards {
+  --icc-grid-gap: var(--spacing-md);
+  --icc-radius: var(--radius-xl);
+  --icc-pad-top: var(--spacing-2xl);
+  --icc-pad-bottom: var(--spacing-2xl);
+  --icc-pad-inline: var(--spacing-xl);
+  --icc-body-margin-inline: 10px;
+  --icc-arrow-inset: var(--spacing-xl);
+  --icc-body-gap: var(--spacing-md);
+  --icc-arrow-size: 32px;
+  --icc-illustration-area: 104px;
+  --icc-illustration-height: 104px;
+  --icc-illustration-width: 246px;
+  --icc-image-heading-gap: 30px;
+  --icc-hover-image-heading-gap: 39.5px;
+  --icc-pad-top-content: 40px;
+  --icc-title-font-size: var(--sub-heading-1-font-size);
+  --icc-title-line-height: var(--sub-heading-1-line-height);
+  --icc-text-font-size: var(--body-2-font-size);
+  --icc-text-line-height: var(--body-2-line-height);
+  --icc-hover-gradient: linear-gradient(-36deg, var(--red-600) 0%, var(--red-600) 32%, var(--red-900) 100%);
+}
+
+.custom-cards.insurance-category-cards > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--icc-grid-gap);
+  margin: 0;
+  padding: 8px 0 12px;
+  list-style: none;
+
+  /* Prevent the default grid stretch from matching sibling heights to the
+     hovered card, whose body margin/scale grow independently on hover */
+  align-items: start;
+}
+
+.custom-cards.insurance-category-cards > ul > li {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  margin: 0;
+
+  /* top padding reserves space for the arrow CTA, bottom padding matches Figma */
+  padding: var(--icc-pad-top-content, 56px) 0 var(--icc-pad-bottom);
+  border: 1px solid var(--border-brand-blue-subtle);
+  border-radius: var(--icc-radius);
+  background-color: var(--bg-primary);
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Tint: pink on odd cards, blue on even cards */
+.custom-cards.insurance-category-cards > ul > li::before,
+.custom-cards.insurance-category-cards > ul > li::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.custom-cards.insurance-category-cards > ul > li::before {
+  background: url('../../icons/pink-bg.svg') center / cover no-repeat;
+}
+
+.custom-cards.insurance-category-cards > ul > li:nth-child(even)::before {
+  background-image: url('../../icons/blue-bg.svg');
+}
+
+/* Glass effect: fine vertical ribbing over the tint, faded at top and bottom */
+.custom-cards.insurance-category-cards > ul > li::after {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    color-mix(in srgb, var(--base-white) 70%, transparent) var(--spacing-xs),
+    transparent calc(var(--spacing-md) + var(--spacing-xxs))
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--base-black) 15%,
+    var(--base-black) 65%,
+    transparent 90%
+  );
+}
+
+/* Illustration: primary/secondary pictures share one grid cell so hover can crossfade them */
+.custom-cards.insurance-category-cards .custom-cards-card-image {
+  display: grid;
+  align-items: center;
+  height: var(--icc-illustration-height);
+  box-sizing: border-box;
+  line-height: 0;
+}
+
+.custom-cards.insurance-category-cards .custom-cards-card-image p {
+  grid-area: 1 / 1;
+  margin: 0;
+  width: 100%;
+}
+
+.custom-cards.insurance-category-cards .custom-cards-card-image picture,
+.custom-cards.insurance-category-cards .custom-cards-card-image picture.primary-image,
+.custom-cards.insurance-category-cards .custom-cards-card-image picture.secondary-image {
+  display: block;
+  width: 100%;
+  height: var(--icc-illustration-height);
+  aspect-ratio: auto;
+}
+
+.custom-cards.insurance-category-cards .custom-cards-card-image img,
+.custom-cards.insurance-category-cards .custom-cards-card-image picture.primary-image img,
+.custom-cards.insurance-category-cards .custom-cards-card-image picture.secondary-image img {
+  display: block;
+  width: 100%;
+  max-width: var(--icc-illustration-width);
+  height: var(--icc-illustration-height);
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Hover illustration stays hidden until the card is hovered */
+.custom-cards.insurance-category-cards .custom-cards-card-image picture.secondary-image {
+  display: none;
+}
+
+/* Body: title, description, CTA */
+.custom-cards.insurance-category-cards .custom-cards-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--icc-body-gap);
+  margin: var(--icc-image-heading-gap, 30px) var(--icc-body-margin-inline, 16px) 0;
+}
+
+.custom-cards.insurance-category-cards .custom-cards-card-body :is(h2, h3, h4) {
+  margin: 0;
+  font-family: var(--font-family-manrope);
+  font-size: var(--icc-title-font-size);
+  line-height: var(--icc-title-line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  overflow-wrap: break-word;
+  transition: color 0.3s ease;
+}
+
+/* Accent word(s) in the title, authored as bold.
+   red-700 keeps >= 4.5:1 contrast over the pink glass tint (red-500/600 drop below AA) */
+.custom-cards.insurance-category-cards .custom-cards-card-body :is(h2, h3, h4) strong {
+  font-weight: inherit;
+  color: var(--text-brand-red);
+}
+
+.custom-cards.insurance-category-cards .custom-cards-card-body p {
+  margin: 0;
+  font-family: var(--font-family-manrope);
+  font-size: var(--icc-text-font-size);
+  line-height: var(--icc-text-line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-tertiary);
+  transition: color 0.3s ease;
+}
+
+/* CTA link is positioned over the arrow icon only so only the arrow icon is clickable.
+   Cards are authored with two CTA links (default red icon, hover black icon). */
+.custom-cards.insurance-category-cards .custom-cards-card-body p:has(a:any-link) {
+  display: contents;
+}
+
+.custom-cards.insurance-category-cards .custom-cards-card-body a:any-link {
+  position: absolute;
+  top: var(--icc-pad-top);
+  right: var(--icc-arrow-inset);
+  width: var(--icc-arrow-size);
+  height: var(--icc-arrow-size);
+  z-index: 1;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.custom-cards.insurance-category-cards .custom-cards-card-body a:any-link:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+/* Only the first authored link is a real destination; any further link is a decorative
+   hover-icon duplicate, so clicks must pass through it to the real link underneath */
+.custom-cards.insurance-category-cards .custom-cards-card-body a:any-link ~ a:any-link {
+  pointer-events: none;
+}
+
+/* Decorative arrow button: the hover-state icon stays hidden until the card is hovered */
+.custom-cards.insurance-category-cards .custom-cards-card-body a:any-link .icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease;
+}
+
+.custom-cards.insurance-category-cards .custom-cards-card-body a:any-link ~ a:any-link .icon {
+  display: none;
+}
+
+.custom-cards.insurance-category-cards .custom-cards-card-body a:any-link .icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (hover: hover) {
+  /* Hover state: card turns into the red/garnet gradient, grows to the Figma hover size
+     (268x325 vs 260x309 default, ~1.031x/1.052x), text and arrow icon invert to white/black */
+  .custom-cards.insurance-category-cards > ul > li.has-link:hover {
+    background: var(--icc-hover-gradient);
+    transform: scale(1.0308, 1.0518);
+    transform-origin: center;
+    box-shadow: var(--shadow-lg);
+    z-index: 1;
+  }
+
+  /* Glass/tint layer must vanish instantly on hover, not fade, so it never shows through the gradient */
+  .custom-cards.insurance-category-cards > ul > li.has-link:hover::before,
+  .custom-cards.insurance-category-cards > ul > li.has-link:hover::after {
+    display: none;
+  }
+
+  .custom-cards.insurance-category-cards > ul > li.has-link:hover .custom-cards-card-body :is(h2, h3, h4),
+  .custom-cards.insurance-category-cards > ul > li.has-link:hover .custom-cards-card-body :is(h2, h3, h4) strong,
+  .custom-cards.insurance-category-cards > ul > li.has-link:hover .custom-cards-card-body p {
+    color: var(--text-white);
+  }
+
+  .custom-cards.insurance-category-cards > ul > li.has-link:hover .custom-cards-card-body a:any-link .icon {
+    transform: translateX(var(--spacing-xxs));
+  }
+
+  .custom-cards.insurance-category-cards > ul > li.has-link:hover .custom-cards-card-body a:any-link:first-of-type .icon {
+    display: none;
+  }
+
+  .custom-cards.insurance-category-cards > ul > li.has-link:hover .custom-cards-card-body a:any-link ~ a:any-link .icon {
+    display: block;
+  }
+
+  /* Swap illustrations only when a hover image was authored for the card */
+  .custom-cards.insurance-category-cards > ul > li.has-link:hover
+    .custom-cards-card-image:has(picture.secondary-image) picture.primary-image {
+    display: none;
+  }
+
+  .custom-cards.insurance-category-cards > ul > li.has-link:hover .custom-cards-card-image picture.secondary-image {
+    display: block;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section header (default content next to the block)
+   -------------------------------------------------------------------------- */
+
+main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper,
+main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper {
+  --icc-header-aside-width: 353px;
+  --icc-cta-height: 40px;
+  --icc-cta-icon-size: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-4xl);
+}
+
+main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper > :is(h2, h3),
+main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper > :is(h2, h3) {
+  margin: 0;
+  font-family: var(--font-family-manrope);
+  font-size: var(--heading-3-font-size);
+  line-height: var(--heading-3-line-height);
+  letter-spacing: var(--heading-3-letter-spacing);
+  font-weight: var(--font-weight-light);
+  color: var(--text-primary);
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper > :is(h2, h3) strong,
+main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper > :is(h2, h3) strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-copy,
+main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2xl);
+  width: 100%;
+  text-align: left;
+}
+
+main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper p,
+main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper p {
+  margin: 0;
+  font-family: var(--font-family-manrope);
+  font-size: var(--body-1-font-size);
+  line-height: var(--body-1-line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-tertiary);
+}
+
+/* CTA: the last paragraph holding just a link (plain or buttonized) */
+main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta,
+main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta {
+  max-width: 100%;
+}
+
+main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a,
+main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  max-width: 100%;
+  min-height: var(--icc-cta-height);
+  margin: 0;
+  padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-2xl);
+  border: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--brand-red-600);
+  color: var(--text-white);
+  font-family: var(--font-family-manrope);
+  font-size: var(--button-2-font-size);
+  line-height: var(--button-2-line-height);
+  font-weight: var(--font-weight-extrabold);
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  overflow: visible;
+  transition: gap 0.25s ease, background-color 0.2s ease, transform 0.25s ease;
+}
+
+/* Decorative arrow circle */
+main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a .icon,
+main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a .icon {
+  display: block;
+  flex: 0 0 auto;
+  width: var(--icc-cta-icon-size);
+  height: var(--icc-cta-icon-size);
+}
+
+main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a .icon img,
+main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a .icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a .icon + .icon,
+main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a .icon + .icon {
+  display: none;
+}
+
+main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a:focus-visible,
+main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a:hover,
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a:hover {
+    gap: calc(var(--spacing-lg) + var(--spacing-sm));
+    color: var(--text-white);
+    text-decoration: none;
+  }
+
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a:hover .icon + .icon,
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a:hover .icon + .icon {
+    display: block;
+  }
+
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a:hover .icon:first-of-type:not(:only-child),
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a:hover .icon:first-of-type:not(:only-child) {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile (>= 360px): two-column grid, compact cards (Figma mobile frame)
+   -------------------------------------------------------------------------- */
+@media (width >= 360px) {
+  .custom-cards.insurance-category-cards {
+    --icc-radius: var(--radius-md);
+    --icc-pad-top: var(--spacing-lg);
+    --icc-pad-bottom: var(--spacing-4xl);
+    --icc-pad-inline: calc(var(--spacing-md) + var(--spacing-xxs));
+    --icc-body-margin-inline: 10px;
+    --icc-arrow-inset: var(--spacing-lg);
+    --icc-body-gap: var(--spacing-xs);
+    --icc-arrow-size: 24px;
+    --icc-illustration-area: 66px;
+    --icc-illustration-height: 66px;
+    --icc-illustration-width: 100%;
+    --icc-image-heading-gap: 16px;
+    --icc-hover-image-heading-gap: 20px;
+    --icc-pad-top-content: 40px;
+    --icc-title-font-size: var(--body-1-font-size);
+    --icc-title-line-height: var(--body-1-line-height);
+    --icc-text-font-size: var(--caption-font-size);
+    --icc-text-line-height: var(--caption-line-height);
+  }
+
+  .custom-cards.insurance-category-cards > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tablet (>= 600px): still two columns, cards get the roomier desktop spacing
+   -------------------------------------------------------------------------- */
+@media (width >= 600px) {
+  .custom-cards.insurance-category-cards {
+    --icc-grid-gap: var(--spacing-xl);
+    --icc-radius: var(--radius-xl);
+    --icc-pad-top: var(--spacing-2xl);
+    --icc-pad-bottom: var(--spacing-2xl);
+    --icc-pad-inline: var(--spacing-xl);
+    --icc-body-margin-inline: 16px;
+    --icc-arrow-inset: var(--spacing-xl);
+    --icc-body-gap: var(--spacing-md);
+    --icc-arrow-size: 32px;
+    --icc-illustration-area: 104px;
+    --icc-illustration-height: 104px;
+    --icc-illustration-width: 246px;
+    --icc-image-heading-gap: 30px;
+    --icc-hover-image-heading-gap: 39.5px;
+    --icc-pad-top-content: 89px;
+    --icc-title-font-size: var(--sub-heading-1-font-size);
+    --icc-title-line-height: var(--sub-heading-1-line-height);
+    --icc-text-font-size: var(--body-2-font-size);
+    --icc-text-line-height: var(--body-2-line-height);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Laptop / Desktop (>= 900px): header in one row, four cards in a row
+   -------------------------------------------------------------------------- */
+@media (width >= 900px) {
+  .custom-cards.insurance-category-cards {
+    --icc-grid-gap: var(--spacing-2xl);
+  }
+
+  .custom-cards.insurance-category-cards > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 768px) {
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper,
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper {
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    margin-bottom: 32px;
+  }
+
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper > :is(h2, h3),
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper > :is(h2, h3) {
+    font-size: var(--heading-2-font-size);
+    line-height: var(--heading-2-line-height);
+    letter-spacing: normal;
+    max-width: 633px;
+  }
+}
+
+@media (width >= 900px) {
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper,
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper {
+    --icc-cta-height: 40px;
+    --icc-cta-icon-size: 32px;
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper > :is(h2, h3),
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper > :is(h2, h3) {
+    font-size: var(--heading-2-font-size);
+    line-height: var(--heading-2-line-height);
+    letter-spacing: normal;
+    max-width: 633px;
+    margin: 0;
+  }
+
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-copy,
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-copy {
+    flex: 0 1 353px;
+    align-items: flex-end;
+    gap: 16px;
+    text-align: right;
+  }
+
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta,
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta {
+    margin-top: 0;
+  }
+
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a,
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a {
+    font-size: var(--button-1-font-size);
+    line-height: var(--button-1-line-height);
+  }
+
+  @media (hover: hover) {
+    main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a:hover,
+    main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper .insurance-header-cta > a:hover {
+      transform: translateX(8px);
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper,
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper {
+    padding-inline: 50px;
+    margin-bottom: 41px;
+  }
+}
+
+@media (width >= 1200px) {
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper > :is(h2, h3),
+  main .section.horizontal-heading:has(.custom-cards.insurance-category-cards) > .default-content-wrapper > :is(h2, h3) {
+    max-width: 633px;
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main .section:has(.custom-cards.insurance-category-cards) > .default-content-wrapper > p:last-child > a:only-child,
+  .custom-cards.insurance-category-cards > ul > li,
+  .custom-cards.insurance-category-cards .custom-cards-card-body a:any-link .icon {
+    transition: none;
+  }
+}

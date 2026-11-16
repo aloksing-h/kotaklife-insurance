@@ -1,0 +1,195 @@
+{
+  "definitions": [
+    {
+      "title": "Customer Testimonials",
+      "id": "customer-testimonials",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Customer Testimonials",
+              "model": "customer-testimonials",
+              "filter": "customer-testimonials",
+              "labels_readMore": "Read more",
+              "labels_close": "Close",
+              "labels_previous": "Previous",
+              "labels_next": "Next"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Testimonial",
+      "id": "customer-testimonials-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Testimonial",
+              "model": "customer-testimonials-item",
+              "format": "text",
+              "person_role": "Kotak Life Customer",
+              "media_source": "dam"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "customer-testimonials",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "text",
+          "label": "Heading & Subtitle",
+          "description": "Heading 2 (bold the highlighted words) followed by a short subtitle",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "labels_readMore",
+          "label": "Read More Label",
+          "value": "Read more"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "labels_close",
+          "label": "Close Label",
+          "description": "Screen reader label of the close buttons (expanded testimonial and video popup)",
+          "value": "Close"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "labels_previous",
+          "label": "Previous Label",
+          "description": "Screen reader label of the previous arrow",
+          "value": "Previous"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "labels_next",
+          "label": "Next Label",
+          "description": "Screen reader label of the next arrow",
+          "value": "Next"
+        }
+      ]
+    },
+    {
+      "id": "customer-testimonials-item",
+      "fields": [
+        {
+          "component": "select",
+          "name": "format",
+          "label": "Testimonial Type",
+          "description": "Text: name, customer type and testimonial with Read more. Video: poster and video that opens in a popup",
+          "valueType": "string",
+          "value": "text",
+          "options": [
+            { "name": "Text", "value": "text" },
+            { "name": "Video", "value": "video" }
+          ]
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "person_name",
+          "label": "Customer Name",
+          "value": "",
+          "condition": { "===": [{ "var": "format" }, "text"] }
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "person_role",
+          "label": "Customer Type",
+          "value": "Kotak Life Customer",
+          "condition": { "===": [{ "var": "format" }, "text"] }
+        },
+        {
+          "component": "richtext",
+          "name": "quote",
+          "label": "Testimonial",
+          "description": "Long testimonials are shortened with a Read more link",
+          "value": "",
+          "valueType": "string",
+          "condition": { "===": [{ "var": "format" }, "text"] }
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "media_image",
+          "label": "Poster Image",
+          "description": "Shown until the video plays. Optional for YouTube (the YouTube thumbnail is used)",
+          "multi": false,
+          "condition": { "===": [{ "var": "format" }, "video"] }
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "media_imageAlt",
+          "label": "Video Description",
+          "description": "Describes the video for screen readers, e.g. Pankaj Kumar shares his experience",
+          "value": "",
+          "condition": { "===": [{ "var": "format" }, "video"] }
+        },
+        {
+          "component": "select",
+          "name": "media_source",
+          "label": "Video Source",
+          "valueType": "string",
+          "value": "dam",
+          "options": [
+            { "name": "AEM Assets (DAM)", "value": "dam" },
+            { "name": "YouTube", "value": "youtube" }
+          ],
+          "condition": { "===": [{ "var": "format" }, "video"] }
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "media_video",
+          "label": "Video (AEM Assets)",
+          "description": "MP4 from Assets, e.g. /content/dam/kotaklife-eds/customer-video.mp4. Previews muted on hover (desktop)",
+          "condition": {
+            "and": [
+              { "===": [{ "var": "format" }, "video"] },
+              { "!==": [{ "var": "media_source" }, "youtube"] }
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "media_youtube",
+          "label": "YouTube URL",
+          "description": "e.g. https://youtu.be/VIDEO_ID or https://www.youtube.com/watch?v=VIDEO_ID",
+          "value": "",
+          "condition": {
+            "and": [
+              { "===": [{ "var": "format" }, "video"] },
+              { "===": [{ "var": "media_source" }, "youtube"] }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "customer-testimonials",
+      "components": [
+        "customer-testimonials-item"
+      ]
+    }
+  ]
+}

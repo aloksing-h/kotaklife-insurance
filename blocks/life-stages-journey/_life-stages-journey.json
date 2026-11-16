@@ -1,0 +1,220 @@
+{
+  "definitions": [
+    {
+      "title": "Life Stages Journey",
+      "id": "life-stages-journey",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Life Stages Journey",
+              "model": "life-stages-journey",
+              "filter": "life-stages-journey"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Life Stages Persona",
+      "id": "life-stages-persona",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Life Stages Persona",
+              "model": "life-stages-persona"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Life Stages Milestone",
+      "id": "life-stages-milestone",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Life Stages Milestone",
+              "model": "life-stages-milestone"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Life Stages Outcome",
+      "id": "life-stages-outcome",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Life Stages Outcome",
+              "model": "life-stages-outcome"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Life Stages Disclaimer",
+      "id": "life-stages-disclaimer",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Life Stages Disclaimer",
+              "model": "life-stages-disclaimer"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "life-stages-journey",
+      "fields": [
+        {
+          "component": "multiselect",
+          "name": "classes",
+          "label": "Style",
+          "options": [
+            {
+              "name": "Young Professionals",
+              "value": "young-professionals"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "life-stages-persona",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Profile Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Profile Image Alt",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "label": "Description / Bio",
+          "value": "",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "life-stages-milestone",
+      "fields": [
+        {
+          "component": "text",
+          "name": "age",
+          "label": "Age / Milestone Label",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "label": "Milestone Text",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "select",
+          "name": "variant",
+          "label": "Badge Variant",
+          "options": [
+            {
+              "name": "Default (Light Blue)",
+              "value": "default"
+            },
+            {
+              "name": "Highlight (Red)",
+              "value": "highlight"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "life-stages-outcome",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Family Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Family Image Alt",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "label": "Card Text (Subtitle & Amount)",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "name": "cta",
+          "label": "CTA Link",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "ctaText",
+          "label": "Button Text",
+          "value": "",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "life-stages-disclaimer",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "disclaimer",
+          "label": "Disclaimer Text",
+          "value": "",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "life-stages-journey",
+      "components": [
+        "life-stages-persona",
+        "life-stages-milestone",
+        "life-stages-outcome",
+        "life-stages-disclaimer"
+      ]
+    }
+  ]
+}
+
