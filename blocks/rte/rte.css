@@ -1,0 +1,679 @@
+/* Variant styles are grouped per modifier class, so source order is intentional. */
+/* stylelint-disable no-descending-specificity */
+
+/* if we have to keep this in center then give max-width:1200px and mx-auto */
+
+main>.section.rte-container:has(.subnav) {
+    margin: 0;
+}
+
+main>.section>.rte-wrapper:has(.subnav) {
+    padding: 0;
+    margin: 0;
+    max-width: unset;
+}
+
+.subnav.rte ul {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0 16px;
+    background-color: var(--info-50);
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.subnav.rte ul::-webkit-scrollbar {
+    display: none;
+}
+
+.subnav.rte ul li {
+    flex: 0 0 auto;
+}
+
+.subnav.rte ul li p {
+    margin: 0;
+}
+
+.subnav.rte a {
+    display: flex;
+    align-items: center;
+    height: 55px;
+    font-family: var(--font-family-manrope);
+    font-size: var(--body-2-font-size);
+    line-height: 18px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    text-decoration: none;
+    position: relative;
+    white-space: nowrap;
+}
+
+.subnav.rte a:hover {
+    text-decoration: none;
+}
+
+.subnav.rte a.rte-sub-nav-active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 4px;
+    background-color: var(--brand-red-500);
+}
+
+.rte.bookmarks-links.block {
+    background: #f4f4f4;
+    border-radius: 18px;
+    padding: 28px 28px 22px;
+}
+
+.rte.bookmarks-links.block h1,
+.rte.bookmarks-links.block h2,
+.rte.bookmarks-links.block h3,
+.rte.bookmarks-links.block h4,
+.rte.bookmarks-links.block h5,
+.rte.bookmarks-links.block h6 {
+    margin: 0;
+    padding: 0 0 14px;
+    border-bottom: 1px solid #ed1c24;
+    color: #0d1f3f;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+}
+
+.rte.bookmarks-links.block ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rte.bookmarks-links.block li {
+    margin: 0;
+    border-bottom: 1px solid #cfd3db;
+}
+
+.rte.bookmarks-links.block li p {
+    margin: 0;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.rte.bookmarks-links.block li a {
+    color: #081f44;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.rte.bookmarks-links.block li a:hover,
+.rte.bookmarks-links.block li a:focus-visible {
+    text-decoration: underline;
+}
+
+.rte.bookmarks-links.block .icon {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rte.bookmarks-links.block .icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.rte.bookmarks-links.block:not(.is-expanded) li:nth-child(n + 7) {
+    display: none;
+}
+
+.rte.bookmarks-links.block .bookmarks-show-more {
+    display: inline-flex;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 20px;
+    color: #ed1c24;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.rte.card-border-red.block {
+    color: #40536b;
+}
+
+.rte.card-border-red.block h2 {
+    margin: 0 0 24px;
+    color: #0d1f3f;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.rte.card-border-red.block>div>div>ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rte.card-border-red.block>div>div>ul>li {
+    margin: 0 0 18px;
+    padding: 22px 24px;
+    border: 1px solid #ccc;
+    border-left: 3px solid #da251c;
+    border-radius: 10px;
+    background: #fff;
+    transition: border-color 180ms ease;
+}
+
+.rte.card-border-red.block>div>div>ul>li:hover,
+.rte.card-border-red.block>div>div>ul>li:focus-within {
+    border-color: #ed1c24;
+}
+
+.rte.card-border-red.block>div>div>ul>li>h3 {
+    margin: 0;
+    color: #0d1f3f;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    width: fit-content;
+    border-bottom: 2px solid #0b396b;
+}
+
+.rte.card-border-red.block>div>div>ul>li>ul {
+    margin: 12px 0 0;
+    padding-left: 0;
+    list-style: none;
+    color: #40536b;
+}
+
+.rte.card-border-red.block>div>div>ul>li>ul>li {
+    padding-left: 4px;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.rte.card-border-red.block a {
+    color: #ed1c24;
+}
+
+.rte.block table {
+    width: 100%;
+    min-width: 640px;
+    margin: 24px 0;
+    border: 1px solid #c8c8c8;
+    border-collapse: collapse;
+    color: #40536b;
+    font-size: 18px;
+    line-height: 1.25;
+    table-layout: fixed;
+}
+
+.rte.block table td,
+.rte.block table th {
+    width: 50%;
+    padding: 14px 28px;
+    border: 1px solid #c8c8c8;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.rte.block table tr:first-child td,
+.rte.block table tr:first-child th {
+    background: #eee;
+    font-weight: 600;
+    text-align: center;
+}
+
+.rte.block table td p,
+.rte.block table th p {
+    margin: 0;
+}
+
+
+
+@media (width <=1024px) {
+    .rte.block table {
+        font-size: 16px;
+    }
+
+    .rte.block table td,
+    .rte.block table th {
+        padding: 12px 18px;
+    }
+}
+
+@media (width <=600px) {
+    .rte.block table {
+        min-width: 560px;
+        margin: 20px 0;
+        font-size: 15px;
+    }
+
+    .rte.block table td,
+    .rte.block table th {
+        padding: 12px 14px;
+    }
+}
+
+
+
+@media (width <=1024px) {
+    .rte.bookmarks-links.block {
+        padding: 22px 18px 18px;
+        border-radius: 14px;
+    }
+
+    .rte.bookmarks-links.block h1,
+    .rte.bookmarks-links.block h2,
+    .rte.bookmarks-links.block h3,
+    .rte.bookmarks-links.block h4,
+    .rte.bookmarks-links.block h5,
+    .rte.bookmarks-links.block h6 {
+        font-size: 16px;
+        padding-bottom: 12px;
+    }
+
+    .rte.bookmarks-links.block li p {
+        min-height: 52px;
+    }
+
+    .rte.bookmarks-links.block li a {
+        font-size: 16px;
+    }
+
+    .rte.bookmarks-links.block .bookmarks-show-more {
+        margin-top: 16px;
+        font-size: 20px;
+    }
+
+    .rte.card-border-red.block h2 {
+        font-size: 24px;
+    }
+
+    .rte.card-border-red.block>div>div>ul>li {
+        padding: 18px 20px;
+    }
+}
+
+@media (width <=600px) {
+    .rte.card-border-red.block h2 {
+        margin-bottom: 18px;
+        font-size: 22px;
+    }
+
+    .rte.card-border-red.block>div>div>ul>li {
+        padding: 16px;
+    }
+
+    .rte.card-border-red.block>div>div>ul>li>h3 {
+        font-size: 18px;
+    }
+
+    .rte.card-border-red.block>div>div>ul>li>ul>li {
+        font-size: 15px;
+    }
+
+    /* ============================================
+   Sub Navigation - horizontal tab nav
+   ============================================ */
+}
+
+@media (width >=768px) {
+    .subnav.rte ul {
+        gap: 34px;
+    }
+}
+
+@media (width >=900px) {
+    .subnav.rte ul {
+        justify-content: center;
+        padding: 0;
+    }
+}
+
+.rte.explore-cta.block h1 {
+    font-size: var(--heading-3-font-size);
+    line-height: var(--heading-3-line-height);
+    font-weight: var(--font-weight-light);
+    margin: 0 0 6px;
+}
+
+.rte.explore-cta.block h1 strong {
+    margin: 0;
+    font-weight: 600;
+}
+
+.rte.explore-cta.block p {
+    margin: 0 0 20px;
+    font-size: var(--body-2-font-size);
+    line-height: var(--body-2-line-height);
+    color: var(--gray-600);
+    font-weight: var(--font-weight-medium);
+}
+
+.rte.explore-cta.block .cta-container {
+    width: fit-content;
+    background-color: var(--brand-red-500);
+    border-radius: 50px;
+    margin: 0;
+}
+
+.rte.explore-cta.block .cta-container a {
+    color: var(--base-white);
+    display: flex;
+    align-items: center;
+    padding: 6px 6px 6px 24px;
+    gap: 16px;
+    text-decoration: none;
+    font-weight: var(--font-weight-extrabold);
+    font-size: var(--button-2-font-size);
+    line-height: var(--button-2-line-height);
+}
+
+.rte.explore-cta.block .cta-container span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    background-color: var(--base-white);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.rte.explore-cta.block .cta-container img {
+    height: 20px;
+    width: 20px;
+    object-fit: contain;
+}
+
+/* Desktop Overrides:
+   Reverts mobile font-sizes so desktop typography takes over */
+@media (width >=900px) {
+    .rte.explore-cta.block h1 {
+        margin: 0 0 8px;
+        font-size: var(--heading-1-font-size);
+        line-height: var(--heading-1-line-height);
+        font-weight: var(--font-weight-light);
+    }
+
+    .rte.explore-cta.block p {
+        margin: 0 0 16px;
+        font-size: var(--body-1-font-size);
+        line-height: 18px;
+    }
+
+    .rte.explore-cta.block .cta-container a {
+        font-weight: var(--font-weight-extrabold);
+        font-size: var(--button-1-font-size);
+        line-height: var(--button-1-line-height);
+    }
+}
+
+.rte.tabs-table.block {
+  position: relative;
+  z-index: 0;
+  margin-top: var(--spacing-xl);
+  margin-bottom: 40px;
+}
+
+/* .rte.tabs-table.block::after {
+  content: '';
+  position: absolute;
+  bottom: calc(-1 * var(--spacing-xl));
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: 36px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    color-mix(in srgb, var(--blue-300) 75%, transparent) 0%,
+    color-mix(in srgb, var(--blue-100) 0%, transparent) 100%
+  );
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+} */
+
+.rte.tabs-table.block::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    bottom: -26px;
+    height: 100px;
+    border-radius: 50%;
+    background: #E0EAFF;
+    filter: blur(20px);
+    pointer-events: none;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.rte.block.tabs-table > div > div {
+  position: relative;
+  z-index: 1;
+  max-height: 1092px;
+  overflow-y: auto;
+}
+
+/* 1. Set up the main table with the rounded outer border */
+.rte.block.tabs-table table {
+  border-collapse: separate; 
+  border-spacing: 0;
+  border: 1px solid var(--border-primary); /* Single outer border */
+  background-color: var(--base-white);
+  overflow: hidden;          /* Clips the header background to match the radius */
+  width: 100%;
+  min-width: 0;
+  border-radius: var(--radius-md);
+  margin: 0;
+}
+
+/* 2. Style the inner cells with only bottom and right borders */
+.rte.block.tabs-table table td {
+  border: none; /* Reset existing borders */
+  border-bottom: 1px solid var(--border-primary); 
+  border-right: 1px solid var(--border-primary);  
+  vertical-align: top;
+  text-align: left;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  color: var(--text-primary);
+  font-size: var(--body-2-font-size);
+  line-height: var(--body-2-line-height); 
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.2px;
+  overflow-wrap: break-word;
+}
+
+/* 3. Remove the right border on the last column so it doesn't double up with the outer table border */
+.rte.block.tabs-table table td:last-child {
+  border-right: none;
+}
+
+.rte.block.tabs-table table tr td:first-child{
+    padding: var(--spacing-xl);
+    font-size: var(--body-2-font-size);
+    line-height: var(--body-2-line-height);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+/* 4. Remove the bottom border on the last row so it doesn't double up with the outer table border */
+.rte.block.tabs-table table tr:last-child td {
+  border-bottom: none;
+}
+
+/* 5. Style the first row (Header) to match the light blue/gray background */
+.rte.block.tabs-table table tr:first-child td {
+  background-color: var(--info-25); /* Adjust hex code if you have the exact brand color */
+  font-size: var(--body-1-font-size);
+  line-height: var(--body-1-line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  text-align: left;
+}
+
+@media (width >= 768px) {
+    .rte.tabs-table.block{
+        margin-top: var(--spacing-3xl);
+    }
+
+    .rte.block.tabs-table > div > div{
+        max-height: unset;
+    }
+    
+    .rte.block.tabs-table table td{
+        letter-spacing: 0;
+    }
+}
+
+/* ==========================================================================
+   Fire Table Variation - Fixed Column Width & Horizontal Sliding
+   ========================================================================== */
+
+.rte.fire-table.block {
+  position: relative;
+  z-index: 0;
+  margin-top: var(--spacing-xl);
+  margin-bottom: 40px;
+  overflow: visible;
+}
+
+.rte.tabs-table.fire-table.block {
+  overflow: visible;
+}
+
+.rte.fire-table.block::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    bottom: -26px;
+    height: 100px;
+    border-radius: 50%;
+    background: #E0EAFF;
+    filter: blur(20px);
+    pointer-events: none;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.rte.block.fire-table > div > div,
+.rte.block.tabs-table.fire-table > div > div {
+  position: relative;
+  z-index: 1;
+  max-height: none;
+  overflow: auto visible;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rte.block.fire-table table,
+.rte.block.tabs-table.fire-table table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border-primary);
+  background-color: var(--base-white);
+  border-radius: var(--radius-md);
+  margin: 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.rte.block.fire-table table td,
+.rte.block.fire-table table th,
+.rte.block.tabs-table.fire-table table td,
+.rte.block.tabs-table.fire-table table th {
+  width: 140px;
+  min-width: 140px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid var(--border-primary);
+  border-right: 1px solid var(--border-primary);
+  vertical-align: top;
+  text-align: left;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  color: var(--text-primary);
+  font-size: var(--body-2-font-size);
+  line-height: var(--body-2-line-height);
+  font-weight: var(--font-weight-regular);
+  overflow-wrap: break-word;
+}
+
+.rte.block.fire-table table td:last-child,
+.rte.block.fire-table table th:last-child,
+.rte.block.tabs-table.fire-table table td:last-child,
+.rte.block.tabs-table.fire-table table th:last-child {
+  border-right: none;
+}
+
+.rte.block.fire-table table tr:last-child td,
+.rte.block.fire-table table tr:last-child th,
+.rte.block.tabs-table.fire-table table tr:last-child td,
+.rte.block.tabs-table.fire-table table tr:last-child th {
+  border-bottom: none;
+}
+
+.rte.block.fire-table table tr:first-child td,
+.rte.block.fire-table table tr:first-child th,
+.rte.block.tabs-table.fire-table table tr:first-child td,
+.rte.block.tabs-table.fire-table table tr:first-child th {
+  background-color: var(--info-25);
+  font-size: var(--body-1-font-size);
+  line-height: var(--body-1-line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.rte.block.fire-table table tr:first-child td:first-child,
+.rte.block.tabs-table.fire-table table tr:first-child td:first-child {
+  border-top-left-radius: var(--radius-md);
+}
+
+.rte.block.fire-table table tr:first-child td:last-child,
+.rte.block.tabs-table.fire-table table tr:first-child td:last-child {
+  border-top-right-radius: var(--radius-md);
+}
+
+.rte.block.fire-table table tr td strong,
+.rte.block.tabs-table.fire-table table tr td strong {
+  font-size: var(--body-2-font-size);
+  line-height: var(--body-2-line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+@media (width >= 768px) {
+  .rte.fire-table.block {
+    margin-top: var(--spacing-3xl);
+  }
+
+  .rte.block.fire-table > div > div,
+  .rte.block.tabs-table.fire-table > div > div {
+    max-height: none;
+  }
+}

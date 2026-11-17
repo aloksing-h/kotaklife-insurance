@@ -1,0 +1,466 @@
+@import url('../swiper/swiper-bundle.min.css');
+
+/* ==========================================================================
+   Popular Cover Plans Cards (Mobile First)
+   ========================================================================== */
+
+.tag-cards.popular-cover-plans > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md, 8px);
+}
+
+.tag-cards.popular-cover-plans .tag-cards-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 0 0 calc((100% - var(--spacing-md, 8px)) / 2);
+  max-width: calc((100% - var(--spacing-md, 8px)) / 2);
+  min-height: 176px;
+  padding: var(--spacing-xl, 16px) var(--spacing-lg, 12px);
+  background-color: var(--decorative-blue-50, #eff8ff);
+  border: none;
+  border-radius: var(--radius-md, 8px);
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, var(--decorative-red-900, #7f2224) 0%, var(--decorative-red-500, #fa1432) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-tag,
+.tag-cards.popular-cover-plans .tag-cards-body,
+.tag-cards.popular-cover-plans .tag-cards-cta {
+  position: relative;
+  z-index: 1;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-tag {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  max-height: 22px;
+  height: 22px;
+  margin-bottom: var(--spacing-xl, 16px);
+}
+
+.tag-cards.popular-cover-plans .tag-cards-tag.is-empty {
+  visibility: hidden;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-tag p {
+  margin: 0;
+  padding: 3px var(--spacing-md, 8px);
+  border: 1px solid var(--border-brand-blue, #1e4679);
+  border-radius: var(--radius-full, 9999px);
+  background: linear-gradient(92deg, var(--decorative-colors-deco-five-deco-four-e, #8EBBFF) -54.86%, var(--foreground-fg-white, #FFF) 40.44%, var(--foreground-fg-white, #FFF) 135.74%);
+  color: var(--text-tertiary, #535862);
+  font-size: var(--caption-font-size, 12px);
+  font-weight: var(--font-weight-medium, 500);
+  line-height: var(--caption-line-height, 14px);
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs, 4px);
+  margin: 0 0 var(--spacing-xl, 16px);
+}
+
+.tag-cards.popular-cover-plans .tag-cards-body h1,
+.tag-cards.popular-cover-plans .tag-cards-body h2,
+.tag-cards.popular-cover-plans .tag-cards-body h3,
+.tag-cards.popular-cover-plans .tag-cards-body h4,
+.tag-cards.popular-cover-plans .tag-cards-body h5,
+.tag-cards.popular-cover-plans .tag-cards-body h6 {
+  margin: 0;
+  color: var(--text-primary, #181d27);
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: var(--font-weight-semibold, 600);
+  transition: color 0.3s ease;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-body p {
+  margin: 0;
+  color: var(--text-primary, #181d27);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-body p strong {
+  color: var(--text-primary, #181d27);
+  font-weight: 800;
+  transition: color 0.3s ease;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-cta {
+  align-self: flex-end;
+  margin-top: auto;
+  line-height: 0;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-cta p {
+  margin: 0;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--btn-brand-500, #E1122D);
+  text-decoration: none;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-cta .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-cta .icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  transition: filter 0.25s ease;
+}
+
+/* Mobile 2x2 Swiper base styles */
+.section:has(.tag-cards.popular-cover-plans.swiper) {
+  overflow-x: clip;
+}
+
+.tag-cards.popular-cover-plans.swiper {
+  overflow: visible;
+  clip-path: inset(0 -100vw 0 0);
+}
+
+.tag-cards.popular-cover-plans.swiper > ul.swiper-wrapper {
+  gap: 0;
+  padding-bottom: 20px;
+}
+
+.tag-cards.popular-cover-plans.swiper .tag-cards-item.swiper-slide {
+  flex: 0 0 auto;
+  max-width: none;
+  height: auto;
+}
+
+.tag-cards.popular-cover-plans.swiper .swiper-pagination {
+  left: unset;
+  top: unset;
+  bottom: 0;
+  right: 4px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs, 4px);
+  height: 6px;
+}
+
+.tag-cards.popular-cover-plans.swiper .swiper-pagination-bullet {
+  margin: 0;
+  opacity: 1;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full, 9999px);
+  outline: 1px solid var(--gray-400, #a4a7ae);
+  background: transparent;
+  display: flex;
+}
+
+.tag-cards.popular-cover-plans.swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: 32px;
+  height: 6px;
+  outline: none;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--gradient-red-button, linear-gradient(180deg, #af0e23 0%, #fb2c47 100%));
+}
+
+/* ==========================================================================
+   Popular Cover Layout Section (Mobile First)
+   ========================================================================== */
+
+.popular-cover-layout.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl, 16px);
+  box-sizing: border-box;
+  overflow-x: clip;
+}
+
+.popular-cover-layout.section > .default-content-wrapper:first-of-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  margin: 0 0 30px;
+}
+
+.popular-cover-layout.section > .default-content-wrapper:first-of-type h1,
+.popular-cover-layout.section > .default-content-wrapper:first-of-type h2,
+.popular-cover-layout.section > .default-content-wrapper:first-of-type h3,
+.popular-cover-layout.section > .default-content-wrapper:first-of-type h4 {
+  margin: 0 0 var(--spacing-md, 8px);
+  color: var(--text-primary, #181d27);
+  font-size: var(--heading-3-font-size, 32px);
+  line-height: var(--heading-3-line-height, 36px);
+  letter-spacing: var(--heading-3-letter-spacing, -0.02em);
+  font-weight: var(--font-weight-light, 300);
+}
+
+.popular-cover-layout.section > .default-content-wrapper:first-of-type h1 strong,
+.popular-cover-layout.section > .default-content-wrapper:first-of-type h2 strong,
+.popular-cover-layout.section > .default-content-wrapper:first-of-type h3 strong,
+.popular-cover-layout.section > .default-content-wrapper:first-of-type h4 strong {
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.popular-cover-layout.section > .default-content-wrapper:first-of-type p {
+  margin: 0;
+  max-width: 340px;
+  color: var(--text-tertiary, #535862);
+  font-size: var(--body-2-font-size, 14px);
+  line-height: var(--body-2-line-height, 18px);
+  font-weight: var(--font-weight-medium, 500);
+}
+
+.popular-cover-layout.section > .tag-cards-wrapper {
+  padding: 0;
+  margin: 0;
+}
+
+/* Bottom "Build My Customized Plan" CTA button (Mobile First) */
+.popular-cover-layout.section > .default-content-wrapper:last-of-type {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.popular-cover-layout.section > .default-content-wrapper:last-of-type p {
+  width: fit-content;
+  margin: 0;
+}
+
+.popular-cover-layout.section > .default-content-wrapper:last-of-type a {
+  color: var(--base-white);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 3px 4px 3px 20px;
+  gap: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: var(--brand-red-600);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-extrabold);
+  font-size: var(--button-2-font-size);
+  line-height: var(--button-2-line-height);
+  transition: gap 0.25s ease, transform 0.25s ease;
+}
+
+.popular-cover-layout.section > .default-content-wrapper:last-of-type a:hover {
+  gap: 18px;
+}
+
+.popular-cover-layout.section > .default-content-wrapper:last-of-type a span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  background-color: var(--base-white);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.popular-cover-layout.section > .default-content-wrapper:last-of-type a img {
+  height: 22.5px;
+  width: 22.5px;
+  object-fit: contain;
+  transition: filter 0.2s ease-in-out;
+}
+
+/* Change the white circle to black on hover */
+.popular-cover-layout.section > .default-content-wrapper:last-of-type a:hover span {
+  background-color: var(--base-black);
+}
+
+/* Invert the black arrow SVG to white on hover */
+.popular-cover-layout.section > .default-content-wrapper:last-of-type a:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* ==========================================================================
+   Popular Cover Plans Card Hover States (Mobile First)
+   ========================================================================== */
+
+.tag-cards.popular-cover-plans .tag-cards-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgb(127 34 36 / 25%);
+  z-index: 2;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-item:hover::before {
+  opacity: 1;
+}
+
+.tag-cards.popular-cover-plans .tag-cards-item:hover .tag-cards-body h1,
+.tag-cards.popular-cover-plans .tag-cards-item:hover .tag-cards-body h2,
+.tag-cards.popular-cover-plans .tag-cards-item:hover .tag-cards-body h3,
+.tag-cards.popular-cover-plans .tag-cards-item:hover .tag-cards-body h4,
+.tag-cards.popular-cover-plans .tag-cards-item:hover .tag-cards-body h5,
+.tag-cards.popular-cover-plans .tag-cards-item:hover .tag-cards-body h6,
+.tag-cards.popular-cover-plans .tag-cards-item:hover .tag-cards-body p,
+.tag-cards.popular-cover-plans .tag-cards-item:hover .tag-cards-body p strong {
+  color: var(--base-white, #fff);
+}
+
+.tag-cards.popular-cover-plans .tag-cards-item:hover .tag-cards-cta a {
+  background-color: var(--base-black, #000);
+}
+
+/* .tag-cards.popular-cover-plans .tag-cards-item:hover .tag-cards-cta a:hover {
+  background-color: var(--gray-900, #181d27);
+} */
+
+.tag-cards.popular-cover-plans .tag-cards-item:hover .tag-cards-cta .icon img {
+  filter: brightness(0) invert(1);
+}
+
+/* ==========================================================================
+   Tablet & Desktop Overrides (>= 769px)
+   ========================================================================== */
+
+@media (width >= 769px) {
+  .tag-cards.popular-cover-plans > ul {
+    gap: var(--spacing-xl, 16px);
+    justify-content: center;
+  }
+
+  .tag-cards.popular-cover-plans .tag-cards-item {
+    flex: 0 0 calc((100% - (2 * var(--spacing-xl, 16px))) / 3);
+    max-width: calc((100% - (2 * var(--spacing-xl, 16px))) / 3);
+    min-height: 208px;
+    padding: 12px;
+  }
+
+  .tag-cards.popular-cover-plans .tag-cards-tag {
+    max-height: 24px;
+    height: 100%;
+    margin-bottom: 24px;
+  }
+
+  .tag-cards.popular-cover-plans .tag-cards-tag p {
+    padding: 4px 8px;
+    font-size: var(--caption-font-size, 12px);
+    line-height: var(--caption-line-height, 14px);
+  }
+
+  .tag-cards.popular-cover-plans .tag-cards-body h1,
+  .tag-cards.popular-cover-plans .tag-cards-body h2,
+  .tag-cards.popular-cover-plans .tag-cards-body h3,
+  .tag-cards.popular-cover-plans .tag-cards-body h4,
+  .tag-cards.popular-cover-plans .tag-cards-body h5,
+  .tag-cards.popular-cover-plans .tag-cards-body h6 {
+    font-size: var(--heading-4-font-size, 24px);
+    line-height: var(--heading-4-line-height, 28px);
+  }
+
+  .popular-cover-layout.section {
+    padding: 0 50px;
+  }
+
+  .popular-cover-layout.section > .default-content-wrapper:first-of-type {
+    margin: 0 0 50px;
+  }
+
+  .popular-cover-layout.section > .default-content-wrapper:first-of-type h1,
+  .popular-cover-layout.section > .default-content-wrapper:first-of-type h2,
+  .popular-cover-layout.section > .default-content-wrapper:first-of-type h3,
+  .popular-cover-layout.section > .default-content-wrapper:first-of-type h4 {
+    font-size: var(--heading-1-font-size, 48px);
+    line-height: var(--heading-1-line-height, 60px);
+  }
+
+  .popular-cover-layout.section > .default-content-wrapper:first-of-type p {
+    max-width: 630px;
+    font-size: var(--body-1-font-size, 16px);
+    line-height: var(--body-1-line-height, 20px);
+  }
+
+  /* Bottom "Build My Customized Plan" CTA button desktop margin */
+  .popular-cover-layout.section > .default-content-wrapper:last-of-type {
+    margin: 40px 0 0;
+  }
+  
+  .popular-cover-layout.section > .default-content-wrapper:last-of-type a{
+    font-size: var(--button-1-font-size);
+  line-height: var(--button-1-line-height);
+  }
+}
+
+/* ==========================================================================
+  Desktop Overrides (>= 1100px): 5 columns with wrapping
+   ========================================================================== */
+
+@media (width >= 1100px) {
+  .tag-cards.popular-cover-plans > ul {
+    flex-wrap: wrap;
+    gap: var(--spacing-2xl, 20px);
+  }
+
+  .tag-cards.popular-cover-plans .tag-cards-item {
+    flex: 0 0 calc((100% - (4 * var(--spacing-2xl, 20px))) / 5);
+    max-width: 166px;
+
+    /* max-width: calc((100% - (4 * var(--spacing-2xl, 20px))) / 5); */
+    min-height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tag-cards.popular-cover-plans .tag-cards-item {
+    transition: none;
+    transform: none;
+  }
+
+  .tag-cards.popular-cover-plans .tag-cards-item::before,
+  .tag-cards.popular-cover-plans .tag-cards-cta a,
+  .tag-cards.popular-cover-plans .tag-cards-body h1,
+  .tag-cards.popular-cover-plans .tag-cards-body h2,
+  .tag-cards.popular-cover-plans .tag-cards-body h3,
+  .tag-cards.popular-cover-plans .tag-cards-body h4,
+  .tag-cards.popular-cover-plans .tag-cards-body h5,
+  .tag-cards.popular-cover-plans .tag-cards-body h6,
+  .tag-cards.popular-cover-plans .tag-cards-body p,
+  .tag-cards.popular-cover-plans .tag-cards-body p strong {
+    transition: none;
+  }
+}

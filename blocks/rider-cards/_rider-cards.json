@@ -1,0 +1,104 @@
+{
+  "definitions": [
+    {
+      "title": "Rider Cards",
+      "id": "rider-cards",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Rider Cards",
+              "model": "rider-cards",
+              "filter": "rider-cards"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Rider Card",
+      "id": "rider-cards-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Rider Card",
+              "model": "rider-cards-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "rider-cards",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "text",
+          "label": "Heading & Subtitle",
+          "description": "Heading 2 (bold the highlighted words) followed by a short subtitle",
+          "value": "",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "rider-cards-item",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Icon",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Icon Alt",
+          "description": "Leave empty when the icon is decorative",
+          "value": ""
+        },
+        {
+          "component": "hidden",
+          "name": "imageMimeType",
+          "value": "image/png"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "label": "Description",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "link",
+          "label": "Link (optional)",
+          "description": "Makes the whole card clickable. Leave empty for a non-clickable card."
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "rider-cards",
+      "components": [
+        "rider-cards-item"
+      ]
+    }
+  ]
+}

@@ -13,6 +13,23 @@
           }
         }
       }
+    },
+    {
+      "title": "Tab Panel",
+      "id": "tab-panel",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "name": "Tab Panel",
+              "model": "tab-panel",
+              "filter": "section",
+              "tab-label": "Tab"
+            }
+          }
+        }
+      }
     }
   ],
   "models": [
@@ -33,8 +50,499 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Spacing Variant",
+              "children": [
+                {
+                  "name": "Margin 80PX",
+                  "value": "margin-80"
+                },
+                {
+                  "name": "Margin 100PX",
+                  "value": "margin-100"
+                },
+                {
+                  "name": "Margin 120PX",
+                  "value": "margin-120"
+                },
+                {
+                  "name": "Margin 140PX",
+                  "value": "margin-140"
+                },
+                {
+                  "name": "Margin 160PX",
+                  "value": "margin-160"
+                }
+              ]
+            },
+            {
+              "name": "Display None",
+              "value": "dsp-none"
+            },
+            {
+              "name": "Footer Mobile Accordion Only",
+              "value": "mob-accordion"
+            },
+            {
+              "name": "Footer Social Icon",
+              "value": "footer-social"
+            },
+            {
+              "name": "Footer Imp Links",
+              "value": "footer-imp-links"
+            },
+            {
+              "name": "Insights & Impact Plans",
+              "value": "insights-impact-plans"
+            },
+            {
+              "name": "Growing Insurance Company",
+              "value": "growing-insurance-company"
+            },
+            {
+              "name": "Advisor",
+              "value": "advisor"
+            },
+            {
+              "name": "Looking For",
+              "value": "looking-for"
+            },
+            {
+              "name": "Best Seller Banner",
+              "value": "best-seller-banner"
+            },
+            {
+              "name": "Dsp None",
+              "value": "dsp-none"
+            },
+            {
+              "name": "Dsp None Appear",
+              "value": "dsp-none-appear"
+            },
+            {
+              "name": "Customer Say",
+              "value": "customer-say"
+            },
+            {
+              "name": "Start Investing",
+              "value": "start-investing"
+            },
+            {
+              "name": "Get Cover Plans",
+              "value": "get-cover-plans"
+            },
+            {
+              "name": "Find A Plan",
+              "value": "find-a-plan"
+            },
+            {
+              "name": "Video Banner",
+              "value": "video-banner"
+            },
+            {
+              "name": "Protection Plans",
+              "value": "protection-plans"
+            },
+            {
+              "name": "Loans",
+              "value": "loans"
+            },
+            {
+              "name": "Invest Form",
+              "value": "invest-form"
+            },
+            {
+              "name": "CSR Layout",
+              "value": "csr-layout"
+            },
+            {
+              "name": "Our Vision",
+              "value": "vision"
+            },
+            {
+              "name": "Why Trust",
+              "value": "trust"
+            },
+            {
+              "name": "Slider Title",
+              "value": "slider-title"
+            },
+            {
+              "name": "Difference cards",
+              "value": "difference-cards"
+            },
+            {
+              "name": "Values Cards (Hover Text)",
+              "value": "values-cards-hover"
+            },
+            {
+              "name": "Visual Pulse",
+              "value": "visual-pulse"
+            },
+            {
+              "name": "Our Leadership",
+              "value": "leadership"
+            },
+            {
+              "name": "Background White",
+              "value": "bg-white"
+            },
+            {
+              "name": "test cls",
+              "value": "test-cls"
+            },
+            {
+              "name": "Header Varient",
+              "children": [
+                {
+                  "name": "Grey Header",
+                  "value": "grey-nav"
+                },
+                {
+                  "name": "White Header",
+                  "value": "white-nav"
+                }
+              ]
+            },
+            {
+              "name": "Calculators",
+              "children": [
+                {
+                  "name": "Calculator Main",
+                  "value": "calculator-main"
+                },
+                {
+                  "name": "Retirement, Annuity and Pension Calculator",
+                  "value": "retirement-calculator"
+                },
+                {
+                  "name": "Compound Calculator",
+                  "value": "compound-calculator"
+                },
+                {
+                  "name": "Fire Calculator",
+                  "value": "fire-calculator"
+                },
+                {
+                  "name": "Nps Calculator",
+                  "value": "nps-calculator"
+                },
+                {
+                  "name": "Ulip and Investment Calculator",
+                  "value": "ulip-calculator"
+                },
+                {
+                  "name": "FD Calculator",
+                  "value": "fd-calculator"
+                },
+                {
+                  "name": "RD calculator",
+                  "value": "rd-calculator"
+                },
+                {
+                  "name": "PPF calculator",
+                  "value": "ppf-calculator"
+                },
+                {
+                  "name": "SIP calculator",
+                  "value": "sip-calculator"
+                },
+                {
+                  "name": "SWP calculator",
+                  "value": "swp-calculator"
+                },
+                {
+                  "name": "BMI calculator",
+                  "value": "bmi-calculator"
+                },
+                {
+                  "name": "HRA calculator",
+                  "value": "hra-calculator"
+                },
+                {
+                  "name": "Gratuity calculator",
+                  "value": "gratuity-calculator"
+                },
+                {
+                  "name": "Savings calculator",
+                  "value": "savings-calculator"
+                },
+                {
+                  "name": "HLV calculator",
+                  "value": "hlv-calculator"
+                },
+                {
+                  "name": "Term Insurance calculator",
+                  "value": "term-insurance-calculator"
+                }
+              ]
+            },
+            {
+              "name": "Breadcrumb Move",
+              "value": "breadcrumb-move"
+            },
+            {
+              "name": "Findplan Title",
+              "value": "findplan-title"
+            },
+            {
+              "name": "Findplan Button",
+              "value": "findplan-button"
+            },
+            {
+              "name": "Insurance Tab Title",
+              "value": "insurance-tab-title"
+            },
+            {
+              "name": "Calc Card",
+              "value": "calc-card"
+            },
+            {
+              "name": "Calculator Details Hero",
+              "value": "calculator-details-hero"
+            },
+            {
+              "name": "Calculator spacing",
+              "value": "std-space"
+            },
+            {
+              "name": "Red Logo BG",
+              "value": "red-logo-bg"
+            },
+            {
+              "name": "Form Up Desktop",
+              "value": "form-up-desktop"
+            },
+            {
+              "name": "Popular Cover Layout",
+              "value": "popular-cover-layout"
+            },
+            {
+              "name": "Customer Review Heading",
+              "value": "customer-review-heading"
+            },
+            {
+              "name": "Protection With Riders",
+              "value": "protection-with-riders"
+            },
+            {
+              "name": "Fund Performance",
+              "children": [
+                {
+                  "name": "Sticky Tab",
+                  "value": "sticky-tab"
+                },
+                {
+                  "name": "Fund Main Tab",
+                  "value": "fund-main-tab"
+                },
+                {
+                  "name": "Fund Main Tab v2",
+                  "value": "fund-main-tab-v2"
+                },
+                {
+                  "name": "Fund Tab Content",
+                  "value": "fund-tab-content"
+                },
+                {
+                  "name": "Fund Tab Content v2",
+                  "value": "fund-tab-content-v2"
+                },
+                {
+                  "name": "Risk Management",
+                  "value": "risk-management"
+                },
+                {
+                  "name": "Investment Team",
+                  "value": "investment-team"
+                },
+                {
+                  "name": "Investment Philosophy",
+                  "value": "investment-philosophy"
+                },
+                {
+                  "name": "Investment Philosophy Equity",
+                  "value": "equity"
+                },
+                {
+                  "name": "Investment Philosophy Debts",
+                  "value": "debts"
+                },
+                {
+                  "name": "Nav Performance",
+                  "value": "nav-performance"
+                }
+              ]
+            },
+            {
+              "name": "Global Search",
+              "value": "global-search"
+            },
+            {
+              "name": "Form Up V2",
+              "value": "form-up-v2"
+            },
+            {
+              "name": "Make Different",
+              "value": "make-different"
+            },
+            {
+              "name": "Intro Animation",
+              "value": "intro-animation"
+            },
+            {
+              "name": "Horizontal heading",
+              "value": "horizontal-heading"
+            },
+            {
+              "name": "category-sticky-banner",
+              "value": "category-sticky-banner"
+            },
+            {
+              "name":"Key Features Cards",
+              "value":"key-features-cards"
+            },
+            {
+              "name":"Fits Your Life Title",
+              "value":"fits-your-life-title"
+            },
+            {
+              "name": "Header Content ",
+              "value": "header-content"
+            },
+            {
+              "name": "Blog Banner",
+              "value": "blog-banner"
+            },
+            {
+              "name": "Blog Popular Section",
+              "value": "blog-popular-section"
+            },
+            {
+               "name": "Blog Content",
+               "value":"blog-content"
+            },
+            {
+                "name":"Why Term Insurance",
+                "value":"why-term-insurance"
+            },
+            {
+                "name":"Contact Us",
+                "value":"contact-us"
             }
           ]
+        },
+        {
+          "component": "text",
+          "name": "id",
+          "label": "Enter Section Id"
+        },
+        {
+          "component": "select",
+          "name": "nav-theme",
+          "label": "Select Banner Type",
+          "options": [
+            {
+              "name": "Light",
+              "value": "light"
+            },
+            {
+              "name": "Dark",
+              "value": "dark"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "pulse-path",
+          "label": "Pulse Path",
+          "description": "How the pulse line runs through this section. Presets adapt to desktop and mobile; choose Custom to enter your own points.",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "None",
+              "value": "none"
+            },
+            {
+              "name": "Down the left side",
+              "value": "left"
+            },
+            {
+              "name": "Down the right side",
+              "value": "right"
+            },
+            {
+              "name": "Left side, then cross to the right",
+              "value": "left-to-right"
+            },
+            {
+              "name": "Right side, then cross to the left",
+              "value": "right-to-left"
+            },
+            {
+              "name": "Down the left side with a loop",
+              "value": "loop-left"
+            },
+            {
+              "name": "Down the right side with a loop",
+              "value": "loop-right"
+            },
+            {
+              "name": "Custom points",
+              "value": "custom"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "animation-point",
+          "label": "Animation Point",
+          "description": "Custom points for desktop. Create them on the page preview with ?pulse-edit, then copy and paste here.",
+          "condition": {
+            "===": [
+              {
+                "var": "pulse-path"
+              },
+              "custom"
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "name": "animation-point-mobile",
+          "label": "Animation Point mobile",
+          "description": "Custom points below 900px. Leave empty to use the desktop points. Create them with ?pulse-edit.",
+          "condition": {
+            "===": [
+              {
+                "var": "pulse-path"
+              },
+              "custom"
+            ]
+          }
+        },
+        {
+          "component": "reference",
+          "name": "background-image",
+          "label": "Background Image for /desktop",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "name": "background-imageAlt",
+          "label": "Background Image Alt Text /desktop"
+        },
+        {
+          "component": "reference",
+          "name": "backgroundimage-mobile",
+          "label": "Background Image for /mobile",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "name": "backgroundimage-mobileAlt",
+          "label": "Background Image Alt Text /mobile"
         }
       ]
     }
@@ -47,10 +555,69 @@
         "image",
         "button",
         "title",
-        "hero",
+        "accordion",
+        "banner",
         "cards",
+        "carousel",
         "columns",
-        "fragment"
+        "custom-cards",
+        "custom-rte",
+        "embed",
+        "form",
+        "fragment",
+        "hero",
+        "popular-search",
+        "profile-cta",
+        "quote",
+        "search",
+        "rte",
+        "rteV2",
+        "tabs",
+        "subnav",
+        "video",
+        "tab-list",
+        "invest-form",
+        "timeline",
+        "video-banner",
+        "promo",
+        "banner-v2",
+        "insu-banner",
+        "accessibility-button",
+        "calculators",
+        "result-summary-panel",
+        "result-summary-panel-v2",
+        "result-summary-with-canvas",
+        "fund-tab",
+        "tag-cards",
+        "testimonials",
+        "how-it-works",
+        "customer-testimonials",
+        "calculator-metrics-grid",
+        "rating-banner",
+        "pulse-animation",
+        "promo-banner",
+        "compare-plans",
+        "plan-options",
+        "eligibility-tabs",
+        "life-stages-journey",
+        "plan-timeline",
+        "fund-highlight",
+        "plan-highlight",
+        "gen2gen-tabs",
+        "rider-cards",
+        "fund-nav-detail",
+        "fund-cards",
+        "infinity-intro",
+        "infinity-banner",
+        "offer-banner",
+        "blog-listing",
+        "impact-cards",
+        "agentic-search",
+        "category-links",
+        "category-cards",
+        "author-card",
+        "branch-locator",
+        "blog-navigation"
       ]
     }
   ]

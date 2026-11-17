@@ -1,0 +1,1088 @@
+/* --- Main Container --- */
+.request-call-back.block.form {
+  position: relative;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  margin-top: 24px;
+}
+
+/* Bottom Glow Patch */
+.request-call-back.block.form::after {
+  display: none;
+  content: '';
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  max-width: 480px;
+  height: 32px;
+  background: radial-gradient(
+    ellipse 50% 100% at 50% 0%,
+    rgb(180 210 240 / 85%) 0%,
+    transparent 100%
+  );
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+/* --- Form Flexbox Layout (No Grid) --- */
+.request-call-back.form.block form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg); /* Space between rows and columns */
+}
+
+/* Every field takes up full width on mobile */
+.request-call-back.form.block .form-field {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.request-call-back.form.block .form-field.radio-field{
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.request-call-back.form.block .form-field.checkbox-field{
+  margin-top: 12px;
+}
+
+/* .request-call-back.form.block .form-field+.form-field {
+    margin: 0;
+} */
+
+/* Full width fields */
+.request-call-back.form.block .checkbox-field,
+.request-call-back.form.block .button-wrapper {
+  width: 100%;
+}
+
+
+/* --- Input Fields (Text, Tel, Email, Date, Select) --- */
+.request-call-back.form.block input[type="text"],
+.request-call-back.form.block input[type="tel"],
+.request-call-back.form.block input[type="email"],
+.request-call-back.form.block select,
+.request-call-back.form.block .custom-select-trigger {
+  width: 100%;
+  padding: 11px var(--spacing-xl);
+  border: 1px solid var(--border-primary);
+  border-radius: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--gray-500);
+  background-color: var(--bg-primary);
+  box-sizing: border-box;
+  outline: none;
+}
+
+.request-call-back.form.block select,
+.request-call-back.form.block .custom-select-trigger {
+  appearance: none;
+  background-image: url("../../icons/grey-arrow-down-1.svg");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+/* --- Custom Select Dropdown (styled option list) --- */
+.request-call-back.form.block .custom-select {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+/* Native select stays in the DOM (visually hidden) for form submission/validation */
+.request-call-back.form.block .custom-select select {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+.request-call-back.form.block .custom-select-trigger {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.request-call-back.form.block .custom-select-value {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.request-call-back.form.block .custom-select-value.is-placeholder {
+  color: var(--text-placeholder);
+}
+
+.request-call-back.form.block .custom-select-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 24px -4px rgb(0 0 0 / 12%), 0 2px 6px rgb(0 0 0 / 4%);
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+  z-index: 20;
+}
+
+.request-call-back.form.block .custom-select.is-open .custom-select-menu {
+  display: block;
+}
+
+.request-call-back.form.block .custom-select-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.request-call-back.form.block .custom-select-menu::-webkit-scrollbar-thumb {
+  background-color: var(--gray-300);
+  border-radius: 4px;
+}
+
+.request-call-back.form.block .custom-select-option {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.request-call-back.form.block .custom-select-option.is-active {
+  background-color: var(--gray-50);
+}
+
+.request-call-back.form.block .custom-select-option.is-selected {
+  background-color: var(--blue-50);
+}
+
+.request-call-back.form.block .date-field input {
+  /* Uses a lighter grey, thinner stroke, and rounder corners. */
+  background-image: url("../../icons/calendar-fm.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  font-variant-ligatures: none;
+}
+
+/* Hide the native browser calendar icon while keeping the click functionality */
+.request-call-back.form.block .date-field input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 16px; /* Align click target over your custom background image */
+  width: 24px;
+  height: 24px;
+}
+
+.request-call-back.form.block .form-field:not(.radio-field) label[data-required]::after, .request-call-back.form.block .form-field:not(.radio-field) legend[data-required]::after{
+  display: none;
+}
+
+.request-call-back.form.block .form-field.radio-field legend[data-required]::after{
+  color: var(--text-brand-red);
+  order: 2;
+  margin-right: 2px;
+}
+
+/* --- Flatpickr Date Picker (shared with invest-form) --- */
+.request-call-back.form.block .form-field.date-field {
+  position: relative;
+}
+
+.request-call-back.form.block .form-field.date-field .flatpickr-wrapper {
+  display: block;
+}
+
+.request-call-back.form.block .form-field.date-field .flatpickr-calendar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 320px;
+  min-width: 290px;
+  max-width: min(340px, calc(100vw - 32px));
+  z-index: 99;
+  margin-top: var(--spacing-sm);
+  background: #F8F8F8;
+  border-radius: 5px;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 8%), 0 2px 8px rgb(0 0 0 / 4%);
+  border: 1px solid #ECECEC;
+  padding: 12px 8px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.request-call-back.form.block .flatpickr-calendar::before,
+.request-call-back.form.block .flatpickr-calendar::after {
+  display: none;
+}
+
+.request-call-back.form.block .flatpickr-months {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  position: relative;
+  gap: 8px;
+  overflow: visible;
+}
+
+.request-call-back.form.block .flatpickr-months .flatpickr-month {
+  height: auto;
+  flex: 1;
+  position: relative;
+  overflow: visible;
+}
+
+.request-call-back.form.block .flatpickr-current-month {
+  position: static;
+  width: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: unset;
+  overflow: visible;
+  transform: none;
+}
+
+.request-call-back.form.block .flatpickr-months .flatpickr-prev-month,
+.request-call-back.form.block .flatpickr-months .flatpickr-next-month {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  flex-shrink: 0;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-white);
+  border: 1px solid #E9EAEB;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 5%);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.request-call-back.form.block .flatpickr-months .flatpickr-prev-month:hover,
+.request-call-back.form.block .flatpickr-months .flatpickr-next-month:hover {
+  background-color: #F5F5F5;
+  border-color: #D5D7DA;
+}
+
+.request-call-back.form.block .flatpickr-months .flatpickr-prev-month::before {
+  content: '';
+  background-image: url("../../icons/calendar-prev-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 4px;
+  height: 6px;
+}
+
+.request-call-back.form.block .flatpickr-months .flatpickr-next-month::before {
+  content: '';
+  background-image: url("../../icons/calendar-next-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 4px;
+  height: 6px;
+}
+
+.request-call-back.form.block .flatpickr-months .flatpickr-prev-month svg,
+.request-call-back.form.block .flatpickr-months .flatpickr-next-month svg {
+  display: none;
+}
+
+/* Custom Header Dropdown Controls */
+.request-call-back.form.block .custom-header-dropdown {
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+}
+
+.request-call-back.form.block .custom-header-dropdown.is-open {
+  z-index: 100;
+}
+
+.request-call-back.form.block .custom-header-dropdown select {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+.request-call-back.form.block .custom-header-trigger {
+  appearance: none;
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  outline: none;
+  background-image: url("../../icons/calendar-dropdown-icon.svg");
+  background-repeat: no-repeat;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: inherit;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.request-call-back.form.block .month-trigger {
+  background-color: var(--base-white);
+  border: 1px solid var(--base-white);
+  padding: 3px 28px 3px 12px;
+  background-position: calc(100% - 10px) center;
+  background-size: 8px 5px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+  width: 100%;
+}
+
+.request-call-back.form.block .month-trigger:hover,
+.request-call-back.form.block .custom-header-dropdown.is-open .month-trigger {
+  border-color: #FD8A99;
+}
+
+.request-call-back.form.block .year-trigger {
+  background-color: var(--base-white);
+  border: 1px solid transparent;
+  padding: 3px 24px 3px 8px;
+  background-position: calc(100% - 8px) center;
+  background-size: 8px 5px;
+  width: 100%;
+}
+
+.request-call-back.form.block .year-trigger:hover,
+.request-call-back.form.block .custom-header-dropdown.is-open .year-trigger {
+  border-color: #FD8A99;
+}
+
+.request-call-back.form.block .custom-header-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 130px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: var(--base-white);
+  border: 1px solid var(--border-secondary, #E9EAEB);
+  border-radius: 8px;
+  box-shadow: 0 10px 24px -4px rgb(0 0 0 / 12%), 0 2px 6px rgb(0 0 0 / 4%);
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+  z-index: 1000;
+}
+
+.request-call-back.form.block .year-dropdown .custom-header-menu {
+  min-width: 90px;
+}
+
+.request-call-back.form.block .custom-header-menu::-webkit-scrollbar {
+  width: 2px;
+}
+
+.request-call-back.form.block .custom-header-menu::-webkit-scrollbar-thumb {
+  background-color: var(--gray-300, #D5D7DA);
+  border-radius: 4px;
+}
+
+.request-call-back.form.block .custom-header-dropdown.is-open .custom-header-menu {
+  display: block;
+}
+
+.request-call-back.form.block .custom-header-option {
+  padding: 6px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.request-call-back.form.block .custom-header-option:hover {
+  background-color: var(--gray-50, #F8F8F8);
+}
+
+.request-call-back.form.block .custom-header-option.is-selected {
+  color: var(--brand-red-500, #FA1432);
+  font-weight: 500;
+}
+
+/* Fallback for native select */
+.request-call-back.form.block .custom-header-select {
+  appearance: none;
+  background-color: var(--base-white);
+  border: 1px solid var(--border-secondary, #E9EAEB);
+  border-radius: 6px;
+  padding: 6px 28px 6px 12px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  outline: none;
+  background-image: url("../../icons/calendar-dropdown-icon.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  background-size: 8px 5px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+}
+
+.request-call-back.form.block .custom-month-select {
+  border-color: var(--brand-red-200, #FD8A99);
+}
+
+.request-call-back.form.block .custom-header-select:focus,
+.request-call-back.form.block .custom-header-select:hover {
+  border-color: var(--brand-red-500, #FA1432);
+}
+
+/* Weekdays */
+.request-call-back.form.block .flatpickr-weekdays {
+  display: block;
+  margin-bottom: 8px;
+  height: unset;
+}
+
+.request-call-back.form.block .flatpickr-weekdaycontainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.request-call-back.form.block .flatpickr-rContainer,
+.request-call-back.form.block .flatpickr-days {
+  width: 100%;
+}
+
+.request-call-back.form.block span.flatpickr-weekday {
+  color: var(--text-primary);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  height: unset;
+}
+
+/* Days Container */
+/* stylelint-disable selector-class-pattern */
+.request-call-back.form.block .flatpickr-days > div,
+.request-call-back.form.block .dayContainer {
+  /* Flatpickr injects inline pixel widths on .dayContainer; override to 100% */
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px 6px;
+}
+
+/* Individual Day Cell */
+.request-call-back.form.block .flatpickr-day {
+  width: 114%;
+  max-width: 40px;
+  height: 16px;
+  line-height: 14px;
+  font-weight: 400;
+  border: none;
+  color: var(--text-primary);
+  font-size: 12px;
+  background-color: var(--base-white);
+  border-radius: 4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+  cursor: pointer;
+  margin: 0;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.request-call-back.form.block .flatpickr-day:hover {
+  background-color: #FFF0F2;
+  color: var(--brand-red-500, #FA1432);
+}
+
+/* Days outside current month */
+.request-call-back.form.block .flatpickr-day.prevMonthDay,
+.request-call-back.form.block .flatpickr-day.nextMonthDay {
+  background-color: transparent;
+  color: #8E8E93;
+  box-shadow: none;
+}
+
+.request-call-back.form.block .flatpickr-day.prevMonthDay:hover,
+.request-call-back.form.block .flatpickr-day.nextMonthDay:hover {
+  background-color: #EFEFEF;
+  color: #414651;
+}
+/* stylelint-enable selector-class-pattern */
+
+/* Disabled days */
+.request-call-back.form.block .flatpickr-day.flatpickr-disabled,
+.request-call-back.form.block .flatpickr-day.flatpickr-disabled:hover {
+  background-color: transparent;
+  color: var(--gray-300, #D5D7DA);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Selected day */
+.request-call-back.form.block .flatpickr-day.selected,
+.request-call-back.form.block .flatpickr-day.selected:hover {
+  background-color: var(--brand-red-500, #FA1432);
+  color: var(--base-white);
+  font-weight: 500;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgb(250 20 50 / 25%);
+}
+
+/* Today indicator (when not selected): clean card matching Figma design */
+.request-call-back.form.block .flatpickr-day.today:not(.selected) {
+  border: none;
+  color: var(--text-primary);
+  background-color: var(--base-white);
+}
+
+.request-call-back.form.block input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.request-call-back.form.block input:focus,
+.request-call-back.form.block select:focus,
+.request-call-back.form.block .custom-select-trigger:focus-visible,
+.request-call-back.form.block .custom-select.is-open .custom-select-trigger {
+  border : 2px solid #1E4679;
+}
+
+.request-call-back.form.block .checkbox-field label{
+  position: relative;
+}
+
+/* --- Override Global Base CSS for Native Inputs --- */
+
+/* Visually hide native inputs safely without breaking clicks or accessibility */
+.request-call-back.form.block .radio-field label input[type="radio"],
+.request-call-back.form.block .checkbox-field label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+  pointer-events: none; /* Allows clicks to pass through to the label safely */
+}
+
+/* Ensure custom spans position correctly next to the text */
+.request-call-back.form.block .radio-field label span,
+.request-call-back.form.block .checkbox-field label span {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* --- Radio Buttons (Gender) --- */
+.request-call-back.form.block .radio-field legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.request-call-back.form.block .radio-field legend .legend-text {
+  order: 1;
+  margin: 0;
+}
+
+.request-call-back.form.block .radio-field label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0 13px 0 0;
+  color: var(--text-primary);
+  padding: 0;
+}
+
+/* Custom radio circle */
+.request-call-back.form.block .radio-field input[type="radio"] + span {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--border-brand-red);
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* Custom radio selected dot */
+.request-call-back.form.block .radio-field input[type="radio"]:checked + span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border: 5px solid var(--brand-red-500);
+  border-radius: 50%;
+}
+
+/* --- Tobacco User Toggle Switch Styling (First Option [toggle] Second Option) --- */
+/* stylelint-disable no-descending-specificity */
+.request-call-back.form.block .radio-field:has(input[name="tobacoouser"]) label,
+.request-call-back.form.block .radio-field:has(input[name="tobaccouser"]) label,
+.request-call-back.form.block .radio-field:has(input[name="tobacco"]) label {
+  margin: 0;
+  color: var(--text-secondary, #535862);
+  vertical-align: middle;
+}
+
+.request-call-back.form.block .radio-field:has(input[name="tobacoouser"]){
+  gap: 0;
+}
+
+
+.request-call-back.form.block .radio-field:has(input[name="tobacoouser"]) label:has(input:checked),
+.request-call-back.form.block .radio-field:has(input[name="tobaccouser"]) label:has(input:checked),
+.request-call-back.form.block .radio-field:has(input[name="tobacco"]) label:has(input:checked) {
+  color: var(--text-primary, #181D27);
+  font-weight: 600;
+}
+
+/* Hide the radio circle before the first option */
+.request-call-back.form.block .radio-field:has(input[name="tobacoouser"]) label:first-of-type > span,
+.request-call-back.form.block .radio-field:has(input[name="tobaccouser"]) label:first-of-type > span,
+.request-call-back.form.block .radio-field:has(input[name="tobacco"]) label:first-of-type > span {
+  display: none;
+}
+
+/* Turn the span before the second option into the red pill toggle switch */
+.request-call-back.form.block .radio-field:has(input[name="tobacoouser"]) label:last-of-type > span,
+.request-call-back.form.block .radio-field:has(input[name="tobaccouser"]) label:last-of-type > span,
+.request-call-back.form.block .radio-field:has(input[name="tobacco"]) label:last-of-type > span {
+  width: 36px;
+  height: 20px;
+  border-radius: 999px;
+  background-color: var(--brand-red-500, #FA1432);
+  border: none;
+  margin: 0 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.request-call-back.form.block .radio-field:has(input[name="tobacoouser"]) label:last-of-type > span::after,
+.request-call-back.form.block .radio-field:has(input[name="tobaccouser"]) label:last-of-type > span::after,
+.request-call-back.form.block .radio-field:has(input[name="tobacco"]) label:last-of-type > span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 19px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--bg-primary, #fff);
+  border: none;
+  transition: left 0.2s ease;
+}
+
+.request-call-back.form.block .radio-field:has(input[name="tobacoouser"]) label:last-of-type input:checked + span::after,
+.request-call-back.form.block .radio-field:has(input[name="tobaccouser"]) label:last-of-type input:checked + span::after,
+.request-call-back.form.block .radio-field:has(input[name="tobacco"]) label:last-of-type input:checked + span::after {
+  left: 17px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-color: var(--bg-primary, #fff);
+}
+
+.request-call-back.form.block .radio-field:has(input[name="tobacoouser"]):has(label:first-of-type input:checked) label:last-of-type > span::after,
+.request-call-back.form.block .radio-field:has(input[name="tobaccouser"]):has(label:first-of-type input:checked) label:last-of-type > span::after,
+.request-call-back.form.block .radio-field:has(input[name="tobacco"]):has(label:first-of-type input:checked) label:last-of-type > span::after {
+  left: 3px;
+}
+
+/* Toggle field / switch checkbox support */
+.request-call-back.form.block .toggle-field label,
+.request-call-back.form.block .form-field.checkbox-field.toggle-switch label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-primary, #181D27);
+}
+
+.request-call-back.form.block .toggle-field label input[type="checkbox"] + span,
+.request-call-back.form.block .form-field.checkbox-field.toggle-switch label input[type="checkbox"] + span {
+  width: 36px;
+  height: 20px;
+  border-radius: 999px;
+  background-color: var(--brand-red-500, #FA1432);
+  border: none;
+  margin: 0 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.request-call-back.form.block .toggle-field label input[type="checkbox"] + span::after,
+.request-call-back.form.block .form-field.checkbox-field.toggle-switch label input[type="checkbox"] + span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--bg-primary, #fff);
+  border: none;
+  transition: left 0.2s ease;
+}
+
+.request-call-back.form.block .toggle-field label input[type="checkbox"]:checked + span::after,
+.request-call-back.form.block .form-field.checkbox-field.toggle-switch label input[type="checkbox"]:checked + span::after {
+  left: 17px;
+}
+
+/* --- Checkbox (Consent) --- */
+.request-call-back.form.block .checkbox-field legend {
+  display: none;
+}
+
+.request-call-back.form.block .form-field.checkbox-field label {
+  display: flex;
+  align-items: flex-start;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 12px;
+  cursor: default;
+  padding: 0; /* Reset global padding if any */
+}
+
+.request-call-back.form.block .form-field.checkbox-field label p{
+  margin: 0;
+}
+
+/* Link formatting inside checkbox text */
+.request-call-back.form.block .checkbox-field label a {
+  color: var(--blue-800);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.request-call-back.form.block .form-field.checkbox-field label p a{
+  color: var(--blue-700);
+  font-weight: 800;
+}
+
+
+/* Hide the checkbox square (only display the statement) */
+.request-call-back.form.block .form-field.checkbox-field label input[type="checkbox"] + span {
+  display: none;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* --- Submit Button --- */
+.request-call-back.form.block .button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.request-call-back.form.block .button {
+  background-color: var(--btn-brand-red, #E1122D);
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--radius-full); /* Pill shape */
+  padding: 4px 4px 4px 20px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  cursor: pointer;
+  transition: background-color 0.2s ease, gap 0.2s ease, transform 0.2s ease;
+  width: unset;
+}
+
+/* White Circle Icon Wrapper inside button */
+.request-call-back.form.block .button-icon {
+  width: 30px;
+  height: 30px;
+  background-color: var(--bg-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.request-call-back.form.block .button-icon img{
+  max-width: 20px;
+  max-height: 20px;
+  width: 100%;
+  height: 100%;
+  transition: filter 0.2s ease;
+}
+
+/* --- Field Tooltip --- */
+.request-call-back.form.block .field-tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.request-call-back.form.block .radio-field legend .field-tooltip {
+  order: 3;
+}
+
+.request-call-back.form.block .field-tooltip .tooltip-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  line-height: 1;
+  color: var(--text-tertiary, #717680);
+}
+
+.request-call-back.form.block .field-tooltip .tooltip-trigger .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.request-call-back.form.block .field-tooltip .tooltip-trigger .icon img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.request-call-back.form.block .field-tooltip .tooltip-bubble {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 50;
+  width: max-content;
+  max-width: min(340px, calc(100vw - 32px));
+  box-sizing: border-box;
+  padding: 16px 20px;
+  border-radius: var(--radius-md, 8px);
+  background-color: var(--base-white, #fff);
+  color: var(--text-secondary, #414651);
+  font-family: var(--font-family-font-family-body, Manrope);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.1px;
+  text-align: left;
+  white-space: normal;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 150ms ease, transform 150ms ease, visibility 150ms;
+  box-shadow: 0 12px 24px -4px rgb(16 24 40 / 12%), 0 6px 12px -2px rgb(16 24 40 / 6%);
+  border: 1px solid var(--border-secondary, #eaecf0);
+}
+
+.request-call-back.form.block .field-tooltip .tooltip-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: var(--arrow-left, 50%);
+  transform: translateX(-50%);
+  border: 9px solid transparent;
+  border-bottom-color: var(--border-secondary, #eaecf0);
+}
+
+.request-call-back.form.block .field-tooltip .tooltip-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: var(--arrow-left, 50%);
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-bottom-color: var(--base-white, #fff);
+}
+
+.request-call-back.form.block .field-tooltip .tooltip-trigger:hover .tooltip-bubble,
+.request-call-back.form.block .field-tooltip .tooltip-trigger:focus-visible .tooltip-bubble,
+.request-call-back.form.block .field-tooltip .tooltip-trigger[aria-expanded="true"] .tooltip-bubble {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.request-call-back.form.block .field-tooltip .tooltip-trigger:focus-visible {
+  border-radius: 50%;
+  outline: 2px solid var(--brand-blue-600, #1e4679);
+  outline-offset: 2px;
+}
+
+/* 1. Hide error messages by default and style them */
+.request-call-back.form.block .error-message {
+  display: none;
+  color: var(--text-brand-red);
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* 2. Show the error message ONLY when the field is marked invalid */
+.request-call-back.form.block .form-field.is-invalid .error-message {
+  display: block;
+}
+
+/* 3. Turn the input border red when invalid */
+.request-call-back.form.block .form-field.is-invalid input,
+.request-call-back.form.block .form-field.is-invalid select,
+.request-call-back.form.block .form-field.is-invalid .custom-select-trigger {
+  border-color: var(--border-brand-red);
+}
+
+/* --- Submit Button Disabled State --- */
+.request-call-back.form.block .button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.request-call-back.form.block .button:disabled:hover {
+  background-color: var(--brand-red-200); /* Prevent hover color change */
+}
+
+/* --- Submit Button Hover (icon circle inverts, like the popular-cover-plans CTA) --- */
+.request-call-back.form.block .button:not(:disabled):hover {
+  gap: calc(var(--spacing-lg) + 8px);
+  transform: translateX(4px);
+}
+
+.request-call-back.form.block .button:not(:disabled):hover .button-icon {
+  background-color: var(--base-black, #000);
+}
+
+.request-call-back.form.block .button:not(:disabled):hover .button-icon img {
+  filter: brightness(0) invert(1);
+  transition: filter 0.2s ease;
+}
+
+/* --- Tablet and Desktop --- */
+@media (width >= 768px) {
+  .request-call-back.block.form{
+    margin-top: 30px;
+    padding: var(--spacing-3xl);
+  }
+
+  .request-call-back.block.form form {
+    gap: var(--spacing-xl) var(--spacing-2xl);
+  }
+
+  .request-call-back.form.block .form-field.text-field,
+  .request-call-back.form.block .form-field.email-field,
+  .request-call-back.form.block .form-field.tel-field,
+  .request-call-back.form.block .form-field.date-field,
+  .request-call-back.form.block .form-field.select-field,
+  .request-call-back.form.block .form-field.radio-field,
+  .request-call-back.form.block .form-field.toggle-field {
+    width: calc(50% - 10px); /* Two columns side by side */
+  }
+
+  .request-call-back.form.block .form-field.radio-field{
+    margin-top: 0;
+  }
+
+  .request-call-back.form.block .form-field.checkbox-field{
+    margin-top: 0;
+  }
+
+  .request-call-back.form.block .button-wrapper{
+    margin-top: 0;
+  }
+
+  .request-call-back.form.block .button{
+    font-size: 16px;
+    line-height: 18px;
+    padding: 5px 4px 5px 24px;
+  }
+
+  .request-call-back.form.block .button-icon img{
+    max-width: 22px;
+    max-height: 22px;
+  }
+
+  /* Bottom Glow Patch */
+  .request-call-back.block.form::after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: calc(100% - 16px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    max-width: 300px;
+    height: 32px;
+    background: var(--indigo-100);
+    filter: blur(14px);
+    pointer-events: none;
+    z-index: -1;
+  }
+}

@@ -1,0 +1,188 @@
+/* ==========================================================================
+   Promo Banner: stats layout (Figma "Best Seller - Banner" 5009:4986 desktop
+   1100 x 170, 5009:5125 mobile 328 x 400). Only for slides with stats
+   (.has-stats); loaded only when a slide uses it. The photo sits centre
+   right with the infinity line behind it and a figure on either side; the
+   description is the small print beside the button (desktop) or at the
+   bottom of the slide (mobile).
+   ========================================================================== */
+
+.promo-banner .promo-banner-slide.has-stats {
+  --promo-banner-fade-height: 0px;
+  --promo-banner-badge-margin-bottom: 4px;
+  --promo-banner-heading-margin-bottom: 16px;
+
+  /* mobile (328 x 400): photo 231 px wide, 7 px above the frame at 172 px */
+  --promo-banner-curve-top: 227px;
+  --promo-banner-curve-left: calc(50% - 104px);
+  --promo-banner-curve-width: 193px;
+}
+
+/* badge, title, then the button (the small print is placed on its own) */
+.promo-banner .has-stats .promo-banner-content {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  grid-template-areas:
+    'badge badge'
+    'title title'
+    'cta cta';
+  align-content: start;
+  align-items: center;
+  height: 100%;
+}
+
+.promo-banner .has-stats .promo-banner-text {
+  display: contents;
+}
+
+.promo-banner .has-stats .promo-banner-badge {
+  grid-area: badge;
+  justify-self: start;
+}
+
+.promo-banner .has-stats .promo-banner-title {
+  grid-area: title;
+  max-width: 280px;
+}
+
+.promo-banner .has-stats .promo-banner-cta-wrapper {
+  grid-area: cta;
+}
+
+.promo-banner .has-stats .promo-banner-description {
+  position: absolute;
+  right: -12px;
+  bottom: 16px;
+  left: -12px;
+  margin: 0;
+  color: var(--base-white, #fff);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+/* photo and infinity line, placed on the whole slide */
+.promo-banner .promo-banner-slide.has-stats .promo-banner-visual {
+  --promo-banner-photo-top: 172px;
+  --promo-banner-photo-left: calc(50% - 119px);
+  --promo-banner-photo-width: 231px;
+  --promo-banner-photo-height: auto;
+  --promo-banner-photo-shift: none;
+
+  inset: 0;
+  width: auto;
+  height: auto;
+}
+
+.promo-banner .has-stats .promo-banner-photo img {
+  z-index: 1;
+}
+
+.promo-banner .has-stats .promo-banner-curve {
+  z-index: 0;
+}
+
+/* figures: 27.6% left of the photo (right aligned), 99.5% above its right;
+   placed from the centre on mobile, from the right edge on desktop */
+.promo-banner .has-stats .promo-banner-stats {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.promo-banner .has-stats .promo-banner-stat {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  color: var(--base-white, #fff);
+  font-family: var(--promo-banner-body-font-family);
+}
+
+.promo-banner .has-stats .promo-banner-stat-1 {
+  top: 184px;
+  right: calc(50% + 93px);
+  align-items: flex-end;
+  text-align: right;
+}
+
+.promo-banner .has-stats .promo-banner-stat-2 {
+  top: 164px;
+  left: calc(50% + 66px);
+  width: 82px;
+}
+
+.promo-banner .has-stats .promo-banner-stat-value {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.promo-banner .has-stats .promo-banner-stat-label {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+/* desktop (1100 x 170): the button and the small print side by side, the
+   photo and figures measured from the right edge */
+@media (width >= 1024px) {
+  .promo-banner .promo-banner-slide.has-stats {
+    --promo-banner-heading-margin-bottom: 4px;
+    --promo-banner-content-max-width: min(525px, calc(100% - 480px));
+    --promo-banner-curve-top: 71px;
+    --promo-banner-curve-left: calc(100% - 414px);
+    --promo-banner-curve-width: 265px;
+  }
+
+  .promo-banner .has-stats .promo-banner-content {
+    grid-template-areas:
+      'badge badge'
+      'title title'
+      'cta note';
+    column-gap: 11px;
+    height: auto;
+  }
+
+  .promo-banner .has-stats .promo-banner-title {
+    max-width: 380px;
+  }
+
+  .promo-banner .has-stats .promo-banner-description {
+    position: static;
+    grid-area: note;
+    max-width: 393px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .promo-banner .promo-banner-slide.has-stats .promo-banner-visual {
+    --promo-banner-photo-top: -5px;
+    --promo-banner-photo-left: calc(100% - 434px);
+    --promo-banner-photo-width: 318px;
+  }
+
+  .promo-banner .has-stats .promo-banner-stat {
+    gap: 2px;
+  }
+
+  .promo-banner .has-stats .promo-banner-stat-1 {
+    top: 82px;
+    right: 431px;
+  }
+
+  .promo-banner .has-stats .promo-banner-stat-2 {
+    top: 24px;
+    left: calc(100% - 170px);
+    width: auto;
+  }
+
+  .promo-banner .has-stats .promo-banner-stat-value {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .promo-banner .has-stats .promo-banner-stat-label {
+    font-size: 12px;
+  }
+}

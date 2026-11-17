@@ -1,0 +1,143 @@
+{
+  "definitions": [
+    {
+      "title": "Result Summary Panel V2",
+      "id": "result-summary-panel-v2",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Result Summary panel V2",
+              "model": "result-summary-panel-v2"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "result-summary-panel-v2",
+      "fields": [
+        {
+          "component": "select",
+          "name": "calculator-type",
+          "label": "Calculator type",
+          "value": "term",
+          "options": [
+            {
+              "name": "Term Insurance calculator",
+              "value": "term"
+            }
+          ]
+        },
+        {
+          "component": "reference",
+          "name": "term-illustration",
+          "label": "Term insurance illustration",
+          "multi": false,
+          "description": "Optional image shown beside the term insurance result.",
+          "condition": {
+            "===": [
+              {
+                "var": "calculator-type"
+              },
+              "term"
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "name": "term-illustrationAlt",
+          "label": "Term insurance illustration description",
+          "value": "",
+          "description": "Describe the illustration, or leave blank if decorative.",
+          "condition": {
+            "===": [
+              {
+                "var": "calculator-type"
+              },
+              "term"
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "name": "term-discount-label",
+          "label": "Term insurance discount label",
+          "value": "SAVE EXTRA 7.5%",
+          "description": "Discount badge shown on the term insurance result.",
+          "condition": {
+            "===": [
+              {
+                "var": "calculator-type"
+              },
+              "term"
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "name": "term-result-label",
+          "label": "Term insurance result label",
+          "value": "Your estimated term premium",
+          "description": "Text displayed above the calculated premium.",
+          "condition": {
+            "===": [
+              {
+                "var": "calculator-type"
+              },
+              "term"
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "name": "term-result-description",
+          "label": "Term insurance result description",
+          "value": "{frequency} {cover}",
+          "description": "Text below the premium. Use {frequency} and {cover} to insert quote details.",
+          "condition": {
+            "===": [
+              {
+                "var": "calculator-type"
+              },
+              "term"
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "name": "term-cta-label",
+          "label": "Term insurance CTA label",
+          "value": "Invest Now",
+          "description": "Text displayed on the term insurance call-to-action button.",
+          "condition": {
+            "===": [
+              {
+                "var": "calculator-type"
+              },
+              "term"
+            ]
+          }
+        },
+        {
+          "component": "aem-content",
+          "name": "term-cta-link",
+          "label": "Term insurance CTA destination",
+          "description": "Optional page or URL opened by the term insurance call-to-action button. If empty, the quote service link is used.",
+          "condition": {
+            "===": [
+              {
+                "var": "calculator-type"
+              },
+              "term"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

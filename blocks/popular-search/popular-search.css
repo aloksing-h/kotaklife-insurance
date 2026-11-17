@@ -1,0 +1,160 @@
+.popular-search-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(0deg, var(--background-bg-tertiary, #F5F5F5) 0%, var(--background-bg-tertiary, #F5F5F5) 100%), var(--background-bg-active, #FAFAFA);
+  padding: 0 !important;
+}
+
+main>.section.popular-search-container.std-space {
+  margin: 0;
+}
+
+.section.popular-search-container {
+  margin: 0;
+
+  /* margin-top: 125px; */
+  margin-top: 90px;
+}
+
+.popular-search > div:first-child > div > :first-child {
+  color: var(--text-primary-default-base, #121212);
+  font-family: var(--font-family-font-family-display, Manrope), sans-serif;
+  font-size: var(--font-size-heading-3, 32px);
+  font-weight: 300;
+  line-height: var(--line-height-heading-3, 36px);
+  margin: 0 0 8px;
+}
+
+.popular-search > div:first-child > div > :first-child strong {
+  font-weight: 600;
+  letter-spacing: -0.64px;
+}
+
+.popular-search > div:first-child > div > :nth-child(2) {
+  color: #535862;
+  font-family: var(--font-family-font-family-body, Manrope), sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 0;
+}
+
+.popular-search {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  padding: 30px 16px 0;
+}
+
+.popular-search>div {
+  min-width: 0;
+}
+
+.popular-search ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.popular-search li {
+  display: flex;
+}
+
+.popular-search a {
+  /* display: inline-flex;
+  align-items: center;
+  background-color: #fafafa;
+  color: #1e4679;
+  border: 1px solid #d5d7da;
+  border-radius: 999px;
+  box-shadow: 0 0 7px 0 #0000001a inset;
+  padding: 8px 12px;
+  font-family: Manrope, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-decoration: none;
+  white-space: nowrap; */
+
+  text-decoration: none;
+
+  /* white-space: nowrap; */ 
+  margin: 0;
+  display: inline-flex;
+
+  /* height: 32px; */
+
+  /* padding: var(--spacing-md, 8px) var(--spacing-lg, 12px); */
+  padding: 7px var(--spacing-lg, 12px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm, 6px);
+  border-radius: var(--radius-full, 999px);
+  border: 1px solid var(--border-border-primary, #D5D7DA);
+  background: var(--background-bg-secondary, #FAFAFA);
+  box-shadow: 0 0 7px 0 rgb(0 0 0 / 10%) inset;
+  color: var(--text-text-brand-blue, #1E4679);
+  font-family: var(--font-family-font-family-body, Manrope);
+  font-size: var(--font-size-body-2, 14px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--line-height-body-1, 18px);
+}
+
+.popular-search a:hover {
+  background-color: var(--light-color);
+}
+
+.popular-search a:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+@media (width >=900px) {
+  .section.popular-search-container {
+    max-width: unset;
+    background: linear-gradient(0deg, var(--background-bg-tertiary, #F5F5F5) 0%, var(--background-bg-tertiary, #F5F5F5) 100%), var(--background-bg-active, #FAFAFA);
+
+    /* margin-top: 124px; */
+    margin-top: 120px; /* as per figma 24 sept - new changes */
+  }
+
+  .popular-search-wrapper {
+    padding: 0 !important;
+  }
+
+  .popular-search {
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    align-items: start;
+    padding: 70px 50px 0;
+    gap: 40px;
+  }
+
+  .popular-search > div:first-child > div > :first-child {
+    font-size: 48px;
+    margin: 0 0 4px;
+    line-height: 60px;
+  }
+
+  .popular-search > div:first-child > div > :nth-child(2) {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0;
+  }
+
+  .popular-search a {
+    /* padding: 8px 20px; */
+    padding: 10px 20px;
+    font-size: 16px;
+    line-height: 20px;
+    height: 40px;
+  }
+
+  .popular-search ul {
+    gap: 10px 8px;
+  }
+}

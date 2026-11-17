@@ -1,0 +1,118 @@
+{
+  "definitions": [
+    {
+      "title": "Fund Highlight",
+      "id": "fund-highlight",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Fund Highlight",
+              "model": "fund-highlight",
+              "filter": "fund-highlight",
+              "labels_returns": "Fund returns",
+              "labels_benchmark": "Bench mark"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Fund Period",
+      "id": "fund-highlight-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Fund Period",
+              "model": "fund-highlight-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "fund-highlight",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "text",
+          "label": "Heading & Description",
+          "description": "Heading 2 (bold the highlighted words) followed by a short description",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "card_title",
+          "label": "Fund Name",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "card_date",
+          "label": "As On Date",
+          "description": "e.g. As on 31st Aug 2026",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "labels_returns",
+          "label": "Returns Label",
+          "value": "Fund returns"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "labels_benchmark",
+          "label": "Benchmark Label",
+          "value": "Bench mark"
+        }
+      ]
+    },
+    {
+      "id": "fund-highlight-item",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "label",
+          "label": "Period",
+          "description": "Tab label, e.g. 5 year",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "returns",
+          "label": "Fund Returns",
+          "description": "e.g. 9.3%",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "benchmark",
+          "label": "Benchmark",
+          "description": "e.g. 3.4%",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "fund-highlight",
+      "components": [
+        "fund-highlight-item"
+      ]
+    }
+  ]
+}

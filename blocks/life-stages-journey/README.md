@@ -1,0 +1,186 @@
+# Life Stages Journey
+
+The **Life Stages Journey** block visualizes an insurance plan's coverage progression across key life milestones (e.g. from starting professional life at age 30 through age 74 and beyond), leading into an outcome CTA card to calculate premiums.
+
+---
+
+## 1. Responsive Visual Layouts
+
+| Breakpoint | Visual Treatment | Layout Strategy |
+|---|---|---|
+| **Mobile (`< 900px`)** | **Vertical Progressive Timeline** | Persona at the top, vertical red dotted line down the left with chronological milestone badges (`30 Yrs`, `35 Yrs`, `60 Yrs`, `74 Yrs`), gray horizontal dividers with alignment dots, and full-width outcome card. |
+| **Desktop (`≥ 900px`)** | **S-Curve Snake Timeline** | Top row horizontal track (`Persona` → `30 Yrs` → `35 Yrs` → `60 Yrs`), 180° right-side dotted U-turn connector, and bottom track returning right-to-left (`74 Yrs` → Outcome card). |
+
+---
+
+## 2. Authoring Guide
+
+The block supports authoring via both **Google Docs / Word tables** and **Universal Editor (WYSIWYG)**.
+
+### A. Document Table Authoring (Google Docs / Word)
+
+Create a table with the block header `Life Stages Journey (Young Professionals)` or `Life Stages Journey`:
+
+| Life Stages Journey (Young Professionals) | | |
+|---|---|---|
+| **persona** | ![Amar](https://.../amar.png) | Amar is a 30-year-old working professional who wants to protect his family's financial future. |
+| **milestone** | **30** Yrs <br> default <br> top | Amar chooses a **₹1 Crore** Term Insurance plan for 30 years. |
+| **milestone** | **35** Yrs <br> default <br> bottom | Free medical check-up after 5 years** |
+| **milestone** | **60** Yrs <br> default <br> top | If Amar chooses to exit around age 60* the insurer returns the total premiums paid |
+| **milestone** | **74** Yrs <br> highlight <br> bottom | After his unfortunate death, the life cover is payable to the nominee |
+| **outcome** | ![Amar & Family](https://.../family.png) | Amar's family gets <br> ### ₹1 Crore <br> [Calculate Premium](https://kotaklife.com/calculator) |
+| **disclaimer** | Premium shown is for illustration purposes. Actual premium may vary based on medical history and other factors. | |
+
+#### Row Conventions:
+1. **`persona`**:
+   - Column 2: Headshot image.
+   - Column 3: Persona introduction bio.
+2. **`milestone`**:
+   - Column 2: Age label (e.g., `30 Yrs`). Can optionally include `highlight` for the red badge, and `top` or `bottom` for desktop placement.
+   - Column 3: Milestone description with support for bold text (`<strong>`).
+3. **`outcome`**:
+   - Column 2: Picture of the persona with partner/family.
+   - Column 3: Subtitle (`Amar's family gets`), amount heading (`₹1 Crore`), and CTA button link.
+4. **`disclaimer`**:
+   - Column 2: Small footnote text displayed at the bottom of the block.
+
+---
+
+### B. Universal Editor (WYSIWYG)
+
+The block is defined in `_life-stages-journey.json` with 4 child items:
+
+#### 1. Persona Item (`life-stages-persona`)
+| Field | Type | Description |
+|---|---|---|
+| **Profile Image** (`image`) | Reference | Headshot artwork (e.g. Amar in suit). |
+| **Profile Image Alt** (`imageAlt`) | Text | Accessible alt text for the profile image. |
+| **Description / Bio** (`description`) | Rich Text | Introductory text introducing the individual. |
+
+#### 2. Milestone Item (`life-stages-milestone`) — *Repeatable*
+| Field | Type | Description |
+|---|---|---|
+| **Age / Value** (`age`) | Text | Age label (e.g. `30 Yrs` or `30`). |
+| **Milestone Text** (`description`) | Rich Text | Description text; words wrapped in bold will stand out. |
+| **Badge Variant** (`variant`) | Dropdown | `default` (Light blue badge) or `highlight` (Solid red badge). |
+
+#### 3. Outcome Card Item (`life-stages-outcome`)
+| Field | Type | Description |
+|---|---|---|
+| **Family Image** (`image`) | Reference | Picture of persona with family. |
+| **Family Image Alt** (`imageAlt`) | Text | Accessible alt text for the family image. |
+| **Card Text** (`text`) | Rich Text | Combined subtitle and amount / benefit (e.g. `Amar's family gets` + `₹1 Crore`). |
+| **CTA Link** (`cta`) | AEM Content | Action link for the button (e.g. `/term-insurance/calculator`). |
+| **Button Text** (`ctaText`) | Text | Label for the CTA button (e.g. `Calculate Premium`). |
+
+#### 4. Disclaimer Item (`life-stages-disclaimer`)
+| Field | Type | Description |
+|---|---|---|
+| **Disclaimer Text** (`disclaimer`) | Rich Text | Regulatory / illustrative footnote. |
+
+---
+
+## 3. Development Guide
+
+### File Structure
+
+```text
+blocks/life-stages-journey/
+├── life-stages-journey.js        # Core block loader & variant router
+├── life-stages-journey.css       # Minimal base block styles
+├── young-professionals.css       # Young Professionals S-curve snake timeline variation styles
+├── _life-stages-journey.json     # Universal Editor component definition & models
+└── README.md                     # Authoring & development documentation
+```
+
+### DOM Structure Generated by `life-stages-journey.js`
+
+```html
+<div class="life-stages-journey block">
+  <div class="lsj-container">
+    <div class="lsj-timeline">
+      
+      <!-- Top Track (Persona + Milestones 1, 2, 3) -->
+      <div class="lsj-track lsj-track-top">
+        <div class="lsj-persona">
+          <div class="lsj-persona-media"><picture>...</picture></div>
+          <div class="lsj-persona-info"><p>Amar is a 30-year-old...</p></div>
+        </div>
+
+        <div class="lsj-milestone lsj-pos-top" data-age="30">
+          <div class="lsj-milestone-content"><p>Amar chooses a <strong>₹1 Crore</strong>...</p></div>
+          <div class="lsj-milestone-marker">
+            <span class="lsj-badge lsj-badge-blue">30</span>
+            <span class="lsj-badge-unit">Yrs</span>
+          </div>
+        </div>
+        <!-- Milestones 35 Yrs & 60 Yrs follow -->
+      </div>
+
+      <!-- Connector U-Turn (Visible on Desktop >=900px) -->
+      <div class="lsj-connector-turn" aria-hidden="true"></div>
+
+      <!-- Bottom Track (Milestone 74 + Outcome Card) -->
+      <div class="lsj-track lsj-track-bottom">
+        <div class="lsj-milestone lsj-pos-bottom lsj-milestone-highlight" data-age="74">
+          <div class="lsj-milestone-content"><p>After his unfortunate death...</p></div>
+          <div class="lsj-milestone-marker">
+            <span class="lsj-badge lsj-badge-red">74</span>
+            <span class="lsj-badge-unit">Yrs</span>
+          </div>
+        </div>
+
+        <div class="lsj-outcome">
+          <div class="lsj-outcome-media"><picture>...</picture></div>
+          <div class="lsj-outcome-card">
+            <p class="lsj-outcome-subtitle">Amar's family gets</p>
+            <p class="lsj-outcome-amount">₹1 Crore</p>
+            <div class="lsj-outcome-cta-wrap">
+              <a href="..." class="lsj-outcome-cta">
+                <span class="lsj-outcome-cta-label">Calculate Premium</span>
+                <span class="lsj-outcome-cta-icon" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="lsj-disclaimer">
+      <p>Premium shown is for illustration purposes...</p>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## 4. Key Engineering Decisions
+
+1. **Shared DOM with Zero Duplication**:
+   - `life-stages-journey.js` outputs a single unified DOM tree.
+   - On **Mobile**, `.lsj-track-top` flows vertically into `.lsj-track-bottom`, with `.lsj-connector-turn` hidden.
+   - On **Desktop**, `.lsj-track-top` uses CSS Grid (`grid-template-columns: 210px 1fr 1fr 1fr;`), `.lsj-connector-turn` renders the right-hand curved dashed connector, and `.lsj-track-bottom` uses `flex-direction: row-reverse` to place Milestone 74 on the right and Outcome Card on the left.
+2. **Accessible Badges**:
+   - Badges use accessible contrast colors (light blue `#BAE6FD` with dark brand blue text `#1E4679`, and brand red `#FA1432` with white text `#FFFFFF`).
+3. **Pill CTA with Scalable Arrow**:
+   - Uses `mask-image: url('../../icons/arrow-right-2.svg')` on `.lsj-outcome-cta-icon::after` for crisp rendering at all screen pixel densities.
+
+---
+
+## 5. Testing & Maintenance
+
+- **Local Preview**:
+  Run `aem up` (or `npx -y @adobe/aem-cli up --no-open`) and navigate to:
+  `http://localhost:3000/drafts/life-stages-journey`
+- **Rebuild JSON Models**:
+  ```bash
+  npm run build:json
+  ```
+- **Lint Check**:
+  ```bash
+  npm run lint
+  ```
+

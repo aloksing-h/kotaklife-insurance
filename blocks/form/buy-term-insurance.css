@@ -1,0 +1,1150 @@
+/* --- Section & Wrapper Layout (Mobile < 900px) --- */
+.form-up-desktop.section > .form-wrapper {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary, #fff);
+  box-sizing: border-box;
+}
+
+/*
+ * Temporarily commented out: Buy term insurance form toggle
+ * (Uncomment below to re-enable hiding form by default until "Talk to An Expert" is clicked)
+.form-up-desktop.section:not(.is-open) > .form-wrapper {
+  display: none;
+}
+*/
+
+/* --- Main Container (Mobile First < 900px) --- */
+.buy-term-insurance:not(.blog-form).block.form {
+  background: var(--bg-primary, #fff);
+  border: none;
+  border-radius: 0;
+  padding: 16px;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* --- Form Flexbox Layout --- */
+.buy-term-insurance.form.block form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Every field takes up full width by default */
+.buy-term-insurance.form.block .form-field {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.buy-term-insurance.form.block .form-field + .form-field {
+  margin-top: 0;
+}
+
+/* Hide empty labels and legends */
+.buy-term-insurance.form.block :where(.form-field) > label:empty,
+.buy-term-insurance.form.block :where(.form-field) > legend:empty {
+  display: none;
+}
+
+/* --- Mobile Field Ordering & Widths (< 900px) --- */
+.buy-term-insurance.form.block .form-field.heading-field {
+  order: 1;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.buy-term-insurance.form.block .form-field.text-field {
+  order: 2;
+  width: 100%;
+}
+
+.buy-term-insurance.form.block .form-field.email-field {
+  order: 3;
+  width: 100%;
+}
+
+.buy-term-insurance:not(.blog-form).form.block .form-field.tel-field {
+  order: 4;
+  width: calc(50% - 6px);
+}
+
+.buy-term-insurance:not(.blog-form).form.block .form-field.select-field {
+  order: 5;
+  width: calc(50% - 6px);
+}
+
+.buy-term-insurance.form.block .form-field.date-field {
+  order: 6;
+  width: 100%;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.buy-term-insurance.form.block .form-field.radio-field {
+  order: 7;
+  width: calc(50% - 6px);
+  margin-top: 0;
+  font-size: 14px;
+  line-height: 18px;
+  gap: 0;
+}
+
+.buy-term-insurance.form.block .form-field.checkbox-field {
+  order: 8;
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.buy-term-insurance.form.block .button-wrapper {
+  order: 9;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
+
+/* --- Heading Typography --- */
+.buy-term-insurance.form.block .form-field.heading-field h2 {
+  margin: 0;
+  font-family: var(--font-family-manrope, 'Manrope', sans-serif);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--text-primary, #181D27);
+}
+
+/* --- Input Fields (Text, Tel, Email, Date, Select) --- */
+.buy-term-insurance.form.block input[type="text"],
+.buy-term-insurance.form.block input[type="tel"],
+.buy-term-insurance.form.block input[type="email"],
+.buy-term-insurance.form.block select,
+.buy-term-insurance.form.block .custom-select-trigger {
+  width: 100%;
+  padding: 11px var(--spacing-xl, 16px);
+  border: 1px solid var(--border-primary, #D5D7DA);
+  border-radius: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #717680;
+  background-color: var(--bg-primary, #fff);
+  box-sizing: border-box;
+  outline: none;
+  max-height: 40px;
+}
+
+.buy-term-insurance.form.block select,
+.buy-term-insurance.form.block .custom-select-trigger {
+  appearance: none;
+  color: var(--gray-500, #717680);
+  background-image: url("../../icons/grey-arrow-down-1.svg");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+/* --- Custom Select Dropdown (styled option list) --- */
+.buy-term-insurance.form.block .custom-select {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+/* Native select stays in the DOM (visually hidden) for form submission/validation */
+.buy-term-insurance.form.block .custom-select select {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+.buy-term-insurance.form.block .custom-select-trigger {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.buy-term-insurance.form.block .custom-select-value {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.buy-term-insurance.form.block .custom-select-value.is-placeholder {
+  color: var(--text-placeholder, #717680);
+}
+
+.buy-term-insurance.form.block .custom-select-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  background-color: var(--bg-primary, #fff);
+  border: 1px solid var(--border-secondary, #E9EAEB);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: 0 10px 24px -4px rgb(0 0 0 / 12%), 0 2px 6px rgb(0 0 0 / 4%);
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+  z-index: 20;
+}
+
+.buy-term-insurance.form.block .custom-select.is-open .custom-select-menu {
+  display: block;
+}
+
+.buy-term-insurance.form.block .custom-select-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.buy-term-insurance.form.block .custom-select-menu::-webkit-scrollbar-thumb {
+  background-color: var(--gray-300, #D5D7DA);
+  border-radius: 4px;
+}
+
+.buy-term-insurance.form.block .custom-select-option {
+  padding: var(--spacing-lg, 12px) var(--spacing-xl, 16px);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-primary, #181D27);
+  cursor: pointer;
+}
+
+.buy-term-insurance.form.block .custom-select-option.is-active {
+  background-color: var(--gray-50, #FAFAFA);
+}
+
+.buy-term-insurance.form.block .custom-select-option.is-selected {
+  background-color: var(--blue-50, #EFF8FF);
+}
+
+.buy-term-insurance.form.block .date-field input {
+  background-image: url("../../icons/calendar-fm.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  font-variant-ligatures: none;
+}
+
+.buy-term-insurance.form.block .date-field input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+}
+
+.buy-term-insurance.form.block .form-field:not(.radio-field) label[data-required]::after,
+.buy-term-insurance.form.block .form-field:not(.radio-field) legend[data-required]::after {
+  display: none;
+}
+
+.buy-term-insurance.form.block input::placeholder {
+  color: var(--text-tertiary, #717680);
+}
+
+.buy-term-insurance.form.block input:focus,
+.buy-term-insurance.form.block select:focus,
+.buy-term-insurance.form.block .custom-select-trigger:focus-visible,
+.buy-term-insurance.form.block .custom-select.is-open .custom-select-trigger {
+  border : 2px solid #1E4679
+
+  /* border-color: #1E4679; */
+}
+
+/* --- Flatpickr Date Picker --- */
+.buy-term-insurance.form.block .form-field.date-field .flatpickr-wrapper {
+  display: block;
+}
+
+.buy-term-insurance.form.block .form-field.date-field .flatpickr-calendar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 320px;
+  min-width: 290px;
+  max-width: min(340px, calc(100vw - 32px));
+  z-index: 99;
+  margin-top: var(--spacing-sm, 6px);
+  background: #F8F8F8;
+  border-radius: 5px;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 8%), 0 2px 8px rgb(0 0 0 / 4%);
+  border: 1px solid #ECECEC;
+  padding: 12px 8px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.buy-term-insurance.form.block .flatpickr-calendar::before,
+.buy-term-insurance.form.block .flatpickr-calendar::after {
+  display: none;
+}
+
+.buy-term-insurance.form.block .flatpickr-months {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  position: relative;
+  gap: 8px;
+  overflow: visible;
+}
+
+.buy-term-insurance.form.block .flatpickr-months .flatpickr-month {
+  height: auto;
+  flex: 1;
+  position: relative;
+  overflow: visible;
+}
+
+.buy-term-insurance.form.block .flatpickr-current-month {
+  position: static;
+  width: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: unset;
+  overflow: visible;
+  transform: none;
+}
+
+.buy-term-insurance.form.block .flatpickr-months .flatpickr-prev-month,
+.buy-term-insurance.form.block .flatpickr-months .flatpickr-next-month {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  flex-shrink: 0;
+  color: var(--text-primary, #181D27);
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-white, #fff);
+  border: 1px solid #E9EAEB;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 5%);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.buy-term-insurance.form.block .flatpickr-months .flatpickr-prev-month:hover,
+.buy-term-insurance.form.block .flatpickr-months .flatpickr-next-month:hover {
+  background-color: #F5F5F5;
+  border-color: #D5D7DA;
+}
+
+.buy-term-insurance.form.block .flatpickr-months .flatpickr-prev-month::before {
+  content: '';
+  background-image: url("../../icons/calendar-prev-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 4px;
+  height: 6px;
+}
+
+.buy-term-insurance.form.block .flatpickr-months .flatpickr-next-month::before {
+  content: '';
+  background-image: url("../../icons/calendar-next-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 4px;
+  height: 6px;
+}
+
+.buy-term-insurance.form.block .flatpickr-months .flatpickr-prev-month svg,
+.buy-term-insurance.form.block .flatpickr-months .flatpickr-next-month svg {
+  display: none;
+}
+
+/* Custom Header Dropdown Controls */
+.buy-term-insurance.form.block .custom-header-dropdown {
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+}
+
+.buy-term-insurance.form.block .custom-header-dropdown.is-open {
+  z-index: 100;
+}
+
+.buy-term-insurance.form.block .custom-header-dropdown select {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+.buy-term-insurance.form.block .custom-header-trigger {
+  appearance: none;
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+  color: var(--text-primary, #181D27);
+  cursor: pointer;
+  outline: none;
+  background-image: url("../../icons/calendar-dropdown-icon.svg");
+  background-repeat: no-repeat;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: inherit;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.buy-term-insurance.form.block .month-trigger {
+  background-color: var(--base-white, #fff);
+  border: 1px solid var(--base-white, #fff);
+  padding: 3px 28px 3px 12px;
+  background-position: calc(100% - 10px) center;
+  background-size: 8px 5px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+  width: 100%;
+}
+
+.buy-term-insurance.form.block .month-trigger:hover,
+.buy-term-insurance.form.block .custom-header-dropdown.is-open .month-trigger {
+  border-color: #FD8A99;
+}
+
+.buy-term-insurance.form.block .year-trigger {
+  background-color: var(--base-white, #fff);
+  border: 1px solid transparent;
+  padding: 3px 24px 3px 8px;
+  background-position: calc(100% - 8px) center;
+  background-size: 8px 5px;
+  width: 100%;
+}
+
+.buy-term-insurance.form.block .year-trigger:hover,
+.buy-term-insurance.form.block .custom-header-dropdown.is-open .year-trigger {
+  border-color: #FD8A99;
+}
+
+.buy-term-insurance.form.block .custom-header-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 130px;
+  max-height: 107px;
+  overflow-y: auto;
+  background-color: var(--base-white, #fff);
+  border: 1px solid var(--border-secondary, #E9EAEB);
+  border-radius: 8px;
+  box-shadow: 0 10px 24px -4px rgb(0 0 0 / 12%), 0 2px 6px rgb(0 0 0 / 4%);
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+  z-index: 1000;
+}
+
+.buy-term-insurance.form.block .year-dropdown .custom-header-menu {
+  min-width: 90px;
+}
+
+.buy-term-insurance.form.block .custom-header-menu::-webkit-scrollbar {
+  width: 2px;
+}
+
+.buy-term-insurance.form.block .custom-header-menu::-webkit-scrollbar-thumb {
+  background-color: var(--gray-300, #D5D7DA);
+  border-radius: 4px;
+}
+
+.buy-term-insurance.form.block .custom-header-dropdown.is-open .custom-header-menu {
+  display: block;
+}
+
+.buy-term-insurance.form.block .custom-header-option {
+  padding: 6px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+  color: var(--text-primary, #181D27);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.buy-term-insurance.form.block .custom-header-option:hover {
+  background-color: var(--gray-50, #F8F8F8);
+}
+
+.buy-term-insurance.form.block .custom-header-option.is-selected {
+  color: var(--brand-red-500, #FA1432);
+  font-weight: 500;
+}
+
+/* Fallback for native select */
+.buy-term-insurance.form.block .custom-header-select {
+  appearance: none;
+  background-color: var(--base-white, #fff);
+  border: 1px solid var(--border-secondary, #E9EAEB);
+  border-radius: 6px;
+  padding: 6px 28px 6px 12px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+  color: var(--text-primary, #181D27);
+  cursor: pointer;
+  outline: none;
+  background-image: url("../../icons/calendar-dropdown-icon.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  background-size: 8px 5px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+}
+
+.buy-term-insurance.form.block .custom-month-select {
+  border-color: var(--brand-red-200, #FD8A99);
+}
+
+.buy-term-insurance.form.block .custom-header-select:focus,
+.buy-term-insurance.form.block .custom-header-select:hover {
+  border-color: var(--brand-red-500, #FA1432);
+}
+
+/* Weekdays */
+.buy-term-insurance.form.block .flatpickr-weekdays {
+  display: block;
+  margin-bottom: 8px;
+  height: unset;
+}
+
+.buy-term-insurance.form.block .flatpickr-weekdaycontainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.buy-term-insurance.form.block .flatpickr-rContainer,
+.buy-term-insurance.form.block .flatpickr-days {
+  width: 100%;
+}
+
+.buy-term-insurance.form.block span.flatpickr-weekday {
+  color: var(--text-primary, #181D27);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  height: unset;
+}
+
+/* Days Container */
+/* stylelint-disable selector-class-pattern */
+.buy-term-insurance.form.block .flatpickr-days > div,
+.buy-term-insurance.form.block .dayContainer {
+  /* Flatpickr injects inline pixel widths on .dayContainer; override to 100% */
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px 6px;
+}
+
+/* Individual Day Cell */
+.buy-term-insurance.form.block .flatpickr-day {
+  width: 114%;
+  max-width: 40px;
+  height: 16px;
+  line-height: 14px;
+  font-weight: 400;
+  border: none;
+  color: var(--text-primary, #181D27);
+  font-size: 12px;
+  background-color: var(--base-white, #fff);
+  border-radius: 4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+  cursor: pointer;
+  margin: 0;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.buy-term-insurance.form.block .flatpickr-day:hover {
+  background-color: #FFF0F2;
+  color: var(--brand-red-500, #FA1432);
+}
+
+/* Days outside current month */
+.buy-term-insurance.form.block .flatpickr-day.prevMonthDay,
+.buy-term-insurance.form.block .flatpickr-day.nextMonthDay {
+  background-color: transparent;
+  color: #8E8E93;
+  box-shadow: none;
+}
+
+.buy-term-insurance.form.block .flatpickr-day.prevMonthDay:hover,
+.buy-term-insurance.form.block .flatpickr-day.nextMonthDay:hover {
+  background-color: #EFEFEF;
+  color: #414651;
+}
+/* stylelint-enable selector-class-pattern */
+
+/* Disabled days */
+.buy-term-insurance.form.block .flatpickr-day.flatpickr-disabled,
+.buy-term-insurance.form.block .flatpickr-day.flatpickr-disabled:hover {
+  background-color: transparent;
+  color: var(--gray-300, #D5D7DA);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Selected day */
+.buy-term-insurance.form.block .flatpickr-day.selected,
+.buy-term-insurance.form.block .flatpickr-day.selected:hover {
+  background-color: var(--brand-red-500, #FA1432);
+  color: var(--base-white, #fff);
+  font-weight: 500;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgb(250 20 50 / 25%);
+}
+
+/* Today indicator (when not selected): clean card matching Figma design */
+.buy-term-insurance.form.block .flatpickr-day.today:not(.selected) {
+  border: none;
+  color: var(--text-primary, #181D27);
+  background-color: var(--base-white, #fff);
+}
+
+
+
+/* --- Override Global Base CSS for Native Radio & Checkbox Inputs --- */
+.buy-term-insurance.form.block .radio-field label input[type="radio"],
+.buy-term-insurance.form.block .checkbox-field label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+  pointer-events: none;
+}
+
+.buy-term-insurance.form.block .radio-field label span,
+.buy-term-insurance.form.block .checkbox-field label span {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* --- Radio Buttons (Gender & Tobacco User) --- */
+.buy-term-insurance.form.block .radio-field legend {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-secondary, #414651);
+  margin-bottom: 6px;
+  padding-right: 22px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23535862' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='16' x2='12' y2='12'/%3E%3Cline x1='12' y1='8' x2='12.01' y2='8'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 14px 14px;
+}
+
+.buy-term-insurance.form.block .radio-field legend .legend-text {
+  order: 1;
+  margin: 0;
+}
+
+.buy-term-insurance.form.block .form-field.radio-field legend[data-required]::after {
+  content: '*';
+  color: var(--text-brand-red, #FA1432);
+  order: 2;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.buy-term-insurance.form.block .radio-field legend:has(.field-tooltip) {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding-right: 0;
+  background-image: none;
+}
+
+.buy-term-insurance.form.block .radio-field label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  margin: 0 12px 0 0;
+  color: var(--text-primary, #181D27);
+  padding: 0;
+}
+
+.buy-term-insurance.form.block .radio-field label:last-of-type {
+  margin-right: 0;
+}
+
+/* Custom radio circle (Gender) */
+.buy-term-insurance.form.block .radio-field input[type="radio"] + span {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--border-brand-red, #FA1432);
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* Custom radio selected dot (Gender) */
+.buy-term-insurance.form.block .radio-field input[type="radio"]:checked + span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border: 5px solid var(--brand-red-500, #FA1432);
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+
+/* --- Tobacco User Toggle Switch Styling (First Option [toggle] Second Option) --- */
+.buy-term-insurance.form.block .radio-field:has(input[name="tobacoouser"]) label {
+  margin: 0;
+  color: var(--text-tertiary, #535862);  
+  vertical-align: middle;
+}
+
+.buy-term-insurance.form.block .radio-field:has(input[name="tobacoouser"]) label:has(input:checked) {
+  color: var(--text-primary, #181D27);
+  font-weight: 500;
+}
+
+/* Hide the radio circle before the first option */
+.buy-term-insurance.form.block .radio-field:has(input[name="tobacoouser"]) label:first-of-type > span {
+  display: none;
+}
+
+/* Turn the span before the second option into the red pill toggle switch */
+.buy-term-insurance.form.block .radio-field:has(input[name="tobacoouser"]) label:last-of-type > span {
+  width: 36px;
+  height: 20px;
+  border-radius: 999px;
+  background-color: var(--brand-red-500, #FA1432);
+  border: none;
+  margin: 0 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.buy-term-insurance.form.block .radio-field:has(input[name="tobacoouser"]) label:last-of-type > span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 19px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--bg-primary, #fff);
+  border: none;
+  transition: left 0.2s ease;
+}
+
+.buy-term-insurance.form.block .radio-field:has(input[name="tobacoouser"]) label:last-of-type input:checked + span::after {
+  left: 17px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-color: var(--bg-primary, #fff);
+}
+
+.buy-term-insurance.form.block .radio-field:has(input[name="tobacoouser"]):has(label:first-of-type input:checked) label:last-of-type > span::after {
+  left: 3px;
+}
+
+/* .radio-field and .checkbox-field are mutually exclusive field types and
+   never match the same element, so the lower-specificity selectors below
+   cannot be overridden by the .radio-field toggle-switch rules above. */
+/* stylelint-disable no-descending-specificity */
+
+/* --- Checkbox (Consent) --- */
+.buy-term-insurance.form.block .checkbox-field label {
+  position: relative;
+}
+
+.buy-term-insurance.form.block .form-field.checkbox-field label {
+  display: flex;
+  align-items: flex-start;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary, #181D27);
+  line-height: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.buy-term-insurance.form.block .form-field.checkbox-field label p {
+  margin: 0;
+}
+
+.buy-term-insurance.form.block .form-field.checkbox-field label input[type="checkbox"] + span {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--border-brand-red, #FA1432);
+  border-radius: 4px;
+  margin-right: 8px;
+  margin-top: 1px;
+  background: var(--bg-primary, #fff);
+}
+
+.buy-term-insurance.form.block .form-field.checkbox-field label input[type="checkbox"]:checked + span {
+  background-color: var(--brand-red-500, #FA1432);
+  border-color: var(--border-brand-red, #FA1432);
+}
+
+.buy-term-insurance.form.block .form-field.checkbox-field label input[type="checkbox"]:checked + span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 14px;
+  width: 14px;
+  background-image: url("../../icons/check-white.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* --- Submit Button (Mobile Full-Width Pill) --- */
+.buy-term-insurance.form.block .button {
+  background-color: var(--btn-brand-red, #E1122d);
+  color: var(--text-white, #fff);
+  border: none;
+  border-radius: var(--radius-full, 999px);
+  padding: 10px 44px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease, gap 0.2s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+/* .buy-term-insurance.form.block .button:hover {
+  background-color: var(--brand-red-700, #C90E26);
+} */
+
+.buy-term-insurance.form.block .button-icon {
+  width: 30px;
+  height: 30px;
+  background-color: var(--bg-primary, #fff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.buy-term-insurance.form.block .button-icon img {
+  max-width: 18px;
+  max-height: 18px;
+  width: 100%;
+  height: 100%;
+  transition: filter 0.2s ease;
+}
+
+/* --- Field Tooltip --- */
+.buy-term-insurance.form.block .field-tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.buy-term-insurance.form.block .radio-field legend .field-tooltip {
+  order: 3;
+}
+
+.buy-term-insurance.form.block .field-tooltip .tooltip-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  line-height: 1;
+  color: var(--text-tertiary, #717680);
+}
+
+.buy-term-insurance.form.block .field-tooltip .tooltip-trigger .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.buy-term-insurance.form.block .field-tooltip .tooltip-trigger .icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.buy-term-insurance.form.block .field-tooltip .tooltip-bubble {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 50;
+  width: max-content;
+  max-width: min(340px, calc(100vw - 32px));
+  box-sizing: border-box;
+  padding: 8px;
+  border-radius: var(--radius-md, 8px);
+  background-color: var(--base-white, #fff);
+  color: var(--text-secondary, #414651);
+  font-family: var(--font-family-manrope, 'Manrope', sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 12px 24px -4px rgb(16 24 40 / 12%), 0 6px 12px -2px rgb(16 24 40 / 6%);
+  border: 1px solid var(--border-secondary, #eaecf0);
+}
+
+.buy-term-insurance.form.block .field-tooltip .tooltip-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: var(--arrow-left, 50%);
+  transform: translateX(-50%);
+  border: 9px solid transparent;
+  border-bottom-color: var(--border-secondary, #eaecf0);
+}
+
+.buy-term-insurance.form.block .field-tooltip .tooltip-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: var(--arrow-left, 50%);
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-bottom-color: var(--base-white, #fff);
+}
+
+.buy-term-insurance.form.block .field-tooltip .tooltip-trigger:hover .tooltip-bubble,
+.buy-term-insurance.form.block .field-tooltip .tooltip-trigger:focus-visible .tooltip-bubble,
+.buy-term-insurance.form.block .field-tooltip .tooltip-trigger[aria-expanded="true"] .tooltip-bubble {
+  display: block;
+}
+
+.buy-term-insurance.form.block .field-tooltip .tooltip-trigger:focus-visible {
+  border-radius: 50%;
+  outline: 2px solid var(--brand-blue-600, #1e4679);
+  outline-offset: 2px;
+}
+
+/* --- Validation Error States --- */
+.buy-term-insurance.form.block .error-message {
+  display: none;
+  color: var(--text-brand-red, #FA1432);
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.buy-term-insurance.form.block .form-field.is-invalid .error-message {
+  display: block;
+}
+
+.buy-term-insurance.form.block .form-field.is-invalid input,
+.buy-term-insurance.form.block .form-field.is-invalid select,
+.buy-term-insurance.form.block .form-field.is-invalid .custom-select-trigger {
+  border-color: var(--border-brand-red, #FA1432);
+}
+
+/* --- Submit Button Disabled State --- */
+.buy-term-insurance.form.block .button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.buy-term-insurance.form.block .button:disabled:hover {
+  background-color: var(--brand-red-500, #FA1432);
+}
+
+/* --- Submit Button Hover (icon circle inverts, like the popular-cover-plans CTA) --- */
+.buy-term-insurance.form.block .button:not(:disabled):hover .button-icon {
+  background-color: var(--base-black, #000);
+}
+
+.buy-term-insurance.form.block .button:not(:disabled):hover .button-icon img {
+  filter: brightness(0) invert(1);
+}
+
+/* --- Tablet / Large Mobile (>= 500px) --- */
+@media (width >= 500px) {
+  .buy-term-insurance.block.form {
+    /* max-width: 460px; */
+    
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 28px 24px;
+  }
+}
+
+/* --- Desktop Layout (>= 900px) --- */
+@media (width >= 1150px) {
+  .form-up-desktop.section > .form-wrapper {
+    position: absolute;
+    right: max(50px, calc((100% - 1200px) / 2 + 50px));
+
+    /* bottom: 25px; */
+    top: -380px;
+    z-index: 10;
+    width: 100%;
+    max-width: 447px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .buy-term-insurance:not(.blog-form).block.form {
+    background: var(--bg-primary, #fff);
+    border: 1px solid var(--border-secondary, #E9EAEB);
+    border-radius: var(--radius-lg, 16px);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 10%);
+    padding: 24px 40px;
+    max-width: 447px;
+    width: 100%;
+  }
+
+  .buy-term-insurance:not(.blog-form).form.block form {
+    gap: 16px 12px;
+  }
+
+  .buy-term-insurance:not(.blog-form).form.block .form-field.heading-field{
+    margin-bottom: 0;
+  }
+
+   .buy-term-insurance:not(.blog-form).form.block .form-field.text-field,
+   .buy-term-insurance:not(.blog-form).form.block .form-field.tel-field,
+   .buy-term-insurance:not(.blog-form).form.block .form-field.email-field{
+    margin-bottom: 4px;
+   }
+
+  .buy-term-insurance:not(.blog-form).form.block .form-field.date-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.select-field{
+    margin-bottom: 12px;
+  }
+
+  .buy-term-insurance:not(.blog-form).form.block .form-field.radio-field{
+    margin-bottom: 40px;
+    margin-top: 0;
+  }
+
+  .buy-term-insurance:not(.blog-form).form.block .form-field.checkbox-field{
+    margin: 0;
+  }
+
+  .buy-term-insurance:not(.blog-form).form.block .button-wrapper{
+    margin: 0;
+  }
+
+  /* Restore natural DOM order on desktop */
+  .buy-term-insurance:not(.blog-form).form.block .form-field.heading-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.text-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.tel-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.email-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.date-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.select-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.radio-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.checkbox-field,
+  .buy-term-insurance:not(.blog-form).form.block .button-wrapper {
+    order: unset;
+  }
+
+  /* Desktop 2-column rows: Phone + Email, DOB + Income, Gender + Tobacco */
+  .buy-term-insurance:not(.blog-form).form.block .form-field.tel-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.email-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.date-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.select-field,
+  .buy-term-insurance:not(.blog-form).form.block .form-field.radio-field {
+    width: calc(50% - 8px);
+  }
+
+  .buy-term-insurance:not(.blog-form).form.block .form-field.checkbox-field label {
+    align-items: center;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .buy-term-insurance:not(.blog-form).form.block .button {
+    width: unset;
+    position: static;
+    display: inline-flex;
+    font-size: 16px;
+    line-height: 18px;
+    padding: 5px 5px 5px 20px;
+    gap: 12px;
+  }
+
+  .buy-term-insurance:not(.blog-form).form.block .button-icon {
+    position: static;
+  }
+
+  .buy-term-insurance:not(.blog-form).form.block .button:not(:disabled):hover {
+    gap: 20px;
+    transform: translateX(4px);
+  }
+}

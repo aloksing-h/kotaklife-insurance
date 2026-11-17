@@ -1,0 +1,150 @@
+.section.fund-main-tab {
+    /* background: var(--decorative-blue-decorative-blue-50, #EFF8FF);
+    box-shadow: 0 0 4px 0 rgb(0 0 0 / 18%); */
+    margin: 0;
+    padding: 0 0 20px;
+    position: sticky;
+    top: 95px;
+    z-index: 200;
+    background-color: #fff;
+}
+
+.section.fund-main-tab .fund-tab-wrapper {
+    padding: 0;
+    background: var(--decorative-blue-decorative-blue-50, #EFF8FF);
+    box-shadow: 0 0 4px 0 rgb(0 0 0 / 18%);
+    max-width: 100%;
+}
+
+.section.fund-tab-container .fund-tab-wrapper .fund-tab {
+    max-width: max-content;
+    margin: 0 auto;
+}
+
+.section.fund-main-tab .fund-tab .tablist-wrap {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    padding: 0 16px;
+    margin: 0;
+
+    /* overflow: auto; */
+    overflow: auto hidden;
+    scrollbar-width: none;
+}
+
+.section.fund-main-tab .tablist-wrap .tablist-btn .fund-tab {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 18px 0 19px;
+    color: var(--text-text-primary, #181D27);
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-2, 14px);
+    font-weight: 600;
+    line-height: var(--line-height-body-1, 18px);
+    position: relative;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.section.fund-main-tab .tablist-wrap .tablist-btn .fund-tab[aria-selected='true']::after {
+    content: '';
+
+    /* width: 29.4%; */
+    width: 45px;
+    height: 4px;
+    display: flex;
+    background: var(--foreground-fg-brand-red, #FA1432);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* V2 Variation */
+.section.fund-main-tab-v2 .fund-tab-wrapper {
+    max-width: 100%;
+}
+
+.section.fund-main-tab-v2 .fund-tab-wrapper .tablist-wrap-v2 {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    border-radius: var(--radius-full, 999px);
+    border: 1px solid var(--border-border-brand-blue-subtle, #D2DAE4);
+    background: var(--background-bg-tertiary, #F5F5F5);
+    width: max-content;
+    max-width: 100%;
+
+    /* New */
+    overflow: auto hidden;
+
+    /* New */
+    scrollbar-width: none;
+
+    /* New */
+}
+
+.section.fund-main-tab-v2 .fund-tab-wrapper .tablist-wrap-v2::-webkit-scrollbar {
+    display: none;
+    
+    /* New */
+}
+
+.section.fund-main-tab-v2 .tablist-wrap-v2 .tablist-btn {
+    display: flex;
+}
+
+.section.fund-main-tab-v2 .tablist-wrap-v2 .tablist-btn .fund-tab-v2 {
+    border: none;
+    outline: none;
+    padding: 9px 12px;
+    background-color: transparent;
+    color: var(--text-text-primary, #181D27);
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-2, 14px);
+    line-height: var(--line-height-body-1, 18px);
+    font-weight: 400;
+    display: flex;
+    cursor: pointer;
+}
+
+.section.fund-main-tab-v2 .tablist-wrap-v2 .tablist-btn .fund-tab-v2[aria-selected='true'] {
+    padding: 8.5px 8px;
+    border-radius: var(--radius-full, 999px);
+    border-bottom: 1px solid transparent;
+
+    /* background: linear-gradient(90deg, var(--decorative-blue-decorative-blue-500, rgb(46 144 250 / 30%)) 0%, var(--foreground-fg-white, rgb(255 255 255 / 30%)) 100%); */
+    background: linear-gradient(90deg, color-mix(in srgb, var(--decorative-blue-decorative-blue-500, #2E90FA) 30%, var(--background-bg-tertiary, #F5F5F5)) 0%, var(--base-white, #FFF) 100%) padding-box,
+        linear-gradient(90deg, var(--brand-blue-500, #1E4679) 0%, var(--decorative-blue-300, #84CAFF) 100%) border-box;
+    color: var(--text-text-brand-blue, #1E4679);
+    font-weight: 600;
+}
+
+
+@media screen and (width >=769px) {
+    .section.fund-main-tab .fund-tab .tablist-wrap {
+        justify-content: center;
+        gap: 34px;
+    }
+
+    .section.fund-main-tab .tablist-wrap .tablist-btn .fund-tab,
+    .section.fund-main-tab-v2 .tablist-wrap-v2 .tablist-btn .fund-tab-v2 {
+        font-size: var(--font-size-body-2, 14px);
+        line-height: var(--line-height-body-1, 18px);
+    }
+
+    /* V2 Variation */
+
+    .section.fund-main-tab-v2 .tablist-wrap-v2 .tablist-btn .fund-tab-v2 {
+        padding: 13px 20px;
+        font-weight: 500;
+    }
+
+    .section.fund-main-tab-v2 .tablist-wrap-v2 .tablist-btn .fund-tab-v2[aria-selected='true'] {
+        border: 1px solid transparent;
+        padding: 12px 20px;
+    }
+}

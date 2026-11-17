@@ -1,0 +1,335 @@
+.modal dialog.view-all-modal {
+    width: calc(100vw - 32px);
+    max-width: 100%;
+    max-height: max-content;
+    max-height: calc(100dvh - 32px);
+    height: 100dvh;
+    border: none;
+    border-radius: 4px;
+}
+
+.modal dialog.view-all-modal::backdrop {
+    background: rgb(0 0 0 / 80%);
+    backdrop-filter: blur(7.0000px);
+}
+
+.modal dialog.view-all-modal::after {
+    content: '';
+    width: 100%;
+    height: 40px;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(172deg, rgb(255 255 255 / 0%) -2.67%, #FFF 61.09%);
+}
+
+.modal dialog.view-all-modal .modal-content {
+    padding: 0;
+    margin: 0;
+    max-height: calc(100dvh - 32px);
+    height: 100dvh;
+
+    /* position: relative; */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal dialog.view-all-modal .close-button {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    cursor: pointer;
+}
+
+.modal dialog.view-all-modal .close-button,
+.modal dialog.view-all-modal .close-button .icon.icon-close {
+    width: 32px;
+    height: 32px;
+}
+
+.modal dialog.view-all-modal .close-button .icon::after,
+.modal dialog.view-all-modal .close-button .icon::before {
+    all: unset;
+}
+
+.modal dialog.view-all-modal .close-button .icon::after {
+    content: '';
+    background-image: url('../../icons/modal-close.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    display: flex;
+}
+
+.modal dialog.view-all-modal .funds-grid {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    height: calc(100dvh - 61px);
+}
+
+.modal dialog.view-all-modal .funds-grid .fund-title {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 60px var(--spacing-xl, 16px) var(--spacing-lg, 12px);
+    border-bottom: 1px solid var(--border-border-primary, #D5D7DA);
+    color: var(--text-text-quaternary, #717680);
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 1.92px;
+    text-transform: uppercase;
+}
+
+.modal dialog.view-all-modal .funds-grid .fund-list-wrapper {
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+    margin-right: 2px;
+}
+
+/* custom-scrollbar start */
+
+/* .modal dialog.view-all-modal .fund-scroll-area {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.modal dialog.view-all-modal .fund-scrollbar {
+    display: none;
+}
+
+@media (width < 769px) {
+    .modal dialog.view-all-modal .funds-grid .fund-list-wrapper.inset-scrollbar {
+        margin-right: 0;
+        scrollbar-width: none;
+    }
+
+    .modal dialog.view-all-modal .fund-list-wrapper.inset-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .modal dialog.view-all-modal .fund-scrollbar:not([hidden]) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 40px;
+        display: block;
+        width: 13px;
+        touch-action: none;
+        user-select: none;
+    }
+
+    .modal dialog.view-all-modal .fund-scrollbar::before,
+    .modal dialog.view-all-modal .fund-scroll-thumb {
+        position: absolute;
+        top: 0;
+        right: 4px;
+        width: 5px;
+        border-radius: 2.817px;
+    }
+
+    .modal dialog.view-all-modal .fund-scrollbar::before {
+        content: '';
+        height: 100%;
+        background: color-mix(in srgb, var(--foreground-fg-primary, #181D27) 6%, transparent);
+    }
+
+    .modal dialog.view-all-modal .fund-scroll-thumb {
+        background: color-mix(in srgb, var(--text-text-primary, #181D27) 20%, transparent);
+    }
+
+    .modal dialog.view-all-modal .fund-scrollbar:focus-visible {
+        outline: 2px solid var(--text-text-primary, #181D27);
+        outline-offset: -2px;
+    }
+} */
+
+/* custom-scrollbar end */
+
+.modal dialog.view-all-modal .funds-grid .fund-list-wrapper::-webkit-scrollbar {
+    width: 2px;
+}
+
+.modal dialog.view-all-modal .funds-grid .fund-list-wrapper::-webkit-scrollbar-track {
+    border-radius: 2.817px;
+    background: color-mix(in srgb, var(--foreground-fg-primary, #181D27) 6%, transparent);
+}
+
+/* 3. Scrollbar Thumb */
+.modal dialog.view-all-modal .funds-grid .fund-list-wrapper::-webkit-scrollbar-thumb {
+    border-radius: 2.817px;
+    background: color-mix(in srgb, var(--text-text-primary, #181D27) 20%, transparent);
+}
+
+dialog.view-all-modal .fund-list-wrapper .fund-list .funds-column {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+dialog.view-all-modal .funds-column .fund-item .fund-link {
+    padding: var(--spacing-lg, 12px) var(--spacing-xl, 16px);
+    border-bottom: 1px solid var(--border-border-primary, #D5D7DA);
+    color: var(--text-text-primary, #181D27);
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-2, 14px);
+    line-height: var(--line-height-body-1, 18px);
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+dialog.view-all-modal .funds-column .fund-item .fund-link::after {
+    content: '';
+
+    --link-arrow: url('../../icons/large-downarrow-black.svg');
+
+    mask-image: var(--link-arrow);
+    background-color: #181D27;
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    mask-position: center;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    transform: rotate(270deg);
+}
+
+dialog.view-all-modal .funds-column .fund-item .fund-link:hover {
+    background-color: var(--decorative-blue-decorative-blue-100, #D1E9FF);
+}
+
+dialog.view-all-modal .funds-column .fund-item .fund-link:hover::after {
+    background-color: #FA1432;
+}
+
+@media screen and (width >=769px) {
+    .modal dialog.view-all-modal {
+        width: calc(100vw - 80px);
+        max-width: 1200px;
+
+        /* max-height: calc(100dvh - 80px); */
+        max-height: 572px;
+    }
+
+    .modal dialog.view-all-modal::after {
+        content: unset;
+    }
+
+    .modal dialog.view-all-modal .modal-content {
+        /* max-height: calc(100dvh - 80px); */
+        max-height: 572px;
+    }
+
+    .modal dialog.view-all-modal .close-button {
+        top: 16px;
+        right: 16px;
+    }
+
+    .modal dialog.view-all-modal .close-button,
+    .modal dialog.view-all-modal .close-button .icon.icon-close,
+    .modal dialog.view-all-modal .close-button .icon::after {
+        width: 28px;
+        height: 28px;
+    }
+
+    .modal dialog.view-all-modal .funds-grid {
+        /* height: calc(100dvh - 80px); */
+        height: 572px;
+
+        /* padding: 40px 40px 56px; */
+
+        /* padding: 40px 30px 50px 40px; */
+        padding: 40px 12px 50px 40px;
+    }
+
+    .modal dialog.view-all-modal .funds-grid .fund-title {
+        padding: 0 0 24px;
+        border: none;
+    }
+
+    .modal dialog.view-all-modal .funds-grid .fund-list-wrapper {
+        /* padding: 0 10px 6px 0; */
+        padding: 0 24px 6px 0;
+    }
+
+    .modal dialog.view-all-modal .funds-grid .fund-list-wrapper::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    /* .modal dialog.view-all-modal .fund-list-wrapper .fund-list {
+        display: flex;
+        gap: 80px;
+        position: relative;
+    } */
+
+    /* dialog.view-all-modal .funds-grid .fund-list-wrapper .funds-column {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0;
+        position: relative;
+    }
+
+    dialog.view-all-modal .funds-grid .fund-list-wrapper .funds-column:not(:last-of-type)::after {
+        content: '';
+        width: 1px;
+        height: 100%;
+        background-color: #D5D7DA;
+        display: flex;
+        position: absolute;
+        right: -40px;
+    } */
+
+    dialog.view-all-modal .funds-grid .fund-list-wrapper .funds-column {
+        column-count: 4;
+        column-gap: 80px;
+        column-rule: 1px solid #D5D7DA;
+    }
+
+    dialog.view-all-modal .funds-column .fund-item {
+        break-inside: avoid;
+        margin-bottom: 12px;
+    }
+
+    dialog.view-all-modal .funds-column .fund-item .fund-link {
+        border: none;
+        padding: 0;
+        font-size: var(--font-size-body-2, 14px);
+        line-height: var(--line-height-body-1, 18px);
+    }
+
+    dialog.view-all-modal .funds-column .fund-item .fund-link::after {
+        content: unset;
+    }
+
+    dialog.view-all-modal .funds-column .fund-item .fund-link:hover {
+        background-color: unset;
+    }
+}
+
+@media screen and (768px <=width <=950px) {
+    /* .modal dialog.view-all-modal .fund-list-wrapper .fund-list {
+        gap: 40px;
+    }
+
+    dialog.view-all-modal .funds-grid .fund-list-wrapper .funds-column:not(:last-of-type)::after {
+        right: -20px;
+    } */
+
+    dialog.view-all-modal .funds-grid .fund-list-wrapper .funds-column {
+        column-gap: 40px;
+    }
+}

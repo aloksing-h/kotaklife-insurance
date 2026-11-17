@@ -1,0 +1,437 @@
+main>.breadcrumb-container {
+  padding: 15px 20px;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.blog main div.breadcrumb-container {
+  padding: 10px;
+}
+
+main .breadcrumb-container .breadcrumb-wrapper {
+  padding: 0;
+}
+
+@media (width >=900px) {
+  main .breadcrumb-container {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    padding: 32px 0;
+  }
+
+  main .breadcrumb-container .breadcrumb-wrapper {
+    padding: 0;
+  }
+}
+
+.breadcrumb>nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: var(--body-font-size-s, 0.875rem);
+
+  /* padding-left: 10px; */
+  min-height: 26px;
+}
+
+.breadcrumb>nav a {
+  text-decoration: none;
+  color: var(--clr-text-secondary, #888);
+}
+
+.breadcrumb>nav a:hover {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+/* Replace the "/" character with the breadcrumb arrow icon. */
+.breadcrumb .breadcrumb-separator {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  color: #fff;
+  font-size: 12px;
+  line-height: 14px;
+  margin-inline: 0;
+  padding-left: 8px;
+}
+
+.breadcrumb .breadcrumb-separator::after {
+  content: none;
+}
+
+/* Current page (last span) — bold and dark */
+.breadcrumb>nav>span:last-child {
+  color: var(--clr-text-primary, #1c1c1c);
+  font-family: var(--font-family-medium);
+}
+
+.breadcrumb-pos.section .breadcrumb>nav a,
+.breadcrumb-pos.section .breadcrumb>nav>span {
+  color: var(--base-white, #fff);
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.breadcrumb-pos .breadcrumb-wrapper .breadcrumb nav>span:first-of-type {
+  padding-right: 4px;
+}
+
+.breadcrumb-pos.section .breadcrumb>nav>span:last-child {
+  font-weight: 400;
+  color: var(--base-white, #fff);
+}
+
+.breadcrumb-pos.section .breadcrumb .breadcrumb-separator {
+  color: var(--base-white, #fff);
+  font-size: 12px;
+  line-height: 14px;
+  padding-left: 8px;
+  padding-right: 4px;
+}
+
+/* About us breadcrumb styles */
+.breadcrumb-pos.section {
+  position: relative;
+}
+
+.breadcrumb-pos.section .breadcrumb-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 38px;
+  height: auto;
+  padding: 0;
+  background: linear-gradient(90deg, rgb(24 29 39 / 16%) 0%, rgb(24 29 39 / 16%) 71%, rgb(0 0 0 / 0%) 100%);
+}
+
+/* About Us mobile-only dark background */
+@media (width <=600px) {
+  .section.about-us .breadcrumb-container,
+  .breadcrumb-pos.section.about-us .breadcrumb-container,
+  .breadcrumb-pos.section:not(:has(.fin-calc-banner, .retire-calc-banner, .insurance-guide-banner)) .breadcrumb-container,
+  body.about-us .breadcrumb-pos.section .breadcrumb-container {
+    background: linear-gradient(90deg, var(--foreground-fg-primary, rgb(24 29 39 / 71%)) 0%, var(--foreground-fg-primary, rgb(24 29 39 / 71%)) 70.67%, rgb(0 0 0 / 0%) 100%);
+  }
+}
+
+.breadcrumb-pos.section .breadcrumb-wrapper,
+.breadcrumb-pos.section .breadcrumb {
+  width: 100%;
+  height: 100%;
+}
+
+.breadcrumb-pos.section .breadcrumb>nav {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  min-height: 38px;
+  height: auto;
+  padding: 12px 48px 12px 16px;
+  color: var(--base-white, #fff);
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.breadcrumb-pos.section .breadcrumb>nav a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumb-pos.section .breadcrumb>nav a img {
+  display: block;
+  min-width: 12px;
+  height: 12px;
+}
+
+@media (width >=601px) {
+  .breadcrumb-pos.section .breadcrumb>nav {
+    padding-left: 20px;
+  }
+}
+
+@media (width >=700px) {
+  .breadcrumb-pos.section .breadcrumb>nav {
+    padding-left: 28px;
+  }
+}
+
+@media (width >=900px) {
+  .breadcrumb-pos.section .breadcrumb>nav {
+    padding-left: 30px;
+  }
+}
+
+@media (width >=951px) {
+  .breadcrumb-pos.section .breadcrumb>nav {
+    padding-left: 50px;
+  }
+}
+
+@media (width >=1200px) {
+  .breadcrumb-pos.section .breadcrumb>nav {
+    padding-left: max(50px, calc(50vw - 550px));
+  }
+}
+
+/* ==========================================================================
+   Financial Tools Calculator Banner Breadcrumb Variant
+   Desktop node: 5401:10226 | Mobile node: 5401:10122
+   ========================================================================== */
+
+/* Mobile First: Full-width solid Kotak Red bar */
+.section:has(.banner-v2.fin-calc-banner) .breadcrumb-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 30px;
+  padding: 0;
+  background: #af0e23;
+}
+
+.section:has(.banner-v2.fin-calc-banner) .breadcrumb-wrapper,
+.section:has(.banner-v2.fin-calc-banner) .breadcrumb {
+  width: 100%;
+  height: 100%;
+}
+
+.section:has(.banner-v2.fin-calc-banner) .breadcrumb>nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  white-space: normal;
+  height: auto;
+  min-height: 0;
+  padding: 8px 16px;
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.section:has(.banner-v2.fin-calc-banner) .breadcrumb>nav a,
+.section:has(.banner-v2.fin-calc-banner) .breadcrumb>nav>span {
+  color: var(--base-white, #fff);
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.section:has(.banner-v2.fin-calc-banner) .breadcrumb>nav>span:last-child {
+  font-weight: 400;
+  color: var(--base-white, #fff);
+}
+
+.section:has(.banner-v2.fin-calc-banner) .breadcrumb .breadcrumb-separator {
+  color: var(--base-white, #fff);
+  font-size: 12px;
+  line-height: 14px;
+  padding-left: 8px;
+  padding-right: 4px;
+}
+
+/* Tablet & Desktop: Dynamic hugging width with semi-transparent gradient */
+@media (width >=601px) {
+  .section:has(.banner-v2.fin-calc-banner) .breadcrumb-container {
+    width: fit-content;
+    max-width: 100%;
+    min-height: 38px;
+    background: linear-gradient(90deg, rgb(24 29 39 / 16%) 0%, rgb(24 29 39 / 16%) 71%, rgb(0 0 0 / 0%) 100%);
+  }
+
+  .section:has(.banner-v2.fin-calc-banner) .breadcrumb>nav {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    min-height: 38px;
+    padding: 12px 48px 12px 20px;
+  }
+}
+
+@media (width >=700px) {
+  .section:has(.banner-v2.fin-calc-banner) .breadcrumb>nav {
+    padding-left: 28px;
+  }
+}
+
+@media (width >=900px) {
+  .section:has(.banner-v2.fin-calc-banner) .breadcrumb>nav {
+    padding-left: 30px;
+  }
+}
+
+@media (width >=951px) {
+  .section:has(.banner-v2.fin-calc-banner) .breadcrumb>nav {
+    padding-left: 50px;
+  }
+}
+
+@media (width >=1200px) {
+  .section:has(.banner-v2.fin-calc-banner) .breadcrumb>nav {
+    padding-left: max(50px, calc(50vw - 550px));
+  }
+}
+
+/* ==========================================================================
+   Retirement Calculator Banner Breadcrumb Variant
+   Desktop node: 5401:9731 | Mobile node: 5401:9950
+   ========================================================================== */
+
+/* Mobile first: transparent bar pinned bottom-left, dark text */
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb-container {
+  position: absolute;
+  bottom: 103px;
+  left: 0;
+  z-index: 4;
+  width: fit-content;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  background: none;
+}
+
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb-wrapper,
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb {
+  width: 100%;
+  height: auto;
+}
+
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  height: auto;
+  min-height: 0;
+  padding: 8px 16px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+
+  /* Firefox: thinnest built-in option */
+}
+
+/* Thin scrollbar for Chromium/WebKit browsers */
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav::-webkit-scrollbar {
+  height: 3px;
+}
+
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav::-webkit-scrollbar-thumb {
+  background: rgb(24 29 39 / 30%);
+  border-radius: 2px;
+}
+
+/* The icon SVG is white; mask it to get the exact Figma colour. */
+
+/* .section:has(.banner-v2.retire-calc-banner) .breadcrumb > nav a {
+  background: #181d27;
+  mask: url('/icons/home-icon.svg') center / 12px 12px no-repeat;
+}
+
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb > nav a img {
+  opacity: 0;
+} */
+
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav a,
+/* stylelint-disable-next-line no-descending-specificity */
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav>span,
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav>span:last-child,
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb .breadcrumb-separator {
+  color: #181d27;
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav a:first-child {
+  background: #181d27;
+  mask: url('/icons/home-icon.svg') center / 12px 12px no-repeat;
+}
+
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav a:first-child img {
+  opacity: 0;
+}
+
+.section:has(.banner-v2.retire-calc-banner) .breadcrumb .breadcrumb-separator {
+  padding-left: 8px;
+  padding-right: 4px;
+}
+
+/* Left padding follows the banner content edge */
+@media (width >=601px) {
+  .section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav {
+    padding: 12px 16px 12px 20px;
+  }
+}
+
+@media (width >=700px) {
+  .section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav {
+    padding-left: 28px;
+  }
+}
+
+@media (width >=900px) {
+  .section:has(.banner-v2.retire-calc-banner) .breadcrumb-container {
+    bottom: 194px;
+  }
+
+  .section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav {
+    padding-left: 30px;
+  }
+}
+
+@media (width >=951px) {
+  .section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav {
+    padding-left: 50px;
+  }
+}
+
+@media (width >=1200px) {
+  .section:has(.banner-v2.retire-calc-banner) .breadcrumb>nav {
+    padding-left: max(50px, calc(50vw - 550px));
+  }
+}
+
+
+/* Contact Us breadcrumb styles can be added here if needed. */
+@media (width <=900px) {
+  main>div.section.contact-us .section.breadcrumb-container {
+    background: var(--decorative-red-decorative-red-800, #AF0E23);
+    width: 100%;
+    min-height: unset;
+  }
+
+  main>.section.contact-us .section.breadcrumb-container .breadcrumb>nav {
+    padding: var(--spacing-md, 8px) var(--spacing-xl, 16px);
+    min-height: unset;
+  }
+}
+
+@media (width >=900px) {
+  main>div.section.contact-us .section.breadcrumb-container {
+    min-width: 158px;
+    background: linear-gradient(90deg,
+        var(--foreground-fg-primary, rgb(24 29 39 / 16%)) 0%,
+        var(--foreground-fg-primary, rgb(24 29 39 / 16%)) 70.67%,
+        rgb(0 0 0 / 0%) 100%);
+  }
+}

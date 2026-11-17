@@ -1,0 +1,254 @@
+/* .tab-list.tab-animation {
+    visibility: hidden;
+} */
+
+.tab-list.tab-animation.tab-animation-ready {
+    visibility: visible;
+}
+
+.section.tab-list-container:has(.tab-list.accordion-container) {
+    margin: 30px 0;
+}
+
+.tab-list.tab-animation .tab-wrapper {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    overflow: visible;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.tab-list.tab-animation .tab-mask {
+    border-radius: var(--radius-2xl, 32px);
+    border: 1px solid var(--border-border-brand-blue-subtle, #D2DAE4);
+    background: var(--background-bg-tertiary, #F5F5F5);
+    position: relative;
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    isolation: isolate;
+}
+
+.tab-list.tab-animation .tab-mask::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-list.tab-animation .tab-mask ul {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    overflow: hidden;
+    scrollbar-width: none;
+    padding: 0;
+    width: max-content;
+}
+
+.tab-list.tab-animation .tab-mask ul>li {
+    display: flex;
+}
+
+.tab-list.tab-animation .tab-mask ul li button {
+    border: none;
+    background: none;
+    padding: 9px 12px;
+    white-space: nowrap;
+    color: var(--text-text-primary, #181D27);
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-2, 14px);
+    font-weight: 500;
+    line-height: var(--line-height-body-1, 18px);
+    cursor: pointer;
+    position: relative;
+    isolation: isolate;
+    transition: color 240ms ease-out;
+}
+
+/* Reserves the semibold width on every tab so the hover weight change cannot
+   reflow the row and drag the sliding indicator out of alignment. */
+.tab-list.tab-animation .tab-mask ul li button::after {
+    content: attr(data-label);
+    display: block;
+    height: 0;
+    overflow: hidden;
+    font-weight: 600;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Glass pill revealed on hover (Figma `_Tab button base` / Current=False, State=Hover).
+   Stops match the values sampled from the Figma render: the pill emerges from the
+   track colour on the left and brightens to white towards the bottom right. */
+.tab-list.tab-animation .tab-mask ul li button::before {
+    content: '';
+    position: absolute;
+    inset: -1px -2px;
+    z-index: -1;
+    border-radius: var(--radius-full, 999px);
+    background:
+        linear-gradient(100deg,
+            var(--gray-100, #F5F5F5) 0%,
+            var(--gray-50, #FAFAFA) 22%,
+            var(--gray-25, #FDFDFD) 62%,
+            var(--base-white, #FFF) 100%);
+    filter: blur(4px);
+    opacity: 0;
+    transition: opacity 240ms ease-out;
+}
+
+.tab-list.tab-animation .tab-mask ul li button[aria-selected='true'] {
+    padding: 8px;
+    color: var(--text-text-brand-blue, #1E4679);
+    font-weight: 600;
+}
+
+.tab-list.tab-animation .tab-mask .tab-indicator {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    z-index: 0;
+    height: 36px;
+    transition-property: left, width;
+    transition-duration: 320ms;
+    transition-timing-function: ease-out;
+    pointer-events: none;
+    border-radius: var(--radius-full, 999px);
+    border: 1px solid transparent;
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--decorative-blue-decorative-blue-500, #2E90FA) 30%, var(--background-bg-tertiary, #F5F5F5)) 0%, var(--base-white, #FFF) 100%) padding-box,
+        linear-gradient(90deg, var(--brand-blue-500, #1E4679) 0%, var(--decorative-blue-300, #84CAFF) 100%) border-box;
+}
+
+  
+.tab-list.tab-animation .tab-paddles {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+    padding: 0 0.8px;
+}
+
+.tab-list.tab-animation .tab-paddles .paddle-btn {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    pointer-events: auto;
+    position: relative;
+    display: grid;
+    width: 48px;
+    height: 36px;
+    place-items: center;
+}
+
+.tab-list.tab-animation .tab-paddles .paddle-btn.paddle-next {
+    background: linear-gradient(90deg, rgb(245 245 245 / 0%) 0%, #F5F5F5 20.83%);
+    border-radius: 0 50% 50% 0;
+    cursor: pointer;
+}
+
+.tab-list.tab-animation .tab-paddles .paddle-btn.paddle-prev {
+    background: linear-gradient(270deg, rgb(245 245 245 / 0%) 0%, #F5F5F5 21.87%);
+    border-radius: 50% 0 0 50%;
+    cursor: pointer;
+}
+
+.tab-list.tab-animation .paddle-btn:focus-visible {
+    outline: 2px solid #1E4679;
+    outline-offset: 2px;
+}
+
+.tab-list.tab-animation .tab-paddles .paddle-btn:disabled {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.tab-list.tab-animation .tab-paddles .paddle-btn::before {
+    content: '';
+    background-image: url('../../icons/small-downarrow-black.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    width: 48px;
+    height: 38px;
+    display: flex;
+    padding: 0;
+    border: none;
+}
+
+.tab-list.tab-animation .tab-paddles .paddle-btn.paddle-prev::before {
+    transform: rotate(90deg);
+}
+
+.tab-list.tab-animation .tab-paddles .paddle-btn.paddle-next::before {
+    transform: rotate(-90deg);
+}
+
+@media screen and (width >=768px) {
+    .tab-list.tab-animation .tab-wrapper {
+        max-width: unset;
+    }
+
+    .tab-list.tab-animation .tab-wrapper .tab-mask {
+        width: max-content;
+        max-width: 100%;
+        margin: 0 auto;
+        min-width: 0;
+        border-radius: var(--radius-full, 999px);
+        overflow: hidden;
+    }
+
+    .tab-list.tab-animation .tab-mask ul {
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .tab-list.tab-animation .tab-mask ul li button {
+        padding: 13px 20px;
+    }
+
+    .tab-list.tab-animation .tab-mask ul li button[aria-selected='true'] {
+        /* padding: 12px 20px; */
+        
+        padding: 13px 22px;
+    }
+
+    .tab-list.tab-animation .tab-mask .tab-indicator {
+        top: 0;
+        height: 44px;
+    }
+
+    .tab-list.tab-animation .tab-wrapper .tab-paddles {
+        display: none;
+    }
+}
+
+/* Hover is only meaningful on a real pointer; on touch it would stick after a tap. */
+@media (hover: hover) and (pointer: fine) {
+    .tab-list.tab-animation .tab-mask ul li button[aria-selected='false']:hover,
+    .tab-list.tab-animation .tab-mask ul li button[aria-selected='false']:focus-visible {
+        color: var(--text-text-brand-blue, #1E4679);
+        font-weight: 600;
+    }
+
+    .tab-list.tab-animation .tab-mask ul li button[aria-selected='false']:hover::before,
+    .tab-list.tab-animation .tab-mask ul li button[aria-selected='false']:focus-visible::before {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tab-list.tab-animation .tab-mask ul li button,
+    .tab-list.tab-animation .tab-mask ul li button::before {
+        transition: none;
+    }
+}

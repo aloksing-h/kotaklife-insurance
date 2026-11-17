@@ -1,0 +1,58 @@
+warning: in the working copy of '.eslintignore', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '.eslintrc.js', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '.gitignore', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'blocks/cards/_cards.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'blocks/cards/cards.css', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'blocks/cards/cards.js', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'blocks/columns/_columns.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'blocks/columns/columns.css', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'blocks/footer/footer.css', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'blocks/footer/footer.js', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'blocks/fragment/fragment.js', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'blocks/header/header.css', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'blocks/header/header.js', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'component-definition.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'component-filters.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'component-models.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'head.html', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'helix-query.yaml', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'models/_component-filters.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'models/_image.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'models/_page.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'models/_section.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'package-lock.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'package.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'scripts/scripts.js', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'styles/fonts.css', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'styles/lazy-styles.css', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'styles/styles.css', CRLF will be replaced by LF the next time Git touches it
+ .eslintignore                  |     1 [32m+[m
+ .eslintrc.js                   |    12 [32m+[m
+ .gitignore                     |    21 [32m+[m
+ blocks/cards/_cards.json       |    60 [32m+[m[31m-[m
+ blocks/cards/cards.css         |  1127 [32m++[m[31m-[m
+ blocks/cards/cards.js          |   233 [32m+[m[31m-[m
+ blocks/columns/_columns.json   |    36 [32m+[m
+ blocks/columns/columns.css     |   277 [32m+[m[31m-[m
+ blocks/footer/footer.css       |   672 [32m+[m[31m-[m
+ blocks/footer/footer.js        |    78 [32m+[m
+ blocks/fragment/fragment.js    |    94 [32m+[m[31m-[m
+ blocks/header/header.css       |  2595 [32m+++++[m[31m-[m
+ blocks/header/header.js        |  1346 [32m++[m[31m-[m
+ component-definition.json      |  1770 [32m+++[m[31m-[m
+ component-filters.json         |   564 [32m+[m[31m-[m
+ component-models.json          |  7465 [32m++++++++++++++++[m[31m-[m
+ favicon.ico                    |   Bin [31m66062[m -> [32m4286[m bytes
+ head.html                      |     5 [32m+[m
+ helix-query.yaml               |    30 [32m+[m[31m-[m
+ models/_component-filters.json |    68 [32m+[m[31m-[m
+ models/_image.json             |     5 [32m+[m
+ models/_page.json              |   279 [32m+[m
+ models/_section.json           |   573 [32m+[m[31m-[m
+ package-lock.json              | 17187 [32m+++++++++++++++++++++++++++++++[m[31m--------[m
+ package.json                   |     9 [32m+[m[31m-[m
+ scripts/scripts.js             |   443 [32m+[m[31m-[m
+ styles/fonts.css               |    66 [32m+[m
+ styles/lazy-styles.css         |   570 [32m++[m
+ styles/styles.css              |   548 [32m+[m[31m-[m
+ 29 files changed, 32519 insertions(+), 3615 deletions(-)

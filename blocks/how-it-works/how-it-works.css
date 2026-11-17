@@ -1,0 +1,340 @@
+/* ==========================================================================
+   How It Works: section header (heading, subtitle, CTA) + one content type
+   chosen by the author: numbered steps (.text-list), infographic image
+   (.image) or video (.video). Mobile first: header stacked above the
+   content; >= 900px text-list / video sit beside the header, the image
+   spans the full width below a split header.
+   ========================================================================== */
+
+.how-it-works {
+  --hiw-body-gap: 30px;
+  --hiw-title-size: var(--heading-3-font-size);
+  --hiw-title-line: var(--heading-3-line-height);
+  --hiw-cta-height: 38px;
+  --hiw-cta-size: var(--button-2-font-size);
+  --hiw-cta-line: var(--button-2-line-height);
+  --hiw-cta-icon: 30px;
+  --hiw-step-gap: var(--spacing-xl);
+  --hiw-step-inner-gap: var(--spacing-lg);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--hiw-body-gap);
+  font-family: var(--font-family-manrope);
+  color: var(--gray-900);
+}
+
+/* header */
+.how-it-works .how-it-works-header,
+.how-it-works .how-it-works-aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.how-it-works .how-it-works-header {
+  gap: var(--spacing-md);
+}
+
+.how-it-works .how-it-works-aside {
+  gap: var(--spacing-2xl);
+}
+
+.how-it-works .how-it-works-header p,
+.how-it-works .how-it-works-title {
+  margin: 0;
+}
+
+.how-it-works .how-it-works-title {
+  font-family: var(--font-family-manrope);
+  font-size: var(--hiw-title-size);
+  font-weight: var(--font-weight-light);
+
+  /* line-height: var(--hiw-title-line); */
+  line-height: var(--line-height-heading-3, 36px);
+  color: var(--gray-900);
+}
+
+.how-it-works .how-it-works-title strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.how-it-works .how-it-works-subtitle {
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-600);
+}
+
+/* subtitle and button: 20px apart, subtitle lines 8px below the title */
+.how-it-works .how-it-works-subtitle+.how-it-works-subtitle {
+  margin-top: calc(var(--spacing-md) - var(--spacing-2xl));
+}
+
+/* CTA */
+.how-it-works .how-it-works-cta,
+.how-it-works .how-it-works-cta:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  height: var(--hiw-cta-height);
+  padding: 3px 4px 3px 20px;
+  border-radius: var(--radius-full);
+  background-color: var(--brand-red-600, #e31837);
+  color: var(--base-white);
+  font-size: var(--hiw-cta-size);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--hiw-cta-line);
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  transition: gap 0.25s ease, margin-right 0.25s ease, transform 0.25s ease;
+}
+
+/* Negative margin cancels the extra gap so the pill grows rightwards only:
+   the label stays put and only the arrow moves forward, whatever the alignment */
+.how-it-works .how-it-works-cta:hover {
+  gap: 18px;
+  margin-right: -6px;
+}
+
+.how-it-works .how-it-works-cta:focus-visible {
+  outline: var(--spacing-xxs) solid var(--navy-blue-500);
+  outline-offset: var(--spacing-xxs);
+}
+
+/* text-list: numbered steps */
+.how-it-works .how-it-works-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hiw-step-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.how-it-works .how-it-works-step {
+  display: flex;
+  gap: var(--hiw-step-inner-gap);
+  margin: 0;
+}
+
+.how-it-works .how-it-works-step-number {
+  display: flex;
+  flex: 0 0 var(--spacing-4xl);
+  align-items: center;
+  justify-content: center;
+  height: var(--spacing-4xl);
+  border-radius: var(--radius-full);
+  background: url('./how-it-works-step-number.svg') center / contain no-repeat;
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--caption-line-height);
+  color: var(--navy-blue-500);
+}
+
+.how-it-works .how-it-works-step-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  min-width: 0;
+}
+
+.how-it-works .how-it-works-step-title {
+  margin: 0;
+  font-family: var(--font-family-manrope);
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-900);
+}
+
+.how-it-works .how-it-works-step-text {
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  color: var(--gray-600);
+}
+
+.how-it-works .how-it-works-step-text>* {
+  margin: 0;
+}
+
+/* image */
+.how-it-works .how-it-works-media picture,
+.how-it-works .how-it-works-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.how-it-works .how-it-works-media .how-it-works-image-desktop {
+  display: none;
+}
+
+/* video */
+.how-it-works .how-it-works-video {
+  position: relative;
+  aspect-ratio: 328 / 228;
+  border-radius: var(--radius-xs);
+  background: var(--gray-900);
+  overflow: hidden;
+}
+
+.how-it-works .how-it-works-video picture,
+.how-it-works .how-it-works-poster,
+.how-it-works .how-it-works-player {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+.how-it-works .how-it-works-player {
+  object-fit: contain;
+  accent-color: var(--red-600);
+}
+
+.how-it-works .how-it-works-play {
+  position: absolute;
+  top: calc(50% - var(--spacing-5xl) / 2);
+  left: calc(50% - var(--spacing-5xl) / 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--spacing-5xl);
+  height: var(--spacing-5xl);
+  margin: 0;
+  padding: var(--spacing-xs);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: linear-gradient(180deg, var(--red-800) 0%, var(--red-400) 100%);
+  cursor: pointer;
+}
+
+.how-it-works .how-it-works-play img {
+  width: 28px;
+  height: 28px;
+}
+
+.how-it-works .how-it-works-play:focus-visible {
+  outline: var(--spacing-xxs) solid var(--base-white);
+  outline-offset: var(--spacing-xxs);
+  box-shadow: 0 0 0 4px var(--navy-blue-500);
+}
+
+/* CTA icon styling and animation (comes after play img to satisfy specificity order) */
+.how-it-works .how-it-works-cta .icon {
+  background-color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.how-it-works .how-it-works-cta:hover .icon {
+  background-color: #000;
+}
+
+.how-it-works .how-it-works-cta .icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: filter 0.2s ease-in-out;
+}
+
+.how-it-works .how-it-works-cta:hover .icon img {
+  filter: invert(1);
+}
+
+@media (width >=900px) {
+  .how-it-works {
+    --hiw-title-size: var(--heading-1-font-size);
+    --hiw-title-line: var(--heading-1-line-height);
+    --hiw-cta-height: var(--spacing-5xl);
+    --hiw-cta-size: var(--button-1-font-size);
+    --hiw-cta-line: var(--button-1-line-height);
+    --hiw-cta-icon: var(--spacing-4xl);
+    --hiw-step-gap: var(--spacing-3xl);
+    --hiw-step-inner-gap: var(--spacing-xl);
+
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+
+  .how-it-works .how-it-works-cta {
+    padding: 3px 4px 3px 24px;
+    gap: 12px;
+  }
+
+  .how-it-works .how-it-works-cta:hover {
+    gap: 20px;
+    margin-right: -8px;
+  }
+
+  .how-it-works .how-it-works-cta .icon {
+    width: 32px;
+    height: 32px;
+  }
+
+
+  .how-it-works .how-it-works-title {
+    line-height: var(--line-height-heading-1, 60px);
+  }
+
+  /* text-list and video: header column + content column */
+  .how-it-works.text-list,
+  .how-it-works.video {
+    display: grid;
+    grid-template-columns: minmax(0, 447fr) minmax(0, 633fr);
+    gap: var(--spacing-2xl);
+    align-items: start;
+  }
+
+  .how-it-works .how-it-works-video {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* image: title left, subtitle + CTA right, image full width below */
+  .how-it-works.image {
+    gap: var(--spacing-xl);
+  }
+
+  .how-it-works.image .how-it-works-header {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+  }
+
+  .how-it-works.image .how-it-works-intro {
+    flex: 0 1 633px;
+  }
+
+  .how-it-works.image .how-it-works-aside {
+    flex: 0 1 353px;
+    align-items: flex-end;
+    gap: var(--spacing-xl);
+    text-align: right;
+  }
+
+  .how-it-works.image .how-it-works-subtitle+.how-it-works-subtitle {
+    margin-top: calc(var(--spacing-md) - var(--spacing-xl));
+  }
+
+  .how-it-works .how-it-works-media .how-it-works-image-desktop {
+    display: block;
+  }
+
+  .how-it-works .how-it-works-media .how-it-works-image-mobile {
+    display: none;
+  }
+}

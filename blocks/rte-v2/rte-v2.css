@@ -1,0 +1,502 @@
+/* 1. Main Table Wrapper */
+.rte-v2.block table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0; /* Adds breathing room around the table */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 2. Shared Cell Styling (Borders & Spacing) */
+.rte-v2.block table th,
+.rte-v2.block table td {
+  border: 1px solid #dcdfe3; /* Light grey borders matching the image */
+  padding: 20px 22px; /* Generous padding for that airy look */
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* 3. Header Row Styling */
+.rte-v2.block table thead th {
+  background-color: #f4f6f8; /* Cool-toned light grey background */
+  color: #5c6873; /* Slate grey text */
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* 4. Data Row Styling */
+.rte-v2.block table tbody td {
+  background-color: #fff;
+  color: #4a5560; /* Slightly softer dark grey for readability */
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 5. Mobile Responsiveness */
+
+/* Targets the exact inner div (cell) that directly contains the table */
+.rte-v2.block > div > div:has(> table) {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%; /* Ensures the wrapper takes full available width */
+}
+
+
+/* Variant styles are grouped per modifier class, so source order is intentional. */
+/* stylelint-disable no-descending-specificity */
+
+.rte-v2.bookmarks-links.block {
+    background: #f4f4f4;
+    border-radius: 18px;
+    padding: 28px 28px 22px;
+}
+
+.rte-v2.bookmarks-links.block h1,
+.rte-v2.bookmarks-links.block h2,
+.rte-v2.bookmarks-links.block h3,
+.rte-v2.bookmarks-links.block h4,
+.rte-v2.bookmarks-links.block h5,
+.rte-v2.bookmarks-links.block h6 {
+    margin: 0;
+    padding: 0 0 14px;
+    border-bottom: 1px solid #ed1c24;
+    color: #0d1f3f;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+}
+
+.rte-v2.bookmarks-links.block ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rte-v2.bookmarks-links.block li {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    border-bottom: 1px solid #cfd3db;
+}
+
+.rte-v2.bookmarks-links.block li p {
+    margin: 0;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.rte-v2.bookmarks-links.block li a {
+    color: #081f44;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.rte-v2.bookmarks-links.block li:hover a,
+.rte-v2.bookmarks-links.block li a:focus-visible,
+.rte-v2.bookmarks-links.block li a:hover {
+    color: #ed1c24;
+}
+
+.rte-v2.bookmarks-links.block li:hover .icon img,
+.rte-v2.bookmarks-links.block li a:hover + .icon img {
+    /* This specific filter chain converts black to #ed1c24 (Red) */
+    filter: invert(18%) sepia(87%) saturate(5318%) hue-rotate(348deg) brightness(94%) contrast(96%);
+}
+
+.rte-v2.bookmarks-links.block .icon {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rte-v2.bookmarks-links.block .icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.rte-v2.bookmarks-links.block:not(.is-expanded) li:nth-child(n + 7) {
+    display: none;
+}
+
+.rte-v2.bookmarks-links.block .bookmarks-show-more {
+    display: inline-flex;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 20px;
+    color: #ed1c24;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.rte-v2.bullet-pink ul {
+    background-color: #fff7f6;
+    padding: 40px;
+    border-left: 1px solid #ed3237;
+    display: inline-block;
+}
+
+.rte-v2.bullet-pink ul li,
+.rte-v2.bullet-pink ul li p {
+  font-size: 12px;
+  line-height: 14px;
+  color: #535862;
+}
+
+@media (width >=900px) {
+  .rte-v2.bullet-pink ul li,
+  .rte-v2.bullet-pink ul li p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+}
+
+.rte-v2.card-border-red.block {
+    color: #40536b;
+}
+
+.rte-v2.card-border-red.block h2 {
+    margin: 0 0 24px;
+    color: #0d1f3f;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.rte-v2.card-border-red.block > div > div > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rte-v2.card-border-red.block > div > div > ul > li {
+    margin: 0 0 18px;
+    padding: 22px 24px;
+    border: 1px solid #ccc;
+    border-left: 3px solid #da251c;
+    border-radius: 10px;
+    background: #fff;
+    transition: border-color 180ms ease;
+}
+
+.rte-v2.card-border-red.block > div > div > ul > li:hover,
+.rte-v2.card-border-red.block > div > div > ul > li:focus-within {
+    border-color: #ed1c24;
+}
+
+.rte-v2.card-border-red.block > div > div > ul > li > h3 {
+    margin: 0;
+    color: #0d1f3f;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    width: fit-content;
+    border-bottom: 2px solid #0b396b;
+}
+
+.rte-v2.card-border-red.block > div > div > ul > li > ul {
+    margin: 12px 0 0;
+    padding-left: 0;
+    list-style: none;
+    color: #40536b;
+}
+
+.rte-v2.card-border-red.block > div > div > ul > li > ul > li ,
+.rte-v2.card-border-red.block > div > div > ul > li > ul > li p {
+    padding-left: 4px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+@media (width >=900px) {
+  .rte-v2.card-border-red.block > div > div > ul > li > h3{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .rte-v2.card-border-red.block > div > div > ul > li > ul > li ,
+  .rte-v2.card-border-red.block > div > div > ul > li > ul > li p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+    
+}
+
+.rte-v2.card-border-red.block a {
+    color: #ed1c24;
+}
+
+.rte-v2.blockquote.block{
+    background-color: #eff8ff;
+    border-left: 1px solid #19507b;
+    padding: 20px;
+    display: block;
+    margin-inline: 40px;
+}
+
+
+.rte-v2.tabs-table.block {
+  position: relative;
+  z-index: 0;
+  margin-top: var(--spacing-xl);
+  margin-bottom: 40px;
+}
+
+/* .rte.tabs-table.block::after {
+  content: '';
+  position: absolute;
+  bottom: calc(-1 * var(--spacing-xl));
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: 36px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    color-mix(in srgb, var(--blue-300) 75%, transparent) 0%,
+    color-mix(in srgb, var(--blue-100) 0%, transparent) 100%
+  );
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+} */
+
+/* .rte-v2.tabs-table.block::after {
+    content: '';
+    position: absolute;
+    z-index: 0; 
+    right: 0;
+    bottom: -26px;
+    height: 100px;
+    border-radius: 50%;
+    background: #E0EAFF;
+    filter: blur(20px);
+    pointer-events: none;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+} */
+
+.rte-v2.block.tabs-table > div > div {
+  position: relative;
+  z-index: 1;
+  max-height: 1092px;
+  overflow-y: auto;
+}
+
+/* 1. Set up the main table with the rounded outer border */
+.rte-v2.block.tabs-table table {
+  border-collapse: separate; 
+  border-spacing: 0;
+  border: 1px solid var(--border-primary); /* Single outer border */
+  background-color: var(--base-white);
+  overflow: hidden;          /* Clips the header background to match the radius */
+  width: 100%;
+  min-width: 0;
+  border-radius: var(--radius-md);
+  margin: 0;
+}
+
+/* 2. Style the inner cells with only bottom and right borders */
+.rte-v2.block.tabs-table table :is(th, td) {
+  border: none; /* Reset existing borders */
+  border-bottom: 1px solid var(--border-primary); 
+  border-right: 1px solid var(--border-primary);  
+  vertical-align: top;
+  text-align: left;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  color: var(--text-primary);
+  font-size: var(--body-2-font-size);
+  line-height: var(--body-2-line-height); 
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.2px;
+  overflow-wrap: break-word;
+}
+
+/* 3. Style the Header row (applies when <thead> is present or on the first row when <thead> is absent) */
+.rte-v2.block.tabs-table table thead :is(th, td),
+.rte-v2.block.tabs-table table:not(:has(thead)) tr:first-child :is(th, td) {
+  background-color: var(--info-25);
+  font-size: var(--body-1-font-size);
+  line-height: var(--body-1-line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  text-align: left;
+}
+
+/* 4. Bold label on the first column for body rows */
+
+/* .rte-v2.block.tabs-table table tbody tr :is(th, td):first-child,
+.rte-v2.block.tabs-table table:not(:has(thead)) tr:not(:first-child) td:first-child {
+  padding: var(--spacing-xl);
+  font-size: var(--body-2-font-size);
+  line-height: var(--body-2-line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+} */
+
+/* 5. Remove the right border on the last column so it doesn't double up with the outer table border */
+.rte-v2.block.tabs-table table :is(th, td):last-child {
+  border-right: none;
+}
+
+/* 6. Remove the bottom border on the last row so it doesn't double up with the outer table border */
+.rte-v2.block.tabs-table table tbody tr:last-child :is(th, td),
+.rte-v2.block.tabs-table table:not(:has(tbody)) tr:last-child :is(th, td) {
+  border-bottom: none;
+}
+
+@media (width >= 768px) {
+  .rte-v2.tabs-table.block {
+    margin-top: var(--spacing-3xl);
+  }
+
+  .rte-v2.block.tabs-table > div > div {
+    max-height: unset;
+  }
+
+  .rte-v2.block.tabs-table table :is(th, td) {
+    letter-spacing: 0;
+  }
+}
+
+
+.rte-v2.fire-table.block {
+  position: relative;
+  z-index: 0;
+  margin-top: var(--spacing-xl);
+  margin-bottom: 40px;
+  overflow: visible;
+}
+
+.rte-v2.tabs-table.fire-table.block {
+  overflow: visible;
+}
+
+.rte-v2.fire-table.block::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    bottom: -26px;
+    height: 100px;
+    border-radius: 50%;
+    background: #E0EAFF;
+    filter: blur(20px);
+    pointer-events: none;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.rte-v2.block.fire-table > div > div,
+.rte-v2.block.tabs-table.fire-table > div > div {
+  position: relative;
+  z-index: 1;
+  max-height: none;
+  overflow: auto visible;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rte-v2.block.fire-table table,
+.rte-v2.block.tabs-table.fire-table table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border-primary);
+  background-color: var(--base-white);
+  border-radius: var(--radius-md);
+  margin: 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.rte-v2.block.fire-table table td,
+.rte-v2.block.fire-table table th,
+.rte-v2.block.tabs-table.fire-table table td,
+.rte-v2.block.tabs-table.fire-table table th {
+  width: 140px;
+  min-width: 140px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid var(--border-primary);
+  border-right: 1px solid var(--border-primary);
+  vertical-align: top;
+  text-align: left;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  color: var(--text-primary);
+  font-size: var(--body-2-font-size);
+  line-height: var(--body-2-line-height);
+  font-weight: var(--font-weight-regular);
+  overflow-wrap: break-word;
+}
+
+.rte-v2.block.fire-table table td:last-child,
+.rte-v2.block.fire-table table th:last-child,
+.rte-v2.block.tabs-table.fire-table table td:last-child,
+.rte-v2.block.tabs-table.fire-table table th:last-child {
+  border-right: none;
+}
+
+.rte-v2.block.fire-table table tr:last-child td,
+.rte-v2.block.fire-table table tr:last-child th,
+.rte-v2.block.tabs-table.fire-table table tr:last-child td,
+.rte-v2.block.tabs-table.fire-table table tr:last-child th {
+  border-bottom: none;
+}
+
+.rte-v2.block.fire-table table tr:first-child td,
+.rte-v2.block.fire-table table tr:first-child th,
+.rte-v2.block.tabs-table.fire-table table tr:first-child td,
+.rte-v2.block.tabs-table.fire-table table tr:first-child th {
+  background-color: var(--info-25);
+  font-size: var(--body-1-font-size);
+  line-height: var(--body-1-line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.rte-v2.block.fire-table table tr:first-child td:first-child,
+.rte-v2.block.tabs-table.fire-table table tr:first-child td:first-child {
+  border-top-left-radius: var(--radius-md);
+}
+
+.rte-v2.block.fire-table table tr:first-child td:last-child,
+.rte-v2.block.tabs-table.fire-table table tr:first-child td:last-child {
+  border-top-right-radius: var(--radius-md);
+}
+
+.rte-v2.block.fire-table table tr td strong,
+.rte-v2.block.tabs-table.fire-table table tr td strong {
+  font-size: var(--body-2-font-size);
+  line-height: var(--body-2-line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+@media (width >= 768px) {
+  .rte-v2.fire-table.block {
+    margin-top: var(--spacing-3xl);
+  }
+
+  .rte-v2.block.fire-table > div > div,
+  .rte-v2.block.tabs-table.fire-table > div > div {
+    max-height: none;
+  }
+}

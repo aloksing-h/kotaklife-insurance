@@ -1,0 +1,1368 @@
+/* ==========================================================================
+   Banner V2 Block Styles
+   Desktop & Mobile Layout (Fixed Proportion Hero, NO 100vh)
+   - Desktop: ~520px height, centered 1200px inner container, bottom-grounded illustration
+   - Mobile: Natural auto-height (~520px), title & stats on top, bottom-grounded illustration
+   ========================================================================== */
+
+main>.section>div.banner-v2-wrapper {
+  padding: 0;
+  max-width: 100%;
+}
+
+main>.section.banner-v2-container,
+main>.section:has(.banner-v2) {
+  padding: 0;
+  max-width: 100%;
+  margin: 0;
+  margin-top: -96px;  
+  position: relative;
+  background-image: var(--section-bg-desktop);
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+
+main>.section:has(.banner-v2.retire-calc-banner){
+  margin-top: -56px;
+}
+
+.banner-v2-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. Desktop Canonical Styles (max-width: 1200px centered frame)
+   - Height: 520px fixed hero height (NOT 100vh)
+   - Left Content: centered vertically
+   - Right Visual: illustration firmly grounded to the bottom edge
+   ========================================================================== */
+
+.banner-v2.block {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 496px;
+  min-height: 496px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--base-white, #fff);
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+}
+
+/* 2. Centered Inner Container (Confined to max-width: 1200px) */
+.banner-v2.block .banner-v2-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+
+/* Content Left Column (Vertically Centered) */
+.banner-v2.block .banner-v2-content {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 480px;
+  max-width: 480px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 160px 0 96px;
+  box-sizing: border-box;
+}
+
+.banner-v2.block.fin-calc-banner .banner-v2-content{
+  color: var(--base-white, #fff);
+}
+
+.banner-v2.block.retire-calc-banner .banner-v2-content {
+  max-width: 633px;
+  color: #181d27;
+  padding: 0;
+  flex: 0 633px;
+}
+
+/* Typography - Title */
+.banner-v2.block .banner-v2-title {
+  font-family: var(--heading-font-family, 'Manrope', sans-serif);
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 60px;
+  color: #f5f5f5;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.banner-v2.block.fin-calc-banner .banner-v2-title {
+  color: inherit;
+}
+
+.banner-v2.block .banner-v2-title strong,
+.banner-v2.block .banner-v2-title b {
+  font-weight: 600;
+}
+
+.banner-v2.block.retire-calc-banner .banner-v2-title {
+  color: inherit;
+  margin-bottom: 8px;
+}
+
+/* Typography - Description */
+.banner-v2.block .banner-v2-description {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--gray-100, rgb(255 255 255 / 90%));
+  margin: 0 0 40px;
+  max-width: 440px;
+}
+
+.banner-v2.block.fin-calc-banner .banner-v2-description{
+  color: inherit;
+}
+
+.banner-v2.block.retire-calc-banner .banner-v2-description {
+  color: #535862;
+  max-width: inherit;
+  margin: 0;
+}
+
+/* Statistics / Metrics */
+.banner-v2.block ul.banner-v2-stats,
+.banner-v2.block ol.banner-v2-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  max-width: 408px;
+  color: var(--base-white, #fff);
+}
+
+.banner-v2.block ul.banner-v2-stats li.banner-v2-stat,
+.banner-v2.block ol.banner-v2-stats li.banner-v2-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding-left: 14px;
+  border-left: 1.3px solid var(--base-white, #fff);
+  box-sizing: border-box;
+}
+
+.banner-v2.block .stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.banner-v2.block .stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+/* Visual Right Column - Grounded to Bottom Edge */
+.banner-v2.block .banner-v2-visual {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-left: auto;
+  align-self: flex-end;
+  height: 100%;
+}
+
+.banner-v2.block .banner-v2-visual .banner-v2-visual-desktop {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 613px;
+}
+
+.banner-v2.block .banner-v2-visual .banner-v2-visual-mobile {
+  display: none;
+}
+
+.banner-v2.block .banner-v2-visual picture {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.banner-v2.block .banner-v2-visual img {
+  display: block;
+  width: auto;
+  max-width: 613px;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+.banner-v2.block.fin-calc-banner .banner-v2-visual img {
+  width: 593px;
+  height: 377px;
+}
+
+.banner-v2.block.retire-calc-banner .banner-v2-visual img {
+  max-width: 403px;
+  max-height: 356px;
+}
+
+/* ==========================================================================
+   2. Laptop Breakpoint (max-width: 1199px)
+   ========================================================================== */
+@media (width <=1199px) {
+  .banner-v2.block {
+    height: 480px;
+    min-height: 480px;
+  }
+
+  .banner-v2.block .banner-v2-inner {
+    min-height: 480px;
+  }
+
+  .banner-v2.block .banner-v2-content {
+    flex: 0 0 440px;
+    max-width: 440px;
+  }
+
+  .banner-v2.block .banner-v2-title {
+    font-size: 38px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .banner-v2.block .banner-v2-description {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .banner-v2.block .stat-value {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .banner-v2.block .banner-v2-visual img {
+    height: 440px;
+    max-height: 460px;
+    max-width: 613px;
+  }
+}
+
+/* ==========================================================================
+   3. Tablet & Responsive Breakpoints (601px <= width <= 1100px)
+   - Balanced ROW layout down to mobile phone coverage
+   - Scaled typography and visual proportions to prevent crowding
+   ========================================================================== */
+@media (width <=1100px) {
+  .banner-v2.block {
+    height: auto;
+    min-height: 440px;
+  }
+
+  .banner-v2.block .banner-v2-content {
+    flex: 1 1 360px;
+    max-width: 400px;
+    align-self: center;
+    padding: 160px 0 96px;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-content {
+    padding-right: 20px;
+  }
+
+  .banner-v2.block .banner-v2-title {
+    font-size: 32px;
+    line-height: 1.18;
+    margin-bottom: 12px;
+  }
+
+  .banner-v2.block .banner-v2-description {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+
+  .banner-v2.block ul.banner-v2-stats,
+  .banner-v2.block ol.banner-v2-stats {
+    gap: 16px;
+  }
+
+  .banner-v2.block .stat-value {
+    font-size: 20px;
+  }
+
+  .banner-v2.block .stat-label {
+    font-size: 12px;
+  }
+
+  .banner-v2.block .banner-v2-visual img {
+    height: 380px;
+    max-height: 400px;
+    max-width: 440px;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-visual img {
+    max-width: 350px;
+  }
+}
+
+@media (width <= 950px) {
+  .banner-v2.block .banner-v2-inner {
+    padding: 0 0 0 30px;
+    min-height: 440px;
+  }
+}
+
+/* Tablet Portrait & Mid-Screen Responsive Row (covers 768px & 769px) */
+@media (width <=899px) and (width >=601px) {
+  .banner-v2.block {
+    height: auto;
+    min-height: 390px;
+  }
+
+  .banner-v2.block .banner-v2-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 390px;
+    padding: 0 0 0 28px;
+    max-width: 100%;
+  }
+
+  .banner-v2.block .banner-v2-content {
+    flex: 0 1 auto;
+    max-width: 350px;
+    align-self: center;
+  }
+
+  .banner-v2.block .banner-v2-title {
+    font-size: 28px;
+    line-height: 34px;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .banner-v2.block .banner-v2-description {
+    font-size: 13.5px;
+    line-height: 18px;
+    margin: 0 0 18px;
+    max-width: 320px;
+  }
+
+  .banner-v2.block ul.banner-v2-stats,
+  .banner-v2.block ol.banner-v2-stats {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    max-width: 330px;
+  }
+
+  .banner-v2.block ul.banner-v2-stats li.banner-v2-stat,
+  .banner-v2.block ol.banner-v2-stats li.banner-v2-stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    padding-left: 10px;
+    border-left: 1.3px solid var(--base-white, #fff);
+  }
+
+  .banner-v2.block .stat-value {
+    font-size: 18px;
+    line-height: 22px;
+    white-space: nowrap;
+  }
+
+  .banner-v2.block .stat-label {
+    font-size: 11px;
+    line-height: 13px;
+    white-space: nowrap;
+  }
+
+  .banner-v2.block .banner-v2-visual {
+    flex: 0 1 auto;
+    margin-left: auto;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .banner-v2.block .banner-v2-visual img {
+    height: 320px;
+    max-height: 340px;
+    max-width: 360px;
+    width: auto;
+    object-fit: contain;
+    object-position: bottom right;
+    display: block;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-visual img {
+    max-width: 287px;
+  }
+}
+
+/* Small Tablet / Large Foldable Responsive Row */
+@media (width <=700px) and (width >=601px) {
+  .banner-v2.block .banner-v2-inner {
+    padding: 0 0 0 20px;
+  }
+
+  .banner-v2.block .banner-v2-content {
+    max-width: 290px;
+    padding: 160px 0 50px;
+  }
+
+  /* .banner-v2.block.fin-calc-banner .banner-v2-content {
+    padding-top: 0;
+  } */
+
+  .banner-v2.block .banner-v2-title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .banner-v2.block .banner-v2-description {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 14px;
+  }
+
+  .banner-v2.block ul.banner-v2-stats,
+  .banner-v2.block ol.banner-v2-stats {
+    gap: 8px;
+  }
+
+  .banner-v2.block ul.banner-v2-stats li.banner-v2-stat,
+  .banner-v2.block ol.banner-v2-stats li.banner-v2-stat {
+    padding-left: 8px;
+  }
+
+  .banner-v2.block .stat-value {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .banner-v2.block .stat-label {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .banner-v2.block .banner-v2-visual img {
+    height: 270px;
+    max-height: 290px;
+    max-width: 280px;
+  }
+}
+
+/* ==========================================================================
+   4. Mobile Phone Breakpoint (max-width: 600px)
+   - Auto-height (NOT 100vh) allowing subnavigation tabs to be visible
+   - Top text content with horizontal stats
+   - Person illustration grounded flush at the bottom edge
+   - Retains all exact tested & passed phone dimensions
+   ========================================================================== */
+@media (width <=600px) {
+  main>.section.banner-v2-container,
+  main>.section:has(.banner-v2) {
+    margin-top: -96px; 
+    background-image: var(--section-bg-mobile, var(--section-bg-desktop));
+    background-position: center top;
+  }
+
+  .banner-v2.block {
+    height: auto;
+    min-height: auto;
+    background: transparent;
+  }
+
+  .banner-v2.block .banner-v2-inner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: auto;
+    min-height: 646px;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .banner-v2.block.fin-calc-banner .banner-v2-inner {
+    min-height: 439px;
+    justify-content: flex-start;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-inner {
+    flex-direction: row;
+    min-height: 439px;
+    justify-content: space-between;
+  }
+
+  /* Content area: Title, Description, Stats */
+  .banner-v2.block .banner-v2-content {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 0 16px 32px;
+    text-align: left;
+    box-sizing: border-box;
+    color: var(--base-white, #fff);
+  }
+
+  .banner-v2.block.fin-calc-banner .banner-v2-content {
+    max-width: unset;
+    margin: 0;
+    padding-top: 132px;
+    padding-bottom: 0;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-content {
+    padding-left: 16px;
+    padding-top: 92px;
+    align-self: flex-start;
+  }
+
+  .banner-v2.block .banner-v2-title {
+    font-size: 32px;
+    line-height: 36px;
+    margin: 0 0 8px;
+    text-align: left;
+    font-weight: 300;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-title {
+    margin-bottom: 8px;
+  }
+
+  .banner-v2.block .banner-v2-description {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0 0 16px;
+    text-align: left;
+    max-width: 100%;
+    color: var(--base-white, #fff);
+  }
+
+  .banner-v2.block.fin-calc-banner .banner-v2-description {
+    margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-description {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  /* Stats: 3 columns with white top accent line */
+  .banner-v2.block ul.banner-v2-stats,
+  .banner-v2.block ol.banner-v2-stats {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .banner-v2.block ul.banner-v2-stats li.banner-v2-stat,
+  .banner-v2.block ol.banner-v2-stats li.banner-v2-stat {
+    position: relative;
+    padding-top: 8px;
+    padding-left: 0;
+    border-left: none;
+    border-top: none;
+    gap: 0;
+
+    /* flex: 1 1 0; */
+    min-width: 0;
+  }
+
+  .banner-v2.block ul.banner-v2-stats li.banner-v2-stat::before,
+  .banner-v2.block ol.banner-v2-stats li.banner-v2-stat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 1px;
+    background-color: var(--base-white, #fff);
+  }
+
+  .banner-v2.block .stat-value {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .banner-v2.block .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* Illustration: Grounded firmly to bottom edge above subnav */
+  .banner-v2.block .banner-v2-visual {
+    flex: 0 0 auto;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    align-self: center;
+    line-height: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .banner-v2.block.fin-calc-banner .banner-v2-visual {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 107px;
+    width: auto;
+    justify-content: flex-end;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-visual {
+    width: 134px;
+    
+    /* height: stretch; */
+    
+    margin: 0;
+    height: 304px;
+    margin-top: 36px;
+  }
+
+  .banner-v2.block .banner-v2-visual .banner-v2-visual-desktop:not(.banner-v2-visual-single) {
+    display: none;
+  }
+
+  .banner-v2.block .banner-v2-visual .banner-v2-visual-desktop.banner-v2-visual-single,
+  .banner-v2.block .banner-v2-visual .banner-v2-visual-mobile {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .banner-v2.block .banner-v2-visual picture {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .banner-v2.block .banner-v2-visual img {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom center;
+    margin: 0 auto;
+  }
+
+  .banner-v2.block.fin-calc-banner .banner-v2-visual img {
+    width: 210px;
+    height: 187px;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-visual img {
+    max-width: 134px;
+  }
+
+  .banner-v2.block.fin-calc-banner.product-banner .banner-v2-visual img {
+    width: 145px;
+  }
+}
+
+@media (width <= 400px) {
+  /* .banner-v2.block.retire-calc-banner .banner-v2-visual img{
+    max-width: 100px;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-inner {
+    justify-content: space-between;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-visual {
+    margin: 0;
+  } */
+
+  .banner-v2.block.retire-calc-banner .banner-v2-content {
+    margin: 0;
+    max-width: 202px;
+    padding: 0;
+    margin-left: 16px;
+    padding-top: 92px;
+  }
+}
+
+/* ==========================================================================
+   5. Flip/Fold Small Device Breakpoint (max-width: 359px down to 280px)
+   ========================================================================== */
+@media (width <=359px) {
+  main>.section.banner-v2-container,
+  main>.section:has(.banner-v2) {
+    margin-top: -96px; 
+  }
+
+  .banner-v2.block .banner-v2-inner {
+    padding: 0;
+  }
+
+  .banner-v2.block .banner-v2-title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .banner-v2.block .banner-v2-description {
+    font-size: 13px;
+    line-height: 17px;
+    margin-bottom: 16px;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-description {
+    font-size: 13px;
+    line-height: 17px;
+  }
+
+  .banner-v2.block ul.banner-v2-stats,
+  .banner-v2.block ol.banner-v2-stats {
+    gap: 6px;
+  }
+
+  .banner-v2.block ul.banner-v2-stats li.banner-v2-stat::before,
+  .banner-v2.block ol.banner-v2-stats li.banner-v2-stat::before {
+    width: 32px;
+  }
+
+  .banner-v2.block .stat-value {
+    font-size: 14px;
+    line-height: 18px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .banner-v2.block .stat-label {
+    font-size: 10px;
+    line-height: 13px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .banner-v2.block .banner-v2-visual img {
+    max-height: 250px;
+    max-width: 260px;
+  }
+}
+
+/* ==========================================================================
+   Retirement calculator banner (Figma 5401:9725 @1200px)
+   The illustration is one wide image (calculator + thread) anchored to the
+   1200px frame. Its right side is clipped by the viewport and is revealed
+   as the viewport grows. 601px-1199px scales the frame fluidly.
+   ========================================================================== */
+@media (width >= 601px) {
+  .banner-v2.block.retire-calc-banner {
+    height: calc(224px + 22.67vw);
+    min-height: 0;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-inner {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-content {
+    align-self: flex-start;
+    flex: 0 1 633px;
+    max-width: min(633px, calc(66.42vw - 60px));
+    padding: 96px 20px 0 0;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-visual,
+  .banner-v2.block.retire-calc-banner .banner-v2-visual .banner-v2-visual-desktop {
+    position: static;
+    height: auto;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-visual picture {
+    display: block;
+    height: auto;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-visual img {
+    position: absolute;
+    left: 66.42vw;
+    
+    /* bottom: calc(0vw - 1px); */
+    
+    bottom: 45px;
+    width: calc(267px + 70.43vw);
+    height: auto;
+    max-width: none;
+    max-height: none;
+  }
+}
+
+@media (width >= 1200px) {
+  .banner-v2.block.retire-calc-banner {
+    height: 496px;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-title {
+    font-size: 48px;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-content {
+    padding-right: 0;
+  }
+
+  .banner-v2.block.retire-calc-banner .banner-v2-visual img {
+    left: 797px;
+    width: 1112px;
+  }
+}
+
+/* ==========================================================================
+   Term insurance banner (Figma 6068:23841 @1200px)
+   Position desktop visual image for viewport width >= 601px without touching
+   mobile image display/hide logic.
+   ========================================================================== */
+@media (width >= 601px) {
+  .banner-v2.block.term-ins-banner .banner-v2-visual,
+  .banner-v2.block.product-banner .banner-v2-visual,
+  .banner-v2.block.term-ins-banner.fin-calc-banner .banner-v2-visual {
+    position: static;
+    height: auto;
+  }
+
+  .banner-v2.block.term-ins-banner .banner-v2-visual-desktop,
+  .banner-v2.block.product-banner .banner-v2-visual-desktop,
+  .banner-v2.block.term-ins-banner.fin-calc-banner .banner-v2-visual-desktop {
+    position: absolute;
+    left: calc(30px + 31.92vw);
+    bottom: 16px;
+    z-index: 1;
+    pointer-events: none;
+    width: auto;
+    max-width: none;
+    height: auto;
+  }
+
+  .banner-v2.block.term-ins-banner .banner-v2-visual-desktop picture,
+  .banner-v2.block.product-banner .banner-v2-visual-desktop picture,
+  .banner-v2.block.term-ins-banner.fin-calc-banner .banner-v2-visual-desktop picture {
+    display: block;
+    width: auto;
+    height: auto;
+  }
+
+  .banner-v2.block.term-ins-banner .banner-v2-visual-desktop img,
+  .banner-v2.block.product-banner .banner-v2-visual-desktop img,
+  .banner-v2.block.term-ins-banner.fin-calc-banner .banner-v2-visual-desktop img {
+    width: calc(40px + 33.33vw);
+    max-width: 440px;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: bottom left;
+    display: block;
+  }
+}
+
+@media (width >= 1200px) {
+  .banner-v2.block.term-ins-banner .banner-v2-visual-desktop,
+  .banner-v2.block.product-banner .banner-v2-visual-desktop,
+  .banner-v2.block.term-ins-banner.fin-calc-banner .banner-v2-visual-desktop {
+    left: 413px;
+    bottom: 16px;
+  }
+
+  .banner-v2.block.term-ins-banner .banner-v2-visual-desktop img,
+  .banner-v2.block.product-banner .banner-v2-visual-desktop img,
+  .banner-v2.block.term-ins-banner.fin-calc-banner .banner-v2-visual-desktop img {
+    width: 440px;
+    height: 264px;
+  }
+}
+
+/* ==========================================================================
+   CTA button (Figma 6068:23841 desktop | 6068:24392 mobile)
+   ========================================================================== */
+.banner-v2.block .banner-v2-description:has(+ .banner-v2-cta),
+.banner-v2.block .banner-v2-description:has(+ .banner-v2-actions) {
+  margin-bottom: 0;
+}
+
+.banner-v2.block .banner-v2-actions {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.banner-v2.block .banner-v2-cta {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 12px;
+  height: 38px;
+  margin-top: 20px;
+  padding: 0 4px 0 16px;
+  border-radius: 999px;
+  background: var(--base-white, #fff);
+  color: #181d27;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: gap 0.3s ease;
+}
+
+.banner-v2.block .banner-v2-actions .banner-v2-cta {
+  margin-top: 0;
+}
+
+.banner-v2.block .banner-v2-cta:hover,
+.banner-v2.block .banner-v2-cta:focus-visible {
+  gap: 18px;
+  color: #181d27;
+  text-decoration: none;
+}
+
+.banner-v2.block .banner-v2-cta-icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+}
+
+.banner-v2.block .banner-v2-cta-icon .icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.banner-v2.block .banner-v2-cta-icon .icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-v2.block .banner-v2-cta-icon .icon:last-child {
+  opacity: 0;
+}
+
+.banner-v2.block .banner-v2-cta:hover .banner-v2-cta-icon .icon:first-child,
+.banner-v2.block .banner-v2-cta:focus-visible .banner-v2-cta-icon .icon:first-child {
+  opacity: 0;
+}
+
+.banner-v2.block .banner-v2-cta:hover .banner-v2-cta-icon .icon:last-child,
+.banner-v2.block .banner-v2-cta:focus-visible .banner-v2-cta-icon .icon:last-child {
+  opacity: 1;
+}
+
+@media (width >= 601px) {
+  .banner-v2.block .banner-v2-cta {
+    height: 40px;
+    margin-top: 24px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .banner-v2.block .banner-v2-cta:hover,
+  .banner-v2.block .banner-v2-cta:focus-visible {
+    gap: 20px;
+  }
+
+  .banner-v2.block .banner-v2-cta-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (width >= 1200px) {
+  .banner-v2.block .banner-v2-content:has(.banner-v2-cta),
+  .banner-v2.block .banner-v2-content:has(.banner-v2-actions) {
+    align-self: flex-start;
+    padding-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   Product Page Banner (Figma 7738:26173 desktop | 7738:26496 mobile)
+   ========================================================================== */
+.banner-v2.block.product-banner {
+  height: auto;
+  min-height: 496px;
+}
+
+.banner-v2.block.product-banner .banner-v2-inner {
+  height: auto;
+  min-height: 496px;
+}
+
+.banner-v2.block.product-banner .banner-v2-content {
+  flex: 0 1 540px;
+  max-width: 560px;
+  width: 100%;
+  padding: 100px 0 40px;
+  align-self: flex-start;
+  color: var(--base-white, #fff);
+}
+
+/* Product Card: Badge + Product Name */
+.banner-v2.block.product-banner .banner-v2-product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: max-content;
+  max-width: 470px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 10%);
+  backdrop-filter: blur(8px);
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.banner-v2.block.product-banner .banner-v2-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: linear-gradient(130deg, #8ebbff 0%, #fff 41%, #fff 100%);
+  border: 1px solid #1e4679;
+  color: #535862;
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  box-sizing: border-box;
+}
+
+.banner-v2.block.product-banner .banner-v2-product-title {
+  font-family: var(--heading-font-family, 'Manrope', sans-serif);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--base-white, #fff);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Main Heading */
+.banner-v2.block.product-banner .banner-v2-title {
+  font-family: var(--heading-font-family, 'Manrope', sans-serif);
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 60px;
+  color: var(--base-white, #fff);
+  margin: 0 0 24px;
+  letter-spacing: -0.01em;
+}
+
+.banner-v2.block.product-banner .banner-v2-title strong,
+.banner-v2.block.product-banner .banner-v2-title b {
+  font-weight: 600;
+}
+
+/* Key Benefits / Features: 2-column grid side-by-side */
+.banner-v2.block.product-banner ul.banner-v2-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 10px 16px;
+  align-items: center;
+  color: var(--base-white, #fff);
+  width: max-content;
+  max-width: 100%;
+}
+
+.banner-v2.block.product-banner li.banner-v2-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--body-font-family, 'Manrope', sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--base-white, #fff);
+  white-space: nowrap;
+}
+
+.banner-v2.block.product-banner .banner-v2-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+.banner-v2.block.product-banner .banner-v2-feature-icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.banner-v2.block.product-banner .banner-v2-feature-text {
+  flex: 1 1 auto;
+}
+
+.banner-v2.block.product-banner .banner-v2-actions {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.banner-v2.block.product-banner .banner-v2-cta {
+  margin-top: 24px;
+  display: inline-flex;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.banner-v2.block.product-banner .banner-v2-actions .banner-v2-cta {
+  margin-top: 0;
+}
+
+/* Tablet & Smaller Screens */
+@media (width <= 1199px) and (width >= 601px) {
+  .banner-v2.block.product-banner .banner-v2-content {
+    flex: 0 1 520px;
+    max-width: 520px;
+    padding: 100px 0 40px;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-title {
+    font-size: 38px;
+    line-height: 44px;
+  }
+
+  .banner-v2.block.product-banner ul.banner-v2-features {
+    grid-template-columns: repeat(2, max-content);
+    gap: 8px 12px;
+  }
+}
+
+/* Mobile Phone Breakpoint */
+@media (width <= 600px) {
+  .banner-v2.block.product-banner {
+    height: auto;
+    min-height: auto;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-inner {
+    min-height: 470px;
+    height: auto;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-content {
+    padding: 116px 16px 24px;
+    align-self: flex-start;
+    margin: 0;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-product-card {
+    gap: 4px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-product-title {
+    font-size: 20px;
+    line-height: 24px;
+    overflow-wrap: break-word;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-title {
+    font-size: 32px;
+    line-height: 36px;
+    margin: 0 0 12px;
+  }
+
+  .banner-v2.block.product-banner ul.banner-v2-features {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .banner-v2.block.product-banner li.banner-v2-feature {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+    white-space: normal;
+  }
+
+  /* Buttons on mobile: one below another to avoid ellipsis and show full text */
+  .banner-v2.block.product-banner .banner-v2-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 16px 0 0;
+    width: 100%;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-actions .banner-v2-cta {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+    height: 38px;
+    margin: 0;
+    padding: 0 4px 0 16px;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 16px;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-actions .banner-v2-cta .banner-v2-cta-label {
+    white-space: nowrap;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-actions .banner-v2-cta-icon {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Small Foldable Mobile Breakpoint (down to 280px) */
+@media (width <= 320px) {
+  .banner-v2.block.product-banner .banner-v2-content {
+    padding: 108px 12px 20px;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-product-card {
+    padding: 8px 10px;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-product-title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .banner-v2.block.product-banner li.banner-v2-feature {
+    font-size: 13px;
+    line-height: 17px;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-actions .banner-v2-cta {
+    font-size: 13px;
+    padding: 0 4px 0 12px;
+    gap: 8px;
+    height: 36px;
+  }
+
+  .banner-v2.block.product-banner .banner-v2-actions .banner-v2-cta-icon {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ==========================================================================
+   6. Universal Editor / Authoring Mode
+   ========================================================================== */
+.banner-v2.block.is-editor {
+  min-height: 520px;
+  height: auto;
+}
+
+.banner-v2.block.is-editor .banner-v2-inner {
+  min-height: 520px;
+  height: auto;
+}
+
+@media (width <=600px) {
+  .banner-v2.block.is-editor {
+    min-height: 500px;
+  }
+
+  .banner-v2.block.is-editor .banner-v2-inner {
+    min-height: 500px;
+  }
+}
+
+/* For Fund Performance Banner */
+@media (width >= 900px) {
+  .banner-v2.block.fin-calc-banner.fund-performance-banner .banner-v2-visual img{
+    max-width: 593px;
+    object-fit: contain;
+  }
+}
+
+@media (width >= 1024px) {
+  .banner-v2.block.fin-calc-banner.fund-performance-banner .banner-v2-visual img{
+    max-width: 593px;
+    object-fit: cover;
+  }
+}

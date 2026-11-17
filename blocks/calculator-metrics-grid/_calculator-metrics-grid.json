@@ -1,0 +1,246 @@
+{
+  "definitions": [
+    {
+      "title": "Calculator Metrics Grid",
+      "id": "calculator-metrics-grid",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+                "name": "Calculator Metrics Grid",
+                "model": "calculator-metrics-grid"
+              }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "calculator-metrics-grid",
+      "fields": [
+        {
+          "component": "select",
+          "name": "calculator-type",
+          "label": "Calculator type",
+          "value": "fire",
+          "options": [
+            { "name": "FIRE calculator", "value": "fire" },
+            { "name": "NPS calculator", "value": "nps" },
+            { "name": "SWP calculator", "value": "swp" },
+            { "name": "BMI calculator", "value": "bmi" },
+            { "name": "Gratuity calculator", "value": "gratuity" }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "fire-number-label",
+          "label": "FIRE number label",
+          "value": "Your F.I.R.E number",
+          "condition": { "===": [{ "var": "calculator-type" }, "fire"] }
+        },
+        {
+          "component": "text",
+          "name": "snapshot-title",
+          "label": "Snapshot title",
+          "value": "FIRE snapshot",
+          "condition": { "===": [{ "var": "calculator-type" }, "fire"] }
+        },
+        {
+          "component": "text",
+          "name": "expenses-today-label",
+          "label": "Expenses today label",
+          "value": "Amount expenses today",
+          "condition": { "===": [{ "var": "calculator-type" }, "fire"] }
+        },
+        {
+          "component": "text",
+          "name": "retirement-expenses-label",
+          "label": "Retirement expenses label",
+          "value": "Expenses at retirement",
+          "condition": { "===": [{ "var": "calculator-type" }, "fire"] }
+        },
+        {
+          "component": "text",
+          "name": "lean-fire-label",
+          "label": "Lean FIRE label",
+          "value": "Lean FIRE",
+          "condition": { "===": [{ "var": "calculator-type" }, "fire"] }
+        },
+        {
+          "component": "text",
+          "name": "fat-fire-label",
+          "label": "Fat FIRE label",
+          "value": "FAT fire (50)",
+          "condition": { "===": [{ "var": "calculator-type" }, "fire"] }
+        },
+        {
+          "component": "text",
+          "name": "lean-fire-tooltip",
+          "label": "Lean FIRE tooltip",
+          "value": "15 times your annual expenses at retirement.",
+          "condition": { "===": [{ "var": "calculator-type" }, "fire"] }
+        },
+        {
+          "component": "text",
+          "name": "fat-fire-tooltip",
+          "label": "Fat FIRE tooltip",
+          "value": "50 times your annual expenses at retirement.",
+          "condition": { "===": [{ "var": "calculator-type" }, "fire"] }
+        },
+        {
+          "component": "text",
+          "name": "nps-invested-label",
+          "label": "NPS invested amount label",
+          "value": "Invested Amount",
+          "condition": { "===": [{ "var": "calculator-type" }, "nps"] }
+        },
+        {
+          "component": "text",
+          "name": "nps-wealth-label",
+          "label": "NPS pension wealth label",
+          "value": "Pension Wealth",
+          "condition": { "===": [{ "var": "calculator-type" }, "nps"] }
+        },
+        {
+          "component": "text",
+          "name": "nps-lumpsum-label",
+          "label": "NPS lumpsum amount label",
+          "value": "Lumpsum Amount",
+          "condition": { "===": [{ "var": "calculator-type" }, "nps"] }
+        },
+        {
+          "component": "text",
+          "name": "nps-pension-label",
+          "label": "NPS monthly pension label",
+          "value": "Monthly Pension",
+          "condition": { "===": [{ "var": "calculator-type" }, "nps"] }
+        },
+        {
+          "component": "text",
+          "name": "fire-cta-label",
+          "label": "FIRE CTA label",
+          "value": "Invest Now",
+          "condition": { "===": [{ "var": "calculator-type" }, "fire"] }
+        },
+        {
+          "component": "aem-content",
+          "name": "fire-cta-link",
+          "label": "FIRE CTA destination",
+          "condition": { "===": [{ "var": "calculator-type" }, "fire"] }
+        },
+        {
+          "component": "text",
+          "name": "nps-cta-label",
+          "label": "NPS CTA label",
+          "value": "Invest Now",
+          "condition": { "===": [{ "var": "calculator-type" }, "nps"] }
+        },
+        {
+          "component": "aem-content",
+          "name": "nps-cta-link",
+          "label": "NPS CTA destination",
+          "condition": { "===": [{ "var": "calculator-type" }, "nps"] }
+        },
+        {
+          "component": "text",
+          "name": "swp-investment-label",
+          "label": "SWP investment result label",
+          "value": "Invest",
+          "condition": { "===": [{ "var": "calculator-type" }, "swp"] }
+        },
+        {
+          "component": "text",
+          "name": "swp-withdrawal-label",
+          "label": "SWP monthly withdrawal result label",
+          "value": "Withdraw",
+          "condition": { "===": [{ "var": "calculator-type" }, "swp"] }
+        },
+        {
+          "component": "text",
+          "name": "swp-balance-label",
+          "label": "SWP final balance result label",
+          "value": "Final balance",
+          "condition": { "===": [{ "var": "calculator-type" }, "swp"] }
+        },
+        {
+          "component": "text",
+          "name": "swp-tenure-label",
+          "label": "SWP tenure result label",
+          "value": "After a",
+          "condition": { "===": [{ "var": "calculator-type" }, "swp"] }
+        },
+        {
+          "component": "text",
+          "name": "swp-cta-label",
+          "label": "SWP CTA label",
+          "value": "Invest Now",
+          "condition": { "===": [{ "var": "calculator-type" }, "swp"] }
+        },
+        {
+          "component": "aem-content",
+          "name": "swp-cta-link",
+          "label": "SWP CTA destination",
+          "condition": { "===": [{ "var": "calculator-type" }, "swp"] }
+        },
+        {
+          "component": "text",
+          "name": "bmi-result-label",
+          "label": "BMI result label",
+          "description": "Heading for the calculated BMI value.",
+          "value": "Your BMI",
+          "condition": { "===": [{ "var": "calculator-type" }, "bmi"] }
+        },
+        {
+          "component": "text",
+          "name": "bmi-category-label",
+          "label": "BMI category label",
+          "description": "Heading for the BMI category.",
+          "value": "Category",
+          "condition": { "===": [{ "var": "calculator-type" }, "bmi"] }
+        },
+        {
+          "component": "text",
+          "name": "bmi-underweight-label",
+          "label": "BMI underweight label",
+          "description": "Category text for a BMI below 18.5.",
+          "value": "Underweight",
+          "condition": { "===": [{ "var": "calculator-type" }, "bmi"] }
+        },
+        {
+          "component": "text",
+          "name": "bmi-normal-label",
+          "label": "BMI normal label",
+          "description": "Category text for a BMI from 18.5 to below 24.9.",
+          "value": "Normal",
+          "condition": { "===": [{ "var": "calculator-type" }, "bmi"] }
+        },
+        {
+          "component": "text",
+          "name": "bmi-overweight-label",
+          "label": "BMI overweight label",
+          "description": "Category text for a BMI from 24.9 to below 29.9.",
+          "value": "Overweight",
+          "condition": { "===": [{ "var": "calculator-type" }, "bmi"] }
+        },
+        {
+          "component": "text",
+          "name": "bmi-obese-label",
+          "label": "BMI obese label",
+          "description": "Category text for a BMI of 29.9 or higher.",
+          "value": "Obese",
+          "condition": { "===": [{ "var": "calculator-type" }, "bmi"] }
+        },
+        {
+          "component": "text",
+          "name": "gratuity-result-label",
+          "label": "Gratuity result label",
+          "value": "Gratuity Amount",
+          "condition": { "===": [{ "var": "calculator-type" }, "gratuity"] }
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

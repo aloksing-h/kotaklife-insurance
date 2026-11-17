@@ -1,0 +1,194 @@
+/* stylelint-disable no-descending-specificity */
+
+/* ==========================================================================
+   Tab Life Stage Variation
+   Figma: Node 3612:6307 (Kotak Website - Young professionals Section)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tab Container & Wrapper
+   -------------------------------------------------------------------------- */
+.tab-list.tab-life-stage {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.tab-list.tab-life-stage .tablist-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tab-list.tab-life-stage .tab-wrapper {
+  margin-bottom: 30px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Tab Panel Lifecycle & Animation
+   -------------------------------------------------------------------------- */
+@keyframes tab-life-stage-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-list.tab-life-stage [role="tabpanel"][hidden],
+.tab-list.tab-life-stage [role="tabpanel"].hidden {
+  display: none ;
+}
+
+/* --------------------------------------------------------------------------
+   3. Mobile View (< 900px) - Stacked Layout
+   -------------------------------------------------------------------------- */
+.tab-list.tab-life-stage [role="tabpanel"]:not([hidden], .hidden) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* gap: 36px; */
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  animation: tab-life-stage-fade-in 0.25s ease-out;
+}
+
+.tab-list.tab-life-stage [role="tabpanel"] .cards-wrapper {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tab-list.tab-life-stage [role="tabpanel"] .life-stages-journey-wrapper {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tab-life-stage.section{
+  border: 1px solid #D5D7DA;
+  border-radius: 8px;
+}
+
+.section.tab-list-container:has(.tab-life-stage.section) {
+  margin-top : 30px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Desktop View (>= 900px) - 2-Column Layout Matching Figma
+   -------------------------------------------------------------------------- */
+@media (width >= 900px) {
+  .tab-list.tab-life-stage .tab-wrapper {
+    margin-bottom: 50px;
+  }
+
+  .tab-list.tab-life-stage [role="tabpanel"]:not([hidden], .hidden) {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    max-width: 1100px;
+    padding: 0;
+  }
+
+  /* Left Column: Product Benefit Card (Shrunk on 900-1100px to give room to timeline) */
+  .tab-list.tab-life-stage [role="tabpanel"] .rte-wrapper,
+  .tab-list.tab-life-stage [role="tabpanel"] .cards-wrapper {
+    flex: 0 0 270px;
+    width: 100%;
+    max-width: 270px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  .tab-list.tab-life-stage [role="tabpanel"] .rte.product-benefit-card.block,
+  .tab-list.tab-life-stage [role="tabpanel"] .cards.product-benefit-card.block {
+    width: 100%;
+    max-width: 270px;
+    min-height: auto;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tab-list.tab-life-stage [role="tabpanel"] .rte.product-benefit-card.block > div,
+  .tab-list.tab-life-stage [role="tabpanel"] .cards.product-benefit-card.block > ul {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .tab-list.tab-life-stage [role="tabpanel"] .rte.product-benefit-card.block > div > div,
+  .tab-list.tab-life-stage [role="tabpanel"] .cards.product-benefit-card.block > ul > li {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .tab-list.tab-life-stage [role="tabpanel"] .rte.product-benefit-card.block > div > div > p:last-child,
+  .tab-list.tab-life-stage [role="tabpanel"] .rte.product-benefit-card.block .button-container,
+  .tab-list.tab-life-stage [role="tabpanel"] .rte.product-benefit-card.block .button-wrapper,
+  .tab-list.tab-life-stage [role="tabpanel"] .cards.product-benefit-card.block .button-container,
+  .tab-list.tab-life-stage [role="tabpanel"] .cards.product-benefit-card.block .button-wrapper {
+    margin-top: auto;
+  }
+
+  /* Right Column: Life Stages Journey */
+  .tab-list.tab-life-stage [role="tabpanel"] .life-stages-journey-wrapper {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    min-height: 432px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .tab-list.tab-life-stage [role="tabpanel"] .life-stages-journey.block {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (width >= 1100px) {
+  .tab-list.tab-life-stage [role="tabpanel"] .rte-wrapper,
+  .tab-list.tab-life-stage [role="tabpanel"] .cards-wrapper {
+    flex: 0 0 353px;
+    width: 100%;
+    max-width: 353px;
+  }
+
+  .tab-list.tab-life-stage [role="tabpanel"] .rte.product-benefit-card.block,
+  .tab-list.tab-life-stage [role="tabpanel"] .cards.product-benefit-card.block {
+    max-width: 353px;
+    min-height: 432px;
+  }
+
+  .tab-list.tab-life-stage [role="tabpanel"] .life-stages-journey-wrapper {
+    padding: 24px;
+  }
+
+/* 
+  .tab-list.tab-life-stage [role="tabpanel"] .life-stages-journey.block {
+    max-width: 699px;
+  } */
+}
+

@@ -3,6 +3,33 @@
     "id": "page-metadata",
     "fields": [
       {
+        "component": "boolean",
+        "name": "breadcrumb",
+        "label": "Show Breadcrumb",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "pulse-auto",
+        "label": "Pulse Waves",
+        "description": "Needs a Pulse Animation block on the page. Draws the pulse line as a curve under the first section and a gentle wave at the bottom of every section, instead of the per-section Pulse Paths.",
+        "options": [
+          {
+            "name": "None",
+            "value": "none"
+          },
+          {
+            "name": "Start curve to the right",
+            "value": "right"
+          },
+          {
+            "name": "Start curve to the left",
+            "value": "left"
+          }
+        ]
+      },
+      {
         "component": "text",
         "valueType": "string",
         "name": "jcr:title",
@@ -20,6 +47,258 @@
         "name": "keywords",
         "multi": true,
         "label": "Keywords"
+      },
+      {
+        "component": "text",
+        "name": "lang",
+        "label": "Language Tag",
+        "value": "en-IN"
+      },
+      {
+        "component": "text",
+        "name": "json-ld",
+        "label": "ALL Schema JSON"
+      },
+      {
+        "component": "text",
+        "name": "description",
+        "label": "Page Description"
+      },
+      {
+        "component": "text",
+        "name": "schcode",
+        "label": "SCH Code"
+      },
+      {
+        "component": "select",
+        "valueType": "string[]",
+        "name": "cq:robotsTags",
+        "label": "Robot Tags",
+        "multiple": true,
+        "options": [
+          {
+            "id": "index",
+            "name": "Index"
+          },
+          {
+            "id": "noindex",
+            "name": "No Index"
+          },
+          {
+            "id": "follow",
+            "name": "Follow"
+          },
+          {
+            "id": "nofollow",
+            "name": "No Follow"
+          },
+          {
+            "id": "noarchive",
+            "name": "No Archive"
+          },
+          {
+            "id": "nosnippet",
+            "name": "No Snippet"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "canonical",
+        "label": "Canonical URL"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "og:title",
+        "label": "OG Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "og:type",
+        "label": "OG Type"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "og:url",
+        "label": "OG URL"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "og:description",
+        "label": "OG Description"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "og:image",
+        "label": "OG Image"
+      },
+      {
+        "component": "text",
+        "name": "featuredPage",
+        "label": "Featured Image Url",
+        "valueType": "string"
+      },
+      {
+        "component": "radio-group",
+        "label": "Exclude page from navigation",
+        "name": "excludePage",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "true"
+          },
+          {
+            "name": "No",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "twitter:card",
+        "label": "Page Twitter Card"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "twitter:site",
+        "label": "Page Twitter Site"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "twitter:url",
+        "label": "Page Twitter URL"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "twitter:title",
+        "label": "Page Twitter title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "twitter:description",
+        "label": "Page Twitter Description"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "twitter:image",
+        "label": "Page Twitter Image"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "og:site",
+        "label": "Page OG Site"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "og:site_name",
+        "label": "Page OG Site Name"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "blog-type",
+        "label": "Blog Type",
+        "description": "Blog pages: the card type in the blog listing (empty = not listed)",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "Blog",
+            "value": "blog"
+          },
+          {
+            "name": "Video",
+            "value": "video"
+          },
+          {
+            "name": "Podcast",
+            "value": "podcast"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "blog-category",
+        "label": "Blog Category",
+        "description": "Blog pages: the category shown on the card and used by the listing filter",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "About Life Insurance",
+            "value": "About Life Insurance"
+          },
+          {
+            "name": "Current Affairs",
+            "value": "Current Affairs"
+          },
+          {
+            "name": "Government Schemes",
+            "value": "Government Schemes"
+          },
+          {
+            "name": "Health Insurance",
+            "value": "Health Insurance"
+          },
+          {
+            "name": "Protection24",
+            "value": "Protection24"
+          },
+          {
+            "name": "Retirement",
+            "value": "Retirement"
+          },
+          {
+            "name": "Savings & Tax",
+            "value": "Savings & Tax"
+          },
+          {
+            "name": "Term Insurance",
+            "value": "Term Insurance"
+          },
+          {
+            "name": "ULIP",
+            "value": "ULIP"
+          },
+          {
+            "name": "Wealth Creation",
+            "value": "Wealth Creation"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "blog-image",
+        "label": "Blog Card Image",
+        "description": "Optional: the illustration on the listing card (transparent line art, square); the type's default is used when empty",
+        "multi": false
       }
     ]
   },
@@ -36,6 +315,11 @@
         "component": "text",
         "name": "imageAlt",
         "label": "Alt Text"
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
       }
     ]
   },
@@ -136,6 +420,1563 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Spacing Variant",
+            "children": [
+              {
+                "name": "Margin 80PX",
+                "value": "margin-80"
+              },
+              {
+                "name": "Margin 100PX",
+                "value": "margin-100"
+              },
+              {
+                "name": "Margin 120PX",
+                "value": "margin-120"
+              },
+              {
+                "name": "Margin 140PX",
+                "value": "margin-140"
+              },
+              {
+                "name": "Margin 160PX",
+                "value": "margin-160"
+              }
+            ]
+          },
+          {
+            "name": "Display None",
+            "value": "dsp-none"
+          },
+          {
+            "name": "Footer Mobile Accordion Only",
+            "value": "mob-accordion"
+          },
+          {
+            "name": "Footer Social Icon",
+            "value": "footer-social"
+          },
+          {
+            "name": "Footer Imp Links",
+            "value": "footer-imp-links"
+          },
+          {
+            "name": "Insights & Impact Plans",
+            "value": "insights-impact-plans"
+          },
+          {
+            "name": "Growing Insurance Company",
+            "value": "growing-insurance-company"
+          },
+          {
+            "name": "Advisor",
+            "value": "advisor"
+          },
+          {
+            "name": "Looking For",
+            "value": "looking-for"
+          },
+          {
+            "name": "Best Seller Banner",
+            "value": "best-seller-banner"
+          },
+          {
+            "name": "Dsp None",
+            "value": "dsp-none"
+          },
+          {
+            "name": "Dsp None Appear",
+            "value": "dsp-none-appear"
+          },
+          {
+            "name": "Customer Say",
+            "value": "customer-say"
+          },
+          {
+            "name": "Start Investing",
+            "value": "start-investing"
+          },
+          {
+            "name": "Get Cover Plans",
+            "value": "get-cover-plans"
+          },
+          {
+            "name": "Find A Plan",
+            "value": "find-a-plan"
+          },
+          {
+            "name": "Video Banner",
+            "value": "video-banner"
+          },
+          {
+            "name": "Protection Plans",
+            "value": "protection-plans"
+          },
+          {
+            "name": "Loans",
+            "value": "loans"
+          },
+          {
+            "name": "Invest Form",
+            "value": "invest-form"
+          },
+          {
+            "name": "CSR Layout",
+            "value": "csr-layout"
+          },
+          {
+            "name": "Our Vision",
+            "value": "vision"
+          },
+          {
+            "name": "Why Trust",
+            "value": "trust"
+          },
+          {
+            "name": "Slider Title",
+            "value": "slider-title"
+          },
+          {
+            "name": "Difference cards",
+            "value": "difference-cards"
+          },
+          {
+            "name": "Values Cards (Hover Text)",
+            "value": "values-cards-hover"
+          },
+          {
+            "name": "Visual Pulse",
+            "value": "visual-pulse"
+          },
+          {
+            "name": "Our Leadership",
+            "value": "leadership"
+          },
+          {
+            "name": "Background White",
+            "value": "bg-white"
+          },
+          {
+            "name": "test cls",
+            "value": "test-cls"
+          },
+          {
+            "name": "Header Varient",
+            "children": [
+              {
+                "name": "Grey Header",
+                "value": "grey-nav"
+              },
+              {
+                "name": "White Header",
+                "value": "white-nav"
+              }
+            ]
+          },
+          {
+            "name": "Calculators",
+            "children": [
+              {
+                "name": "Calculator Main",
+                "value": "calculator-main"
+              },
+              {
+                "name": "Retirement, Annuity and Pension Calculator",
+                "value": "retirement-calculator"
+              },
+              {
+                "name": "Compound Calculator",
+                "value": "compound-calculator"
+              },
+              {
+                "name": "Fire Calculator",
+                "value": "fire-calculator"
+              },
+              {
+                "name": "Nps Calculator",
+                "value": "nps-calculator"
+              },
+              {
+                "name": "Ulip and Investment Calculator",
+                "value": "ulip-calculator"
+              },
+              {
+                "name": "FD Calculator",
+                "value": "fd-calculator"
+              },
+              {
+                "name": "RD calculator",
+                "value": "rd-calculator"
+              },
+              {
+                "name": "PPF calculator",
+                "value": "ppf-calculator"
+              },
+              {
+                "name": "SIP calculator",
+                "value": "sip-calculator"
+              },
+              {
+                "name": "SWP calculator",
+                "value": "swp-calculator"
+              },
+              {
+                "name": "BMI calculator",
+                "value": "bmi-calculator"
+              },
+              {
+                "name": "HRA calculator",
+                "value": "hra-calculator"
+              },
+              {
+                "name": "Gratuity calculator",
+                "value": "gratuity-calculator"
+              },
+              {
+                "name": "Savings calculator",
+                "value": "savings-calculator"
+              },
+              {
+                "name": "HLV calculator",
+                "value": "hlv-calculator"
+              },
+              {
+                "name": "Term Insurance calculator",
+                "value": "term-insurance-calculator"
+              }
+            ]
+          },
+          {
+            "name": "Breadcrumb Move",
+            "value": "breadcrumb-move"
+          },
+          {
+            "name": "Findplan Title",
+            "value": "findplan-title"
+          },
+          {
+            "name": "Findplan Button",
+            "value": "findplan-button"
+          },
+          {
+            "name": "Insurance Tab Title",
+            "value": "insurance-tab-title"
+          },
+          {
+            "name": "Calc Card",
+            "value": "calc-card"
+          },
+          {
+            "name": "Calculator Details Hero",
+            "value": "calculator-details-hero"
+          },
+          {
+            "name": "Calculator spacing",
+            "value": "std-space"
+          },
+          {
+            "name": "Red Logo BG",
+            "value": "red-logo-bg"
+          },
+          {
+            "name": "Form Up Desktop",
+            "value": "form-up-desktop"
+          },
+          {
+            "name": "Popular Cover Layout",
+            "value": "popular-cover-layout"
+          },
+          {
+            "name": "Customer Review Heading",
+            "value": "customer-review-heading"
+          },
+          {
+            "name": "Protection With Riders",
+            "value": "protection-with-riders"
+          },
+          {
+            "name": "Fund Performance",
+            "children": [
+              {
+                "name": "Sticky Tab",
+                "value": "sticky-tab"
+              },
+              {
+                "name": "Fund Main Tab",
+                "value": "fund-main-tab"
+              },
+              {
+                "name": "Fund Main Tab v2",
+                "value": "fund-main-tab-v2"
+              },
+              {
+                "name": "Fund Tab Content",
+                "value": "fund-tab-content"
+              },
+              {
+                "name": "Fund Tab Content v2",
+                "value": "fund-tab-content-v2"
+              },
+              {
+                "name": "Risk Management",
+                "value": "risk-management"
+              },
+              {
+                "name": "Investment Team",
+                "value": "investment-team"
+              },
+              {
+                "name": "Investment Philosophy",
+                "value": "investment-philosophy"
+              },
+              {
+                "name": "Investment Philosophy Equity",
+                "value": "equity"
+              },
+              {
+                "name": "Investment Philosophy Debts",
+                "value": "debts"
+              },
+              {
+                "name": "Nav Performance",
+                "value": "nav-performance"
+              }
+            ]
+          },
+          {
+            "name": "Global Search",
+            "value": "global-search"
+          },
+          {
+            "name": "Form Up V2",
+            "value": "form-up-v2"
+          },
+          {
+            "name": "Make Different",
+            "value": "make-different"
+          },
+          {
+            "name": "Intro Animation",
+            "value": "intro-animation"
+          },
+          {
+            "name": "Horizontal heading",
+            "value": "horizontal-heading"
+          },
+          {
+            "name": "category-sticky-banner",
+            "value": "category-sticky-banner"
+          },
+          {
+            "name": "Key Features Cards",
+            "value": "key-features-cards"
+          },
+          {
+            "name": "Fits Your Life Title",
+            "value": "fits-your-life-title"
+          },
+          {
+            "name": "Header Content ",
+            "value": "header-content"
+          },
+          {
+            "name": "Blog Banner",
+            "value": "blog-banner"
+          },
+          {
+            "name": "Blog Popular Section",
+            "value": "blog-popular-section"
+          },
+          {
+            "name": "Blog Content",
+            "value": "blog-content"
+          },
+          {
+            "name": "Why Term Insurance",
+            "value": "why-term-insurance"
+          },
+          {
+            "name": "Contact Us",
+            "value": "contact-us"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "id",
+        "label": "Enter Section Id"
+      },
+      {
+        "component": "select",
+        "name": "nav-theme",
+        "label": "Select Banner Type",
+        "options": [
+          {
+            "name": "Light",
+            "value": "light"
+          },
+          {
+            "name": "Dark",
+            "value": "dark"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "pulse-path",
+        "label": "Pulse Path",
+        "description": "How the pulse line runs through this section. Presets adapt to desktop and mobile; choose Custom to enter your own points.",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "None",
+            "value": "none"
+          },
+          {
+            "name": "Down the left side",
+            "value": "left"
+          },
+          {
+            "name": "Down the right side",
+            "value": "right"
+          },
+          {
+            "name": "Left side, then cross to the right",
+            "value": "left-to-right"
+          },
+          {
+            "name": "Right side, then cross to the left",
+            "value": "right-to-left"
+          },
+          {
+            "name": "Down the left side with a loop",
+            "value": "loop-left"
+          },
+          {
+            "name": "Down the right side with a loop",
+            "value": "loop-right"
+          },
+          {
+            "name": "Custom points",
+            "value": "custom"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "animation-point",
+        "label": "Animation Point",
+        "description": "Custom points for desktop. Create them on the page preview with ?pulse-edit, then copy and paste here.",
+        "condition": {
+          "===": [
+            {
+              "var": "pulse-path"
+            },
+            "custom"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "animation-point-mobile",
+        "label": "Animation Point mobile",
+        "description": "Custom points below 900px. Leave empty to use the desktop points. Create them with ?pulse-edit.",
+        "condition": {
+          "===": [
+            {
+              "var": "pulse-path"
+            },
+            "custom"
+          ]
+        }
+      },
+      {
+        "component": "reference",
+        "name": "background-image",
+        "label": "Background Image for /desktop",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "background-imageAlt",
+        "label": "Background Image Alt Text /desktop"
+      },
+      {
+        "component": "reference",
+        "name": "backgroundimage-mobile",
+        "label": "Background Image for /mobile",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "backgroundimage-mobileAlt",
+        "label": "Background Image Alt Text /mobile"
+      }
+    ]
+  },
+  {
+    "id": "accessibility-button",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Accessibility Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Icon Alt Text",
+        "value": "Accessibility options"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Position",
+        "options": [
+          {
+            "name": "Left",
+            "value": "position-left"
+          },
+          {
+            "name": "Right",
+            "value": "position-right"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonLabel",
+        "label": "Button Label",
+        "value": "Accessibility options"
+      }
+    ]
+  },
+  {
+    "id": "accordion",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Disclaimer",
+            "value": "disclaimer"
+          },
+          {
+            "name": "FAQ",
+            "value": "faq-accordion"
+          },
+          {
+            "name": "FAQ V2",
+            "value": "faq-v2"
+          },
+          {
+            "name": "Blog FAQ",
+            "value": "blog-faq"
+          },
+          {
+            "name": "Product Disclaimer",
+            "value": "product-disclaimer"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accordion-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "label",
+        "value": "",
+        "label": "Label",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "body",
+        "value": "",
+        "label": "Body",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "agentic-search",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading",
+        "description": "e.g. Looking for",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "prefix",
+        "label": "Search Prompt Prefix",
+        "description": "Shown before the rotating prompt, e.g. I want to",
+        "value": "I want to"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "prompts",
+        "label": "Search Prompts",
+        "description": "A bulleted list; each prompt slides in for 5 seconds, e.g. make a claim...",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "action",
+        "label": "Search Results Page",
+        "description": "The query is sent to this page as ?q="
+      }
+    ]
+  },
+  {
+    "id": "agentic-search-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "description": "e.g. Term Plan"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description",
+        "description": "e.g. Protect my family"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link"
+      }
+    ]
+  },
+  {
+    "id": "agentic-search-slide",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Tag, Heading & Note",
+        "description": "Tag paragraph (e.g. BEST SELLER), the heading, then the small note text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "cta_link",
+        "label": "Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cta_linkText",
+        "label": "Button Text",
+        "value": "Buy Now"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "stats",
+        "label": "Stats",
+        "description": "One paragraph per stat with the value in bold, e.g. **99.5%** Claim Settlement Ratio",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image_desktop",
+        "label": "Background (desktop)",
+        "description": "Banner art without text, 1100 x 188",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "image_desktopAlt",
+        "label": "Background Alt Text (desktop)"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image_mobile",
+        "label": "Background (mobile)",
+        "description": "Banner art without text, 328 x 400 (optional)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "image_mobileAlt",
+        "label": "Background Alt Text (mobile)"
+      }
+    ]
+  },
+  {
+    "id": "author-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Photo",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Photo alt text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageMimeType",
+        "label": "Photo MIME type",
+        "description": "Dynamic Media asset MIME type, e.g. image/jpeg",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "author_role",
+        "label": "Role",
+        "description": "e.g. Written by, Reviewed by",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "author_name",
+        "label": "Name",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Profile link (e.g. LinkedIn)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkTitle",
+        "label": "Profile link accessible name",
+        "description": "e.g. Amit Raje on LinkedIn",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "bio",
+        "label": "Bio",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "banner-v2",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Fin Calc Banner",
+            "value": "fin-calc-banner"
+          },
+          {
+            "name": "Retire Calc Banner",
+            "value": "retire-calc-banner"
+          },
+          {
+            "name": "Term Insurance Banner",
+            "value": "term-ins-banner"
+          },
+          {
+            "name": "Product Banner",
+            "value": "product-banner"
+          },
+          {
+            "name": "Insurance Guide Banner",
+            "value": "insurance-guide-banner"
+          },
+          {
+            "name": "Contact Us Banner",
+            "value": "contact-us-banner"
+          },
+          {
+            "name": "Fund Performance Banner",
+            "value": "fund-performance-banner"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "desktopImage",
+        "label": "Desktop Visual Image",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobileImage",
+        "label": "Mobile Visual Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Content Text",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "banner",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "blog-listing",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading & Text",
+        "description": "Heading (bold the strong part, e.g. **Discover** insurance better) and a short description",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "source",
+        "label": "Blog Index",
+        "description": "The blog pages index; the cards are the pages with a Blog Type in their page properties",
+        "value": "/query-insurance-index.json"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "blogImage",
+        "label": "Blog Image",
+        "description": "Image displayed on Blog cards",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "videoThumbnail",
+        "label": "Video Thumbnail",
+        "description": "Thumbnail displayed on Video cards",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "podcastImage",
+        "label": "Podcast Image",
+        "description": "Image displayed on Podcast cards",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "blog-navigation",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "previousArticle",
+        "label": "Previous Article Link",
+        "description": "Optional manual override. A link with previous article title. Leave empty for auto-detect from index.",
+        "valueType": "string",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "nextArticle",
+        "label": "Next Article Link",
+        "description": "Optional manual override. A link with next article title. Leave empty for auto-detect from index.",
+        "valueType": "string",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "branch-locator",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading (bold words are shown heavier) followed by a short description",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "finder",
+        "label": "Search panel title and description",
+        "description": "For example: Find your nearest branch. Then a short note about sharing the location",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "source",
+        "label": "Branch data URL",
+        "description": "JSON with one row per branch (name, address, city, state, pincode, phone, phone2, latitude, longitude), for example a spreadsheet published as JSON: /drafts/contact-us/branches-sample.json",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Map image",
+        "description": "Shown in the map area while the interactive map loads, or if it cannot load",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Map image alt text",
+        "description": "For example: Map of India",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "calculator-metrics-grid",
+    "fields": [
+      {
+        "component": "select",
+        "name": "calculator-type",
+        "label": "Calculator type",
+        "value": "fire",
+        "options": [
+          {
+            "name": "FIRE calculator",
+            "value": "fire"
+          },
+          {
+            "name": "NPS calculator",
+            "value": "nps"
+          },
+          {
+            "name": "SWP calculator",
+            "value": "swp"
+          },
+          {
+            "name": "BMI calculator",
+            "value": "bmi"
+          },
+          {
+            "name": "Gratuity calculator",
+            "value": "gratuity"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "fire-number-label",
+        "label": "FIRE number label",
+        "value": "Your F.I.R.E number",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "fire"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "snapshot-title",
+        "label": "Snapshot title",
+        "value": "FIRE snapshot",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "fire"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "expenses-today-label",
+        "label": "Expenses today label",
+        "value": "Amount expenses today",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "fire"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "retirement-expenses-label",
+        "label": "Retirement expenses label",
+        "value": "Expenses at retirement",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "fire"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "lean-fire-label",
+        "label": "Lean FIRE label",
+        "value": "Lean FIRE",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "fire"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "fat-fire-label",
+        "label": "Fat FIRE label",
+        "value": "FAT fire (50)",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "fire"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "lean-fire-tooltip",
+        "label": "Lean FIRE tooltip",
+        "value": "15 times your annual expenses at retirement.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "fire"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "fat-fire-tooltip",
+        "label": "Fat FIRE tooltip",
+        "value": "50 times your annual expenses at retirement.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "fire"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "nps-invested-label",
+        "label": "NPS invested amount label",
+        "value": "Invested Amount",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "nps"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "nps-wealth-label",
+        "label": "NPS pension wealth label",
+        "value": "Pension Wealth",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "nps"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "nps-lumpsum-label",
+        "label": "NPS lumpsum amount label",
+        "value": "Lumpsum Amount",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "nps"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "nps-pension-label",
+        "label": "NPS monthly pension label",
+        "value": "Monthly Pension",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "nps"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "fire-cta-label",
+        "label": "FIRE CTA label",
+        "value": "Invest Now",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "fire"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "fire-cta-link",
+        "label": "FIRE CTA destination",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "fire"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "nps-cta-label",
+        "label": "NPS CTA label",
+        "value": "Invest Now",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "nps"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "nps-cta-link",
+        "label": "NPS CTA destination",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "nps"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "swp-investment-label",
+        "label": "SWP investment result label",
+        "value": "Invest",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "swp"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "swp-withdrawal-label",
+        "label": "SWP monthly withdrawal result label",
+        "value": "Withdraw",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "swp"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "swp-balance-label",
+        "label": "SWP final balance result label",
+        "value": "Final balance",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "swp"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "swp-tenure-label",
+        "label": "SWP tenure result label",
+        "value": "After a",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "swp"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "swp-cta-label",
+        "label": "SWP CTA label",
+        "value": "Invest Now",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "swp"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "swp-cta-link",
+        "label": "SWP CTA destination",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "swp"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "bmi-result-label",
+        "label": "BMI result label",
+        "description": "Heading for the calculated BMI value.",
+        "value": "Your BMI",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "bmi"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "bmi-category-label",
+        "label": "BMI category label",
+        "description": "Heading for the BMI category.",
+        "value": "Category",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "bmi"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "bmi-underweight-label",
+        "label": "BMI underweight label",
+        "description": "Category text for a BMI below 18.5.",
+        "value": "Underweight",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "bmi"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "bmi-normal-label",
+        "label": "BMI normal label",
+        "description": "Category text for a BMI from 18.5 to below 24.9.",
+        "value": "Normal",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "bmi"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "bmi-overweight-label",
+        "label": "BMI overweight label",
+        "description": "Category text for a BMI from 24.9 to below 29.9.",
+        "value": "Overweight",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "bmi"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "bmi-obese-label",
+        "label": "BMI obese label",
+        "description": "Category text for a BMI of 29.9 or higher.",
+        "value": "Obese",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "bmi"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "gratuity-result-label",
+        "label": "Gratuity result label",
+        "value": "Gratuity Amount",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "gratuity"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "calculators",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "text",
+        "label": "Calculator name",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "form URL"
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Retirement, Annuity and Pension Calculator",
+            "value": "retirement-text"
+          },
+          {
+            "name": "Compound calculator",
+            "value": "compound-graph"
+          },
+          {
+            "name": "Fire calculator",
+            "value": "fire-text"
+          },
+          {
+            "name": "Term insurance calculator",
+            "value": "term-inurance-text"
+          },
+          {
+            "name": "Nps calculator",
+            "value": "nps-text"
+          },
+          {
+            "name": "Ulip and Investment Calculator",
+            "value": "ulip-graph"
+          },
+          {
+            "name": "FD calculator",
+            "value": "fd-graph"
+          },
+          {
+            "name": "RD calculator",
+            "value": "rd-graph"
+          },
+          {
+            "name": "PPF calculator",
+            "value": "ppf-graph"
+          },
+          {
+            "name": "SIP calculator",
+            "value": "sip-graph"
+          },
+          {
+            "name": "SWP calculator",
+            "value": "swp-graph"
+          },
+          {
+            "name": "BMI calculator",
+            "value": "bmi-text"
+          },
+          {
+            "name": "HRA calculator",
+            "value": "hra-text"
+          },
+          {
+            "name": "Gratuity calculator",
+            "value": "gratuity-text"
+          },
+          {
+            "name": "Savings calculator",
+            "value": "savings-text"
+          },
+          {
+            "name": "HLV calculator",
+            "value": "hlv-text"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cards",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Profile Cards",
+            "value": "profile-cards"
+          },
+          {
+            "name": "Financial Cards",
+            "value": "financial-cards"
+          },
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Trust Style",
+            "value": "trust-style"
+          },
+          {
+            "name": "Vision Style",
+            "value": "vision-style"
+          },
+          {
+            "name": "Image Card",
+            "value": "image-card"
+          },
+          {
+            "name": "Catergory Info Cards",
+            "value": "category-info-cards"
+          },
+          {
+            "name": "Prasad Pimple reviewed",
+            "value": "prasad-pimple-reviewed"
+          },
+          {
+            "name": "Product Benefit Card",
+            "value": "product-benefit-card"
           }
         ]
       }
@@ -152,6 +1993,13 @@
         "multi": false
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image Alt Text",
+        "value": ""
+      },
+      {
         "component": "richtext",
         "name": "text",
         "value": "",
@@ -161,8 +2009,152 @@
     ]
   },
   {
+    "id": "carousel-slide",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "category-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Optional. Shown above the cards",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "category",
+        "label": "Category",
+        "description": "Optional. The category part of the page addresses, for example retirement for /insurance-guide/retirement/... Leave empty to use this page's own category (the last part of its address)",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "source",
+        "label": "Index",
+        "description": "Optional. The page index to read; leave empty for the insurance guide index (/query-insurance-index.json)",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "category-links",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Layout",
+        "valueType": "string",
+        "value": "",
+        "options": [
+          {
+            "name": "Category links",
+            "value": ""
+          },
+          {
+            "name": "Table of contents",
+            "value": "table-content"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "title_icon",
+        "label": "Heading icon",
+        "description": "Optional. Shown before the title; leave empty for the default icon",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "links",
+        "label": "Links",
+        "description": "A bulleted list of links. Table of contents: links to headings on this page (#heading-id); leave empty to list the H2 headings of the section automatically",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "links_icon",
+        "label": "Link icon",
+        "description": "Optional. Category links: the arrow after each link. Table of contents: the expand arrow on mobile. Leave empty for the default icon",
+        "multi": false
+      }
+    ]
+  },
+  {
     "id": "columns",
     "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Block Options",
+        "valueType": "array",
+        "options": [
+          {
+            "name": "Tab One",
+            "value": "tab-one"
+          },
+          {
+            "name": "Tab Two",
+            "value": "tab-two"
+          },
+          {
+            "name": "Tab Three",
+            "value": "tab-three"
+          },
+          {
+            "name": "Tab Four",
+            "value": "tab-four"
+          },
+          {
+            "name": "Tab Five",
+            "value": "tab-five"
+          },
+          {
+            "name": "Tab Six",
+            "value": "tab-six"
+          },
+          {
+            "name": "Term Insurance work",
+            "value": "term-insurance-work"
+          }
+        ]
+      },
       {
         "component": "text",
         "valueType": "number",
@@ -180,12 +2172,1671 @@
     ]
   },
   {
+    "id": "compare-plans",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Heading & Subtitle",
+        "description": "Heading 2 (bold the highlighted words) followed by a short subtitle. Also shown at the top of the comparison popup.",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_compare",
+        "label": "Compare Button Text",
+        "value": "Compare Now"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_price",
+        "label": "Price Label",
+        "description": "Shown above the price on each comparison card, e.g. Starts from",
+        "value": "Starts from"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_cta",
+        "label": "Buy Button Text",
+        "description": "Default button text on the comparison cards, e.g. Get Now",
+        "value": "Get Now"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_limit",
+        "label": "Compare Limit Message",
+        "description": "Shown in place of the selection count when a fourth plan is selected (only three plans can be compared at a time); Compare Now is disabled until a plan is cleared",
+        "value": "Only three cards can be compared at a time."
+      }
+    ]
+  },
+  {
+    "id": "compare-plans-current",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "label": "Plan Name",
+        "description": "e.g. Kotak<br>Gen2Gen Term. Shown as the first (red) card in the comparison popup.",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "features",
+        "label": "Features",
+        "description": "Bulleted list of every feature compared. The other plans are checked against this list.",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "price",
+        "label": "Price",
+        "description": "e.g. ₹25/day",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Buy Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "Buy Button Text",
+        "description": "Optional, defaults to the block's Buy Button Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "compare-plans-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "content_title",
+        "label": "Plan Name",
+        "description": "Bold the word to highlight in red, e.g. Kotak <b>e-Term</b> Plan",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "content_price",
+        "label": "Price Text",
+        "description": "e.g. From ₹16/day",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Illustration Alt",
+        "description": "Leave empty when the illustration is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "richtext",
+        "name": "compare_features",
+        "label": "Included Features",
+        "description": "Bulleted list of the features this plan includes, worded as in the Current Plan Card. Features missing from this list show a red cross.",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "compare_price",
+        "label": "Comparison Price",
+        "description": "e.g. ₹22/day",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "compare_link",
+        "label": "Buy Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "options_planId",
+        "label": "Plan ID",
+        "description": "Optional, e.g. e-term. Defaults to the plan name.",
+        "value": ""
+      },
+      {
+        "component": "boolean",
+        "name": "options_selected",
+        "label": "Selected by default",
+        "valueType": "boolean",
+        "value": false
+      }
+    ]
+  },
+  {
+    "id": "contact-form",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and note",
+        "description": "Form heading followed by a short note, for example: *All fields mandatory",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "submit",
+        "label": "Button label",
+        "description": "Required. For example: Get Advisor Support",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "submit_profile",
+        "label": "Form type",
+        "description": "Selects the submission settings for this form. Contact cards open the form with a link to #form-type, for example #life-advisor",
+        "value": "life-advisor",
+        "options": [
+          {
+            "name": "Life advisor request",
+            "value": "life-advisor"
+          },
+          {
+            "name": "Callback request",
+            "value": "callback"
+          },
+          {
+            "name": "General enquiry",
+            "value": "enquiry"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "success",
+        "label": "Success message",
+        "description": "Shown after the details have been sent",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "failure",
+        "label": "Error message",
+        "description": "Shown when the details could not be sent",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "contact-form-field",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "type",
+        "label": "Field type",
+        "value": "text",
+        "options": [
+          {
+            "name": "Text",
+            "value": "text"
+          },
+          {
+            "name": "Email",
+            "value": "email"
+          },
+          {
+            "name": "Mobile number",
+            "value": "tel"
+          },
+          {
+            "name": "Pincode",
+            "value": "pincode"
+          },
+          {
+            "name": "Message (multi-line text)",
+            "value": "textarea"
+          },
+          {
+            "name": "Dropdown",
+            "value": "select"
+          },
+          {
+            "name": "Radio buttons",
+            "value": "radio"
+          },
+          {
+            "name": "Checkboxes",
+            "value": "checkbox"
+          },
+          {
+            "name": "Consent checkbox",
+            "value": "consent"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "type_name",
+        "label": "Field name",
+        "description": "Required. The key the value is sent with, for example: fullName. Letters, numbers, - and _ only",
+        "value": ""
+      },
+      {
+        "component": "multiselect",
+        "valueType": "string",
+        "name": "type_settings",
+        "label": "Settings",
+        "options": [
+          {
+            "name": "Required",
+            "value": "required"
+          },
+          {
+            "name": "Half width (desktop)",
+            "value": "half"
+          },
+          {
+            "name": "One third width (desktop)",
+            "value": "third"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Label",
+        "description": "Required. Shown in the empty field and above it once filled in. For a consent checkbox, the consent text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label_placeholder",
+        "label": "Placeholder (optional)",
+        "description": "Example input, for example: 98765 43210. Needs a label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "options",
+        "label": "Options",
+        "description": "For dropdowns, radio buttons and checkboxes: comma separated, for example: Term, Savings, ULIP. Use Label=value to send a different value",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "error",
+        "label": "Error message when empty",
+        "description": "For example: Please enter your full name. Leave empty for the default message",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "error_invalid",
+        "label": "Error message when the format is wrong",
+        "description": "For email, mobile number and pincode fields, and text fields named fullName, firstName, lastName or name. Needs the message above",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "contact-help",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading (bold words are shown heavier) followed by a short description",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "banner",
+        "label": "Banner title and description",
+        "description": "The blue banner below the cards: a title followed by a short description. Leave empty to hide the banner",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Banner button link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "Banner button label",
+        "description": "For example: Get In Touch",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "contact-help-card",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Icon",
+        "value": "phone",
+        "options": [
+          {
+            "name": "Phone",
+            "value": "phone"
+          },
+          {
+            "name": "WhatsApp",
+            "value": "whatsapp"
+          },
+          {
+            "name": "Advisor",
+            "value": "advisor"
+          },
+          {
+            "name": "Customer care",
+            "value": "headset"
+          },
+          {
+            "name": "Email",
+            "value": "mail"
+          },
+          {
+            "name": "Location",
+            "value": "location"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text",
+        "description": "Three lines: a label (Toll free number), the main text (1800 209 8800) and a note (Mon to Sat, 8 AM to 10 PM)",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link",
+        "description": "A phone number (tel:18002098800), a WhatsApp chat (https://wa.me/919321003007), a page, or #life-advisor to open the Request a Life Advisor form on this page"
+      }
+    ]
+  },
+  {
+    "id": "contact-hero",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Page heading (bold words are shown heavier) followed by a short description",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration",
+        "description": "Shown on the right of the banner. Use a transparent background",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Illustration alt text",
+        "description": "Leave empty when the illustration is decorative",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image_mobile",
+        "label": "Mobile illustration (optional)",
+        "description": "A smaller crop for mobile. Leave empty to use the illustration above",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "custom-cards",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style / Variation",
+        "options": [
+          {
+            "name": "Insurance Plans",
+            "value": "insurance-plans"
+          },
+          {
+            "name": "Insurance Category Cards",
+            "value": "insurance-category-cards"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom-cards-item",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "col1_classes",
+        "label": "Card Variation",
+        "valueType": "array",
+        "options": [
+          {
+            "name": "Featured",
+            "value": "featured"
+          },
+          {
+            "name": "Horizontal",
+            "value": "horizontal"
+          },
+          {
+            "name": "Image Overlay",
+            "value": "image-overlay"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col1_image1",
+        "label": "Image 1",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "col1_image1Alt",
+        "label": "Image 1 Alt Text",
+        "description": "Describe the image, or leave empty only when it is decorative."
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col1_image2",
+        "label": "Image 2",
+        "description": "Optional secondary image.",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "col1_image2Alt",
+        "label": "Image 2 Alt Text",
+        "description": "Describe Image 2 when it conveys information."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "col2_title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col2_description",
+        "label": "Description",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "col2_link",
+        "label": "Card Link",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col2_linkText",
+        "label": "Card Link Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "custom-rte",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "valueType": "array",
+        "options": [
+          {
+            "name": "Blog Detail Group Image",
+            "value": "detail-grp-img"
+          },
+          {
+            "name": "Promotion",
+            "value": "promotion"
+          },
+          {
+            "name": "Nav Redirection",
+            "value": "nav-redirection"
+          },
+          {
+            "name": "Card Link",
+            "value": "card-link"
+          },
+          {
+            "name": "Common Text",
+            "value": "cmmn-txt"
+          },
+          {
+            "name": "Common Text Row",
+            "value": "cmmn-txt-row"
+          },
+          {
+            "name": "Common Text Column",
+            "value": "cmmn-txt-column"
+          },
+          {
+            "name": "Common Text Black",
+            "value": "txt-black"
+          },
+          {
+            "name": "Common Text White",
+            "value": "txt-white"
+          },
+          {
+            "name": "Nav Performance Card",
+            "value": "cf-slot"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "custom-rte-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "RTE Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "custom-image-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Image Alt"
+      }
+    ]
+  },
+  {
+    "id": "rte-image-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Image Alt"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "RTE Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Redirection URL",
+        "description": "Add a URL only if the entire card needs to be clickable. Leave blank if not required."
+      }
+    ]
+  },
+  {
+    "id": "customer-testimonials",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Heading & Subtitle",
+        "description": "Heading 2 (bold the highlighted words) followed by a short subtitle",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_readMore",
+        "label": "Read More Label",
+        "value": "Read more"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_close",
+        "label": "Close Label",
+        "description": "Screen reader label of the close buttons (expanded testimonial and video popup)",
+        "value": "Close"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_previous",
+        "label": "Previous Label",
+        "description": "Screen reader label of the previous arrow",
+        "value": "Previous"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_next",
+        "label": "Next Label",
+        "description": "Screen reader label of the next arrow",
+        "value": "Next"
+      }
+    ]
+  },
+  {
+    "id": "customer-testimonials-item",
+    "fields": [
+      {
+        "component": "select",
+        "name": "format",
+        "label": "Testimonial Type",
+        "description": "Text: name, customer type and testimonial with Read more. Video: poster and video that opens in a popup",
+        "valueType": "string",
+        "value": "text",
+        "options": [
+          {
+            "name": "Text",
+            "value": "text"
+          },
+          {
+            "name": "Video",
+            "value": "video"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "person_name",
+        "label": "Customer Name",
+        "value": "",
+        "condition": {
+          "===": [
+            {
+              "var": "format"
+            },
+            "text"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "person_role",
+        "label": "Customer Type",
+        "value": "Kotak Life Customer",
+        "condition": {
+          "===": [
+            {
+              "var": "format"
+            },
+            "text"
+          ]
+        }
+      },
+      {
+        "component": "richtext",
+        "name": "quote",
+        "label": "Testimonial",
+        "description": "Long testimonials are shortened with a Read more link",
+        "value": "",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "format"
+            },
+            "text"
+          ]
+        }
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media_image",
+        "label": "Poster Image",
+        "description": "Shown until the video plays. Optional for YouTube (the YouTube thumbnail is used)",
+        "multi": false,
+        "condition": {
+          "===": [
+            {
+              "var": "format"
+            },
+            "video"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "media_imageAlt",
+        "label": "Video Description",
+        "description": "Describes the video for screen readers, e.g. Pankaj Kumar shares his experience",
+        "value": "",
+        "condition": {
+          "===": [
+            {
+              "var": "format"
+            },
+            "video"
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "name": "media_source",
+        "label": "Video Source",
+        "valueType": "string",
+        "value": "dam",
+        "options": [
+          {
+            "name": "AEM Assets (DAM)",
+            "value": "dam"
+          },
+          {
+            "name": "YouTube",
+            "value": "youtube"
+          }
+        ],
+        "condition": {
+          "===": [
+            {
+              "var": "format"
+            },
+            "video"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "media_video",
+        "label": "Video (AEM Assets)",
+        "description": "MP4 from Assets, e.g. /content/dam/kotaklife-eds/customer-video.mp4. Previews muted on hover (desktop)",
+        "condition": {
+          "and": [
+            {
+              "===": [
+                {
+                  "var": "format"
+                },
+                "video"
+              ]
+            },
+            {
+              "!==": [
+                {
+                  "var": "media_source"
+                },
+                "youtube"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "media_youtube",
+        "label": "YouTube URL",
+        "description": "e.g. https://youtu.be/VIDEO_ID or https://www.youtube.com/watch?v=VIDEO_ID",
+        "value": "",
+        "condition": {
+          "and": [
+            {
+              "===": [
+                {
+                  "var": "format"
+                },
+                "video"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "media_source"
+                },
+                "youtube"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "eligibility-tabs",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Variation",
+        "description": "Variation 1: collapsible card with tabbed tables (Eligibility Tab items). Variation 2: comparison table (Eligibility Row items). Variation 3: side tabs with rich content (Eligibility Tab items).",
+        "valueType": "string",
+        "value": "",
+        "options": [
+          {
+            "name": "Variation 1 - Collapsible tabs",
+            "value": ""
+          },
+          {
+            "name": "Variation 2 - Comparison table",
+            "value": "variation-2"
+          },
+          {
+            "name": "Variation 3 - Side tabs with content",
+            "value": "variation-3"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Heading & Subtitle",
+        "description": "Heading 2 (bold the highlighted word) followed by a short subtitle. Variation 3 centres it above the tabs.",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration (variations 1 and 2)",
+        "multi": false,
+        "condition": {
+          "!==": [
+            {
+              "var": "classes"
+            },
+            "variation-3"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Illustration Alt",
+        "description": "Leave empty when the illustration is decorative",
+        "value": "",
+        "condition": {
+          "!==": [
+            {
+              "var": "classes"
+            },
+            "variation-3"
+          ]
+        }
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "boolean",
+        "name": "options_expanded",
+        "label": "Open by default",
+        "valueType": "boolean",
+        "value": false,
+        "condition": {
+          "!": {
+            "var": "classes"
+          }
+        }
+      },
+      {
+        "component": "richtext",
+        "name": "options_columns",
+        "label": "Comparison Columns",
+        "description": "Bulleted list of the column headings, in order, e.g. Life ROP Option, Legacy ROP Option",
+        "value": "",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "classes"
+            },
+            "variation-2"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "eligibility-tabs-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Tab Label",
+        "value": "",
+        "description": "Shown in the tab list (and the mobile dropdown)"
+      },
+      {
+        "component": "richtext",
+        "name": "content",
+        "label": "Table",
+        "description": "Variation 1: insert a table (repeat a value in the first column or header rows to merge cells; an empty cell merges into the one on its left). Variation 3: heading, intro paragraph and a bulleted list where each item starts with its bold title.",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "eligibility-tabs-row",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Icon Alt",
+        "description": "Leave empty when the icon is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Row Label",
+        "description": "e.g. Minimum Age",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "values",
+        "label": "Values",
+        "description": "Variation 2. One paragraph (or list item) per comparison column, in column order. Use Shift+Enter for a line break inside a value.",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "embed",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Placeholder Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Embed URL"
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Youtube Video",
+            "value": "yt-video"
+          },
+          {
+            "name": "Customer Say Video",
+            "value": "customer-say-video"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "form",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "source",
+        "label": "Form Definition"
+      },
+      {
+        "component": "aem-content",
+        "name": "submit",
+        "label": "Submit URL"
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Request A Call Back",
+            "value": "request-call-back"
+          },
+          {
+            "name": "Buy Term Insurance",
+            "value": "buy-term-insurance"
+          },
+          {
+            "name": "Blog Form",
+            "value": "blog-form"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
         "component": "aem-content",
         "name": "reference",
         "label": "Reference"
+      }
+    ]
+  },
+  {
+    "id": "fund-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Heading & Subtitle",
+        "description": "Heading 2 (bold the highlighted words) followed by a short subtitle",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_nav",
+        "label": "NAV Label",
+        "value": "NAV"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_risk",
+        "label": "Risk Label",
+        "value": "Risk profile"
+      }
+    ]
+  },
+  {
+    "id": "fund-cards-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content_badge",
+        "label": "Fund Type Badge",
+        "description": "e.g. Equity",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content_title",
+        "label": "Fund Name",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "content_link",
+        "label": "Fund Detail page redirection URL",
+        "description": "Opened by fund name click"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content_code",
+        "label": "Scheme ID",
+        "description": "e.g. ULIF-034-17/12/09-FRLEQUFND-107",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content_fundCode",
+        "label": "Fund Code",
+        "description": "e.g. FDFP , SAFW , AFDS — internal identifier only, not shown in the UI",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "nav_value",
+        "label": "NAV",
+        "description": "e.g. ₹69.8161",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "nav_date",
+        "label": "NAV Date",
+        "description": "e.g. as on Jun-30-2026",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "name": "nav_risk",
+        "label": "Risk Profile",
+        "description": "Sets the gauge needle and label (desktop)",
+        "valueType": "string",
+        "value": "high",
+        "options": [
+          {
+            "name": "Low",
+            "value": "low"
+          },
+          {
+            "name": "Low to Moderate",
+            "value": "low-to-moderate"
+          },
+          {
+            "name": "Moderate",
+            "value": "moderate"
+          },
+          {
+            "name": "Moderately High",
+            "value": "moderately-high"
+          },
+          {
+            "name": "High",
+            "value": "high"
+          },
+          {
+            "name": "Very High",
+            "value": "very-high"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "returns_value",
+        "label": "Fund Return",
+        "description": "e.g. 12.7%",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "returns_label",
+        "label": "Fund Return Label",
+        "description": "e.g. Fund 5 year returns",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "returns_benchmark",
+        "label": "Benchmark Return",
+        "description": "e.g. 9.7% (shown on desktop)",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "returns_benchmarkLabel",
+        "label": "Benchmark Label",
+        "description": "e.g. Bench mark 5 year returns",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Fund Page",
+        "description": "Opened by the Explore button"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "Link Text",
+        "value": "Explore"
+      }
+    ]
+  },
+  {
+    "id": "fund-highlight",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Heading & Description",
+        "description": "Heading 2 (bold the highlighted words) followed by a short description",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "card_title",
+        "label": "Fund Name",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "card_date",
+        "label": "As On Date",
+        "description": "e.g. As on 31st Aug 2026",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_returns",
+        "label": "Returns Label",
+        "value": "Fund returns"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labels_benchmark",
+        "label": "Benchmark Label",
+        "value": "Bench mark"
+      }
+    ]
+  },
+  {
+    "id": "fund-highlight-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Period",
+        "description": "Tab label, e.g. 5 year",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "returns",
+        "label": "Fund Returns",
+        "description": "e.g. 9.3%",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "benchmark",
+        "label": "Benchmark",
+        "description": "e.g. 3.4%",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "fund-nav-detail",
+    "fields": [
+      {
+        "component": "select",
+        "name": "defaultRange",
+        "label": "Date picker: default range",
+        "valueType": "string",
+        "value": "ytd",
+        "description": "Range shown when the view opens",
+        "options": [
+          {
+            "name": "Last 1 month",
+            "value": "1m"
+          },
+          {
+            "name": "Last 3 months",
+            "value": "3m"
+          },
+          {
+            "name": "Last 6 months",
+            "value": "6m"
+          },
+          {
+            "name": "Year to date",
+            "value": "ytd"
+          },
+          {
+            "name": "Last 1 year",
+            "value": "1y"
+          },
+          {
+            "name": "All available data",
+            "value": "all"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "dateColumnLabel",
+        "label": "List view: date column header",
+        "valueType": "string",
+        "value": "Date"
+      },
+      {
+        "component": "text",
+        "name": "navColumnLabel",
+        "label": "List view: NAV column header",
+        "valueType": "string",
+        "value": "NAV"
+      }
+    ]
+  },
+  {
+    "id": "fund-tab",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Select Class",
+        "options": [
+          {
+            "name": "Custom Tab",
+            "value": "custom-tab"
+          },
+          {
+            "name": "Custom Tab V2",
+            "value": "custom-tab-v2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fund-tab-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "text",
+        "value": "",
+        "label": "Tab Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "id",
+        "label": "Enter tab Id"
+      },
+      {
+        "component": "multiselect",
+        "name": "class",
+        "label": "Tab Class",
+        "valueType": "array",
+        "value": [
+          "fund-tab"
+        ],
+        "options": [
+          {
+            "name": "Fund Tab",
+            "value": "fund-tab"
+          },
+          {
+            "name": "Fund Tab V2",
+            "value": "fund-tab-v2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fund-update",
+    "fields": []
+  },
+  {
+    "id": "gen2gen-tabs",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Heading & Subtitle",
+        "description": "Heading 2 (bold the highlighted word) followed by a short subtitle",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "gen2gen-tabs-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Tab Label",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Illustration Alt",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Text",
+        "description": "Shown in full on desktop; cut to 4 lines with Read more on mobile",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "cards_icon1",
+        "label": "Card 1 Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cards_icon1Alt",
+        "label": "Card 1 Icon Alt",
+        "description": "Leave empty when the icon is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "cards_icon1MimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "richtext",
+        "name": "cards_text1",
+        "label": "Card 1 Text",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "cards_icon2",
+        "label": "Card 2 Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cards_icon2Alt",
+        "label": "Card 2 Icon Alt",
+        "description": "Leave empty when the icon is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "cards_icon2MimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "richtext",
+        "name": "cards_text2",
+        "label": "Card 2 Text",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "cards_icon3",
+        "label": "Card 3 Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cards_icon3Alt",
+        "label": "Card 3 Icon Alt",
+        "description": "Leave empty when the icon is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "cards_icon3MimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "richtext",
+        "name": "cards_text3",
+        "label": "Card 3 Text",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "gen2gen-tabs-video",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Tab Label",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Video Thumbnail",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Video Thumbnail Alt",
+        "description": "Describe the video; also used as the play button label",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/jpeg"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "video",
+        "label": "Video (DAM MP4)",
+        "description": "Loaded only when the play button is clicked"
       }
     ]
   },
@@ -212,6 +3863,3668 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "how-it-works",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Content Type",
+        "description": "Text List: numbered steps (add Step items). Image: infographic image. Video: poster with a video that plays in place",
+        "valueType": "string",
+        "value": "text-list",
+        "options": [
+          {
+            "name": "Text List",
+            "value": "text-list"
+          },
+          {
+            "name": "Image",
+            "value": "image"
+          },
+          {
+            "name": "Video",
+            "value": "video"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "content_text",
+        "label": "Heading And Subtitle",
+        "description": "Heading 2 (Shift+Enter for the second line, bold the highlighted words) followed by a short subtitle",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "content_link",
+        "label": "Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content_linkText",
+        "label": "Button Text",
+        "value": "Buy Online"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media_image",
+        "label": "Image (Desktop)",
+        "multi": false,
+        "condition": {
+          "===": [
+            {
+              "var": "classes"
+            },
+            "image"
+          ]
+        }
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media_imageMobile",
+        "label": "Image (Mobile)",
+        "description": "Optional. Used below 900px, the desktop image is used when empty",
+        "multi": false,
+        "condition": {
+          "===": [
+            {
+              "var": "classes"
+            },
+            "image"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "media_imageAlt",
+        "label": "Image Description",
+        "description": "Describes the infographic for screen readers (key figures included)",
+        "value": "",
+        "condition": {
+          "===": [
+            {
+              "var": "classes"
+            },
+            "image"
+          ]
+        }
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "video_poster",
+        "label": "Video Poster",
+        "description": "Shown until the video plays. Optional for YouTube (the YouTube thumbnail is used)",
+        "multi": false,
+        "condition": {
+          "===": [
+            {
+              "var": "classes"
+            },
+            "video"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "video_posterAlt",
+        "label": "Video Description",
+        "value": "",
+        "condition": {
+          "===": [
+            {
+              "var": "classes"
+            },
+            "video"
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "name": "video_source",
+        "label": "Video Source",
+        "valueType": "string",
+        "value": "dam",
+        "options": [
+          {
+            "name": "AEM Assets (DAM)",
+            "value": "dam"
+          },
+          {
+            "name": "YouTube",
+            "value": "youtube"
+          }
+        ],
+        "condition": {
+          "===": [
+            {
+              "var": "classes"
+            },
+            "video"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "video_dam",
+        "label": "Video (AEM Assets)",
+        "description": "MP4 from Assets",
+        "condition": {
+          "and": [
+            {
+              "===": [
+                {
+                  "var": "classes"
+                },
+                "video"
+              ]
+            },
+            {
+              "!==": [
+                {
+                  "var": "video_source"
+                },
+                "youtube"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "video_youtube",
+        "label": "YouTube URL",
+        "description": "e.g. https://youtu.be/VIDEO_ID",
+        "value": "",
+        "condition": {
+          "and": [
+            {
+              "===": [
+                {
+                  "var": "classes"
+                },
+                "video"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "video_source"
+                },
+                "youtube"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "how-it-works-step",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Step Title",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Step Description",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "impact-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading (bold words are shown heavier) followed by a short description",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Button link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "Button label",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "linkType",
+        "label": "Button style",
+        "value": "",
+        "options": [
+          {
+            "name": "Outline",
+            "value": ""
+          },
+          {
+            "name": "Filled",
+            "value": "primary"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "impact-stat",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "value",
+        "label": "Figure",
+        "description": "For example: 99.50%, 38 million, 1 lakh +",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "label",
+        "label": "Label",
+        "description": "For example: Claim settlement ratio. Use Shift+Enter for a new line",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "theme",
+        "label": "Colour",
+        "value": "light",
+        "options": [
+          {
+            "name": "Light blue",
+            "value": "light"
+          },
+          {
+            "name": "Red",
+            "value": "red"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration",
+        "description": "Shown in the bottom right corner. Use a transparent background",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Illustration alt text",
+        "description": "Leave empty when the illustration is decorative",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image_mobile",
+        "label": "Mobile illustration (optional)",
+        "description": "A smaller crop for mobile. Leave empty to use the illustration above",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "impact-quote",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "quote",
+        "label": "Quote",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "name",
+        "label": "Name",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "role",
+        "label": "Role",
+        "description": "For example: Managing Director - Kotak Life",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Portrait",
+        "description": "Cut-out portrait on a transparent background; it rises above the card",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Portrait alt text",
+        "description": "Leave empty when the name is shown next to it",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "infinity-banner",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading & Text",
+        "description": "Heading (bold the highlighted words), then a short paragraph",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "cta_link",
+        "label": "Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cta_linkText",
+        "label": "Button Text",
+        "value": "Start Now"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media_person",
+        "label": "Person Image",
+        "description": "Cut-out image (transparent background); the intro video plays in the infinity behind it",
+        "multi": false
+      },
+      {
+        "name": "media_personMimeType",
+        "component": "hidden",
+        "valueType": "image/png"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "media_personAlt",
+        "label": "Person Alt Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media_slogan",
+        "label": "Slogan Bubble Image",
+        "description": "e.g. Hum hain... hamesha.",
+        "multi": false
+      },
+      {
+        "name": "media_sloganMimeType",
+        "component": "hidden",
+        "valueType": "image/png"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "media_sloganAlt",
+        "label": "Slogan Alt Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "arm",
+        "label": "Arm Cut-out",
+        "description": "Optional: the arm of the person image cut out on the same canvas (same size, transparent elsewhere); it is placed in front of the infinity",
+        "multi": false
+      },
+      {
+        "name": "armMimeType",
+        "component": "hidden",
+        "valueType": "image/png"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "armAlt",
+        "label": "Arm Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "infinity-banner-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logo",
+        "label": "Logo",
+        "description": "Small mark above the brand name (optional)",
+        "multi": false
+      },
+      {
+        "name": "logoMimeType",
+        "component": "hidden",
+        "valueType": "image/png"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "logoAlt",
+        "label": "Logo Alt Text"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "brand",
+        "label": "Brand Name",
+        "description": "Two lines: the first is red, the second navy, e.g. Kotak / Signature Term",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "amount",
+        "label": "Amount",
+        "description": "e.g. ₹2 Crore"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "note",
+        "label": "Note",
+        "description": "e.g. Life Cover @ **₹90/day**",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "infinity-intro",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "video_intro",
+        "label": "Intro Video (desktop)",
+        "description": "Plays once on page load before the loop video (MP4). Optional."
+      },
+      {
+        "name": "video_introMimeType",
+        "component": "hidden",
+        "valueType": "video/mp4"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "video_loop",
+        "label": "Loop Video (desktop)",
+        "description": "Plays in a loop after the intro and inside the infinity (MP4). Keep the infinity centred in the frame."
+      },
+      {
+        "name": "video_loopMimeType",
+        "component": "hidden",
+        "valueType": "video/mp4"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobile_intro",
+        "label": "Intro Video (mobile)",
+        "description": "Optional; the desktop intro is used when empty."
+      },
+      {
+        "name": "mobile_introMimeType",
+        "component": "hidden",
+        "valueType": "video/mp4"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobile_loop",
+        "label": "Loop Video (mobile)",
+        "description": "Optional; the desktop loop is used when empty."
+      },
+      {
+        "name": "mobile_loopMimeType",
+        "component": "hidden",
+        "valueType": "video/mp4"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content_text",
+        "label": "Hero Text",
+        "description": "Heading shown over the video, e.g. At Kotak Life / Where promises are kept **Always**",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "content_slogan",
+        "label": "Slogan Image",
+        "description": "Shown under the heading, e.g. Hum hain... hamesha.",
+        "multi": false
+      },
+      {
+        "name": "content_sloganMimeType",
+        "component": "hidden",
+        "valueType": "image/png"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content_sloganAlt",
+        "label": "Slogan Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Scroll Indicator Label",
+        "value": "Scroll down"
+      }
+    ]
+  },
+  {
+    "id": "insight-cards",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Layout",
+        "valueType": "string",
+        "value": "",
+        "options": [
+          {
+            "name": "Popular (3 large cards)",
+            "value": ""
+          },
+          {
+            "name": "Discover (4 compact cards)",
+            "value": "discover"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "name": "classes_hover",
+        "label": "Hover effect",
+        "description": "When on, a card turns red and grows when a visitor points at it or moves to it with the keyboard",
+        "valueType": "boolean",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading (bold words are shown heavier) followed by a short description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "insight-card",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "tag",
+        "label": "Badge",
+        "description": "Small label at the top of the card",
+        "value": "blog",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "Blog",
+            "value": "blog"
+          },
+          {
+            "name": "Video",
+            "value": "video"
+          },
+          {
+            "name": "Podcast",
+            "value": "podcast"
+          },
+          {
+            "name": "Other",
+            "value": "other"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tag_custom",
+        "label": "Custom badge text",
+        "description": "Shown when the badge is Other, e.g. Article or Guide",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "category",
+        "label": "Category (optional)",
+        "description": "White label above the title, e.g. About Life Insurance",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Card link"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Button icon",
+        "value": "arrow",
+        "options": [
+          {
+            "name": "Arrow",
+            "value": "arrow"
+          },
+          {
+            "name": "Play",
+            "value": "play"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration",
+        "description": "Dark line illustration on a transparent background, shown by default",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Illustration alt text",
+        "description": "Leave empty when the illustration is decorative",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageHover",
+        "label": "Hover illustration (optional)",
+        "description": "Light line version shown on the red hover background. Leave empty to show the illustration in white",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "insu-banner",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading, Description & CTA",
+        "description": "Heading (bold the strong part), a short description and, optionally, a paragraph with only a link for the red button",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "readTime",
+        "label": "Read Time",
+        "description": "e.g. 5 Mins read; leave empty to hide",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "views",
+        "label": "Views",
+        "description": "e.g. 94 view; leave empty to hide",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration (Desktop)",
+        "description": "Transparent line art on the right; Figma size 1044 × 800 (the right part runs past the banner edge)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Illustration Alt Text",
+        "description": "Leave empty when the illustration is decorative",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image_mobile",
+        "label": "Illustration (Mobile)",
+        "description": "Optional: art for mobile, bottom right (Figma 270 × 338); the desktop art is used when empty",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "invest-form",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "text",
+        "label": "text-invest",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "form URL"
+      }
+    ]
+  },
+  {
+    "id": "life-advisor",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "description": "Shown on the left on desktop and between the text and the button on mobile",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image alt text",
+        "description": "Leave empty when the image is decorative",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and text",
+        "description": "Heading followed by a short line, e.g. Start a successful work-from-home career.",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Button link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "Button label",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "linkType",
+        "label": "Button style",
+        "value": "primary",
+        "options": [
+          {
+            "name": "Filled",
+            "value": "primary"
+          },
+          {
+            "name": "Outline",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "life-stages-journey",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Young Professionals",
+            "value": "young-professionals"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "life-stages-persona",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Profile Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Profile Image Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Description / Bio",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "life-stages-milestone",
+    "fields": [
+      {
+        "component": "text",
+        "name": "age",
+        "label": "Age / Milestone Label",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Milestone Text",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "variant",
+        "label": "Badge Variant",
+        "options": [
+          {
+            "name": "Default (Light Blue)",
+            "value": "default"
+          },
+          {
+            "name": "Highlight (Red)",
+            "value": "highlight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "life-stages-outcome",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Family Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Family Image Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Card Text (Subtitle & Amount)",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "cta",
+        "label": "CTA Link",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "ctaText",
+        "label": "Button Text",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "life-stages-disclaimer",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "disclaimer",
+        "label": "Disclaimer Text",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "offer-banner",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content_text",
+        "label": "Heading & Text",
+        "description": "Heading on two lines (bold the big part, e.g. **100%**; every % is set smaller), then a short paragraph",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "content_cta",
+        "label": "Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content_ctaText",
+        "label": "Button Text",
+        "value": "Buy Now"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image_desktop",
+        "label": "Image",
+        "description": "Cut-out image (transparent background) shown on the right",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "image_desktopAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image_mobile",
+        "label": "Image (mobile)",
+        "description": "Optional: a different cut-out for mobile and tablet; the image above is used when empty",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "image_mobileAlt",
+        "label": "Image (mobile) Alt Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "background_desktop",
+        "label": "Background (desktop)",
+        "description": "Decorative art, 1200 x 550 (2400 x 1100 for sharp screens)",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "background_mobile",
+        "label": "Background (mobile)",
+        "description": "Decorative art, 360 x 592 (720 x 1184); the desktop one is used when empty",
+        "multi": false
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Slider Autoplay",
+        "valueType": "string",
+        "value": "",
+        "description": "When the banners of the section form a slider (read from the last offer banner)",
+        "options": [
+          {
+            "name": "Every 5 seconds",
+            "value": ""
+          },
+          {
+            "name": "Every 3 seconds",
+            "value": "autoplay-3"
+          },
+          {
+            "name": "Every 8 seconds",
+            "value": "autoplay-8"
+          },
+          {
+            "name": "Off",
+            "value": "autoplay-off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "plan-cards",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Layout",
+        "valueType": "string",
+        "value": "",
+        "options": [
+          {
+            "name": "Home page",
+            "value": ""
+          },
+          {
+            "name": "Category page",
+            "value": "category"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading (bold words are shown heavier) followed by a short description",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Button link",
+        "description": "For example: all plans"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "Button label",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "linkType",
+        "label": "Button style",
+        "value": "",
+        "options": [
+          {
+            "name": "Outline",
+            "value": ""
+          },
+          {
+            "name": "Filled",
+            "value": "primary"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "plan-tab",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Tab label",
+        "description": "Plan cards added after this tab are shown in it",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "labelMobile",
+        "label": "Short label for mobile (optional)",
+        "description": "Should be part of the tab label, e.g. Term for Term Plans",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "plan-card",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "badge",
+        "label": "Badge",
+        "description": "Shown in the top corner of the card",
+        "value": "",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "Best selling",
+            "value": "best-selling"
+          },
+          {
+            "name": "New",
+            "value": "new"
+          },
+          {
+            "name": "Popular",
+            "value": "popular"
+          },
+          {
+            "name": "Recommended",
+            "value": "recommended"
+          },
+          {
+            "name": "Other",
+            "value": "other"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "badge_custom",
+        "label": "Custom badge text",
+        "description": "Shown when the badge is Other, e.g. Tax saver",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Plan name",
+        "description": "Bold words are shown in red. Start a new line after Kotak with Shift+Enter, e.g. Kotak / **Gen2Gen** Term",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Short description",
+        "description": "Shown on the card on desktop",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "glow",
+        "label": "Background glow",
+        "value": "red",
+        "options": [
+          {
+            "name": "Red",
+            "value": "red"
+          },
+          {
+            "name": "Blue",
+            "value": "blue"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration",
+        "description": "Dark line illustration on a transparent background",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Illustration alt text",
+        "description": "Leave empty when the illustration is decorative",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageHover",
+        "label": "Hover illustration (optional)",
+        "description": "Light line version for the red hover face. Leave empty to show the illustration in white",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "details",
+        "label": "Hover details",
+        "description": "Shown on hover or keyboard focus: a sentence, a bulleted list and, optionally, a last line with a link (e.g. Explore Now)",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "button",
+        "label": "Button link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonText",
+        "label": "Button label",
+        "description": "For example: Protect Your Family",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "download",
+        "label": "Brochure link (optional)",
+        "description": "Shows a download icon next to the button"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "downloadText",
+        "label": "Brochure link label",
+        "description": "Read by screen readers, e.g. Download the Gen2Gen Term brochure",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "plan-highlight",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Heading & Description",
+        "description": "Heading 2 (bold the highlighted words) followed by a short description",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "badges",
+        "label": "Badges",
+        "description": "One paragraph or list item per badge, e.g. Popular",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "summary",
+        "label": "Benefit Summary",
+        "description": "Intro line, then one paragraph per value starting with the bold amount (e.g. **₹47.61L** @8%*), then the closing line",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "features",
+        "label": "Features",
+        "description": "Bulleted list, shown with red check marks in two columns on desktop",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "plan-options",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Heading & Subtitle",
+        "description": "Heading 2 (bold the second line) followed by a short subtitle",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "Button Text",
+        "value": "Buy Online"
+      }
+    ]
+  },
+  {
+    "id": "plan-options-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Icon Alt",
+        "description": "Leave empty when the icon is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "richtext",
+        "name": "content_title",
+        "label": "Plan Name",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "content_list",
+        "label": "Benefits",
+        "description": "Bulleted list, each item gets a red check",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "badge",
+        "label": "Badge",
+        "description": "Optional, e.g. Recommended",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "plan-timeline",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Heading & Subtitle",
+        "description": "Heading 2 (bold the highlighted words) followed by a short subtitle",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "CTA Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "CTA Text",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Infographic (Desktop)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Infographic Alt (Desktop)",
+        "description": "Describe what the infographic explains",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobileImage",
+        "label": "Infographic (Mobile)",
+        "description": "Vertical version shown below 900px. The desktop infographic is used when empty.",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mobileImageAlt",
+        "label": "Infographic Alt (Mobile)",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "mobileImageMimeType",
+        "value": "image/png"
+      }
+    ]
+  },
+  {
+    "id": "plan-timeline-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Icon Alt",
+        "description": "Leave empty when the icon is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Text",
+        "description": "First paragraph is the label, the following paragraphs are the values (bold the amounts)",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "variant",
+        "label": "Card Style",
+        "valueType": "string",
+        "value": "stat",
+        "options": [
+          {
+            "name": "Stat card",
+            "value": "stat"
+          },
+          {
+            "name": "Highlight box (blue)",
+            "value": "highlight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "popular-search",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Heading & Description",
+        "description": "Author the heading as a Heading 2 (e.g. Popular searches) followed by a short description paragraph."
+      },
+      {
+        "component": "richtext",
+        "name": "tags",
+        "value": "",
+        "label": "Search Tags",
+        "description": "Author a bullet list of links, one per popular search tag, e.g. #Critical illness"
+      }
+    ]
+  },
+  {
+    "id": "profile-cta",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Block Options",
+        "valueType": "array",
+        "options": [
+          {
+            "name": "Reverse Layout (Image Right)",
+            "value": "reverse"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Heading & Description",
+        "valueType": "string",
+        "description": "Format the first line as a Heading (e.g. H2/H3). Add further paragraphs as needed (e.g. role, description) - all optional."
+      },
+      {
+        "component": "richtext",
+        "name": "cta",
+        "value": "",
+        "label": "Button",
+        "valueType": "string",
+        "description": "Author a link, e.g. Join Now"
+      }
+    ]
+  },
+  {
+    "id": "promo-banner-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Visual Image",
+        "multi": false,
+        "description": "Cut-out photo (transparent PNG) without the infinity line, the line is drawn by the banner"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Visual Image Alt",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "name": "image_position",
+        "label": "Photo Placement",
+        "description": "Where the photo sits in the visual area. Left matches the Best Seller slide, Right the family slide in Figma",
+        "valueType": "string",
+        "value": "left",
+        "options": [
+          {
+            "name": "Left (default)",
+            "value": "left"
+          },
+          {
+            "name": "Centre",
+            "value": "center"
+          },
+          {
+            "name": "Right",
+            "value": "right"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "name": "image_curve",
+        "label": "Show Infinity Curve",
+        "description": "White infinity line drawn over the photo",
+        "valueType": "boolean",
+        "value": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "background",
+        "label": "Background Image",
+        "description": "Decorative background. The red-to-blue shade is applied on top automatically.",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "background_mobile",
+        "label": "Background Image (mobile)",
+        "description": "Optional: its own background for mobile and tablet (fills the 328 x 400 slide); the one above is used when empty",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "badge",
+        "label": "Badge",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "content_text",
+        "label": "Text",
+        "description": "Heading (use Shift+Enter for a second line) followed by a short description. Without a heading the first paragraph becomes the title",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "content_link",
+        "label": "CTA Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content_linkText",
+        "label": "CTA Text",
+        "value": "",
+        "description": "Button label, e.g. Talk to An Expert"
+      },
+      {
+        "component": "richtext",
+        "name": "content_stats",
+        "label": "Stats",
+        "description": "Optional, needs the CTA: one figure per line, value in bold, e.g. **27.6%** Growth. With stats the slide uses the stats layout: the photo centre right with the figures around it, the description as the small print beside the button",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "promo-stack",
+    "fields": [
+      {
+        "component": "multiselect",
+        "valueType": "string",
+        "name": "classes",
+        "label": "Options",
+        "options": [
+          {
+            "name": "Auto-slide off",
+            "value": "no-autoplay"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Heading (bold words are shown heavier) followed by a description",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Button link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "Button label",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "promo-stack-card",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tag",
+        "label": "Tag",
+        "description": "Small label in the top right corner, e.g. Term plan",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Offer",
+        "description": "Heading (bold words are shown heavier) and a short line below it",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "theme",
+        "label": "Colour",
+        "value": "red",
+        "options": [
+          {
+            "name": "Red",
+            "value": "red"
+          },
+          {
+            "name": "Navy",
+            "value": "navy"
+          }
+        ]
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Card link (optional)"
+      }
+    ]
+  },
+  {
+    "id": "pulse-animation",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Arrow Image",
+        "description": "Optional. SVG (or PNG) that travels along the line. Draw it pointing right; it rotates with the path. Leave empty for the default red arrow.",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Arrow Alt Text",
+        "description": "Leave empty if the arrow is decorative.",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "quote",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "quotation",
+        "value": "",
+        "label": "Quotation",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "attribution",
+        "value": "",
+        "label": "Attribution",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "rating-banner",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Icon",
+        "description": "Icon shown next to the ratings count",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ratedByLabel",
+        "label": "Rated By Label",
+        "description": "Label shown under the ratings count, e.g. Rated by customers"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "overallRating",
+        "label": "Overall Rating",
+        "description": "Rating value and label together, e.g. 4.7 then Overall ratings"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "feedback",
+        "label": "Feedback Prompt & Button",
+        "description": "Question text and the Submit Rating link together, e.g. Was this helpful? then a Submit Rating link"
+      }
+    ]
+  },
+  {
+    "id": "result-summary-panel-v2",
+    "fields": [
+      {
+        "component": "select",
+        "name": "calculator-type",
+        "label": "Calculator type",
+        "value": "term",
+        "options": [
+          {
+            "name": "Term Insurance calculator",
+            "value": "term"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "name": "term-illustration",
+        "label": "Term insurance illustration",
+        "multi": false,
+        "description": "Optional image shown beside the term insurance result.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "term"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "term-illustrationAlt",
+        "label": "Term insurance illustration description",
+        "value": "",
+        "description": "Describe the illustration, or leave blank if decorative.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "term"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "term-discount-label",
+        "label": "Term insurance discount label",
+        "value": "SAVE EXTRA 7.5%",
+        "description": "Discount badge shown on the term insurance result.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "term"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "term-result-label",
+        "label": "Term insurance result label",
+        "value": "Your estimated term premium",
+        "description": "Text displayed above the calculated premium.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "term"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "term-result-description",
+        "label": "Term insurance result description",
+        "value": "{frequency} {cover}",
+        "description": "Text below the premium. Use {frequency} and {cover} to insert quote details.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "term"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "term-cta-label",
+        "label": "Term insurance CTA label",
+        "value": "Invest Now",
+        "description": "Text displayed on the term insurance call-to-action button.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "term"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "term-cta-link",
+        "label": "Term insurance CTA destination",
+        "description": "Optional page or URL opened by the term insurance call-to-action button. If empty, the quote service link is used.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "term"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "result-summary-panel",
+    "fields": [
+      {
+        "component": "select",
+        "name": "calculator-type",
+        "label": "Calculator type",
+        "value": "retirement",
+        "options": [
+          {
+            "name": "Retirement calculator",
+            "value": "retirement"
+          },
+          {
+            "name": "Savings calculator",
+            "value": "savings"
+          },
+          {
+            "name": "HRA calculator",
+            "value": "hra"
+          },
+          {
+            "name": "HLV calculator",
+            "value": "hlv"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "fund-title",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "retirement"
+          ]
+        },
+        "label": "Fund title",
+        "value": "Estimated retirement fund",
+        "description": "Label shown above the calculated retirement fund."
+      },
+      {
+        "component": "reference",
+        "name": "illustration",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "retirement"
+          ]
+        },
+        "label": "Illustration",
+        "multi": false,
+        "description": "Optional image shown beside the retirement result."
+      },
+      {
+        "component": "text",
+        "name": "illustrationAlt",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "retirement"
+          ]
+        },
+        "label": "Illustration description",
+        "value": "",
+        "description": "Describe the illustration, or leave blank if decorative."
+      },
+      {
+        "component": "text",
+        "name": "monthly-label",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "retirement"
+          ]
+        },
+        "label": "Monthly toggle label",
+        "value": "Monthly"
+      },
+      {
+        "component": "text",
+        "name": "yearly-label",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "retirement"
+          ]
+        },
+        "label": "Yearly toggle label",
+        "value": "Yearly"
+      },
+      {
+        "component": "text",
+        "name": "monthly-savings-title",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "retirement"
+          ]
+        },
+        "label": "Monthly savings title",
+        "value": "Required monthly savings"
+      },
+      {
+        "component": "text",
+        "name": "yearly-savings-title",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "retirement"
+          ]
+        },
+        "label": "Yearly savings title",
+        "value": "Required yearly savings"
+      },
+      {
+        "component": "text",
+        "name": "cta-label",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "retirement"
+          ]
+        },
+        "label": "CTA label",
+        "value": "Start Your Planning Now"
+      },
+      {
+        "component": "aem-content",
+        "name": "cta-link",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "retirement"
+          ]
+        },
+        "label": "CTA destination",
+        "description": "Page or URL opened by the call-to-action button."
+      },
+      {
+        "component": "text",
+        "name": "savings-result-heading",
+        "label": "Savings result heading",
+        "value": "To reach your desired goal, you need to save:",
+        "description": "Heading above the savings contribution result.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "savings"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "savings-monthly-label",
+        "label": "Savings monthly toggle label",
+        "value": "Monthly",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "savings"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "savings-annual-label",
+        "label": "Savings annual toggle label",
+        "value": "Annually",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "savings"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "savings-monthly-caption",
+        "label": "Savings monthly amount caption",
+        "value": "per month",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "savings"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "savings-annual-caption",
+        "label": "Savings annual amount caption",
+        "value": "per year",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "savings"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "savings-covered-message",
+        "label": "Savings goal already covered message",
+        "value": "No additional savings needed",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "savings"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "savings-cta-label",
+        "label": "Savings CTA label",
+        "value": "Invest Now",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "savings"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "savings-cta-link",
+        "label": "Savings CTA destination",
+        "description": "Page or URL opened by the savings call-to-action button.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "savings"
+          ]
+        }
+      },
+      {
+        "component": "reference",
+        "name": "savings-illustration",
+        "label": "Savings illustration",
+        "multi": false,
+        "description": "Image shown beside the savings result.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "savings"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "savings-illustrationAlt",
+        "label": "Savings illustration description",
+        "value": "",
+        "description": "Alternative text for the savings illustration.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "savings"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "hra-exempted-label",
+        "label": "HRA exemption result label",
+        "value": "Exempted HRA",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hra"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "hra-taxable-label",
+        "label": "Taxable HRA result label",
+        "value": "Taxable HRA",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hra"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "hra-cta-label",
+        "label": "HRA CTA label",
+        "value": "Start Your Planning Now",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hra"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "hra-cta-link",
+        "label": "HRA CTA destination",
+        "description": "Page or URL opened by the HRA call-to-action button.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hra"
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "name": "hra-metro-city",
+        "label": "Do you live in metro city like Delhi, Mumbai, Kolkata or Chennai?",
+        "value": "yes",
+        "options": [
+          {
+            "name": "No",
+            "value": "no"
+          },
+          {
+            "name": "Yes",
+            "value": "yes"
+          }
+        ],
+        "description": "Sets the initial value of the Metro City switch in the result panel.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hra"
+          ]
+        }
+      },
+      {
+        "component": "reference",
+        "name": "hra-illustration",
+        "label": "HRA illustration",
+        "multi": false,
+        "description": "Optional image shown beside the HRA result.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hra"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "hra-illustrationAlt",
+        "label": "HRA illustration description",
+        "value": "",
+        "description": "Describe the illustration, or leave blank if decorative.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hra"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "hlv-result-label",
+        "label": "HLV result label",
+        "value": "Your Human Life Value (HLV) is:",
+        "description": "Label displayed above the calculated HLV amount.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hlv"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "hlv-cta-label",
+        "label": "HLV CTA label",
+        "value": "Explore Plans",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hlv"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "hlv-cta-link",
+        "label": "HLV CTA destination",
+        "description": "Page or URL opened by the HLV call-to-action button.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hlv"
+          ]
+        }
+      },
+      {
+        "component": "reference",
+        "name": "hlv-illustration",
+        "label": "HLV illustration",
+        "multi": false,
+        "description": "Optional image shown beside the HLV result.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hlv"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "hlv-illustrationAlt",
+        "label": "HLV illustration description",
+        "value": "",
+        "description": "Describe the illustration, or leave blank if decorative.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "hlv"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "result-summary-with-canvas",
+    "fields": [
+      {
+        "component": "select",
+        "name": "calculator-type",
+        "label": "Calculator type",
+        "value": "compound",
+        "options": [
+          {
+            "name": "Compound calculator",
+            "value": "compound"
+          },
+          {
+            "name": "ULIP and investment calculator",
+            "value": "ulip"
+          },
+          {
+            "name": "Fixed deposit calculator",
+            "value": "fd"
+          },
+          {
+            "name": "Recurring deposit calculator",
+            "value": "rd"
+          },
+          {
+            "name": "SIP calculator",
+            "value": "sip"
+          },
+          {
+            "name": "PPF calculator",
+            "value": "ppf"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "result-label",
+        "label": "Result label",
+        "value": "You may get",
+        "description": "Label shown above the calculated amount.",
+        "condition": {
+          "or": [
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "compound"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "fd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "rd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "sip"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "ppf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "investment-summary-template",
+        "label": "Investment summary template",
+        "value": "If you invest {investmentAmount} {frequency} for {investmentYears} years at {rate}% p.a.",
+        "description": "Supports {investmentAmount}, {frequency}, {investmentYears}, {holdingYears}, and {rate} placeholders.",
+        "condition": {
+          "or": [
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "compound"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "fd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "rd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "ppf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "ulip-invested-label",
+        "label": "Invested amount series label",
+        "condition": {
+          "or": [
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "ulip"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "fd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "compound"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "rd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "sip"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "chart-series-label",
+        "label": "Chart series label",
+        "value": "Your returns",
+        "description": "Legend label shown above the dynamic returns chart.",
+        "condition": {
+          "or": [
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "compound"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "fd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "rd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "sip"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "ppf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "cta-label",
+        "label": "CTA label",
+        "value": "Invest Now",
+        "description": "Text displayed on the call-to-action button.",
+        "condition": {
+          "or": [
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "compound"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "fd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "rd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "sip"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "ppf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "cta-link",
+        "label": "CTA destination",
+        "description": "Page or fragment opened by the call-to-action button.",
+        "condition": {
+          "or": [
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "compound"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "fd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "rd"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "sip"
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "calculator-type"
+                },
+                "ppf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "ulip-result-label",
+        "label": "ULIP result label",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "ulip"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "ulip-investment-summary-template",
+        "label": "ULIP investment summary template",
+        "description": "Shown below the amount. Supports {investmentAmount}, {frequency}, {totalInvested}, {investmentYears}, {rate}, and {periodicInvestment}. Example: If you invest {investmentAmount} {frequency} for {investmentYears} years at {rate}% p.a.",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "ulip"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "ulip-returns-label",
+        "label": "ULIP returns series label",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "ulip"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "ulip-cta-label",
+        "label": "ULIP CTA label",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "ulip"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "ulip-cta-link",
+        "label": "ULIP CTA destination",
+        "condition": {
+          "===": [
+            {
+              "var": "calculator-type"
+            },
+            "ulip"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "rider-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Heading & Subtitle",
+        "description": "Heading 2 (bold the highlighted words) followed by a short subtitle",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "rider-cards-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Icon Alt",
+        "description": "Leave empty when the icon is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Description",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link (optional)",
+        "description": "Makes the whole card clickable. Leave empty for a non-clickable card."
+      }
+    ]
+  },
+  {
+    "id": "rteV2",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Background Semantic Green",
+            "value": "background-semantic-green"
+          },
+          {
+            "name": "Background Semantic Orange",
+            "value": "background-semantic-orange"
+          },
+          {
+            "name": "Form Step",
+            "value": "form-step"
+          },
+          {
+            "name": "Bookmarks Links",
+            "value": "bookmarks-links"
+          },
+          {
+            "name": "Bullet Pink",
+            "value": "bullet-pink"
+          },
+          {
+            "name": "Card Border Red",
+            "value": "card-border-red"
+          },
+          {
+            "name": "Block Quote",
+            "value": "blockquote"
+          },
+          {
+            "name": "Tabs Table",
+            "value": "tabs-table"
+          },
+          {
+            "name": "Fire Table",
+            "value": "fire-table"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rte",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Background Semantic Green",
+            "value": "background-semantic-green"
+          },
+          {
+            "name": "Background Semantic Orange",
+            "value": "background-semantic-orange"
+          },
+          {
+            "name": "Form Step",
+            "value": "form-step"
+          },
+          {
+            "name": "Explore CTA",
+            "value": "explore-cta"
+          },
+          {
+            "name": "Default Title",
+            "value": "default-title"
+          },
+          {
+            "name": "Sub Navigation",
+            "value": "subnav"
+          },
+          {
+            "name": "Tabs Table",
+            "value": "tabs-table"
+          },
+          {
+            "name": "Fire Table",
+            "value": "fire-table"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "search",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "source",
+        "label": "Search Index"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "hintPrefix",
+        "label": "Hint Prefix",
+        "description": "Optional, shown before the rotating phrases, e.g. Looking to"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "hintPhrases",
+        "label": "Hint Phrases",
+        "description": "Optional: one phrase per bullet; they rotate in the empty search field every 5 seconds"
+      }
+    ]
+  },
+  {
+    "id": "tab-panel",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "richtext",
+        "name": "tab-label",
+        "label": "Label"
+      },
+      {
+        "component": "multiselect",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Find a PLan",
+            "value": "find-plan"
+          },
+          {
+            "name": "Header Tab",
+            "value": "header-tab"
+          },
+          {
+            "name": "Insurance Content Tab",
+            "value": "insurance-content-tab"
+          },
+          {
+            "name": "Calc Card",
+            "value": "calc-card"
+          },
+          {
+            "name": "Tab Animation",
+            "value": "tab-animation"
+          },
+          {
+            "name": "Show Bullets",
+            "value": "show-bullets"
+          },
+          {
+            "name": "List Spacing (Margin Bottom 10)",
+            "value": "list-spacing"
+          },
+          {
+            "name": "Tab Life Stage",
+            "value": "tab-life-stage"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "pulse-path",
+        "label": "Pulse Path",
+        "description": "How the pulse line runs through this section. Presets adapt to desktop and mobile; choose Custom to enter your own points.",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "None",
+            "value": "none"
+          },
+          {
+            "name": "Down the left side",
+            "value": "left"
+          },
+          {
+            "name": "Down the right side",
+            "value": "right"
+          },
+          {
+            "name": "Left side, then cross to the right",
+            "value": "left-to-right"
+          },
+          {
+            "name": "Right side, then cross to the left",
+            "value": "right-to-left"
+          },
+          {
+            "name": "Down the left side with a loop",
+            "value": "loop-left"
+          },
+          {
+            "name": "Down the right side with a loop",
+            "value": "loop-right"
+          },
+          {
+            "name": "Custom points",
+            "value": "custom"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "animation-point",
+        "label": "Animation Point",
+        "description": "Custom points for desktop. Create them on the page preview with ?pulse-edit, then copy and paste here.",
+        "condition": {
+          "===": [
+            {
+              "var": "pulse-path"
+            },
+            "custom"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "animation-point-mobile",
+        "label": "Animation Point mobile",
+        "description": "Custom points below 900px. Leave empty to use the desktop points. Create them with ?pulse-edit.",
+        "condition": {
+          "===": [
+            {
+              "var": "pulse-path"
+            },
+            "custom"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "tab-list",
+    "fields": [
+      {
+        "component": "boolean",
+        "name": "classes_showAll",
+        "label": "Show All?",
+        "description": "When enabled, the tab list will prepend a show all button."
+      }
+    ]
+  },
+  {
+    "id": "tabs",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Timeline",
+            "value": "timeline"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tabs-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Tab Title"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Tab Description",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "tag-cards",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "valueType": "array",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Popular Cover Plans",
+            "value": "popular-cover-plans"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tag-card",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tag",
+        "label": "Tag"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "value": "",
+        "label": "Cards Description"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "Link Text"
+      }
+    ]
+  },
+  {
+    "id": "testimonials",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Customer Say",
+            "value": "customer-say"
+          },
+          {
+            "name": "Customer Reviews",
+            "value": "customer-reviews"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "testimonials-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col1_imageshortmob",
+        "label": "Short Image Mobile",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "col1_imageshortmobAlt",
+        "label": "Image Alt"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col1_imageshortdesk",
+        "label": "Short Image Desktop",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "col1_imageshortdeskAlt",
+        "label": "Image Alt"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col2_imagelargemob",
+        "label": "Large Image Mobile",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "col2_imagelargemobAlt",
+        "label": "Image Alt"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col2_imagelargedesk",
+        "label": "Large Image Desktop",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "col2_imagelargedeskAlt",
+        "label": "Image Alt"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col2_videolink",
+        "label": "Video",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "col2_text",
+        "value": "",
+        "label": "Button Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "customer-review-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "col1_customerName",
+        "label": "Customer Name"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "col1_customerRole",
+        "label": "Customer Role"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "review",
+        "value": "",
+        "label": "Review Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "readMore",
+        "label": "Read More Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "starImage",
+        "label": "Star Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "starImageAlt",
+        "label": "Star Image Alt"
+      }
+    ]
+  },
+  {
+    "id": "timeline",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Awards",
+            "value": "awards"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "timeline-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "timeline-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "video-banner",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Autoplay",
+            "value": "autoplay"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "name": "desktop-media",
+        "label": "Desktop Media (Video/Image)",
+        "valueType": "string",
+        "multi": false
+      },
+      {
+        "component": "container",
+        "name": "desktop-metadata",
+        "label": "Desktop Metadata",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text",
+            "name": "desktop-mediaAlt",
+            "label": "Alt Text",
+            "value": "",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "desktop-mediaTitle",
+            "label": "Title",
+            "value": "",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "name": "mobile-media",
+        "label": "Mobile Media (Video/Image)",
+        "valueType": "string",
+        "multi": false
+      },
+      {
+        "component": "container",
+        "name": "mobile-metadata",
+        "label": "Mobile Metadata",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text",
+            "name": "mobile-mediaAlt",
+            "label": "Alt Text",
+            "value": "",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "mobile-mediaTitle",
+            "label": "Title",
+            "value": "",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Text",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "name": "desktop-intro",
+        "label": "Desktop Intro Video (plays once before the loop)",
+        "valueType": "string",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "name": "mobile-intro",
+        "label": "Mobile Intro Video (plays once before the loop)",
+        "valueType": "string",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "video-testimonials",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Heading (bold words are shown heavier) followed by a description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "video-testimonials-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Thumbnail",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Thumbnail alt text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageMimeType",
+        "label": "Thumbnail MIME type",
+        "description": "Dynamic Media asset MIME type, e.g. image/jpeg",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "video",
+        "label": "Video",
+        "description": "Video from AEM Assets, or a YouTube / Vimeo URL"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "videoTitle",
+        "label": "Video title",
+        "description": "Accessible name of the video, e.g. Rahul on choosing a term plan",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "video",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Placeholder Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Video URL"
+      },
+      {
+        "component": "text",
+        "name": "playbutton_text",
+        "label": "Play Button Text"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Playback",
+        "options": [
+          {
+            "name": "Click to play",
+            "value": ""
+          },
+          {
+            "name": "Autoplay background",
+            "value": "autoplay"
+          },
+          {
+            "name": "Category Video",
+            "value": "category-video"
+          }
+        ]
       }
     ]
   }

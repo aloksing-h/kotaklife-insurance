@@ -1,0 +1,647 @@
+/* ==========================================
+   Investment Philosophy CSS
+   ========================================== */
+.section.investment-philosophy.equity {
+    padding: 0 1rem;
+    margin: 0;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper {
+    display: grid;
+    grid-template:
+        "venn bmv" 72px
+        "venn flow" 208px
+        "venn criteria" minmax(241px, auto) / 303px minmax(0, 1fr);
+    column-gap: 65px;
+    align-items: start;
+    max-width: 1100px;
+    min-height: 613px;
+    margin: 0 auto;
+
+    /* padding: 40px 40px 50px 56px; */
+    padding: 40px 24px 52px 56px;
+    border-radius: var(--radius-md, 8px);
+    background: var(--decorative-blue-decorative-blue-25, #F5FAFF);
+    box-sizing: border-box;
+    font-family: var(--font-family-font-family-body, sans-serif);
+}
+
+/* ==========================================================================
+    . VENN DIAGRAM (Left Side Column)
+   ========================================================================== */
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1) {
+    grid-area: venn;
+    position: relative;
+    width: 303px;
+    height: 465px;
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li {
+    position: absolute;
+    width: 303px;
+    height: 303px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    left: 20px;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li {
+    position: relative;
+}
+
+/* Top Circle (Blue) */
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(1) {
+    top: 0;
+    opacity: 0.95;
+    background: var(--foreground-fg-brand-blue, #1E4679);
+    left: 0;
+}
+
+/* Middle Center Circle / Overlap Text (Purple Overlay / Portfolio) */
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(2) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    background: transparent;
+    z-index: 3;
+    color: var(--text-text-white, #FFF);
+    text-align: center;
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-sub-heading-1, 20px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-sub-heading-1, 24px);
+
+}
+
+/* Bottom Circle (Red/Coral) */
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(3) {
+    bottom: 0;
+    opacity: 0.7;
+    background: var(--foreground-fg-brand-red-hover, #E1122D);
+    left: 0;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3) {
+    grid-area: criteria;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2) {
+    grid-area: flow;
+    box-sizing: border-box;
+    height: 118px;
+
+    /* padding: 24px 0; */
+    padding: 24px 60px 24px 56px;
+
+    /* margin: 14px 0 0; */
+    margin: 14px 16px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    border-radius: 1107.587px;
+    border: 1.5px dashed var(--border-border-brand-blue, #1E4679);
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li>ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li>ul>li:first-child>.icon>img {
+    filter: brightness(0) invert(1);
+    width: 38px;
+    height: 38px;
+}
+
+/* ==========================================================================
+   2. BMV BANNER (Top Right)
+   ========================================================================== */
+.section.investment-philosophy.equity .default-content-wrapper>p:nth-of-type(1) {
+    grid-area: bmv;
+    place-self: start start;
+    display: inline;
+    max-width: calc(100% + 64px);
+    padding: 10px 20px;
+    margin: 0 0 0 -32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--radius-lg, 12px);
+    background: #FFF;
+    box-shadow: 0 4px 6px -1px rgb(10 13 18 /10%), 0 2px 4px -2px rgb(10 13 18 / 6%);
+    color: var(--text-text-primary, #181D27);
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-1, 16px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--line-height-sub-heading-2, 20px);
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>p:nth-of-type(1)>strong {
+    color: var(--text-text-primary, #181D27);
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-1, 16px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-sub-heading-2, 20px);
+}
+
+/* ==========================================================================
+    3. INVESTMENT UNIVERSE FLOW (Middle Right)
+   ========================================================================== */
+.section.investment-philosophy.equity .default-content-wrapper>p:nth-of-type(2) {
+    grid-area: flow;
+    z-index: 2;
+    place-self: start center;
+    padding: 3px 10px;
+    margin: 0;
+    color: var(--decorative-navy-blue-decorative-navy-blue-500, #1E4679);
+    text-align: center;
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-1, 16px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-sub-heading-2, 20px);
+    background: var(--decorative-blue-decorative-blue-25, #F5FAFF);
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+
+    /* right: -6.9rem;
+    top: 36px;
+    width: 95px; */
+    right: -133px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 109px;
+    height: 12px;
+    background-image: url('../../icons/gradient-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/* Downward Curved & Dashed Connector Lines (Connecting Steps to Criteria Columns) */
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -56px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    pointer-events: none;
+    top: 108px;
+}
+
+/* 1. Left S-Curve (Business -> Column 1) */
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li:nth-child(1)::before {
+    /* width: 44px; */
+    width: 38px;
+    height: 56px;
+    background-image: url('../../icons/left-curve-arrow.svg');
+    left: 15px;
+}
+
+/* 2. Center Vertical Line (Management -> Column 2) */
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li:nth-child(2)::before {
+    width: 9px;
+    height: 56px;
+    bottom: -57px;
+    background-image: url('../../icons/straight-down-arrow.svg');
+}
+
+/* 3. Right S-Curve (Valuation -> Column 3) */
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li:nth-child(3)::before {
+    width: 32px;
+    height: 56px;
+    background-image: url('../../icons/right-curve-arrow.svg');
+    right: 0;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li>ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+/* Circle Badge Container for Step Icons */
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li>ul>li:first-child {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); */
+
+    /* box-shadow: 0 4px 10px rgb(0 0 0 / 6%); */
+    filter: drop-shadow(0 2px 4px rgb(10 13 18 / 6%)) drop-shadow(0 4px 6px rgb(10 13 18 / 10%));
+    border: 1px solid var(--foreground-fg-disabled-subtle, #D5D7DA);
+    ;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li>ul>li:first-child>.icon,
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li>ul>li:first-child>.icon>img {
+    width: 40px;
+    height: 40px;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li>ul>li:last-child {
+    position: absolute;
+    top: 76px;
+    background: var(--decorative-blue-decorative-blue-25, #F5FAFF);
+    padding: var(--spacing-sm, 6px) var(--spacing-md, 8px);
+    color: var(--text-text-primary, #181D27);
+    text-align: center;
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-body-1, 16px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-sub-heading-2, 20px);
+}
+
+/* ==========================================================================
+    4. CRITERIA GRID (Bottom Right)
+   ========================================================================== */
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3)>li>ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3)>li>ul>li>ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Criterion Title with Red Check Icon */
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3)>li>ul>li>ul>li:first-child {
+    font-weight: 600;
+    font-size: var(--font-size-body-1, 16px);
+    line-height: var(--line-height-sub-heading-2, 20px);
+    color: #000;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 0.2rem;
+    align-items: center;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3)>li>ul>li>ul>li:first-child>.icon {
+    max-width: 16px;
+    min-width: 16px;
+    padding: 1.33px;
+    height: 16px;
+    width: 100%;
+    display: flex;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3)>li>ul>li>ul>li:first-child>.icon>img {
+    /* width: 16px;
+    height: 16px; */
+    width: 100%;
+    height: 100%;
+}
+
+/* Criterion Description */
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3)>li>ul>li>ul>li:last-child {
+    font-size: var(--font-size-body-2, 14px);
+
+    /* color: #555; */
+
+    /* line-height: 1.35; */
+    color: var(--text-text-secondary, #414651);
+    line-height: 18px;
+    padding-left: 24px;
+    font-weight: 500;
+
+    /* padding-left: 1.35rem; */
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(1)>ul {
+    position: absolute;
+    top: 50px;
+    gap: 4px;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(1)>ul>li:first-child>.icon {
+    width: 38px;
+    height: 38px;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(1)>ul>li:last-child {
+    color: var(--text-text-white, #FFF);
+    text-align: center;
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-sub-heading-1, 20px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-sub-heading-1, 24px);
+    width: 131px;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(3)>ul {
+    gap: 4px;
+    color: var(--text-text-white, #FFF);
+    text-align: center;
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-sub-heading-1, 20px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-sub-heading-1, 24px);
+    width: 131px;
+    position: absolute;
+    bottom: 50px;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(3)>ul>li:first-child>.icon {
+    width: 38px;
+    height: 38px;
+}
+
+.section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(3)>ul>li:last-child {
+    color: var(--text-text-white, #FFF);
+    text-align: center;
+    font-family: var(--font-family-font-family-body, Manrope);
+    font-size: var(--font-size-sub-heading-1, 20px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--line-height-sub-heading-1, 24px);
+    width: 131px;
+}
+
+/* ==========================================================================
+   5. MOBILE RESPONSIVE DESIGN (max-width: 900px)
+   ========================================================================== */
+@media screen and (width <=900px) {
+    .section.investment-philosophy.equity .default-content-wrapper {
+        grid-template:
+            "bmv bmv" 54px
+            "venn venn" 179px
+            "flow criteria" minmax(492px, auto) / 100px minmax(0, 1fr);
+        gap: 0 36px;
+        min-height: 757px;
+        padding: 16px;
+        border-radius: var(--radius-md, 8px);
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>p:nth-of-type(1) {
+        grid-area: bmv;
+        width: 100%;
+        min-height: 53px;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: var(--font-size-caption, 12px);
+        line-height: var(--line-height-caption, 14px);
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>p:nth-of-type(1)>strong {
+        font-size: 14px;
+        line-height: 18px;
+        display: contents;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1) {
+        grid-area: venn;
+        width: min(254px, 100%);
+        height: 160px;
+        margin: 19px auto 0;
+        position: relative;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li {
+        width: 160px;
+        height: 160px;
+        position: absolute;
+        top: 0;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2) {
+        grid-area: flow;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 458px;
+        padding: 55px 0 41px;
+        margin: 34px 0 0;
+        border-radius: 50px;
+        border: 1.5px dashed var(--border-border-brand-blue, #1E4679);
+        gap: 0;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li {
+        width: 100%;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3) {
+        display: flex;
+        flex-direction: column;
+        padding-top: 58px;
+        margin: 0;
+
+        /* gap: 36px; */
+        gap: 32px;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3)>li {
+        height: 100%;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3)>li>ul {
+        gap: 8px;
+        height: 100%;
+        justify-content: center;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li>ul {
+        margin-bottom: 19px;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(2) {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+        background: transparent;
+        z-index: 3;
+        font-size: var(--font-size-caption, 12px);
+        line-height: var(--line-height-caption, 14px);
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(3) {
+        inset: 0 auto auto 94px;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li>ul>li:last-child {
+        top: 38px;
+        padding: 0 4px;
+        font-size: var(--font-size-caption, 12px);
+        line-height: var(--line-height-caption, 14px);
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li>ul {
+        gap: var(--spacing-xxs, 2px);
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li>ul>li:last-child {
+        width: 70px;
+        font-size: var(--font-size-caption, 12px);
+        line-height: var(--line-height-caption, 14px);
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li>ul>li:first-child>.icon>img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li>ul>li:first-child>.icon {
+        width: 24px;
+        height: 24px;
+    }
+
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li>ul>li:first-child {
+        width: 32px;
+        height: 32px;
+        align-items: baseline;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3)>li>ul>li>ul>li:first-child {
+        font-size: var(--font-size-caption, 12px);
+        line-height: var(--line-height-caption, 14px);
+        gap: 0.25rem;
+        margin-bottom: 2px;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3)>li>ul>li>ul>li:last-child {
+        padding-left: 16px;
+        font-size: var(--font-size-disclaimer, 10px);
+        line-height: var(--line-height-disclaimer, 12px);
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li>ul>li:first-child>.icon,
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li>ul>li:first-child>.icon>img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(3)>li>ul>li>ul>li:first-child>.icon-check-circle>img {
+        width: 12px;
+        height: 12px;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(1)>ul {
+        top: 53px;
+        left: 20px;
+        width: 70px;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(3)>ul {
+        inset: 53px auto auto 70px;
+        width: 70px;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(1)>ul>li:first-child,
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(2)>ul>li:first-child,
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(1)>ul>li:first-child>.icon,
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(3)>ul>li:first-child>.icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(1)>ul>li:last-child,
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(2)>ul>li:last-child,
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(1)>li:nth-child(3)>ul>li:last-child {
+        font-family: var(--font-family-font-family-body, Manrope);
+        font-size: var(--font-size-caption, 12px);
+        line-height: var(--line-height-caption, 14px);
+        width: 70px;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>p:nth-of-type(2) {
+        grid-area: flow;
+        place-self: start center;
+        margin: 30px 0 0;
+        z-index: 3;
+        font-size: var(--font-size-caption, 12px);
+        line-height: var(--line-height-caption, 14px);
+        text-align: center;
+        max-width: 75px;
+        padding: 4px;
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li:not(:last-child)::after {
+        /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='111' height='12' viewBox='0 0 111 12' fill='none'%3E%3Cpath d='M0.75 4.77344L-6.55671e-08 4.77344L6.55671e-08 6.27344L0.75 6.27344L0.75 5.52344L0.75 4.77344ZM110.28 6.05376C110.573 5.76086 110.573 5.28599 110.28 4.9931L105.507 0.220127C105.214 -0.0727659 104.74 -0.0727659 104.447 0.220128C104.154 0.513021 104.154 0.987895 104.447 1.28079L108.689 5.52343L104.447 9.76607C104.154 10.059 104.154 10.5338 104.447 10.8267C104.74 11.1196 105.214 11.1196 105.507 10.8267L110.28 6.05376ZM0.75 5.52344L0.75 6.27344L109.75 6.27343L109.75 5.52343L109.75 4.77343L0.75 4.77344L0.75 5.52344Z' fill='url(%23paint0_linear_6717_4259)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_6717_4259' x1='0.75' y1='6.02344' x2='109.75' y2='6.02342' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23D5D7DA'/%3E%3Cstop offset='1' stop-color='%23535862'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E"); */
+        background-repeat: no-repeat;
+        background-size: cover;
+        transform: translateX(-50%) rotate(90deg);
+        position: absolute;
+        top: 101px;
+        left: 50%;
+        height: 7px;
+        width: 74px;
+
+    }
+
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li:nth-child(1)::before,
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li:nth-child(2)::before,
+    .section.investment-philosophy.equity .default-content-wrapper>ul:nth-of-type(2)>li:nth-child(3)::before {
+        content: '';
+        position: absolute;
+        inset: 50% -28px auto auto;
+        transform: translateY(-50%);
+        width: 27px;
+        height: 12px;
+        background-image: url('../../icons/straight-arrow-mob.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center right;
+        pointer-events: none;
+        z-index: 5;
+    }
+
+}

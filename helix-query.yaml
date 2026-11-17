@@ -14,3 +14,31 @@ indices:
       robots:
         select: head > meta[name="robots"]
         value: attribute(el, "content")
+  blogs:
+    include:
+      - '/insurance-guide/**'
+    exclude:
+      - '/**.json'
+    target: /query-insurance-index.json
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      type:
+        select: head > meta[name="blog-type"]
+        value: attribute(el, "content")
+      category:
+        select: none
+        value: match(path, "^/insurance-guide/([^/]+)/[^/]+$")
+      image:
+        select: head > meta[property="og:image"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")

@@ -1,0 +1,469 @@
+/* ==========================================================================
+   Infinity Intro: full-screen video intro (shutter, intro -> loop video, hero
+   copy, scroll indicator). With a banner block after it the video shrinks
+   into the Kotak infinity on the first scroll and hands over to that banner.
+   The section is the stage: a one-cell grid, every layer sits in that cell
+   (no absolute positioning) and is ordered with z-index: banner art 1,
+   video 2, blur panel 3, hero 4, banner copy / person 5, front ribbon
+   strands 6-7, banner arm 8, slogan 9, shutter 20.
+   A banner in the same section joins the cell. A banner in the next section
+   (the host) waits hidden, takes the intro's place at the hand-off and
+   receives the video and the front strands, in the same order.
+   ========================================================================== */
+
+main>.section.infinity-intro-container {
+  --infinity-stage-h: max(calc(100svh - var(--infinity-top, 96px)), 560px);
+
+  display: grid;
+  grid-template: 'stage' auto / 100%;
+  isolation: isolate;
+  min-height: var(--infinity-stage-h);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--base-white, #fff);
+  margin-top: -96px;
+}
+
+/* section wrappers and the block boxes step aside so the layers share the cell */
+main>.section.infinity-intro-container>div,
+main>.section.infinity-intro-container .infinity-intro {
+  display: contents;
+}
+
+/* the two sections take turns: intro until the hand-off, then the banner */
+main>.section.infinity-intro-container.infinity-intro-gone,
+main>.section.infinity-intro-waiting {
+  display: none;
+}
+
+/* video frame, masked to the infinity once a banner takes part; the video
+   box is centred in it and may be larger (cover), the frame crops it */
+.infinity-intro-media,
+.infinity-intro-front {
+  container-type: size;
+  display: grid;
+  grid-template: 100% / 100%;
+  place-items: center;
+  overflow: hidden;
+}
+
+.infinity-intro-media {
+  /* where the infinity ribbon sits in the desktop video (measured on the loop) */
+  --infinity-ribbon-x: 0.508;
+  --infinity-ribbon-y: 0.512;
+  --infinity-ribbon-w: 0.461;
+
+  z-index: 2;
+  background: #071226;
+}
+
+/* the mobile video frames the ribbon low in the picture (Figma mobile) */
+.infinity-intro-media[data-video='mobile'] {
+  --infinity-ribbon-x: 0.497;
+  --infinity-ribbon-y: 0.8;
+  --infinity-ribbon-w: 0.77;
+}
+
+/* stylelint-disable property-no-vendor-prefix */
+.infinity-intro-media.is-masked {
+  -webkit-mask-image: url('infinity-mask.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('infinity-mask.png');
+  mask-mode: alpha;
+  mask-repeat: no-repeat;
+}
+
+/* video box: covers its frame at the video's aspect ratio (nothing of the
+   picture is cut off inside the box); the timeline moves and scales it */
+.infinity-intro-media .infinity-intro-videos,
+.infinity-intro-front .infinity-intro-videos {
+  display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  width: max(100cqw, calc(100cqh * var(--infinity-video-aspect, 1.7778)));
+
+  /* exactly the loop's proportions (no automatic minimum from the videos inside) */
+  min-height: 0;
+  aspect-ratio: var(--infinity-video-aspect, 16 / 9);
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* a landscape video on a portrait screen: 1.65x the frame width, resting on
+   the bottom edge and fading into the dark above it (Figma mobile) */
+.infinity-intro-media[data-fit='bottom'] .infinity-intro-videos,
+.infinity-intro-front[data-fit='bottom'] .infinity-intro-videos {
+  align-self: end;
+  width: 165cqw;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
+}
+
+.infinity-intro-media[data-fit='cover-bottom'] .infinity-intro-videos,
+.infinity-intro-front[data-fit='cover-bottom'] .infinity-intro-videos {
+  align-self: end;
+}
+
+.infinity-intro-media[data-fit='bottom'] {
+  background: #01030c;
+}
+
+.infinity-intro-videos>* {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.infinity-intro-videos .infinity-intro-intro {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.infinity-intro-videos .infinity-intro-intro::-webkit-media-controls-start-playback-button,
+.infinity-intro-videos .infinity-intro-intro::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+}
+
+/* fades in on its first painted frame, out when the loop takes over */
+.infinity-intro-videos .infinity-intro-intro.is-ready {
+  opacity: 1;
+}
+
+.infinity-intro-videos .infinity-intro-intro.is-done {
+  opacity: 0;
+}
+
+.infinity-intro-videos .infinity-intro-shade {
+  z-index: 2;
+  background: linear-gradient(135deg, rgb(129 129 129 / 0%) 0%, rgb(1 0 17 / 20%) 100%);
+  background-size: 4px 4px;
+}
+
+/* front strands of the ribbon: the same video, masked to the pieces of the
+   infinity that pass in front of the person */
+.infinity-intro-front {
+  z-index: 6;
+  opacity: 0;
+  -webkit-mask-image: var(--infinity-front-mask), url('infinity-mask.png');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-composite: source-in;
+  mask-image: var(--infinity-front-mask), url('infinity-mask.png');
+  mask-mode: alpha;
+  mask-repeat: no-repeat;
+  mask-composite: intersect;
+}
+
+.infinity-intro-front.infinity-intro-front-2 {
+  z-index: 7;
+}
+/* stylelint-enable property-no-vendor-prefix */
+
+/* every layer sits in the stage cell, as tall as the stage */
+.infinity-intro .infinity-intro-media,
+.infinity-intro .infinity-intro-backdrop,
+.infinity-intro .infinity-intro-hero,
+.infinity-intro .infinity-intro-front,
+.infinity-intro .infinity-intro-shutter {
+  grid-area: stage;
+  align-self: start;
+  box-sizing: border-box;
+  height: var(--infinity-stage-h);
+  pointer-events: none;
+}
+
+/* in the hosting banner the video and the strands cover the banner box */
+.infinity-intro-host>.infinity-intro-media,
+.infinity-intro-host>.infinity-intro-front {
+  grid-area: 1 / 1 / -1 / -1;
+  align-self: stretch;
+  box-sizing: border-box;
+  height: auto;
+  min-height: 0;
+  pointer-events: none;
+}
+
+/* hero copy over the video */
+.infinity-intro .infinity-intro-hero {
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+
+  /* Figma mobile: heading 155px below the top of a 646px stage */
+  padding: clamp(96px, calc(var(--infinity-stage-h) * 0.24), 180px) 16px 12px;
+  will-change: opacity, transform;
+}
+
+.infinity-intro .infinity-intro-hero[hidden],
+.infinity-intro .infinity-intro-backdrop[hidden] {
+  display: none;
+}
+
+/* desktop only: blurred, darkened left panel with a fine dot texture (Figma) */
+.infinity-intro .infinity-intro-backdrop {
+  display: none;
+}
+
+.infinity-intro .infinity-intro-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 540px;
+  color: var(--base-white, #fff);
+}
+
+.infinity-intro .infinity-intro-copy>* {
+  margin: 0;
+}
+
+.infinity-intro .infinity-intro-title {
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 36px;
+  letter-spacing: 0;
+  color: var(--base-white, #fff);
+}
+
+.infinity-intro .infinity-intro-title strong {
+  font-weight: 600;
+  letter-spacing: -0.64px;
+}
+
+.infinity-intro .infinity-intro-copy p {
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.infinity-intro .infinity-intro-slogan img {
+  display: block;
+  width: 154px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* scroll indicator: mobile = thin line with a dot (Figma), desktop = label + mouse */
+.infinity-intro .infinity-intro-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+  gap: 0;
+  margin: auto 0 0;
+  padding: 4px 3px;
+  border: 0;
+  border-radius: var(--radius-full, 999px);
+  background: none;
+  color: var(--base-white, #fff);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.infinity-intro .infinity-intro-scroll:focus-visible {
+  outline: 2px solid var(--base-white, #fff);
+  outline-offset: 2px;
+}
+
+.infinity-intro .infinity-intro-scroll-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.infinity-intro .infinity-intro-scroll svg {
+  display: none;
+}
+
+.infinity-intro .infinity-intro-scroll::before {
+  content: '';
+  width: 1.58px;
+  height: 30px;
+  background: currentcolor;
+}
+
+.infinity-intro .infinity-intro-scroll::after {
+  content: '';
+  box-sizing: border-box;
+  width: 6px;
+  height: 6px;
+  border: 1px solid currentcolor;
+  border-radius: 50%;
+  animation: infinity-intro-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes infinity-intro-dot {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.infinity-intro .infinity-intro-wheel {
+  animation: infinity-intro-wheel 1.6s ease-in-out infinite;
+}
+
+@keyframes infinity-intro-wheel {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(10px);
+    opacity: 0.2;
+  }
+}
+
+/* shutter: two halves of the first frame split open from a 3px centre line */
+.infinity-intro .infinity-intro-shutter {
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.infinity-intro .infinity-intro-shutter-half {
+  position: relative;
+  height: calc(50% - 1.5px);
+  overflow: hidden;
+  will-change: transform;
+}
+
+.infinity-intro .infinity-intro-shutter-half::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  height: var(--infinity-stage-h);
+  background: #e6e3f2 url('infinity-shutter.webp') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.infinity-intro .infinity-intro-shutter-half:first-child::before {
+  top: 0;
+}
+
+.infinity-intro .infinity-intro-shutter-half:last-child::before {
+  bottom: 0;
+}
+
+/* Universal Editor: everything static and visible, the banner below the video */
+main>.section.infinity-intro-container.infinity-intro-editing {
+  --infinity-stage-h: 600px;
+
+  display: block;
+}
+
+main>.section.infinity-intro-container.infinity-intro-editing .infinity-intro {
+  display: grid;
+  grid-template: 'stage' auto / 100%;
+}
+
+@media (width >=900px) {
+  main>.section.infinity-intro-container {
+    --infinity-stage-h: max(calc(100svh - var(--infinity-top, 112px)), 520px);
+  }
+
+  .infinity-intro .infinity-intro-hero {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 0 0 28px 50px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .infinity-intro .infinity-intro-copy {
+    align-self: center;
+    gap: 12px;
+  }
+
+  .infinity-intro .infinity-intro-backdrop {
+    z-index: 3;
+    display: block;
+    justify-self: start;
+    width: 47.7%;
+
+    /* background:
+      radial-gradient(circle, rgb(0 0 0 / 35%) 1px, transparent 1.2px) 0 0 / 4px 4px,
+      linear-gradient(135deg, rgb(0 5 18 / 24%) 0%, rgb(0 11 18 / 42%) 100%),
+      rgb(0 0 0 / 30%);
+    box-shadow: 12px 0 28px rgb(0 0 0 / 25%);
+    backdrop-filter: blur(20px) brightness(0.95); */
+    background-color: rgb(0 0 0 / 30%);
+    background-image: conic-gradient(at 1px 1px, transparent 270deg, rgb(0 0 0 / 85%) 270deg);
+    backdrop-filter: blur(14.5340px);
+    background-size: 4px 4px;
+    background-position: 0 0;
+  }
+
+  .infinity-intro .infinity-intro-title {
+    font-size: 52px;
+    line-height: 60px;
+  }
+
+  .infinity-intro .infinity-intro-slogan img {
+    width: 257px;
+  }
+
+  .infinity-intro .infinity-intro-scroll {
+    flex-direction: row;
+    gap: 0;
+    place-self: auto center;
+    margin: 0;
+    padding: 6px;
+    transition: transform 0.2s ease;
+    justify-content: center;
+    margin-left: -50px;
+  }
+
+  .infinity-intro .infinity-intro-scroll:hover {
+    transform: translateY(3px);
+  }
+
+  .infinity-intro .infinity-intro-scroll-label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+
+  .infinity-intro .infinity-intro-scroll svg {
+    display: block;
+  }
+
+  .infinity-intro .infinity-intro-scroll::before,
+  .infinity-intro .infinity-intro-scroll::after {
+    content: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .infinity-intro .infinity-intro-wheel,
+  .infinity-intro .infinity-intro-scroll::after {
+    animation: none;
+  }
+
+  .infinity-intro .infinity-intro-scroll,
+  .infinity-intro-videos .infinity-intro-intro {
+    transition: none;
+  }
+}

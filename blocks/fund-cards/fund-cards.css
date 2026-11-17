@@ -1,0 +1,516 @@
+/* ==========================================================================
+   Fund Cards: section header + fund cards (badge, name, code, NAV, risk
+   gauge, returns). Mobile first: compact card with Explore link and expand
+   icon; tablet / desktop >= 768px: full card with gauge and benchmark return
+   (2 per row, 3 from 1100px), the expand icon and Explore appear on hover /
+   keyboard focus (always shown on touch screens).
+   ========================================================================== */
+
+.fund-cards {
+  --fc-header-gap: var(--spacing-2xl);
+  --fc-cards-gap: var(--spacing-lg);
+  --fc-card-pad: 15px;
+  --fc-title-size: var(--body-1-font-size);
+  --fc-title-line: var(--body-1-line-height);
+  --fc-badge-height: var(--spacing-3xl);
+  --fc-badge-size: var(--caption-font-size);
+  --fc-badge-line: var(--caption-line-height);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--fc-header-gap);
+  font-family: var(--font-family-manrope);
+  color: var(--gray-900);
+}
+
+/* header */
+.fund-cards .fund-cards-heading-title {
+  margin: 0 0 var(--spacing-md);
+  font-family: var(--font-family-manrope);
+  font-size: var(--heading-3-font-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--heading-3-line-height);
+  color: var(--gray-900);
+}
+
+.fund-cards .fund-cards-heading-title strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.fund-cards .fund-cards-subtitle p {
+  margin: 0;
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  color: var(--gray-600);
+}
+
+/* cards */
+.fund-cards .fund-cards-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--fc-cards-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fund-cards .fund-cards-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: var(--fc-card-pad);
+  border: 1px solid var(--blue-100);
+  border-radius: var(--radius-md);
+  background: var(--blue-25);
+  box-shadow: 1px 2px 4px 0 rgb(50 130 196 / 8%), 0 2px 8px 0 rgb(0 94 158 / 5%);
+}
+
+.fund-cards .fund-cards-top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.fund-cards .fund-cards-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+}
+
+.fund-cards .fund-cards-badge {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: var(--fc-badge-height);
+  padding: 4px 8px;
+  border: 1px solid var(--navy-blue-500);
+  border-radius: var(--radius-full);
+  background: linear-gradient(130deg, var(--blue-300) 0%, var(--base-white) 50%, var(--base-white) 100%);
+  color:var(--gray-600,#535862);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  line-height: 14px;
+  white-space: nowrap;
+  min-width: 52px;
+}
+
+/* mobile only: opens the fund page */
+.fund-cards .fund-cards-expand {
+  flex-shrink: 0;
+  width: var(--spacing-4xl);
+  height: var(--spacing-4xl);
+  margin-left: auto;
+  border-radius: var(--radius-full);
+  background: url('../../icons/expand-icon.svg') no-repeat center / contain;
+}
+
+.fund-cards .fund-cards-expand:hover {
+  background-color: var(--red-25);
+}
+
+.fund-cards .fund-cards-expand:focus-visible {
+  outline: var(--spacing-xxs) solid var(--navy-blue-500);
+  outline-offset: var(--spacing-xxs);
+}
+
+.fund-cards .fund-cards-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.fund-cards .fund-cards-title {
+  margin: 0;
+  font-family: var(--font-family-manrope);
+  font-size: var(--fc-title-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--fc-title-line);
+  letter-spacing: 0;
+  color: var(--gray-900);
+}
+
+.fund-cards .fund-cards-code,
+.fund-cards .fund-cards-stat-label,
+.fund-cards .fund-cards-nav-date {
+  margin: 0;
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--caption-line-height);
+  color: var(--gray-600);
+  overflow-wrap: anywhere;
+}
+
+/* NAV row: NAV | fund return on mobile, NAV | gauge on desktop */
+.fund-cards .fund-cards-nav {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xs);
+  padding-bottom: var(--spacing-xl);
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.fund-cards .fund-cards-nav-value,
+.fund-cards .fund-cards-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  min-width: 0;
+}
+
+.fund-cards .fund-cards-nav-value p,
+.fund-cards .fund-cards-stat p {
+  margin: 0;
+}
+
+.fund-cards .fund-cards-nav-label {
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--caption-line-height);
+}
+
+.fund-cards .fund-cards-nav-amount,
+.fund-cards .fund-cards-stat-value {
+  font-size: var(--sub-heading-2-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--sub-heading-2-line-height);
+}
+
+.fund-cards .fund-cards-stat-mobile {
+  justify-content: flex-end;
+  padding-left: var(--spacing-xl);
+  border-left: 1px solid var(--gray-300);
+}
+
+/* desktop-only parts */
+.fund-cards .fund-cards-gauge,
+.fund-cards .fund-cards-returns {
+  display: none;
+}
+
+/* Explore */
+.fund-cards .fund-cards-cta,
+.fund-cards .fund-cards-cta:any-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: var(--spacing-md);
+  min-height: var(--spacing-4xl);
+  color: var(--gray-900);
+  font-size: var(--button-2-font-size);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--button-2-line-height);
+  text-decoration: none;
+}
+
+.fund-cards .fund-cards-cta:focus-visible {
+  outline: var(--spacing-xxs) solid var(--navy-blue-500);
+  outline-offset: var(--spacing-xxs);
+}
+
+.fund-cards .fund-cards-cta .icon,
+.fund-cards .fund-cards-cta .icon img {
+  display: block;
+  width: var(--spacing-3xl);
+  height: var(--spacing-3xl);
+}
+
+/* risk gauge */
+.fund-cards .fund-cards-gauge svg {
+  display: block;
+  width: 138px;
+  height: auto;
+  overflow: visible;
+}
+
+.fund-cards .fund-cards-gauge path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 6;
+}
+
+.fund-cards .fund-cards-gauge .fund-cards-gauge-low {
+  stroke: var(--success-500);
+}
+
+.fund-cards .fund-cards-gauge .fund-cards-gauge-moderate {
+  stroke: var(--warning-400);
+}
+
+.fund-cards .fund-cards-gauge .fund-cards-gauge-high {
+  stroke: var(--red-600);
+}
+
+.fund-cards .fund-cards-gauge-needle {
+  stroke-linecap: round;
+  stroke-width: 4;
+}
+
+@media (width >=600px) {
+  .fund-cards .fund-cards-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >=1100px) {
+  .fund-cards .fund-cards-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (width >=768px) {
+  .fund-cards {
+    --fc-header-gap: 50px;
+    --fc-cards-gap: var(--spacing-2xl);
+    --fc-card-pad: var(--spacing-3xl);
+    --fc-title-size: var(--heading-4-font-size);
+    --fc-title-line: var(--heading-4-line-height);
+    --fc-badge-height: 28px;
+    --fc-explore-row: 52px;
+    --fc-badge-size: var(--body-2-font-size);
+    --fc-badge-line: var(--body-2-line-height);
+  }
+
+  .fund-cards .fund-cards-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+  }
+
+  .fund-cards .fund-cards-heading-title {
+    flex: 0 1 633px;
+    margin: 0;
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+  }
+
+  .fund-cards .fund-cards-subtitle {
+    flex: 0 1 353px;
+    text-align: right;
+  }
+
+  .fund-cards .fund-cards-subtitle p {
+    font-size: var(--body-1-font-size);
+    line-height: var(--body-1-line-height);
+  }
+
+  .fund-cards .fund-cards-card {
+    position: relative;
+    gap: var(--spacing-2xl);
+    box-shadow: none;
+  }
+
+  /* the expand icon sits beside the badge without changing the row height,
+     so nothing moves when it appears */
+  .fund-cards .fund-cards-expand {
+    position: absolute;
+    top: 22px;
+    right: var(--spacing-3xl);
+  }
+
+  /* titles of one or two lines: the NAV rows still line up across cards */
+  .fund-cards .fund-cards-top {
+    flex: 1;
+    gap: var(--spacing-4xl);
+    min-height: 136px;
+  }
+
+  .fund-cards .fund-cards-heading {
+    gap: var(--spacing-sm);
+  }
+
+  .fund-cards .fund-cards-stat-mobile {
+    display: none;
+  }
+
+  .fund-cards .fund-cards-cta,
+  .fund-cards .fund-cards-cta:any-link {
+    font-size: var(--button-1-font-size);
+    line-height: var(--button-1-line-height);
+  }
+
+  .fund-cards .fund-cards-cta .icon,
+  .fund-cards .fund-cards-cta .icon img {
+    width: var(--spacing-4xl);
+    height: var(--spacing-4xl);
+  }
+
+  .fund-cards .fund-cards-nav {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--spacing-xl);
+    margin-top: 0;
+
+    /* 19px + 1px divider: returns start 20px below the divider (Figma) */
+    padding-bottom: 19px;
+  }
+
+  .fund-cards .fund-cards-nav-value {
+    padding-right: var(--spacing-xl);
+    border-right: 1px solid var(--gray-300);
+  }
+
+  .fund-cards .fund-cards-nav-label {
+    font-size: var(--body-1-font-size);
+    line-height: var(--body-1-line-height);
+  }
+
+  .fund-cards .fund-cards-nav-amount {
+    font-size: var(--heading-3-font-size);
+    line-height: 36px;
+    letter-spacing: var(--heading-3-letter-spacing);
+  }
+
+  .fund-cards .fund-cards-nav-date {
+    font-size: var(--body-2-font-size);
+    line-height: var(--body-2-line-height);
+  }
+
+  .fund-cards .fund-cards-gauge {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 138px;
+  }
+
+  .fund-cards .fund-cards-gauge p {
+    margin: 0;
+    text-align: center;
+  }
+
+  .fund-cards .fund-cards-gauge-level {
+    position: absolute;
+    top: 26px;
+    right: 22px;
+    left: 22px;
+    font-size: var(--body-1-font-size);
+    font-weight: var(--font-weight-extrabold);
+    line-height: var(--body-1-line-height);
+  }
+
+  /* caption sits between the two ends of the arc */
+  .fund-cards .fund-cards-gauge-caption {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: var(--caption-font-size);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--caption-line-height);
+    color: var(--gray-700);
+  }
+
+  /* divider sits at the card's midpoint, 41px of space on each side */
+  .fund-cards .fund-cards-returns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .fund-cards .fund-cards-returns .fund-cards-stat:first-child {
+    padding-right: 41px;
+  }
+
+  .fund-cards .fund-cards-returns .fund-cards-stat+.fund-cards-stat {
+    padding-left: 41px;
+    border-left: 1px solid var(--gray-300);
+  }
+
+  .fund-cards .fund-cards-stat-value {
+    font-size: var(--heading-4-font-size);
+    line-height: var(--heading-4-line-height);
+  }
+}
+
+/* tablet / desktop with a pointer: the expand icon and Explore show on hover or
+   keyboard focus (kept focusable, never display: none). The card keeps its
+   content in place and smoothly grows downward by the Explore row; the
+   neighbouring cards do not move and the list reserves that space so the next
+   section is never covered.
+   The card's negative margin and the Explore row (height + the gap it cancels)
+   animate with the same duration and easing, so the card edge and its content
+   always move together, without jumps, both when expanding and collapsing. */
+@media (width >=768px) and (hover: hover) {
+  .fund-cards {
+    --fc-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --fc-duration: 300ms;
+  }
+
+  .fund-cards .fund-cards-list {
+    row-gap: calc(var(--fc-cards-gap) + var(--fc-explore-row));
+    padding-bottom: var(--fc-explore-row);
+  }
+
+  .fund-cards .fund-cards-card {
+    transition:
+      margin-bottom var(--fc-duration) var(--fc-ease),
+      border-color var(--fc-duration) var(--fc-ease);
+  }
+
+  /* collapsed: no height and the flex gap above it cancelled */
+  .fund-cards .fund-cards-cta,
+  .fund-cards .fund-cards-cta:any-link {
+    min-height: 0;
+    max-height: 0;
+    margin-top: calc(-1 * var(--spacing-2xl));
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height var(--fc-duration) var(--fc-ease),
+      margin-top var(--fc-duration) var(--fc-ease),
+      opacity 150ms var(--fc-ease);
+  }
+
+  .fund-cards .fund-cards-expand {
+    opacity: 0;
+    transform: scale(0.85);
+    pointer-events: none;
+    transition:
+      opacity 200ms var(--fc-ease),
+      transform var(--fc-duration) var(--fc-ease);
+  }
+
+  .fund-cards .fund-cards-card:is(:hover, :focus-within) {
+    z-index: 1;
+    margin-bottom: calc(-1 * var(--fc-explore-row));
+    border-color: var(--red-600);
+  }
+
+  /* expanded: Explore fades in once the row has opened up */
+  .fund-cards .fund-cards-card:is(:hover, :focus-within) .fund-cards-cta {
+    max-height: var(--spacing-4xl);
+    margin-top: 0;
+    opacity: 1;
+    transition:
+      max-height var(--fc-duration) var(--fc-ease),
+      margin-top var(--fc-duration) var(--fc-ease),
+      opacity 200ms var(--fc-ease) 100ms;
+  }
+
+  .fund-cards .fund-cards-card:is(:hover, :focus-within) .fund-cards-expand {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
+@media (width >=768px) and (hover: hover) and (prefers-reduced-motion: reduce) {
+  .fund-cards .fund-cards-card,
+  .fund-cards .fund-cards-cta,
+  .fund-cards .fund-cards-card:is(:hover, :focus-within) .fund-cards-cta,
+  .fund-cards .fund-cards-expand {
+    transition: none;
+  }
+}
+
+@media (width >=1200px) {
+  .fund-cards .fund-cards-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

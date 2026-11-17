@@ -1,0 +1,10 @@
+/*
+ * Category Cards: the cards, their hover and the pagination use the Blog Listing
+ * styles (blocks/blog-listing/blog-listing.css, loaded by the block) through the
+ * "blog-listing" list wrapper. Only what differs from the Blog Listing is set here.
+ */
+
+/* no search bar above the cards: the cards start right under the heading */
+.category-cards .category-cards-list .blog-listing-cards[hidden] {
+  display: none;
+}

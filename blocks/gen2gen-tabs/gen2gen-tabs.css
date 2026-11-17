@@ -1,0 +1,507 @@
+/* ==========================================================================
+   Gen2Gen Tabs: heading, pill tabs (shared tab-animation look)
+   and tab panels (illustration + text + 3 cards, or a video tab).
+   Mobile first, desktop >= 900px.
+   Figma offsets include the 1px panel border, so inner offsets are 1px smaller.
+   ========================================================================== */
+
+.gen2gen-tabs {
+  --g2g-text: var(--gray-700);
+  --g2g-line-height: var(--body-2-line-height);
+  --g2g-panel-bg: var(--blue-50);
+  --g2g-panel-border: 1px solid var(--blue-100);
+  --g2g-header-gap: 30px;
+  --g2g-panel-gap: 30px;
+  --g2g-video-ratio: 296 / 229;
+  --g2g-video-inset: var(--spacing-xl);
+  --g2g-band-top: 57%;
+  --g2g-band-bottom: calc(-1 * var(--spacing-xl));
+  --g2g-band-inline: calc(-1 * var(--g2g-video-inset));
+  --g2g-media-height: 216px;
+  --g2g-img-top: 15px;
+  --g2g-img-width: 211.5px;
+  --g2g-line-width: 182px;
+  --g2g-line-left: -64px;
+  --g2g-line-top: -12px;
+  --g2g-shadow-width: 188px;
+  --g2g-shadow-height: 20px;
+  --g2g-body-padding: 7px 15px 15px;
+  --g2g-card-padding: 11px;
+  --g2g-card-icon: 24px;
+  --g2g-card-gap: var(--spacing-md);
+
+  font-family: var(--font-family-manrope);
+}
+
+/* full-bleed band behind the video tab must not cause horizontal scroll */
+main .section:has(.gen2gen-tabs) {
+  overflow-x: clip;
+}
+
+/* header */
+.gen2gen-tabs .gen2gen-tabs-header {
+  max-width: 726px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gen2gen-tabs .gen2gen-tabs-header :is(h1, h2, h3) {
+  max-width: 280px;
+  margin: 0 auto var(--spacing-md);
+  font-family: var(--font-family-manrope);
+  font-size: var(--heading-3-font-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--heading-3-line-height);
+  color: var(--gray-900);
+}
+
+.gen2gen-tabs .gen2gen-tabs-header :is(h1, h2, h3) strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.gen2gen-tabs .gen2gen-tabs-header p {
+  margin: 0;
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-600);
+}
+
+/* tabs: look comes from blocks/tab-list/tab-animation.css */
+.gen2gen-tabs .gen2gen-tabs-nav {
+  margin-top: var(--g2g-header-gap);
+}
+
+/* active pill per Figma */
+.gen2gen-tabs .tab-list.tab-animation .tab-mask .tab-indicator {
+  overflow: hidden;
+  border-radius: var(--radius-full, 999px);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--blue-500) 30%, var(--gray-100)) 0%, color-mix(in srgb, var(--base-white) 30%, var(--gray-100)) 100%) padding-box,
+    linear-gradient(90deg, color-mix(in srgb, var(--navy-blue-500) 40%, transparent) 0%, color-mix(in srgb, var(--blue-500) 40%, transparent) 100%) border-box;
+}
+
+.gen2gen-tabs .tab-indicator::before,
+.gen2gen-tabs .tab-indicator::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.gen2gen-tabs .tab-indicator::before {
+  right: -43.9px;
+  bottom: -71.95px;
+  width: 147.8px;
+  height: 124.853px;
+  background: url('./tab-glow-right.svg') center / contain no-repeat;
+}
+
+.gen2gen-tabs .tab-indicator::after {
+  bottom: -95.2px;
+  left: -28.7px;
+  width: 139.9px;
+  height: 139.9px;
+  background: url('./tab-glow-left.svg') center / contain no-repeat;
+}
+
+/* keep tab labels above the indicator but below the mobile paddles */
+.gen2gen-tabs .tab-mask {
+  isolation: isolate;
+}
+
+.gen2gen-tabs .tab-list.tab-animation .tab-mask {
+  border-color: var(--border-border-brand-blue-subtle, #d2dae4);
+  background-color: var(--gray-100);
+}
+
+.gen2gen-tabs .tab-mask [role='tab'] {
+  position: relative;
+  z-index: 1;
+}
+
+.gen2gen-tabs-nav.tab-list.tab-animation .tab-mask ul li button[aria-selected='true'] {
+  border-radius: var(--radius-full);
+}
+
+.gen2gen-tabs .tab-mask [role='tab']:focus-visible {
+  outline: var(--spacing-xxs) solid var(--navy-blue-500);
+  outline-offset: calc(-1 * var(--spacing-xxs));
+  border-radius: var(--radius-full);
+}
+
+/* panels */
+.gen2gen-tabs .gen2gen-tabs-panels {
+  margin-top: var(--g2g-panel-gap);
+}
+
+.gen2gen-tabs .gen2gen-tabs-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: var(--g2g-panel-border);
+  border-radius: var(--radius-md);
+  background: var(--g2g-panel-bg);
+  color: var(--g2g-text);
+}
+
+.gen2gen-tabs .gen2gen-tabs-panel[hidden] {
+  display: none;
+}
+
+.gen2gen-tabs .gen2gen-tabs-panel:focus-visible {
+  outline: var(--spacing-xxs) solid var(--navy-blue-500);
+  outline-offset: var(--spacing-xxs);
+}
+
+/* video tab: thumbnail + play button, light-blue band behind the lower half */
+.gen2gen-tabs .gen2gen-tabs-video-panel[hidden] {
+  display: none;
+}
+
+.gen2gen-tabs .gen2gen-tabs-video-panel:focus-visible {
+  outline: var(--spacing-xxs) solid var(--navy-blue-500);
+  outline-offset: var(--spacing-xxs);
+}
+
+.gen2gen-tabs .gen2gen-tabs-video {
+  position: relative;
+  margin: 0 var(--g2g-video-inset) calc(-1 * var(--g2g-band-bottom));
+  aspect-ratio: var(--g2g-video-ratio);
+}
+
+.gen2gen-tabs .gen2gen-tabs-video::before {
+  content: '';
+  position: absolute;
+  inset: var(--g2g-band-top) var(--g2g-band-inline) var(--g2g-band-bottom);
+  z-index: 0;
+  background: var(--g2g-panel-bg);
+  pointer-events: none;
+}
+
+.gen2gen-tabs .gen2gen-tabs-video picture,
+.gen2gen-tabs .gen2gen-tabs-video-img,
+.gen2gen-tabs .gen2gen-tabs-video video {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.gen2gen-tabs .gen2gen-tabs-video video {
+  background: var(--base-black);
+}
+
+.gen2gen-tabs .gen2gen-tabs-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--gradient-red-button);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+
+.gen2gen-tabs .gen2gen-tabs-play img {
+  width: 28px;
+  height: 28px;
+}
+
+.gen2gen-tabs .gen2gen-tabs-play:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.gen2gen-tabs .gen2gen-tabs-play:focus-visible {
+  outline: var(--spacing-xxs) solid var(--base-white);
+  outline-offset: var(--spacing-xxs);
+  box-shadow: 0 0 0 4px var(--navy-blue-500);
+}
+
+/* illustration with decorative loop line and soft floor shadow */
+.gen2gen-tabs .gen2gen-tabs-media {
+  position: relative;
+  height: var(--g2g-media-height);
+}
+
+.gen2gen-tabs .gen2gen-tabs-media::before,
+.gen2gen-tabs .gen2gen-tabs-media::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.gen2gen-tabs .gen2gen-tabs-media::before {
+  top: var(--g2g-line-top);
+  left: var(--g2g-line-left);
+  width: var(--g2g-line-width);
+  aspect-ratio: 268 / 232;
+  background: url('../../icons/decorative-loop-line.png') no-repeat center / contain;
+}
+
+.gen2gen-tabs .gen2gen-tabs-media::after {
+  bottom: 0;
+  left: 50%;
+  width: var(--g2g-shadow-width);
+  height: var(--g2g-shadow-height);
+  transform: translateX(-50%);
+  background: var(--g2g-panel-bg);
+  filter: blur(var(--spacing-sm));
+}
+
+.gen2gen-tabs .gen2gen-tabs-media picture {
+  position: absolute;
+  top: var(--g2g-img-top);
+  left: 50%;
+  width: var(--g2g-img-width);
+  transform: translateX(-50%);
+}
+
+.gen2gen-tabs .gen2gen-tabs-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gen2gen-tabs .gen2gen-tabs-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding: var(--g2g-body-padding);
+}
+
+/* text: clamped to 4 lines on mobile until expanded */
+.gen2gen-tabs .gen2gen-tabs-text-wrap {
+  position: relative;
+}
+
+.gen2gen-tabs .gen2gen-tabs-text {
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--g2g-line-height);
+}
+
+.gen2gen-tabs .gen2gen-tabs-text p,
+.gen2gen-tabs .gen2gen-tabs-card-text {
+  margin: 0;
+}
+
+.gen2gen-tabs .gen2gen-tabs-text p + p {
+  margin-top: var(--g2g-line-height);
+}
+
+.gen2gen-tabs .gen2gen-tabs-text-wrap:not(.is-expanded) .gen2gen-tabs-text {
+  max-height: calc(4 * var(--g2g-line-height));
+  overflow: hidden;
+}
+
+.gen2gen-tabs .gen2gen-tabs-toggle {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--body-2-font-size);
+  line-height: var(--g2g-line-height);
+  color: var(--g2g-text);
+  cursor: pointer;
+}
+
+.gen2gen-tabs .is-truncated .gen2gen-tabs-toggle,
+.gen2gen-tabs .is-expanded .gen2gen-tabs-toggle {
+  display: inline-block;
+}
+
+.gen2gen-tabs .is-truncated .gen2gen-tabs-toggle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-left: var(--spacing-3xl);
+  background: linear-gradient(90deg, transparent 0, var(--g2g-panel-bg) var(--spacing-3xl));
+}
+
+.gen2gen-tabs .is-expanded .gen2gen-tabs-toggle-ellipsis {
+  display: none;
+}
+
+.gen2gen-tabs .gen2gen-tabs-toggle-label {
+  margin-left: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--red-500);
+  text-decoration: underline;
+  text-underline-offset: var(--spacing-xxs);
+}
+
+.gen2gen-tabs .is-expanded .gen2gen-tabs-toggle-label {
+  margin-left: 0;
+}
+
+.gen2gen-tabs .gen2gen-tabs-toggle:focus-visible {
+  outline: var(--spacing-xxs) solid var(--navy-blue-500);
+  outline-offset: var(--spacing-xxs);
+  border-radius: var(--radius-xxs);
+}
+
+/* cards */
+.gen2gen-tabs .gen2gen-tabs-cards {
+  display: grid;
+  gap: var(--spacing-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gen2gen-tabs .gen2gen-tabs-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--g2g-card-gap);
+  box-sizing: border-box;
+  padding: var(--g2g-card-padding);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  background: var(--base-white);
+}
+
+.gen2gen-tabs .gen2gen-tabs-card-icon,
+.gen2gen-tabs .gen2gen-tabs-card-icon img {
+  display: block;
+  width: var(--g2g-card-icon);
+  height: var(--g2g-card-icon);
+}
+
+.gen2gen-tabs .gen2gen-tabs-card-text {
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--g2g-line-height);
+}
+
+@media (width < 900px) {
+  .gen2gen-tabs .tab-list.tab-animation .tab-wrapper {
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .gen2gen-tabs .tab-list.tab-animation .tab-wrapper .tab-mask {
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  .gen2gen-tabs .tab-list.tab-animation .tab-wrapper .tab-paddles {
+    display: none;
+  }
+
+  .gen2gen-tabs .tab-list.tab-animation.has-overflow .tab-wrapper .tab-paddles {
+    display: flex;
+  }
+
+  .gen2gen-tabs .tab-list.tab-animation .tab-paddles .paddle-btn {
+    height: 94%;
+  }
+}
+
+/* matches the tab-animation desktop breakpoint: last tab has extra end padding in Figma */
+@media (width >= 768px) {
+  .gen2gen-tabs.gen2gen-tabs .tab-mask li:last-child [role='tab'] {
+    padding-right: var(--spacing-4xl);
+    
+  }
+}
+
+@media (width >= 900px) {
+  .gen2gen-tabs {
+    --g2g-header-gap: 50px;
+    --g2g-panel-gap: var(--spacing-3xl);
+    --g2g-video-ratio: 1375 / 547;
+    --g2g-video-inset: 0px;
+    --g2g-band-top: 48%;
+    --g2g-band-bottom: calc(-1 * var(--spacing-6xl));
+    --g2g-band-inline: calc(50% - 50vw);
+    --g2g-line-width: 268px;
+    --g2g-line-left: -100px;
+    --g2g-line-top: -5px;
+    --g2g-shadow-width: 300px;
+    --g2g-shadow-height: 27.5px;
+    --g2g-body-padding: 29px 29px 29px 0;
+    --g2g-card-padding: 15px 15px 13px;
+    --g2g-card-icon: var(--spacing-4xl);
+    --g2g-card-gap: 10px;
+  }
+
+  .gen2gen-tabs .gen2gen-tabs-header :is(h1, h2, h3) {
+    max-width: none;
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+  }
+
+  .gen2gen-tabs .gen2gen-tabs-panel {
+    display: grid;
+    grid-template-columns: 357px 1fr;
+    column-gap: var(--spacing-3xl);
+    min-height: 372px;
+    box-sizing: border-box;
+  }
+
+  .gen2gen-tabs .gen2gen-tabs-media {
+    height: auto;
+  }
+
+  .gen2gen-tabs .gen2gen-tabs-media::after {
+    bottom: 7px;
+    left: 47.5px;
+    transform: none;
+  }
+
+  .gen2gen-tabs .gen2gen-tabs-media picture {
+    top: auto;
+    bottom: 23px;
+    left: 20px;
+    width: 336px;
+    transform: none;
+  }
+
+  .gen2gen-tabs .gen2gen-tabs-body {
+    gap: var(--spacing-3xl);
+  }
+
+  .gen2gen-tabs .gen2gen-tabs-text {
+    font-weight: var(--font-weight-medium);
+  }
+
+  .gen2gen-tabs .gen2gen-tabs-text-wrap:not(.is-expanded) .gen2gen-tabs-text {
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* JS clears truncated/expanded state above the mobile breakpoint */
+  .gen2gen-tabs .is-truncated .gen2gen-tabs-toggle,
+  .gen2gen-tabs .is-expanded .gen2gen-tabs-toggle {
+    display: none;
+  }
+
+  .gen2gen-tabs .gen2gen-tabs-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-2xl);
+  }
+
+  .gen2gen-tabs .gen2gen-tabs-card {
+    min-height: 126px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gen2gen-tabs .gen2gen-tabs-play {
+    transition: none;
+  }
+}

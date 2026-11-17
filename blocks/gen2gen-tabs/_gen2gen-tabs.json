@@ -1,0 +1,233 @@
+{
+  "definitions": [
+    {
+      "title": "Gen2Gen Tabs",
+      "id": "gen2gen-tabs",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Gen2Gen Tabs",
+              "model": "gen2gen-tabs",
+              "filter": "gen2gen-tabs"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Gen2Gen Tab",
+      "id": "gen2gen-tabs-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Gen2Gen Tab",
+              "model": "gen2gen-tabs-item"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Gen2Gen Video Tab",
+      "id": "gen2gen-tabs-video",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Gen2Gen Video Tab",
+              "model": "gen2gen-tabs-video"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "gen2gen-tabs",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "text",
+          "label": "Heading & Subtitle",
+          "description": "Heading 2 (bold the highlighted word) followed by a short subtitle",
+          "value": "",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "gen2gen-tabs-item",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "label",
+          "label": "Tab Label",
+          "value": ""
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Illustration",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Illustration Alt",
+          "value": ""
+        },
+        {
+          "component": "hidden",
+          "name": "imageMimeType",
+          "value": "image/png"
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "label": "Text",
+          "description": "Shown in full on desktop; cut to 4 lines with Read more on mobile",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "cards_icon1",
+          "label": "Card 1 Icon",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "cards_icon1Alt",
+          "label": "Card 1 Icon Alt",
+          "description": "Leave empty when the icon is decorative",
+          "value": ""
+        },
+        {
+          "component": "hidden",
+          "name": "cards_icon1MimeType",
+          "value": "image/png"
+        },
+        {
+          "component": "richtext",
+          "name": "cards_text1",
+          "label": "Card 1 Text",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "cards_icon2",
+          "label": "Card 2 Icon",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "cards_icon2Alt",
+          "label": "Card 2 Icon Alt",
+          "description": "Leave empty when the icon is decorative",
+          "value": ""
+        },
+        {
+          "component": "hidden",
+          "name": "cards_icon2MimeType",
+          "value": "image/png"
+        },
+        {
+          "component": "richtext",
+          "name": "cards_text2",
+          "label": "Card 2 Text",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "cards_icon3",
+          "label": "Card 3 Icon",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "cards_icon3Alt",
+          "label": "Card 3 Icon Alt",
+          "description": "Leave empty when the icon is decorative",
+          "value": ""
+        },
+        {
+          "component": "hidden",
+          "name": "cards_icon3MimeType",
+          "value": "image/png"
+        },
+        {
+          "component": "richtext",
+          "name": "cards_text3",
+          "label": "Card 3 Text",
+          "value": "",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "gen2gen-tabs-video",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "label",
+          "label": "Tab Label",
+          "value": ""
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Video Thumbnail",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Video Thumbnail Alt",
+          "description": "Describe the video; also used as the play button label",
+          "value": ""
+        },
+        {
+          "component": "hidden",
+          "name": "imageMimeType",
+          "value": "image/jpeg"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "video",
+          "label": "Video (DAM MP4)",
+          "description": "Loaded only when the play button is clicked"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "gen2gen-tabs",
+      "components": [
+        "gen2gen-tabs-item",
+        "gen2gen-tabs-video"
+      ]
+    }
+  ]
+}

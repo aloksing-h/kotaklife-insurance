@@ -1,0 +1,41 @@
+{
+  "variantName": "promo-banner",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-10-14T00:00:00.000Z",
+  "sourceContext": {
+    "source": "figma",
+    "figmaFileKey": "dNz5n9gtGpR4Fq094VO8au",
+    "figmaNodeId": "6068:23755",
+    "figmaNodeName": "Banner Section",
+    "figmaUrl": "https://figma.com/design/dNz5n9gtGpR4Fq094VO8au?node-id=6068-23755",
+    "figmaMobileNodeId": "6068:23983"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "accent",
+    "density": "compact",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "badge + heading + subheading + 1 image + 1 CTA, repeating slides with pagination",
+    "buttonCount": 1,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "hero / promo banner sliders",
+      "accent (red-to-blue gradient) backgrounds"
+    ],
+    "notSuitableFor": [
+      "text-only pages"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "promo-banner"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-14T07:00:00.000Z"
+  }
+}

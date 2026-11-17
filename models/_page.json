@@ -4,6 +4,33 @@
       "id": "page-metadata",
       "fields": [
         {
+          "component": "boolean",
+          "name": "breadcrumb",
+          "label": "Show Breadcrumb",
+          "value": ""
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "pulse-auto",
+          "label": "Pulse Waves",
+          "description": "Needs a Pulse Animation block on the page. Draws the pulse line as a curve under the first section and a gentle wave at the bottom of every section, instead of the per-section Pulse Paths.",
+          "options": [
+            {
+              "name": "None",
+              "value": "none"
+            },
+            {
+              "name": "Start curve to the right",
+              "value": "right"
+            },
+            {
+              "name": "Start curve to the left",
+              "value": "left"
+            }
+          ]
+        },
+        {
           "component": "text",
           "valueType": "string",
           "name": "jcr:title",
@@ -21,6 +48,258 @@
           "name": "keywords",
           "multi": true,
           "label": "Keywords"
+        },
+        {
+          "component": "text",
+          "name": "lang",
+          "label": "Language Tag",
+          "value": "en-IN"
+        },
+        {
+          "component": "text",
+          "name": "json-ld",
+          "label": "ALL Schema JSON"
+        },
+        {
+          "component": "text",
+          "name": "description",
+          "label": "Page Description"
+        },
+        {
+          "component": "text",
+          "name": "schcode",
+          "label": "SCH Code"
+        },
+        {
+          "component": "select",
+          "valueType": "string[]",
+          "name": "cq:robotsTags",
+          "label": "Robot Tags",
+          "multiple": true,
+          "options": [
+            {
+              "id": "index",
+              "name": "Index"
+            },
+            {
+              "id": "noindex",
+              "name": "No Index"
+            },
+            {
+              "id": "follow",
+              "name": "Follow"
+            },
+            {
+              "id": "nofollow",
+              "name": "No Follow"
+            },
+            {
+              "id": "noarchive",
+              "name": "No Archive"
+            },
+            {
+              "id": "nosnippet",
+              "name": "No Snippet"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "canonical",
+          "label": "Canonical URL"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "og:title",
+          "label": "OG Title"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "og:type",
+          "label": "OG Type"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "og:url",
+          "label": "OG URL"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "og:description",
+          "label": "OG Description"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "og:image",
+          "label": "OG Image"
+        },
+        {
+          "component": "text",
+          "name": "featuredPage",
+          "label": "Featured Image Url",
+          "valueType": "string"
+        },
+        {
+          "component": "radio-group",
+          "label": "Exclude page from navigation",
+          "name": "excludePage",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Yes",
+              "value": "true"
+            },
+            {
+              "name": "No",
+              "value": "false"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "twitter:card",
+          "label": "Page Twitter Card"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "twitter:site",
+          "label": "Page Twitter Site"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "twitter:url",
+          "label": "Page Twitter URL"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "twitter:title",
+          "label": "Page Twitter title"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "twitter:description",
+          "label": "Page Twitter Description"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "twitter:image",
+          "label": "Page Twitter Image"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "og:site",
+          "label": "Page OG Site"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "og:site_name",
+          "label": "Page OG Site Name"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "blog-type",
+          "label": "Blog Type",
+          "description": "Blog pages: the card type in the blog listing (empty = not listed)",
+          "options": [
+            {
+              "name": "None",
+              "value": ""
+            },
+            {
+              "name": "Blog",
+              "value": "blog"
+            },
+            {
+              "name": "Video",
+              "value": "video"
+            },
+            {
+              "name": "Podcast",
+              "value": "podcast"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "blog-category",
+          "label": "Blog Category",
+          "description": "Blog pages: the category shown on the card and used by the listing filter",
+          "options": [
+            {
+              "name": "None",
+              "value": ""
+            },
+            {
+              "name": "About Life Insurance",
+              "value": "About Life Insurance"
+            },
+            {
+              "name": "Current Affairs",
+              "value": "Current Affairs"
+            },
+            {
+              "name": "Government Schemes",
+              "value": "Government Schemes"
+            },
+            {
+              "name": "Health Insurance",
+              "value": "Health Insurance"
+            },
+            {
+              "name": "Protection24",
+              "value": "Protection24"
+            },
+            {
+              "name": "Retirement",
+              "value": "Retirement"
+            },
+            {
+              "name": "Savings & Tax",
+              "value": "Savings & Tax"
+            },
+            {
+              "name": "Term Insurance",
+              "value": "Term Insurance"
+            },
+            {
+              "name": "ULIP",
+              "value": "ULIP"
+            },
+            {
+              "name": "Wealth Creation",
+              "value": "Wealth Creation"
+            }
+          ]
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "blog-image",
+          "label": "Blog Card Image",
+          "description": "Optional: the illustration on the listing card (transparent line art, square); the type's default is used when empty",
+          "multi": false
         }
       ]
     }

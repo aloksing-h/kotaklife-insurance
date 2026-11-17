@@ -1,0 +1,188 @@
+/* ==========================================================================
+   Plan Highlight: heading + description beside a plan card with badges,
+   headline values and a checklist of features.
+   Mobile first (stacked), desktop >= 900px (side by side).
+   ========================================================================== */
+
+.plan-highlight {
+  --ph-text-size: var(--body-2-font-size);
+  --ph-text-line: var(--body-2-line-height);
+  --ph-values-gap: var(--spacing-md);
+  --ph-value-pad: var(--spacing-lg);
+  --ph-features-gap: var(--spacing-md);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  font-family: var(--font-family-manrope);
+  color: var(--gray-900);
+}
+
+/* header */
+.plan-highlight .plan-highlight-header :is(h1, h2, h3) {
+  margin: 0 0 var(--spacing-md);
+  font-family: var(--font-family-manrope);
+  font-size: var(--heading-3-font-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--heading-3-line-height);
+  letter-spacing: var(--heading-3-letter-spacing);
+  color: var(--gray-900);
+}
+
+.plan-highlight .plan-highlight-header :is(h1, h2, h3) strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.plan-highlight .plan-highlight-header p {
+  margin: 0;
+  font-size: var(--ph-text-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--ph-text-line);
+  color: var(--gray-600);
+}
+
+/* card */
+.plan-highlight .plan-highlight-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+  box-sizing: border-box;
+  padding: 19px;
+  border: 1px solid var(--navy-blue-200);
+  border-radius: var(--radius-md);
+  background: var(--blue-25);
+}
+
+.plan-highlight .plan-highlight-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-highlight .plan-highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 28px;
+  margin: 0;
+  padding: 0 var(--spacing-md);
+  border-radius: var(--radius-full, 999px);
+  border: 1px solid var(--border-border-brand-blue, #1E4679);
+  background: linear-gradient(92deg, var(--decorative-colors-deco-five-deco-four-e, #8EBBFF) -54.86%, var(--foreground-fg-white, #FFF) 40.44%, var(--foreground-fg-white, #FFF) 135.74%);
+  color: #535862;
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--caption-line-height);
+  white-space: nowrap;
+}
+
+/* summary: intro, values split by a divider, closing note */
+.plan-highlight .plan-highlight-summary p {
+  margin: 0;
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  color: var(--gray-900);
+}
+
+.plan-highlight .plan-highlight-summary .plan-highlight-values {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: var(--spacing-xl) 0 calc(var(--ph-values-gap) - 1px);
+  padding-bottom: var(--ph-values-gap);
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.plan-highlight .plan-highlight-summary .plan-highlight-value {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  min-height: 28px;
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--body-2-line-height);
+}
+
+.plan-highlight .plan-highlight-summary .plan-highlight-value+.plan-highlight-value {
+  padding-left: var(--ph-value-pad);
+  border-left: 1px solid var(--gray-300);
+}
+
+.plan-highlight .plan-highlight-value :is(strong, b) {
+  font-size: var(--heading-4-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--heading-4-line-height);
+  color: var(--navy-blue-500);
+}
+
+/* features: red check list, two columns on desktop */
+.plan-highlight .plan-highlight-features {
+  display: grid;
+  gap: var(--ph-features-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-highlight .plan-highlight-features li {
+  position: relative;
+  margin: 0;
+  padding-left: 22px;
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  color: var(--gray-900);
+}
+
+.plan-highlight .plan-highlight-features sup {
+  font-size: 0.625em;
+  line-height: 0;
+}
+
+.plan-highlight .plan-highlight-features li::before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: var(--spacing-xl);
+  height: var(--spacing-xl);
+  background: url('../../icons/check-circle-red.svg') no-repeat center / contain;
+}
+
+@media (width >=900px) {
+  .plan-highlight {
+    --ph-text-size: var(--body-1-font-size);
+    --ph-text-line: var(--body-1-line-height);
+    --ph-values-gap: var(--spacing-lg);
+    --ph-value-pad: 23px;
+    --ph-features-gap: var(--spacing-lg) 25px;
+
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .plan-highlight .plan-highlight-header {
+    flex: 0 1 540px;
+  }
+
+  .plan-highlight .plan-highlight-header :is(h1, h2, h3) {
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+    letter-spacing: 0;
+  }
+
+  .plan-highlight .plan-highlight-card {
+    flex: 0 1 447px;
+  }
+
+  .plan-highlight .plan-highlight-features {
+    grid-auto-flow: column;
+    grid-template-rows: repeat(var(--ph-rows, 2), auto);
+    justify-content: start;
+  }
+}
