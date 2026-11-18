@@ -37,6 +37,24 @@
       "id": "rider-cards",
       "fields": [
         {
+          "component": "select",
+          "valueType": "string",
+          "name": "classes",
+          "label": "Style",
+          "description": "Default: a carousel on desktop and a list with Show More on mobile. Grid: three columns on desktop and a swipe carousel on mobile",
+          "value": "",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Grid",
+              "value": "grid"
+            }
+          ]
+        },
+        {
           "component": "richtext",
           "name": "text",
           "label": "Heading & Subtitle",

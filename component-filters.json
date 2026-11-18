@@ -78,7 +78,10 @@
       "blog-navigation",
       "contact-help",
       "contact-form",
-      "claim-options"
+      "claim-options",
+      "stats-visual",
+      "earning-chart",
+      "video-cards"
     ]
   },
   {
@@ -183,6 +186,12 @@
     "id": "customer-testimonials",
     "components": [
       "customer-testimonials-item"
+    ]
+  },
+  {
+    "id": "earning-chart",
+    "components": [
+      "earning-chart-item"
     ]
   },
   {
@@ -485,6 +494,12 @@
     ]
   },
   {
+    "id": "stats-visual",
+    "components": [
+      "stats-visual-item"
+    ]
+  },
+  {
     "id": "tabs",
     "components": [
       "tabs-item"
@@ -508,6 +523,12 @@
     "components": [
       "timeline-item",
       "timeline-card"
+    ]
+  },
+  {
+    "id": "video-cards",
+    "components": [
+      "video-cards-item"
     ]
   },
   {

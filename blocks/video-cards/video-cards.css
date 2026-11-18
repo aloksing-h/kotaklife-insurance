@@ -1,0 +1,283 @@
+/*
+ * Video Cards: Life Advisor page video section.
+ * Figma 11291:43956 (desktop 1100, cards 260 x 213) / 11291:44036 (mobile 328, cards 160 x 213).
+ */
+
+.video-cards {
+  /* colors */
+  --video-cards-color-heading: var(--text-primary);
+  --video-cards-color-body: var(--text-tertiary);
+  --video-cards-color-white: var(--base-white);
+  --video-cards-color-focus: var(--info-500);
+  --video-cards-overlay: linear-gradient(180deg,
+      color-mix(in srgb, var(--brand-red-900) 70%, transparent) 0%,
+      color-mix(in srgb, var(--base-black) 88%, transparent) 100%);
+  --video-cards-play-fill: linear-gradient(180deg, var(--brand-red-800) 0%, var(--brand-red-400) 100%);
+
+  /* typography */
+  --video-cards-heading-size: var(--heading-3-font-size);
+  --video-cards-heading-line: var(--heading-3-line-height);
+  --video-cards-heading-tracking: var(--heading-3-letter-spacing);
+  --video-cards-text-size: var(--body-2-font-size);
+  --video-cards-text-line: var(--body-2-line-height);
+  --video-cards-title-size: var(--body-2-font-size);
+  --video-cards-title-line: var(--body-2-line-height);
+
+  /* spacing */
+  --video-cards-gap: var(--spacing-md);
+  --video-cards-padding: var(--spacing-lg);
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-family: var(--heading-font-family);
+}
+
+/* centred heading and description */
+.video-cards .video-cards-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  max-width: 726px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.video-cards .video-cards-header > * {
+  margin: 0;
+}
+
+.video-cards .video-cards-heading {
+  color: var(--video-cards-color-heading);
+  font-size: var(--video-cards-heading-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--video-cards-heading-line);
+  letter-spacing: var(--video-cards-heading-tracking);
+}
+
+.video-cards .video-cards-heading :is(strong, b) {
+  font-weight: var(--font-weight-semibold);
+}
+
+.video-cards .video-cards-text {
+  color: var(--video-cards-color-body);
+  font-size: var(--video-cards-text-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--video-cards-text-line);
+}
+
+/* cards: two by two on mobile, four in a row on desktop */
+.video-cards .video-cards-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--video-cards-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.video-cards .video-cards-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+  box-sizing: border-box;
+  min-height: 213px;
+  padding: var(--video-cards-padding);
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-color: var(--brand-red-950);
+  color: var(--video-cards-color-white);
+}
+
+/* thumbnail, softly blurred under the red-to-black overlay */
+.video-cards .video-cards-media,
+.video-cards .video-cards-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.video-cards .video-cards-card::before {
+  background: var(--video-cards-overlay);
+  content: '';
+}
+
+.video-cards .video-cards-media {
+  z-index: -2;
+}
+
+.video-cards .video-cards-media picture,
+.video-cards .video-cards-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.video-cards .video-cards-media img {
+  object-fit: cover;
+  filter: blur(3px);
+  transform: scale(1.06);
+}
+
+.video-cards .video-cards-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-top: auto;
+}
+
+.video-cards .video-cards-title {
+  margin: 0;
+  color: inherit;
+  font-size: var(--video-cards-title-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--video-cards-title-line);
+}
+
+.video-cards .video-cards-description {
+  margin: 0;
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--caption-line-height);
+}
+
+/* play button; its hit area covers the whole card */
+.video-cards .video-cards-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-color: currentcolor;
+  mask: var(--video-cards-icon-image) center / contain no-repeat;
+}
+
+.video-cards .video-cards-play {
+  --video-cards-icon-image: url('../../icons/play-outline.svg');
+
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--video-cards-play-fill);
+  color: var(--video-cards-color-white);
+  cursor: pointer;
+}
+
+.video-cards .video-cards-play::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+}
+
+.video-cards .video-cards-play:focus-visible {
+  outline: none;
+}
+
+.video-cards .video-cards-play:focus-visible::after {
+  border-radius: var(--radius-md);
+  outline: 2px solid var(--video-cards-color-focus);
+  outline-offset: -2px;
+}
+
+.video-cards .video-cards-card:hover .video-cards-play {
+  background: var(--brand-red-600);
+}
+
+/* video dialog */
+.video-cards .video-cards-dialog {
+  box-sizing: border-box;
+  width: min(960px, calc(100vw - 2 * var(--spacing-xl)));
+  max-width: none;
+  margin: auto;
+  padding: var(--spacing-5xl) 0 0;
+  overflow: visible;
+  border: 0;
+  background: none;
+  color: var(--video-cards-color-white);
+}
+
+.video-cards .video-cards-dialog::backdrop {
+  background-color: color-mix(in srgb, var(--base-black) 80%, transparent);
+}
+
+.video-cards .video-cards-stage {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-color: var(--base-black);
+}
+
+.video-cards .video-cards-player {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-cards .video-cards-error {
+  margin: 0;
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.video-cards .video-cards-close {
+  --video-cards-icon-image: url('../../icons/close-red.svg');
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--video-cards-color-white);
+  border-radius: var(--radius-full);
+  background: none;
+  color: var(--video-cards-color-white);
+  cursor: pointer;
+}
+
+.video-cards :is(.video-cards-close, .video-cards-dialog):focus-visible {
+  outline: 2px solid var(--video-cards-color-white);
+  outline-offset: 2px;
+}
+
+@media (width >= 900px) {
+  .video-cards {
+    --video-cards-heading-size: var(--heading-1-font-size);
+    --video-cards-heading-line: var(--heading-1-line-height);
+    --video-cards-heading-tracking: normal;
+    --video-cards-text-size: var(--body-1-font-size);
+    --video-cards-text-line: var(--body-1-line-height);
+    --video-cards-title-size: var(--body-1-font-size);
+    --video-cards-title-line: var(--body-1-line-height);
+    --video-cards-gap: var(--spacing-2xl);
+    --video-cards-padding: var(--spacing-xl);
+
+    gap: 50px;
+  }
+
+  .video-cards .video-cards-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* desktop: the play button sits just above the text, as in Figma */
+  .video-cards .video-cards-card {
+    justify-content: flex-end;
+  }
+
+  .video-cards .video-cards-body {
+    margin-top: 0;
+  }
+}

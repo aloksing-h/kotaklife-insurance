@@ -56,6 +56,10 @@
             {
               "name": "Claim Banner",
               "value": "claim-banner"
+            },
+            {
+              "name": "Life Advisor Banner",
+              "value": "life-advisor-banner"
             }
           ]
         },

@@ -20,7 +20,7 @@ const VIDEO_MIME = {
   mp4: 'video/mp4', m4v: 'video/mp4', webm: 'video/webm', ogv: 'video/ogg', mov: 'video/quicktime',
 };
 
-function toUrl(href) {
+export function toUrl(href) {
   try {
     return href ? new URL(href, window.location.href) : null;
   } catch (e) {
@@ -57,15 +57,16 @@ function getEmbedSrc(url) {
 }
 
 /**
- * Creates the player for one testimonial.
+ * Creates the player for one testimonial (also used by the Video Cards block).
  * @param {{ url: URL, title: string, poster: string }} item
+ * @param {string} [prefix] class name prefix of the player and its error message
  * @returns {HTMLElement}
  */
-function createPlayer(item) {
+export function createPlayer(item, prefix = 'video-testimonials') {
   const embed = getEmbedSrc(item.url);
   if (embed) {
     const iframe = document.createElement('iframe');
-    iframe.className = 'video-testimonials-player';
+    iframe.className = `${prefix}-player`;
     iframe.src = embed;
     iframe.title = item.title;
     iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
@@ -73,7 +74,7 @@ function createPlayer(item) {
     return iframe;
   }
   const video = document.createElement('video');
-  video.className = 'video-testimonials-player';
+  video.className = `${prefix}-player`;
   video.controls = true;
   video.playsInline = true;
   video.autoplay = true;
@@ -86,7 +87,7 @@ function createPlayer(item) {
   video.append(source);
   const fail = () => {
     const message = document.createElement('p');
-    message.className = 'video-testimonials-error';
+    message.className = `${prefix}-error`;
     message.setAttribute('role', 'alert');
     message.textContent = UI.error;
     video.replaceWith(message);

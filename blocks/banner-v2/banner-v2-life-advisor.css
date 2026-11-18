@@ -1,0 +1,135 @@
+/*
+ * Banner V2, style "Life Advisor Banner" (life-advisor-banner):
+ * Figma Life advisor, Inner page banners 11291:44012 (mobile 360) / 11291:43984 (desktop 1200).
+ * Builds on the Insurance Guide style (added by banner-v2-life-advisor.js), as the Claim
+ * Banner does. Adjusts the stats (two short lines each, white divider from the shared
+ * banner-v2 stats), the order of stats and CTA on mobile, and the rocket illustration.
+ * Every rule carries both classes, so it wins over the Insurance Guide rules it adjusts.
+ */
+
+/* mobile: only the first stat fits beside the rocket, as in Figma */
+.banner-v2.block.life-advisor-banner.insurance-guide-banner li.banner-v2-stat:not(:first-child) {
+  display: none;
+}
+
+/* stats: Figma 16/20 (mobile) and 18/20 (desktop) semibold, both lines alike;
+   on mobile they come after the CTA */
+.banner-v2.block.life-advisor-banner.insurance-guide-banner ul.banner-v2-stats {
+  flex-wrap: wrap;
+  order: 2;
+  gap: var(--spacing-2xl);
+  max-width: none;
+  margin: var(--spacing-3xl) 0 0;
+}
+
+/* the white divider on the left on every screen (the shared mobile style uses a top line) */
+.banner-v2.block.life-advisor-banner.insurance-guide-banner ul.banner-v2-stats li.banner-v2-stat {
+  gap: 0;
+  padding: 0 0 0 var(--spacing-lg);
+  border-top: 0;
+  border-left: 1.3px solid var(--base-white);
+}
+
+.banner-v2.block.life-advisor-banner.insurance-guide-banner ul.banner-v2-stats li.banner-v2-stat::before {
+  content: none;
+}
+
+.banner-v2.block.life-advisor-banner.insurance-guide-banner :is(.stat-value, .stat-label) {
+  color: var(--base-white);
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--body-1-line-height);
+  letter-spacing: normal;
+  white-space: nowrap;
+}
+
+/* mobile: the CTA comes before the stats */
+.banner-v2.block.life-advisor-banner.insurance-guide-banner .banner-v2-actions {
+  order: 1;
+  margin-top: var(--spacing-2xl);
+}
+
+/* mobile: image 178 x 161 at 166, 262 in the 360 x 439 frame; symbol 231 x 138 at 160, 283 */
+.banner-v2.block.life-advisor-banner.insurance-guide-banner .banner-v2-visual {
+  inset: auto 16px 16px auto;
+  width: 178px;
+  height: 161px;
+}
+
+.banner-v2.block.life-advisor-banner.insurance-guide-banner .banner-v2-visual::before {
+  top: 21px;
+  left: -6px;
+  width: 231px;
+  height: 138px;
+}
+
+@media (width >= 600px) {
+  .banner-v2.block.life-advisor-banner.insurance-guide-banner li.banner-v2-stat:not(:first-child) {
+    display: flex;
+  }
+
+  .banner-v2.block.life-advisor-banner.insurance-guide-banner .banner-v2-visual {
+    inset: auto 24px 0 auto;
+    width: 260px;
+    height: 234px;
+  }
+
+  .banner-v2.block.life-advisor-banner.insurance-guide-banner .banner-v2-visual::before {
+    top: 7px;
+    left: -29px;
+    width: 356px;
+    height: 214px;
+  }
+}
+
+/* desktop: stats 40px under the description, then the CTA 24px under the stats */
+@media (width >= 900px) {
+  .banner-v2.block.life-advisor-banner.insurance-guide-banner :is(.stat-value, .stat-label) {
+    font-size: var(--sub-heading-2-font-size);
+    line-height: var(--sub-heading-2-line-height);
+  }
+
+  .banner-v2.block.life-advisor-banner.insurance-guide-banner ul.banner-v2-stats {
+    order: 1;
+    margin-top: var(--spacing-5xl);
+  }
+
+  .banner-v2.block.life-advisor-banner.insurance-guide-banner .banner-v2-actions {
+    order: 2;
+    margin-top: var(--spacing-3xl);
+  }
+
+  .banner-v2.block.life-advisor-banner.insurance-guide-banner .banner-v2-visual {
+    inset: 190px auto auto calc(100% - 400px);
+    width: 312px;
+    height: 281px;
+  }
+
+  .banner-v2.block.life-advisor-banner.insurance-guide-banner .banner-v2-visual::before {
+    top: 8px;
+    left: -35px;
+    width: 427px;
+    height: 257px;
+  }
+}
+
+/* desktop 1200: image 446 x 402 at 657, 127 (it runs past the bottom edge, as in Figma);
+   symbol 610 x 367 at 607, 139 */
+@media (width >= 1200px) {
+  .banner-v2.block.life-advisor-banner.insurance-guide-banner .banner-v2-visual {
+    inset: 127px auto auto calc(100% - 543px);
+    width: 446px;
+    height: 402px;
+  }
+
+  .banner-v2.block.life-advisor-banner.insurance-guide-banner .banner-v2-visual::before {
+    top: 12px;
+    left: -50px;
+    width: 610px;
+    height: 367px;
+  }
+
+  .banner-v2.block.life-advisor-banner.insurance-guide-banner .banner-v2-visual img {
+    object-position: left top;
+  }
+}

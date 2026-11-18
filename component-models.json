@@ -1240,6 +1240,10 @@
           {
             "name": "Claim Banner",
             "value": "claim-banner"
+          },
+          {
+            "name": "Life Advisor Banner",
+            "value": "life-advisor-banner"
           }
         ]
       },
@@ -3178,6 +3182,134 @@
             }
           ]
         }
+      }
+    ]
+  },
+  {
+    "id": "earning-chart",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading as Heading 2 (bold words are shown heavier) followed by a short description",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "avatars",
+        "label": "Advisor photos",
+        "description": "Optional. A small strip of advisor photos shown before the figure below",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "avatarsAlt",
+        "label": "Advisor photos alt text",
+        "description": "Leave empty when the photos are decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "avatarsMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "proof_value",
+        "label": "Figure",
+        "description": "For example: 2.5K+",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "proof_label",
+        "label": "Figure label",
+        "description": "For example: New advisors / month",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "highlight_value",
+        "label": "Highlight value",
+        "description": "For example: 3X",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "highlight_heading",
+        "label": "Highlight heading",
+        "description": "For example: growth potential",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "highlight_note",
+        "label": "Highlight note",
+        "description": "For example: As your client base increases",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "earning-chart-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tooltip_amount",
+        "label": "Amount",
+        "description": "Shown above the bar, for example: ₹10K–30K/Month",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tooltip_note",
+        "label": "Amount note",
+        "description": "For example: Earn on every policy you sell",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "axis_year",
+        "label": "Year",
+        "description": "Shown below the bar, for example: Year 1",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "axis_stage",
+        "label": "Stage",
+        "description": "For example: Start your journey",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "bar_height",
+        "label": "Bar height (%)",
+        "description": "Optional, 10 to 100 (the tallest bar is 100). Leave empty to rise evenly from column to column",
+        "min": 10,
+        "max": 100
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "bar_highlighted",
+        "label": "Highlighted",
+        "description": "Shows this column in the dark highlight colour when the page loads (Figma: Year 2)",
+        "value": false
       }
     ]
   },
@@ -6845,6 +6977,24 @@
     "id": "rider-cards",
     "fields": [
       {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "label": "Style",
+        "description": "Default: a carousel on desktop and a list with Show More on mobile. Grid: three columns on desktop and a swipe carousel on mobile",
+        "value": "",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Grid",
+            "value": "grid"
+          }
+        ]
+      },
+      {
         "component": "richtext",
         "name": "text",
         "label": "Heading & Subtitle",
@@ -7027,6 +7177,61 @@
         "name": "hintPhrases",
         "label": "Hint Phrases",
         "description": "Optional: one phrase per bullet; they rotate in the empty search field every 5 seconds"
+      }
+    ]
+  },
+  {
+    "id": "stats-visual",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading as Heading 2 (bold words are shown heavier) followed by a short description",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Visual",
+        "description": "Shown beside the text on desktop and below it on mobile",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Visual alt text",
+        "description": "Describe the visual, or leave empty when it is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      }
+    ]
+  },
+  {
+    "id": "stats-visual-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "value",
+        "label": "Value",
+        "description": "For example: 1 Lakh, 25+, ₹5 Lakh +",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Label",
+        "description": "For example: Advisors empowered",
+        "value": ""
       }
     ]
   },
@@ -7529,6 +7734,67 @@
         "label": "Mobile Intro Video (plays once before the loop)",
         "valueType": "string",
         "multi": false
+      }
+    ]
+  },
+  {
+    "id": "video-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading as Heading 2 (bold words are shown heavier) followed by a short description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "video-cards-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Thumbnail",
+        "description": "Shown behind the text, darkened and softly blurred as in the design",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Thumbnail alt text",
+        "description": "Leave empty: the card title already names the video",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "video",
+        "label": "Video",
+        "description": "A video from the DAM (mp4, webm) or a YouTube or Vimeo link. It plays in a dialog when the play button is used"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "description": "For example: Kotak - Life Advisor connect - referral program",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description",
+        "value": ""
       }
     ]
   },

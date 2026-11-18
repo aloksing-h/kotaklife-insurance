@@ -480,4 +480,10 @@ export default async function decorate(block) {
     const { default: decorateClaim } = await import('./banner-v2-claim.js');
     await decorateClaim(block);
   }
+
+  // Life Advisor Banner style: the inner page banner with stats and a CTA
+  if (block.classList.contains('life-advisor-banner')) {
+    const { default: decorateLifeAdvisor } = await import('./banner-v2-life-advisor.js');
+    await decorateLifeAdvisor(block);
+  }
 }
