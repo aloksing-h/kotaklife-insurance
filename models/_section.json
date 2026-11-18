@@ -617,7 +617,10 @@
         "category-cards",
         "author-card",
         "branch-locator",
-        "blog-navigation"
+        "blog-navigation",
+        "contact-help",
+        "contact-form",
+        "claim-options"
       ]
     }
   ]

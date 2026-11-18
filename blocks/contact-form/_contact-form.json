@@ -74,6 +74,10 @@
             {
               "name": "General enquiry",
               "value": "enquiry"
+            },
+            {
+              "name": "Group claim tracking",
+              "value": "group-claim"
             }
           ]
         },
@@ -124,6 +128,10 @@
             {
               "name": "Message (multi-line text)",
               "value": "textarea"
+            },
+            {
+              "name": "Date (dd/mm/yyyy, with calendar)",
+              "value": "date"
             },
             {
               "name": "Dropdown",
@@ -208,7 +216,7 @@
           "valueType": "string",
           "name": "error_invalid",
           "label": "Error message when the format is wrong",
-          "description": "For email, mobile number and pincode fields, and text fields named fullName, firstName, lastName or name. Needs the message above",
+          "description": "For email, mobile number, pincode and date fields, and text fields named fullName, firstName, lastName or name. Needs the message above",
           "value": ""
         }
       ]
