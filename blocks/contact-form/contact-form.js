@@ -7,6 +7,7 @@
  */
 
 import { moveInstrumentation } from '../../scripts/scripts.js';
+import { loadCSS } from '../../scripts/aem.js';
 import { submitForm } from './form-submission.js';
 
 // interface wording used when the author gives no message
@@ -20,8 +21,10 @@ const UI = {
     email: 'Please enter a valid email address',
     tel: 'Please enter a valid 10-digit mobile number',
     pincode: 'Please enter a valid 6-digit pincode',
+    date: 'Please enter a valid past date as dd/mm/yyyy',
   },
   requiredNote: '(required)',
+  calendar: (label) => `Choose ${label} from a calendar`,
   close: 'Close form',
   sending: 'Sending your details',
   pending: 'Your details are complete, but online submission is not connected yet, so they have not been sent. Please try again later or call us.',
@@ -29,9 +32,9 @@ const UI = {
   failure: 'Sorry, we could not send your details. Please try again.',
 };
 
-const TYPES = ['text', 'email', 'tel', 'pincode', 'textarea', 'select', 'radio', 'checkbox', 'consent'];
+const TYPES = ['text', 'email', 'tel', 'pincode', 'date', 'textarea', 'select', 'radio', 'checkbox', 'consent'];
 const SETTINGS = ['required', 'half', 'third'];
-const PROFILES = ['life-advisor', 'callback', 'enquiry'];
+const PROFILES = ['life-advisor', 'callback', 'enquiry', 'group-claim'];
 const CHOICE_TYPES = ['radio', 'checkbox', 'consent'];
 
 // a person's name: letters (any script), spaces, dots, apostrophes and hyphens
@@ -45,6 +48,14 @@ const RULES = {
   // Indian mobile numbers: 10 digits starting 6-9, optionally after +91 or 0
   tel: (value) => /^(?:\+?91|0)?[6-9]\d{9}$/.test(value.replace(/[\s-]/g, '')),
   pincode: (value) => /^[1-9]\d{5}$/.test(value.replace(/\s/g, '')),
+  // dd/mm/yyyy: a real calendar date, from 1900 up to today
+  date: (value) => {
+    const [, day, month, year] = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/) || [];
+    if (!day) return false;
+    const date = new Date(Number(year), Number(month) - 1, Number(day));
+    return date.getDate() === Number(day) && date.getMonth() === Number(month) - 1
+      && Number(year) >= 1900 && date <= new Date();
+  },
 };
 
 const AUTOCOMPLETE = {
@@ -156,6 +167,51 @@ function buildError(id) {
 }
 
 /**
+ * Date field: typed as dd/mm/yyyy (the slashes are added while typing) or picked from the
+ * shared Flatpickr calendar (scripts/date-picker.js), which loads on first use only.
+ * @param {HTMLInputElement} input
+ * @param {HTMLButtonElement} toggle the calendar button
+ * @param {HTMLElement} box the field box, where the calendar opens
+ */
+function setupDateField(input, toggle, box) {
+  box.classList.add('date-field');
+  let loading;
+  let picker;
+  const ready = () => {
+    loading ||= import('../../scripts/date-picker.js')
+      .then(({ default: initDatePicker }) => initDatePicker(input, {
+        dateFormat: 'd/m/Y',
+        altInput: false,
+        allowInput: true,
+        minDate: '01/01/1900',
+        maxDate: 'today',
+      }))
+      .then((instance) => {
+        picker = instance;
+        return instance;
+      });
+    return loading;
+  };
+
+  input.addEventListener('input', () => {
+    const digits = input.value.replace(/\D/g, '').slice(0, 8);
+    const value = [digits.slice(0, 2), digits.slice(2, 4), digits.slice(4)].filter(Boolean).join('/');
+    if (value !== input.value) input.value = value;
+  });
+  input.addEventListener('focus', ready, { once: true });
+  toggle.addEventListener('click', async () => {
+    (await ready())?.toggle();
+  });
+  // Escape closes the calendar first, not the whole form
+  box.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !picker?.isOpen) return;
+    picker.close();
+    event.stopPropagation();
+    toggle.focus();
+  });
+}
+
+/**
  * Builds the control of one field.
  * @param {object} field
  * @param {string} id
@@ -246,6 +302,11 @@ function buildControl(field, id) {
     if (field.type === 'tel' || field.type === 'pincode') control.inputMode = 'numeric';
     if (field.type === 'pincode') control.maxLength = 6;
     if (field.type === 'tel') control.maxLength = 16;
+    if (field.type === 'date') {
+      control.inputMode = 'numeric';
+      control.maxLength = 10;
+      control.autocomplete = 'off';
+    }
     const autocomplete = AUTOCOMPLETE[field.type] || (/name/i.test(field.name) ? 'name' : '');
     if (autocomplete) control.autocomplete = autocomplete;
   }
@@ -266,6 +327,21 @@ function buildControl(field, id) {
   box.className = 'contact-form-box';
   box.append(control, label);
   if (field.type === 'select') box.append(icon('chevron'));
+  if (field.type === 'date') {
+    // the expected format is read out with the field
+    const hint = document.createElement('span');
+    hint.className = 'contact-form-visually-hidden';
+    hint.id = `${id}-hint`;
+    hint.textContent = 'dd/mm/yyyy';
+    control.setAttribute('aria-describedby', `${hint.id} ${error.id}`);
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'contact-form-calendar';
+    toggle.setAttribute('aria-label', UI.calendar(field.label));
+    toggle.append(icon('calendar'));
+    box.append(toggle, hint);
+    setupDateField(control, toggle, box);
+  }
   wrapper.append(box, error);
   return { element: wrapper, controls: [control], error };
 }
@@ -429,6 +505,10 @@ export default function decorate(block) {
     return field;
   });
   form.append(list);
+  // the calendar styles are only needed by forms with a date field
+  if (fields.some((field) => field.type === 'date')) {
+    loadCSS(`${window.hlx.codeBasePath}/blocks/contact-form/contact-form-date.css`);
+  }
 
   // button and the message shown after submitting
   const button = document.createElement('button');

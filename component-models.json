@@ -1236,6 +1236,10 @@
           {
             "name": "Fund Performance Banner",
             "value": "fund-performance-banner"
+          },
+          {
+            "name": "Claim Banner",
+            "value": "claim-banner"
           }
         ]
       },
@@ -2117,6 +2121,83 @@
     ]
   },
   {
+    "id": "claim-options",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading as Heading 2 (bold words are shown heavier) followed by a short description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "claim-options-card",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "type",
+        "label": "Card type",
+        "description": "File a claim: the large card with points. Track a claim: option tiles (Individual, Group). Update a claim: the small card with a button",
+        "value": "file",
+        "options": [
+          {
+            "name": "File a claim",
+            "value": "file"
+          },
+          {
+            "name": "Track a claim",
+            "value": "track"
+          },
+          {
+            "name": "Update a claim",
+            "value": "update"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration",
+        "description": "Optional. Shown at the bottom right (File a claim) or top right (Track a claim)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Illustration alt text",
+        "description": "Leave empty when the illustration is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Title and description",
+        "description": "Card title as Heading 3, a short description and, for File a claim, a bullet list of points",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "actions",
+        "label": "Links",
+        "description": "File and Update cards: one link, shown as a button. Track card: one link per option, for example Individual and Group. Link to #group-claim to open the Track group claim form in place",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "columns",
     "fields": [
       {
@@ -2374,6 +2455,10 @@
           {
             "name": "General enquiry",
             "value": "enquiry"
+          },
+          {
+            "name": "Group claim tracking",
+            "value": "group-claim"
           }
         ]
       },
@@ -2424,6 +2509,10 @@
           {
             "name": "Message (multi-line text)",
             "value": "textarea"
+          },
+          {
+            "name": "Date (dd/mm/yyyy, with calendar)",
+            "value": "date"
           },
           {
             "name": "Dropdown",
@@ -2508,7 +2597,7 @@
         "valueType": "string",
         "name": "error_invalid",
         "label": "Error message when the format is wrong",
-        "description": "For email, mobile number and pincode fields, and text fields named fullName, firstName, lastName or name. Needs the message above",
+        "description": "For email, mobile number, pincode and date fields, and text fields named fullName, firstName, lastName or name. Needs the message above",
         "value": ""
       }
     ]
@@ -2516,6 +2605,24 @@
   {
     "id": "contact-help",
     "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "label": "Style",
+        "description": "Default: Contact Us page. Claim: Claims page spacing",
+        "value": "",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Claim",
+            "value": "claim-help"
+          }
+        ]
+      },
       {
         "component": "richtext",
         "valueType": "string",

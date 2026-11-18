@@ -1,0 +1,527 @@
+/*
+ * Claim Options: Claims page "Track/update claim section".
+ * Figma 11104:14496 (desktop 1100) / 11104:14619 (mobile 328); form open: 11104:14504 / 11104:14634.
+ */
+
+/* space above the section, as in Figma (sections cannot set their spacing in this project) */
+main > .section.claim-options-container {
+  margin-top: 60px;
+}
+
+@media (width >= 900px) {
+  main > .section.claim-options-container {
+    margin-top: 90px;
+  }
+}
+
+.claim-options {
+  /* colors */
+  --claim-options-color-heading: var(--text-primary);
+  --claim-options-color-body: var(--text-tertiary);
+  --claim-options-color-file: var(--blue-25);
+  --claim-options-color-card: var(--base-white);
+  --claim-options-color-border: var(--border-secondary);
+  --claim-options-color-choice: var(--blue-25);
+  --claim-options-color-choice-border: var(--brand-blue-50);
+  --claim-options-color-accent: var(--brand-red-600);
+  --claim-options-color-white: var(--base-white);
+  --claim-options-color-focus: var(--info-500);
+  --claim-options-glow-track: var(--blue-100);
+  --claim-options-glow-update: var(--brand-red-50);
+
+  /* typography */
+  --claim-options-title-size: var(--heading-3-font-size);
+  --claim-options-title-line: var(--heading-3-line-height);
+  --claim-options-title-tracking: var(--heading-3-letter-spacing);
+  --claim-options-lead-size: var(--body-2-font-size);
+  --claim-options-lead-line: var(--body-2-line-height);
+  --claim-options-card-title-size: var(--body-1-font-size);
+  --claim-options-card-title-line: var(--body-1-line-height);
+  --claim-options-file-title-size: var(--body-1-font-size);
+  --claim-options-file-title-line: var(--body-1-line-height);
+  --claim-options-text-size: var(--caption-font-size);
+  --claim-options-text-line: var(--caption-line-height);
+  --claim-options-point-line: 16px;
+
+  /* spacing and sizes */
+  --claim-options-header-space: 30px;
+  --claim-options-gap: var(--spacing-xl);
+  --claim-options-padding: var(--spacing-xl);
+  --claim-options-file-padding: var(--spacing-xl);
+  --claim-options-title-gap: var(--spacing-xs);
+  --claim-options-file-title-gap: var(--spacing-xs);
+  --claim-options-points-space: var(--spacing-xl);
+  --claim-options-point-icon: 16px;
+  --claim-options-file-action-space: var(--spacing-xl);
+  --claim-options-update-action-space: var(--spacing-lg);
+  --claim-options-radius: var(--radius-md);
+  --claim-options-motion: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-family: var(--heading-font-family);
+}
+
+.claim-options :is(a, button):focus-visible {
+  outline: 2px solid var(--claim-options-color-focus);
+  outline-offset: 2px;
+}
+
+/* icons */
+.claim-options .claim-options-icon {
+  display: block;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  background-color: currentcolor;
+  mask: var(--claim-options-icon-image) center / contain no-repeat;
+}
+
+.claim-options .claim-options-icon-arrow {
+  --claim-options-icon-image: url('../../icons/write-arrow-right.svg');
+}
+
+.claim-options .claim-options-icon-chevron {
+  --claim-options-icon-image: url('../../icons/chevron-right.svg');
+}
+
+/* the person icons keep their own red, as in Figma */
+.claim-options .claim-options-icon-individual,
+.claim-options .claim-options-icon-group {
+  width: 40px;
+  height: 40px;
+  background: var(--claim-options-icon-image) center / 24px no-repeat;
+  mask: none;
+}
+
+.claim-options .claim-options-icon-individual {
+  --claim-options-icon-image: url('../../icons/user-red.svg');
+}
+
+.claim-options .claim-options-icon-group {
+  --claim-options-icon-image: url('../../icons/user-group-red.svg');
+}
+
+/* heading and description */
+.claim-options .claim-options-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--claim-options-header-space);
+}
+
+.claim-options .claim-options-title {
+  margin: 0;
+  color: var(--claim-options-color-heading);
+  font-size: var(--claim-options-title-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--claim-options-title-line);
+  letter-spacing: var(--claim-options-title-tracking);
+}
+
+.claim-options .claim-options-title :is(strong, b) {
+  font-weight: var(--font-weight-semibold);
+}
+
+.claim-options .claim-options-lead > * {
+  margin: 0;
+  color: var(--claim-options-color-body);
+  font-size: var(--claim-options-lead-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--claim-options-lead-line);
+}
+
+/* cards */
+.claim-options .claim-options-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--claim-options-gap);
+}
+
+.claim-options .claim-options-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  /* Figma's 1px stroke sits inside the card, so it comes off the padding */
+  padding: calc(var(--claim-options-padding) - 1px);
+  border: 1px solid var(--claim-options-color-border);
+  border-radius: var(--claim-options-radius);
+  background-color: var(--claim-options-color-card);
+}
+
+.claim-options .claim-options-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--claim-options-title-gap);
+}
+
+.claim-options .claim-options-content > * {
+  margin: 0;
+}
+
+.claim-options .claim-options-card-title {
+  color: var(--claim-options-color-heading);
+  font-size: var(--claim-options-card-title-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--claim-options-card-title-line);
+}
+
+.claim-options .claim-options-description {
+  color: var(--claim-options-color-body);
+  font-size: var(--claim-options-text-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--claim-options-text-line);
+}
+
+.claim-options .claim-options-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+}
+
+/* File a claim: the large card with points and an illustration at the bottom right */
+.claim-options .claim-options-file {
+  min-height: 236px;
+  padding: calc(var(--claim-options-file-padding) - 1px);
+  border-color: transparent;
+  background-color: var(--claim-options-color-file);
+}
+
+.claim-options .claim-options-file .claim-options-content {
+  gap: var(--claim-options-file-title-gap);
+}
+
+.claim-options .claim-options-file .claim-options-card-title {
+  font-size: var(--claim-options-file-title-size);
+  line-height: var(--claim-options-file-title-line);
+}
+
+.claim-options .claim-options-content > .claim-options-points {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: calc(var(--claim-options-points-space) - var(--claim-options-file-title-gap));
+  padding: 0;
+  list-style: none;
+}
+
+.claim-options .claim-options-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  color: var(--claim-options-color-heading);
+  font-size: var(--claim-options-text-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--claim-options-point-line);
+}
+
+.claim-options .claim-options-points li::before {
+  flex: none;
+  width: var(--claim-options-point-icon);
+  height: var(--claim-options-point-icon);
+  background: url('../../icons/check-circle-red.svg') center / contain no-repeat;
+  content: '';
+}
+
+.claim-options .claim-options-file .claim-options-actions {
+  margin-top: var(--claim-options-file-action-space);
+}
+
+.claim-options .claim-options-file .claim-options-illustration {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 148px;
+  height: 110px;
+}
+
+/* Track a claim: option tiles, with the illustration between the text and the tiles */
+.claim-options .claim-options-track {
+  min-height: 350px;
+  background:
+    radial-gradient(110% 70% at 100% 100%, var(--claim-options-glow-track) 0%, transparent 70%),
+    var(--claim-options-color-card);
+}
+
+.claim-options .claim-options-track .claim-options-illustration {
+  order: 1;
+  align-self: flex-end;
+  width: 164px;
+  height: 110px;
+  margin: 6px calc(-1 * var(--claim-options-padding)) 0 0;
+}
+
+.claim-options .claim-options-choices {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  order: 2;
+  gap: var(--spacing-xl);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.claim-options .claim-options-choice {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 74px;
+  margin: 0;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  border: 1px solid var(--claim-options-color-choice-border);
+  border-radius: var(--claim-options-radius);
+  background-color: var(--claim-options-color-choice);
+  color: var(--claim-options-color-heading);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--claim-options-motion), box-shadow var(--claim-options-motion);
+}
+
+.claim-options .claim-options-choice:hover {
+  border-color: var(--claim-options-color-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.claim-options .claim-options-choice-label {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--body-1-line-height);
+}
+
+.claim-options .claim-options-chevron {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background-color: var(--claim-options-color-white);
+  color: var(--claim-options-color-accent);
+}
+
+.claim-options .claim-options-chevron .claim-options-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Update a claim: the small card with a button */
+.claim-options .claim-options-update {
+  background:
+    radial-gradient(60% 120% at 85% 50%, var(--claim-options-glow-update) 0%, transparent 70%),
+    var(--claim-options-color-card);
+}
+
+.claim-options .claim-options-update .claim-options-content {
+  gap: var(--spacing-xxs);
+}
+
+.claim-options .claim-options-update .claim-options-actions {
+  margin-top: var(--claim-options-update-action-space);
+}
+
+/* illustrations */
+.claim-options .claim-options-illustration picture,
+.claim-options .claim-options-illustration img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.claim-options .claim-options-illustration img {
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+/* pill button: label and arrow, outlined in red */
+.claim-options .claim-options-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  height: 38px;
+  padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-xl);
+  border: 1px solid var(--claim-options-color-accent);
+  border-radius: var(--radius-full);
+  background-color: var(--claim-options-color-white);
+  color: var(--claim-options-color-accent);
+  font-size: var(--button-2-font-size);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--button-2-line-height);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: gap var(--claim-options-motion);
+}
+
+.claim-options .claim-options-button:hover {
+  gap: var(--spacing-lg);
+  color: var(--claim-options-color-accent);
+  text-decoration: none;
+}
+
+.claim-options .claim-options-button-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  background-color: var(--claim-options-color-accent);
+  color: var(--claim-options-color-white);
+  transition: background-color var(--claim-options-motion);
+}
+
+.claim-options .claim-options-button:hover .claim-options-button-arrow {
+  background-color: var(--base-black);
+}
+
+.claim-options .claim-options-button-arrow .claim-options-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* the Track group claim form (Contact Form block) takes the Track card's place */
+.claim-options .claim-options-form {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.claim-options .claim-options-form:not(:has(.contact-form:not([hidden]))) {
+  display: none;
+}
+
+.claim-options.claim-options-form-open .claim-options-track {
+  display: none;
+}
+
+/* Figma: the close cross is red, like its ring */
+.claim-options .claim-options-form .contact-form-close .contact-form-icon {
+  background-color: currentcolor;
+}
+
+@media (width >= 900px) {
+  .claim-options {
+    --claim-options-title-size: var(--heading-1-font-size);
+    --claim-options-title-line: var(--heading-1-line-height);
+    --claim-options-title-tracking: normal;
+    --claim-options-lead-size: var(--body-1-font-size);
+    --claim-options-lead-line: var(--body-1-line-height);
+    --claim-options-card-title-size: var(--sub-heading-2-font-size);
+    --claim-options-card-title-line: var(--sub-heading-2-line-height);
+    --claim-options-file-title-size: var(--sub-heading-1-font-size);
+    --claim-options-file-title-line: var(--sub-heading-1-line-height);
+    --claim-options-text-size: var(--body-2-font-size);
+    --claim-options-text-line: var(--body-2-line-height);
+    --claim-options-point-line: 20px;
+    --claim-options-point-icon: 20px;
+    --claim-options-header-space: var(--spacing-5xl);
+    --claim-options-file-padding: var(--spacing-3xl);
+    --claim-options-title-gap: var(--spacing-xxs);
+    --claim-options-file-title-gap: var(--spacing-md);
+    --claim-options-file-action-space: var(--spacing-3xl);
+    --claim-options-update-action-space: var(--spacing-md);
+  }
+
+  .claim-options .claim-options-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+  }
+
+  .claim-options .claim-options-title {
+    max-width: 633px;
+  }
+
+  .claim-options .claim-options-lead {
+    max-width: 353px;
+    text-align: right;
+  }
+
+  /* File a claim on the left over two rows; Track and Update stacked on the right */
+  .claim-options .claim-options-body {
+    display: grid;
+    grid-template-columns: minmax(0, 633fr) minmax(0, 447fr);
+    gap: var(--spacing-xl) var(--spacing-2xl);
+  }
+
+  .claim-options .claim-options-file {
+    grid-row: span 2;
+    min-height: 292px;
+  }
+
+  .claim-options .claim-options-file .claim-options-content {
+    max-width: min(376px, 62%);
+  }
+
+  .claim-options .claim-options-file .claim-options-illustration {
+    top: 0;
+    width: min(319px, 52%);
+    height: 100%;
+  }
+
+  .claim-options .claim-options-track {
+    min-height: 158px;
+    background:
+      radial-gradient(80% 90% at 100% 100%, var(--claim-options-glow-track) 0%, transparent 70%),
+      var(--claim-options-color-card);
+  }
+
+  .claim-options .claim-options-track .claim-options-content {
+    max-width: calc(100% - 120px);
+  }
+
+  .claim-options .claim-options-track .claim-options-illustration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 110px;
+    height: 68px;
+    margin: 0;
+  }
+
+  .claim-options .claim-options-track .claim-options-illustration img {
+    object-position: right top;
+  }
+
+  /* side by side from the 1200 design width; stacked when a tile would get too narrow */
+  .claim-options .claim-options-choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+
+  .claim-options .claim-options-update {
+    min-height: 118px;
+  }
+
+  .claim-options .claim-options-form {
+    grid-column: 1 / -1;
+  }
+
+  /* on desktop the form takes the place of all three cards */
+  .claim-options.claim-options-form-open .claim-options-card {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .claim-options .claim-options-button,
+  .claim-options .claim-options-button-arrow,
+  .claim-options .claim-options-choice {
+    transition: none;
+  }
+}

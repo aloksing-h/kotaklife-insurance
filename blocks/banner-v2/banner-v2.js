@@ -474,4 +474,10 @@ export default async function decorate(block) {
     const { default: decorateContactUs } = await import('./banner-v2-contact-us.js');
     await decorateContactUs(block);
   }
+
+  // Claim Banner style: the Insurance Guide inner page banner with a CTA
+  if (block.classList.contains('claim-banner')) {
+    const { default: decorateClaim } = await import('./banner-v2-claim.js');
+    await decorateClaim(block);
+  }
 }

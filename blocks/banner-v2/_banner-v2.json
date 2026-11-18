@@ -52,6 +52,10 @@
             {
               "name": "Fund Performance Banner",
               "value": "fund-performance-banner"
+            },
+            {
+              "name": "Claim Banner",
+              "value": "claim-banner"
             }
           ]
         },

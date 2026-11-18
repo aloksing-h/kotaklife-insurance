@@ -9,6 +9,17 @@ main>.section.contact-help-container {
   }
 }
 
+/* Claim style: Claims page spacing, 90px (mobile) / 140px (desktop) above the section */
+main>.section.contact-help-container:has(.contact-help.claim-help) {
+  margin-top: 90px;
+}
+
+@media (width >=900px) {
+  main>.section.contact-help-container:has(.contact-help.claim-help) {
+    margin-top: 140px;
+  }
+}
+
 .contact-help {
   /* colors */
   --contact-help-color-heading: var(--text-primary);

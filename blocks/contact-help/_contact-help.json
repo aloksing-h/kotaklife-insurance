@@ -38,6 +38,24 @@
       "id": "contact-help",
       "fields": [
         {
+          "component": "select",
+          "valueType": "string",
+          "name": "classes",
+          "label": "Style",
+          "description": "Default: Contact Us page. Claim: Claims page spacing",
+          "value": "",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Claim",
+              "value": "claim-help"
+            }
+          ]
+        },
+        {
           "component": "richtext",
           "valueType": "string",
           "name": "text",
