@@ -60,6 +60,8 @@ const profiles = {
   'life-advisor': {},
   callback: {},
   enquiry: {},
+  // Claims page, Track group claim: endpoint to be confirmed by KLI (VBRD Claims C6)
+  'group-claim': {},
 };
 
 /**

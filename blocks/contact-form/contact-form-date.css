@@ -1,0 +1,306 @@
+/*
+ * Contact Form: date field (Field type "Date") and its Flatpickr calendar.
+ * Loaded by contact-form.js only for forms with a date field.
+ * Figma: Claims, Track group claim, "DOB of Life Insured" (11104:14504 / 11104:14634).
+ */
+
+.contact-form .contact-form-field-date .contact-form-input {
+  padding-right: calc(var(--contact-form-field-padding) + 28px);
+}
+
+.contact-form .contact-form-field-date .flatpickr-wrapper {
+  display: block;
+  width: 100%;
+}
+
+/* calendar button inside the field, on the right */
+.contact-form .contact-form-calendar {
+  position: absolute;
+  top: 50%;
+  right: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: none;
+  color: var(--contact-form-color-label);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.contact-form .contact-form-calendar .contact-form-icon {
+  --contact-form-icon-image: url('../../icons/calendar-fm.svg');
+
+  background-color: currentcolor;
+}
+
+.contact-form .contact-form-calendar:hover {
+  color: var(--contact-form-color-input);
+}
+
+/* calendar panel */
+.contact-form .contact-form-field-date .flatpickr-calendar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+  box-sizing: border-box;
+  width: 320px;
+  max-width: min(340px, calc(100vw - 32px));
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-md);
+  overflow: visible;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  background: var(--gray-50);
+  box-shadow: var(--shadow-lg);
+  font-family: var(--contact-form-font-family);
+}
+
+.contact-form .contact-form-field-date .flatpickr-calendar::before,
+.contact-form .contact-form-field-date .flatpickr-calendar::after {
+  display: none;
+}
+
+.contact-form .contact-form-field-date .flatpickr-months {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  overflow: visible;
+}
+
+.contact-form .contact-form-field-date .flatpickr-months .flatpickr-month {
+  position: relative;
+  flex: 1;
+  height: auto;
+  overflow: visible;
+}
+
+.contact-form .contact-form-field-date .flatpickr-current-month {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  width: auto;
+  height: auto;
+  padding: 0;
+  overflow: visible;
+  transform: none;
+}
+
+.contact-form .contact-form-field-date .flatpickr-months :is(.flatpickr-prev-month, .flatpickr-next-month) {
+  position: static;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-full);
+  background-color: var(--base-white);
+  cursor: pointer;
+}
+
+.contact-form .contact-form-field-date .flatpickr-months :is(.flatpickr-prev-month, .flatpickr-next-month) svg {
+  display: none;
+}
+
+.contact-form .contact-form-field-date .flatpickr-months :is(.flatpickr-prev-month, .flatpickr-next-month)::before {
+  width: 4px;
+  height: 6px;
+  background: url('../../icons/calendar-prev-icon.svg') center / contain no-repeat;
+  content: '';
+}
+
+.contact-form .contact-form-field-date .flatpickr-months .flatpickr-next-month::before {
+  background-image: url('../../icons/calendar-next-icon.svg');
+}
+
+/* month and year: the shared custom dropdowns of scripts/date-picker.js */
+.contact-form .contact-form-field-date .custom-header-dropdown {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+}
+
+.contact-form .contact-form-field-date .custom-header-dropdown.is-open {
+  z-index: 100;
+}
+
+.contact-form .contact-form-field-date .custom-header-dropdown select {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip-path: inset(50%);
+}
+
+.contact-form .contact-form-field-date .custom-header-trigger {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  padding: 3px 24px 3px var(--spacing-md);
+  border: 1px solid var(--base-white);
+  border-radius: var(--radius-xxs);
+  background: var(--base-white) url('../../icons/calendar-dropdown-icon.svg') calc(100% - 8px) center / 8px 5px no-repeat;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--caption-line-height);
+  white-space: nowrap;
+  cursor: pointer;
+  appearance: none;
+}
+
+.contact-form .contact-form-field-date .custom-header-trigger:hover,
+.contact-form .contact-form-field-date .custom-header-dropdown.is-open .custom-header-trigger {
+  border-color: var(--brand-red-200);
+}
+
+.contact-form .contact-form-field-date .custom-header-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 1000;
+  display: none;
+  min-width: 90px;
+  max-height: 200px;
+  margin: 0;
+  padding: var(--spacing-sm) 0;
+  overflow-y: auto;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  background-color: var(--base-white);
+  box-shadow: var(--shadow-lg);
+  list-style: none;
+}
+
+.contact-form .contact-form-field-date .custom-header-dropdown.is-open .custom-header-menu {
+  display: block;
+}
+
+.contact-form .contact-form-field-date .custom-header-option {
+  padding: var(--spacing-sm);
+  color: var(--text-primary);
+  font-size: var(--caption-font-size);
+  line-height: var(--caption-line-height);
+  text-align: left;
+  cursor: pointer;
+}
+
+.contact-form .contact-form-field-date .custom-header-option:hover {
+  background-color: var(--gray-50);
+}
+
+.contact-form .contact-form-field-date .custom-header-option.is-selected {
+  color: var(--brand-red-500);
+  font-weight: var(--font-weight-medium);
+}
+
+/* weekdays and days */
+.contact-form .contact-form-field-date .flatpickr-weekdays {
+  display: block;
+  height: auto;
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-form .contact-form-field-date .flatpickr-weekdaycontainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.contact-form .contact-form-field-date span.flatpickr-weekday {
+  height: auto;
+  color: var(--text-primary);
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--caption-line-height);
+  text-align: center;
+}
+
+/* stylelint-disable selector-class-pattern -- Flatpickr's own class names */
+.contact-form .contact-form-field-date :is(.flatpickr-rContainer, .flatpickr-days) {
+  width: 100%;
+}
+
+.contact-form .contact-form-field-date :is(.flatpickr-days > div, .dayContainer) {
+  /* Flatpickr sets pixel widths inline on .dayContainer */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-xs) var(--spacing-sm);
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+}
+
+.contact-form .contact-form-field-date .flatpickr-day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  height: 24px;
+  margin: 0;
+  border: 0;
+  border-radius: var(--radius-xs);
+  background-color: var(--base-white);
+  color: var(--text-primary);
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-regular);
+  line-height: 24px;
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+}
+
+.contact-form .contact-form-field-date .flatpickr-day:is(:hover, :focus) {
+  background-color: var(--brand-red-25);
+  color: var(--brand-red-600);
+}
+
+.contact-form .contact-form-field-date .flatpickr-day:is(.prevMonthDay, .nextMonthDay) {
+  background-color: transparent;
+  color: var(--gray-500);
+  box-shadow: none;
+}
+
+.contact-form .contact-form-field-date .flatpickr-day.flatpickr-disabled {
+  background-color: transparent;
+  color: var(--gray-300);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+/* stylelint-enable selector-class-pattern */
+
+.contact-form .contact-form-field-date .flatpickr-day.selected {
+  background-color: var(--brand-red-600);
+  color: var(--base-white);
+  font-weight: var(--font-weight-medium);
+}
+
+.contact-form .contact-form-field-date .flatpickr-day.today:not(.selected) {
+  border: 1px solid var(--brand-red-200);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-form .contact-form-field-date .flatpickr-calendar {
+    animation: none;
+  }
+}
