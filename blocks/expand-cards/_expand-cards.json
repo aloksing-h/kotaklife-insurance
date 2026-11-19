@@ -1,0 +1,108 @@
+{
+  "definitions": [
+    {
+      "title": "Expand Cards",
+      "id": "expand-cards",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Expand Cards",
+              "model": "expand-cards",
+              "filter": "expand-cards"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Expand Card",
+      "id": "expand-cards-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Expand Card",
+              "model": "expand-cards-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "expand-cards",
+      "fields": [
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "text",
+          "label": "Heading and description",
+          "description": "Section heading as Heading 2 (bold words are shown heavier) followed by a short description",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "expand-cards-item",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Icon",
+          "description": "Shown on the card when it is closed",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Icon alt text",
+          "description": "Leave empty: the icon is decorative",
+          "value": ""
+        },
+        {
+          "component": "hidden",
+          "name": "imageMimeType",
+          "value": "image/png"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Title",
+          "description": "Shown on the card open or closed, for example: Recognising excellence, Shaping leaders",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "description",
+          "label": "Description",
+          "description": "Shown under the title when the card is open",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "details",
+          "label": "Tiles",
+          "description": "Optional, shown when the card is open: one Heading 3 and a paragraph per tile (up to three)",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "expand-cards",
+      "components": [
+        "expand-cards-item"
+      ]
+    }
+  ]
+}

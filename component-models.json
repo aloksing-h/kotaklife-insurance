@@ -3514,6 +3514,69 @@
     ]
   },
   {
+    "id": "expand-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading as Heading 2 (bold words are shown heavier) followed by a short description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "expand-cards-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Icon",
+        "description": "Shown on the card when it is closed",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Icon alt text",
+        "description": "Leave empty: the icon is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "description": "Shown on the card open or closed, for example: Recognising excellence, Shaping leaders",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description",
+        "description": "Shown under the title when the card is open",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "details",
+        "label": "Tiles",
+        "description": "Optional, shown when the card is open: one Heading 3 and a paragraph per tile (up to three)",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "form",
     "fields": [
       {
@@ -4916,6 +4979,215 @@
     ]
   },
   {
+    "id": "job-listing",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading as Heading 2 (bold words are shown heavier) followed by a short description",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "searchPlaceholder",
+        "label": "Search placeholder",
+        "value": "Search..."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "searchLabel",
+        "label": "Search field label",
+        "value": "Search jobs"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "filterLabel",
+        "label": "Filter button",
+        "value": "Filter by"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "categoryHeading",
+        "label": "Category filter heading",
+        "value": "Choose category"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "careerHeading",
+        "label": "Career type filter heading",
+        "value": "Career type"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "applyFilterLabel",
+        "label": "Apply filter button",
+        "value": "Apply"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "clearLabel",
+        "label": "Clear filters button",
+        "value": "Clear All"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "filteredByLabel",
+        "label": "Applied filters label",
+        "value": "Filtered by"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "closeLabel",
+        "label": "Close filters label (mobile)",
+        "value": "Close filters"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "sortLabel",
+        "label": "Sort field label",
+        "value": "Sort jobs"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "sortOptions",
+        "label": "Sort options",
+        "description": "Comma separated, Label=order. Orders: newest, oldest, title. For example: Newest=newest, Oldest=oldest, Job title (A-Z)=title",
+        "value": "Newest=newest, Oldest=oldest, Job title (A-Z)=title"
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "pageSize",
+        "label": "Jobs per page",
+        "value": 8,
+        "min": 1,
+        "max": 48
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "applyLabel",
+        "label": "Apply button on each job",
+        "value": "Apply Now"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "resultsLabel",
+        "label": "Results announcement",
+        "description": "Read out after each change; {count} is replaced by the number of jobs",
+        "value": "{count} jobs found"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "emptyMessage",
+        "label": "No results message",
+        "value": "No jobs match your search. Try other keywords or filters."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "previousLabel",
+        "label": "Previous page label",
+        "value": "Previous page"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "nextLabel",
+        "label": "Next page label",
+        "value": "Next page"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "pageLabel",
+        "label": "Page label",
+        "description": "Read out before page numbers, for example: Page",
+        "value": "Page"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "removeLabel",
+        "label": "Remove filter label",
+        "description": "Read out on each applied filter chip, for example: Remove filter",
+        "value": "Remove filter"
+      }
+    ]
+  },
+  {
+    "id": "job-listing-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "category",
+        "label": "Category",
+        "description": "Shown as the badge and used by the category filter, for example: Equity",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "career",
+        "label": "Career type",
+        "description": "Used by the career type filter, for example: Corporate",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Job title",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "department",
+        "label": "Department",
+        "description": "For example: Corporate careers",
+        "value": ""
+      },
+      {
+        "component": "date-time",
+        "valueType": "date",
+        "name": "date",
+        "label": "Posting date",
+        "description": "Shown on the card and used by sorting"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "location",
+        "label": "Location",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Apply link",
+        "description": "The job page or the application form"
+      }
+    ]
+  },
+  {
     "id": "life-advisor",
     "fields": [
       {
@@ -5193,6 +5465,88 @@
             "value": "autoplay-off"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "photo-gallery",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading as Heading 2 (bold words are shown heavier) followed by a short description",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "pauseLabel",
+        "label": "Pause button label",
+        "description": "Read out by screen readers, for example: Pause the photo strip",
+        "value": "Pause the photo strip"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "playLabel",
+        "label": "Play button label",
+        "value": "Play the photo strip"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "viewLabel",
+        "label": "Open photo label",
+        "description": "Read out for each photo before its alt text, for example: View photo",
+        "value": "View photo"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "previousLabel",
+        "label": "Previous photo label",
+        "value": "Previous photo"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "nextLabel",
+        "label": "Next photo label",
+        "value": "Next photo"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "closeLabel",
+        "label": "Close preview label",
+        "value": "Close photo"
+      }
+    ]
+  },
+  {
+    "id": "photo-gallery-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Photo",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt text",
+        "description": "Describe the photo; it is read out and shown to screen reader users in the preview",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "imageMimeType",
+        "value": "image/jpeg"
       }
     ]
   },

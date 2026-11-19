@@ -81,7 +81,10 @@
       "claim-options",
       "stats-visual",
       "earning-chart",
-      "video-cards"
+      "video-cards",
+      "photo-gallery",
+      "expand-cards",
+      "job-listing"
     ]
   },
   {
@@ -202,6 +205,12 @@
     ]
   },
   {
+    "id": "expand-cards",
+    "components": [
+      "expand-cards-item"
+    ]
+  },
+  {
     "id": "fund-cards",
     "components": [
       "fund-cards-item"
@@ -252,12 +261,24 @@
     ]
   },
   {
+    "id": "job-listing",
+    "components": [
+      "job-listing-item"
+    ]
+  },
+  {
     "id": "life-stages-journey",
     "components": [
       "life-stages-persona",
       "life-stages-milestone",
       "life-stages-outcome",
       "life-stages-disclaimer"
+    ]
+  },
+  {
+    "id": "photo-gallery",
+    "components": [
+      "photo-gallery-item"
     ]
   },
   {

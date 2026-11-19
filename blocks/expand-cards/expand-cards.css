@@ -1,0 +1,353 @@
+/*
+ * Expand Cards: Careers page "Why work with us".
+ * Figma 11104:9540 (desktop: open 727 x 264, closed 166 x 264, 20px apart) /
+ * 11104:9807 (mobile: open 328 x 464, closed 328 x 128, 12px apart).
+ */
+
+.expand-cards {
+  /* colors */
+  --expand-cards-color-heading: var(--text-primary);
+  --expand-cards-color-body: var(--text-tertiary);
+  --expand-cards-color-closed: var(--blue-50);
+
+  /* Figma: #e1122d to 59%, then the dark red of the shared red card gradient */
+  --expand-cards-color-open: linear-gradient(-36deg, var(--brand-red-600) 0%, var(--brand-red-600) 59%, rgb(127 34 36) 100%);
+  --expand-cards-color-white: var(--base-white);
+  --expand-cards-color-focus: var(--info-500);
+
+  /* typography */
+  --expand-cards-title-size: var(--heading-3-font-size);
+  --expand-cards-title-line: var(--heading-3-line-height);
+  --expand-cards-title-tracking: var(--heading-3-letter-spacing);
+  --expand-cards-lead-size: var(--body-2-font-size);
+  --expand-cards-lead-line: var(--body-2-line-height);
+  --expand-cards-open-title-size: var(--sub-heading-2-font-size);
+  --expand-cards-open-title-line: var(--sub-heading-2-line-height);
+  --expand-cards-number-size: 56px;
+
+  /* spacing */
+  --expand-cards-gap: var(--spacing-lg);
+  --expand-cards-padding: var(--spacing-xl);
+  --expand-cards-motion: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-family: var(--heading-font-family);
+}
+
+/* heading and description */
+.expand-cards .expand-cards-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.expand-cards .expand-cards-header > * {
+  margin: 0;
+}
+
+.expand-cards .expand-cards-heading-main {
+  color: var(--expand-cards-color-heading);
+  font-size: var(--expand-cards-title-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--expand-cards-title-line);
+  letter-spacing: var(--expand-cards-title-tracking);
+}
+
+.expand-cards .expand-cards-heading-main :is(strong, b) {
+  font-weight: var(--font-weight-semibold);
+}
+
+.expand-cards .expand-cards-lead {
+  color: var(--expand-cards-color-body);
+  font-size: var(--expand-cards-lead-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--expand-cards-lead-line);
+}
+
+/* cards */
+.expand-cards .expand-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--expand-cards-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.expand-cards .expand-cards-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 128px;
+  padding: var(--expand-cards-padding);
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--expand-cards-color-closed);
+  color: var(--expand-cards-color-heading);
+}
+
+.expand-cards .expand-cards-card.is-open {
+  background: var(--expand-cards-color-open);
+  color: var(--expand-cards-color-white);
+}
+
+.expand-cards .expand-cards-number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--expand-cards-color-white);
+  font-size: var(--expand-cards-number-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.expand-cards .expand-cards-card.is-open .expand-cards-number {
+  opacity: 0.1;
+}
+
+.expand-cards .expand-cards-heading {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: inherit;
+}
+
+/* the whole closed card opens it */
+.expand-cards .expand-cards-trigger {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-3xl);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.expand-cards .expand-cards-card:not(.is-open) .expand-cards-trigger::after {
+  position: absolute;
+  inset: calc(-1 * var(--expand-cards-padding));
+  content: '';
+}
+
+.expand-cards .expand-cards-card.is-open .expand-cards-trigger {
+  cursor: default;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- focus applies to open and closed cards */
+.expand-cards .expand-cards-trigger:focus-visible {
+  outline: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- focus applies to open and closed cards */
+.expand-cards .expand-cards-trigger:focus-visible::after {
+  position: absolute;
+  inset: calc(-1 * var(--expand-cards-padding) + 2px);
+  border-radius: var(--radius-sm);
+  outline: 2px solid var(--expand-cards-color-focus);
+  content: '';
+}
+
+.expand-cards .expand-cards-card.is-open .expand-cards-trigger:focus-visible::after {
+  outline-color: var(--expand-cards-color-white);
+}
+
+.expand-cards .expand-cards-icon,
+.expand-cards .expand-cards-icon :is(picture, img) {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.expand-cards .expand-cards-card.is-open .expand-cards-icon {
+  display: none;
+}
+
+.expand-cards .expand-cards-title {
+  max-width: calc(100% - 40px);
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--body-1-line-height);
+}
+
+.expand-cards .expand-cards-card.is-open .expand-cards-title {
+  max-width: none;
+  font-size: var(--expand-cards-open-title-size);
+  line-height: var(--expand-cards-open-title-line);
+}
+
+/* open card: description and tiles */
+.expand-cards .expand-cards-panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xs);
+  animation: expand-cards-in var(--expand-cards-motion);
+}
+
+.expand-cards .expand-cards-panel[hidden] {
+  display: none;
+}
+
+.expand-cards .expand-cards-description {
+  margin: 0;
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--caption-line-height);
+}
+
+.expand-cards .expand-cards-tiles {
+  display: grid;
+  gap: var(--spacing-lg);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.expand-cards .expand-cards-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-md);
+  background: var(--expand-cards-color-white);
+  color: var(--expand-cards-color-heading);
+}
+
+.expand-cards .expand-cards-tile-title {
+  margin: 0;
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--body-1-line-height);
+}
+
+.expand-cards .expand-cards-tile-text {
+  margin: 0;
+  color: var(--expand-cards-color-body);
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--caption-line-height);
+}
+
+@keyframes expand-cards-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* mobile closed card: icon at the top, title at the bottom (Figma 128 high) */
+@media (width < 900px) {
+  .expand-cards .expand-cards-card:not(.is-open) .expand-cards-trigger {
+    justify-content: space-between;
+    min-height: calc(128px - 2 * var(--expand-cards-padding));
+  }
+}
+
+/* desktop: side by side, the open card takes 727 of the 1100 width */
+@media (width >= 900px) {
+  .expand-cards {
+    --expand-cards-title-size: var(--heading-1-font-size);
+    --expand-cards-title-line: var(--heading-1-line-height);
+    --expand-cards-title-tracking: normal;
+    --expand-cards-lead-size: var(--body-1-font-size);
+    --expand-cards-lead-line: var(--body-1-line-height);
+    --expand-cards-open-title-size: var(--sub-heading-1-font-size);
+    --expand-cards-open-title-line: var(--sub-heading-1-line-height);
+    --expand-cards-number-size: 64px;
+    --expand-cards-gap: var(--spacing-2xl);
+
+    gap: var(--spacing-5xl);
+  }
+
+  .expand-cards .expand-cards-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+  }
+
+  .expand-cards .expand-cards-heading-main {
+    max-width: 633px;
+  }
+
+  .expand-cards .expand-cards-lead {
+    max-width: 353px;
+    text-align: right;
+  }
+
+  /* Figma 264 high; a little taller when the tiles need it, never clipped */
+  .expand-cards .expand-cards-list {
+    flex-direction: row;
+    min-height: 264px;
+  }
+
+  /* Figma widths 727 and 166; the open card takes any extra width */
+  .expand-cards .expand-cards-card {
+    flex: 0 1 166px;
+    min-width: 0;
+    min-height: 0;
+    padding: var(--spacing-xl);
+    transition: flex-basis var(--expand-cards-motion), flex-grow var(--expand-cards-motion);
+  }
+
+  .expand-cards .expand-cards-card.is-open {
+    flex: 1 1 727px;
+    padding: var(--spacing-2xl);
+  }
+
+  /* closed: icon and title at the bottom */
+  .expand-cards .expand-cards-card:not(.is-open) .expand-cards-heading {
+    margin-top: auto;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .expand-cards .expand-cards-trigger {
+    gap: var(--spacing-md);
+  }
+
+  .expand-cards .expand-cards-title {
+    max-width: none;
+  }
+
+  .expand-cards .expand-cards-card.is-open .expand-cards-title {
+    max-width: 516px;
+  }
+
+  .expand-cards .expand-cards-tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 0;
+  }
+
+  .expand-cards .expand-cards-tile {
+    gap: var(--spacing-lg);
+    min-height: 152px;
+    box-sizing: border-box;
+    padding: var(--spacing-xl) var(--spacing-2xl);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .expand-cards .expand-cards-card {
+    transition: none;
+  }
+
+  .expand-cards .expand-cards-panel {
+    animation: none;
+  }
+}

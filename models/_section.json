@@ -623,7 +623,10 @@
         "claim-options",
         "stats-visual",
         "earning-chart",
-        "video-cards"
+        "video-cards",
+        "photo-gallery",
+        "expand-cards",
+        "job-listing"
       ]
     }
   ]

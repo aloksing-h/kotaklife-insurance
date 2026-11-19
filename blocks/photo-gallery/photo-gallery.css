@@ -1,0 +1,352 @@
+/*
+ * Photo Gallery: Careers page "Your journey starts here" and the photo preview.
+ * Figma 11104:9530 (desktop: photos 183 x 150, centre 220 x 180, 4px apart) /
+ * 11104:9784 (mobile: 160 x 120, centre 176 x 140, 8px apart); preview 11104:9944 / 11104:9965.
+ */
+
+.photo-gallery {
+  /* colors */
+  --photo-gallery-color-heading: var(--text-primary);
+  --photo-gallery-color-body: var(--text-tertiary);
+  --photo-gallery-color-focus: var(--info-500);
+  --photo-gallery-veil: linear-gradient(180deg, var(--brand-red-900) 0%, var(--base-black) 100%);
+
+  /* typography */
+  --photo-gallery-title-size: var(--heading-3-font-size);
+  --photo-gallery-title-line: var(--heading-3-line-height);
+  --photo-gallery-title-tracking: var(--heading-3-letter-spacing);
+  --photo-gallery-text-size: var(--body-2-font-size);
+  --photo-gallery-text-line: var(--body-2-line-height);
+
+  /* strip */
+  --photo-gallery-width: 160px;
+  --photo-gallery-height: 120px;
+  --photo-gallery-active-width: 176px;
+  --photo-gallery-active-height: 140px;
+  --photo-gallery-gap: var(--spacing-md);
+  --photo-gallery-motion: 0.35s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-family: var(--heading-font-family);
+}
+
+.photo-gallery :is(button):focus-visible {
+  outline: 2px solid var(--photo-gallery-color-focus);
+  outline-offset: 2px;
+}
+
+/* heading and description */
+.photo-gallery .photo-gallery-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  max-width: 620px;
+}
+
+.photo-gallery .photo-gallery-header > * {
+  margin: 0;
+}
+
+.photo-gallery .photo-gallery-title {
+  color: var(--photo-gallery-color-heading);
+  font-size: var(--photo-gallery-title-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--photo-gallery-title-line);
+  letter-spacing: var(--photo-gallery-title-tracking);
+}
+
+.photo-gallery .photo-gallery-title :is(strong, b) {
+  font-weight: var(--font-weight-semibold);
+}
+
+.photo-gallery .photo-gallery-description {
+  color: var(--photo-gallery-color-body);
+  font-size: var(--photo-gallery-text-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--photo-gallery-text-line);
+}
+
+/* strip: full viewport width, scrolled by the script (and by touch or trackpad) */
+.photo-gallery .photo-gallery-viewport {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.photo-gallery .photo-gallery-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.photo-gallery .photo-gallery-track {
+  display: flex;
+  align-items: center;
+  gap: var(--photo-gallery-gap);
+  width: max-content;
+  height: var(--photo-gallery-active-height);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.photo-gallery .photo-gallery-card {
+  flex: none;
+  width: var(--photo-gallery-width);
+  height: var(--photo-gallery-height);
+  transition: width var(--photo-gallery-motion), height var(--photo-gallery-motion);
+}
+
+.photo-gallery .photo-gallery-card.is-active {
+  width: var(--photo-gallery-active-width);
+  height: var(--photo-gallery-active-height);
+}
+
+.photo-gallery .photo-gallery-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: var(--gray-200);
+  cursor: pointer;
+}
+
+.photo-gallery .photo-gallery-photo :is(picture, img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.photo-gallery .photo-gallery-photo img {
+  object-fit: cover;
+  filter: blur(1.5px);
+  transform: scale(1.04);
+  transition: filter var(--photo-gallery-motion), transform var(--photo-gallery-motion);
+}
+
+/* the red veil over every photo except the highlighted one (Figma: 70%) */
+.photo-gallery .photo-gallery-photo::after {
+  position: absolute;
+  inset: 0;
+  background: var(--photo-gallery-veil);
+  content: '';
+  opacity: 0.7;
+  transition: opacity var(--photo-gallery-motion);
+}
+
+.photo-gallery .photo-gallery-card.is-active .photo-gallery-photo img {
+  filter: none;
+  transform: none;
+}
+
+.photo-gallery .photo-gallery-card.is-active .photo-gallery-photo::after {
+  opacity: 0;
+}
+
+/* play / pause, under the strip on the right */
+.photo-gallery .photo-gallery-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: calc(var(--spacing-lg) - 30px);
+}
+
+.photo-gallery .photo-gallery-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: var(--photo-gallery-icon-image) center / contain no-repeat;
+}
+
+.photo-gallery .photo-gallery-toggle {
+  --photo-gallery-icon-image: url('../../icons/pause-button.svg');
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--text-primary);
+  border-radius: var(--radius-full);
+  background: var(--base-white);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.photo-gallery .photo-gallery-toggle.is-paused {
+  --photo-gallery-icon-image: url('../../icons/play-outline.svg');
+}
+
+/* preview dialog: Figma mobile 11104:9965 (photo 328 x 200, arrows below), desktop arrows
+   on both sides of the photo */
+.photo-gallery .photo-gallery-dialog {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: var(--spacing-6xl) var(--spacing-xl);
+  border: 0;
+  background: none;
+  color: var(--base-white);
+}
+
+.photo-gallery .photo-gallery-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.photo-gallery .photo-gallery-dialog::backdrop {
+  background-color: color-mix(in srgb, var(--base-black) 80%, transparent);
+}
+
+.photo-gallery .photo-gallery-stage {
+  width: min(960px, 100%);
+  max-height: calc(100vh - 2 * var(--spacing-8xl));
+  aspect-ratio: 328 / 200;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-color: var(--base-black);
+}
+
+.photo-gallery .photo-gallery-stage :is(picture, img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the preview photo, not a strip photo */
+.photo-gallery .photo-gallery-stage img {
+  object-fit: contain;
+}
+
+.photo-gallery .photo-gallery-nav {
+  display: flex;
+  justify-content: space-between;
+  width: min(960px, 100%);
+}
+
+.photo-gallery .photo-gallery-nav[hidden] {
+  display: none;
+}
+
+.photo-gallery .photo-gallery-dialog button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+
+.photo-gallery .photo-gallery-close {
+  --photo-gallery-icon-image: url('../../icons/close-red.svg');
+
+  position: absolute;
+  top: var(--spacing-xl);
+  right: var(--spacing-xl);
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--base-white);
+  background: none;
+  color: var(--base-white);
+}
+
+.photo-gallery .photo-gallery-close .photo-gallery-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.photo-gallery :is(.photo-gallery-prev, .photo-gallery-next) {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: var(--brand-red-600);
+  color: var(--base-white);
+}
+
+.photo-gallery .photo-gallery-prev {
+  --photo-gallery-icon-image: url('../../icons/chevron-left.svg');
+}
+
+.photo-gallery .photo-gallery-next {
+  --photo-gallery-icon-image: url('../../icons/chevron-right.svg');
+}
+
+.photo-gallery .photo-gallery-dialog button:focus-visible {
+  outline-color: var(--base-white);
+}
+
+@media (width >= 900px) {
+  .photo-gallery {
+    --photo-gallery-title-size: var(--heading-1-font-size);
+    --photo-gallery-title-line: var(--heading-1-line-height);
+    --photo-gallery-title-tracking: normal;
+    --photo-gallery-text-size: var(--body-1-font-size);
+    --photo-gallery-text-line: var(--body-1-line-height);
+    --photo-gallery-width: 183px;
+    --photo-gallery-height: 150px;
+    --photo-gallery-active-width: 220px;
+    --photo-gallery-active-height: 180px;
+    --photo-gallery-gap: var(--spacing-xs);
+
+    gap: var(--spacing-5xl);
+  }
+
+  .photo-gallery .photo-gallery-controls {
+    margin-top: calc(-1 * var(--spacing-5xl));
+  }
+
+  /* desktop preview: the arrows sit on both sides of the photo */
+  .photo-gallery .photo-gallery-dialog {
+    padding: var(--spacing-6xl) 96px;
+  }
+
+  .photo-gallery .photo-gallery-stage {
+    aspect-ratio: 16 / 9;
+  }
+
+  .photo-gallery .photo-gallery-nav {
+    position: absolute;
+    top: 50%;
+    right: var(--spacing-3xl);
+    left: var(--spacing-3xl);
+    width: auto;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .photo-gallery .photo-gallery-nav button {
+    width: 44px;
+    height: 44px;
+    pointer-events: auto;
+  }
+
+  .photo-gallery .photo-gallery-close {
+    top: var(--spacing-3xl);
+    right: var(--spacing-3xl);
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-gallery .photo-gallery-card,
+  .photo-gallery .photo-gallery-photo img,
+  .photo-gallery .photo-gallery-photo::after {
+    transition: none;
+  }
+}

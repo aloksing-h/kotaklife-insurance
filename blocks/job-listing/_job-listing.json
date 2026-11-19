@@ -1,0 +1,273 @@
+{
+  "definitions": [
+    {
+      "title": "Job Listing",
+      "id": "job-listing",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Job Listing",
+              "model": "job-listing",
+              "filter": "job-listing",
+              "searchPlaceholder": "Search...",
+              "searchLabel": "Search jobs",
+              "filterLabel": "Filter by",
+              "categoryHeading": "Choose category",
+              "careerHeading": "Career type",
+              "applyFilterLabel": "Apply",
+              "clearLabel": "Clear All",
+              "filteredByLabel": "Filtered by",
+              "closeLabel": "Close filters",
+              "sortLabel": "Sort jobs",
+              "sortOptions": "Newest=newest, Oldest=oldest, Job title (A-Z)=title",
+              "pageSize": 8,
+              "applyLabel": "Apply Now",
+              "resultsLabel": "{count} jobs found",
+              "emptyMessage": "No jobs match your search. Try other keywords or filters.",
+              "previousLabel": "Previous page",
+              "nextLabel": "Next page",
+              "pageLabel": "Page",
+              "removeLabel": "Remove filter"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Job",
+      "id": "job-listing-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Job",
+              "model": "job-listing-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "job-listing",
+      "fields": [
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "text",
+          "label": "Heading and description",
+          "description": "Section heading as Heading 2 (bold words are shown heavier) followed by a short description",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "searchPlaceholder",
+          "label": "Search placeholder",
+          "value": "Search..."
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "searchLabel",
+          "label": "Search field label",
+          "value": "Search jobs"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "filterLabel",
+          "label": "Filter button",
+          "value": "Filter by"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "categoryHeading",
+          "label": "Category filter heading",
+          "value": "Choose category"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "careerHeading",
+          "label": "Career type filter heading",
+          "value": "Career type"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "applyFilterLabel",
+          "label": "Apply filter button",
+          "value": "Apply"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "clearLabel",
+          "label": "Clear filters button",
+          "value": "Clear All"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "filteredByLabel",
+          "label": "Applied filters label",
+          "value": "Filtered by"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "closeLabel",
+          "label": "Close filters label (mobile)",
+          "value": "Close filters"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "sortLabel",
+          "label": "Sort field label",
+          "value": "Sort jobs"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "sortOptions",
+          "label": "Sort options",
+          "description": "Comma separated, Label=order. Orders: newest, oldest, title. For example: Newest=newest, Oldest=oldest, Job title (A-Z)=title",
+          "value": "Newest=newest, Oldest=oldest, Job title (A-Z)=title"
+        },
+        {
+          "component": "number",
+          "valueType": "number",
+          "name": "pageSize",
+          "label": "Jobs per page",
+          "value": 8,
+          "min": 1,
+          "max": 48
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "applyLabel",
+          "label": "Apply button on each job",
+          "value": "Apply Now"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "resultsLabel",
+          "label": "Results announcement",
+          "description": "Read out after each change; {count} is replaced by the number of jobs",
+          "value": "{count} jobs found"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "emptyMessage",
+          "label": "No results message",
+          "value": "No jobs match your search. Try other keywords or filters."
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "previousLabel",
+          "label": "Previous page label",
+          "value": "Previous page"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "nextLabel",
+          "label": "Next page label",
+          "value": "Next page"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "pageLabel",
+          "label": "Page label",
+          "description": "Read out before page numbers, for example: Page",
+          "value": "Page"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "removeLabel",
+          "label": "Remove filter label",
+          "description": "Read out on each applied filter chip, for example: Remove filter",
+          "value": "Remove filter"
+        }
+      ]
+    },
+    {
+      "id": "job-listing-item",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "category",
+          "label": "Category",
+          "description": "Shown as the badge and used by the category filter, for example: Equity",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "career",
+          "label": "Career type",
+          "description": "Used by the career type filter, for example: Corporate",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Job title",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "department",
+          "label": "Department",
+          "description": "For example: Corporate careers",
+          "value": ""
+        },
+        {
+          "component": "date-time",
+          "valueType": "date",
+          "name": "date",
+          "label": "Posting date",
+          "description": "Shown on the card and used by sorting"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "location",
+          "label": "Location",
+          "value": ""
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "link",
+          "label": "Apply link",
+          "description": "The job page or the application form"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "job-listing",
+      "components": [
+        "job-listing-item"
+      ]
+    }
+  ]
+}
