@@ -184,8 +184,10 @@
 .job-listing .job-listing-icon-chevron {
   --job-listing-icon-image: url('../../icons/chevron-down.svg');
 
-  width: 12px;
-  height: 12px;
+  /* prototype: a 10 wide chevron in an 18 box */
+  width: 18px;
+  height: 18px;
+  mask-size: 10px auto;
   transition: transform 0.2s ease;
 }
 
@@ -540,12 +542,13 @@
   line-height: var(--body-2-line-height);
 }
 
+/* prototype: title 20, department 14 (12 on desktop), date and place 12 (10 on desktop) */
 .job-listing .job-listing-title {
   margin-top: var(--spacing-xl);
   color: var(--job-listing-color-heading);
-  font-size: var(--body-1-font-size);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--body-1-line-height);
+  font-size: var(--sub-heading-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--sub-heading-1-line-height);
 }
 
 .job-listing .job-listing-department {
@@ -594,9 +597,9 @@
   align-items: center;
   gap: var(--spacing-md);
   color: var(--job-listing-color-heading);
-  font-size: var(--caption-font-size);
+  font-size: var(--button-2-font-size);
   font-weight: var(--font-weight-extrabold);
-  line-height: var(--caption-line-height);
+  line-height: var(--button-2-line-height);
   text-decoration: none;
 }
 
@@ -757,6 +760,21 @@
 
   .job-listing .job-listing-card {
     min-height: 234px;
+  }
+
+  .job-listing .job-listing-department {
+    font-size: var(--caption-font-size);
+    line-height: var(--caption-line-height);
+  }
+
+  .job-listing .job-listing-meta-item {
+    font-size: var(--disclaimer-font-size);
+    line-height: var(--disclaimer-line-height);
+  }
+
+  .job-listing .job-listing-apply {
+    font-size: var(--caption-font-size);
+    line-height: var(--caption-line-height);
   }
 
   .job-listing .job-listing-pagination {

@@ -10,8 +10,8 @@
   --expand-cards-color-body: var(--text-tertiary);
   --expand-cards-color-closed: var(--blue-50);
 
-  /* Figma: #e1122d to 59%, then the dark red of the shared red card gradient */
-  --expand-cards-color-open: linear-gradient(-36deg, var(--brand-red-600) 0%, var(--brand-red-600) 59%, rgb(127 34 36) 100%);
+  /* prototype: dark red along the top, fading to #e1122d at the bottom */
+  --expand-cards-color-open: linear-gradient(170deg, rgb(127 34 36) 0%, var(--brand-red-600) 85%);
   --expand-cards-color-white: var(--base-white);
   --expand-cards-color-focus: var(--info-500);
 
@@ -219,8 +219,8 @@
 .expand-cards .expand-cards-tile {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
-  padding: var(--spacing-2xl);
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
   border-radius: var(--radius-md);
   background: var(--expand-cards-color-white);
   color: var(--expand-cards-color-heading);
@@ -229,7 +229,7 @@
 .expand-cards .expand-cards-tile-title {
   margin: 0;
   font-size: var(--body-1-font-size);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-medium);
   line-height: var(--body-1-line-height);
 }
 
@@ -329,16 +329,19 @@
     max-width: 516px;
   }
 
+  /* prototype: the description wraps under the title width */
+  .expand-cards .expand-cards-description {
+    max-width: 490px;
+  }
+
   .expand-cards .expand-cards-tiles {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-top: 0;
   }
 
   .expand-cards .expand-cards-tile {
-    gap: var(--spacing-lg);
     min-height: 152px;
     box-sizing: border-box;
-    padding: var(--spacing-xl) var(--spacing-2xl);
   }
 }
 
