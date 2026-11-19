@@ -15,6 +15,47 @@ const UI = {
   close: 'Close video',
 };
 
+// hover preview: a mouse that can hover, and no reduced motion request
+const PREVIEW_QUERY = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+const VIDEO_FILE = /\.(mp4|m4v|webm|ogv|mov)$/i;
+
+/**
+ * Hover preview (prototype: the hovered card grows and shows the video): a DAM video
+ * file plays muted and looped in the card while the pointer is on it, and is removed
+ * when it leaves. YouTube and Vimeo cards only show the clear thumbnail, so no
+ * third-party player loads on hover. The full video still opens on click, with sound.
+ * @param {HTMLLIElement} card
+ * @param {URL|null} url
+ */
+function setupPreview(card, url) {
+  if (!url || !VIDEO_FILE.test(url.pathname)) return;
+  let preview = null;
+  card.addEventListener('pointerenter', (event) => {
+    if (event.pointerType !== 'mouse' || !PREVIEW_QUERY.matches || preview) return;
+    preview = document.createElement('video');
+    preview.className = 'video-cards-preview';
+    preview.muted = true;
+    preview.loop = true;
+    preview.playsInline = true;
+    preview.preload = 'auto';
+    preview.setAttribute('aria-hidden', 'true');
+    preview.tabIndex = -1;
+    preview.src = url.href;
+    preview.addEventListener('playing', () => card.classList.add('is-previewing'), { once: true });
+    // a file that cannot play leaves the thumbnail in place
+    preview.addEventListener('error', () => preview?.remove());
+    card.querySelector('.video-cards-media')?.append(preview);
+    preview.play().catch(() => {});
+  });
+  card.addEventListener('pointerleave', () => {
+    if (!preview) return;
+    preview.pause();
+    preview.remove();
+    preview = null;
+    card.classList.remove('is-previewing');
+  });
+}
+
 function element(tag, className, text) {
   const el = document.createElement(tag);
   el.className = className;
@@ -95,7 +136,10 @@ export default function decorate(block) {
 
   const list = element('ul', 'video-cards-list');
   const cards = itemRows.map(buildCard);
-  cards.forEach(({ card }) => list.append(card));
+  cards.forEach(({ card, item }) => {
+    list.append(card);
+    setupPreview(card, item.url);
+  });
 
   // the dialog is created on first use; closing it removes the player, which stops playback
   let dialog = null;
