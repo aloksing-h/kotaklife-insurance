@@ -1,0 +1,72 @@
+/*
+ * Banner V2, style "Leadership Banner" (leadership-banner):
+ * Figma Leadership, Inner page banners 2:1011 (mobile 360) / 2:1057 (desktop 1200).
+ * Builds on the Insurance Guide style (banner-v2-insurance-guide.css, added by
+ * banner-v2-leadership.js): only the chess illustration and its Kotak symbol are placed
+ * differently. Every rule carries both classes, so it wins over the rules it adjusts.
+ */
+
+/* mobile: image 212 x 141 at 154, 278 in the 360 x 439 frame; symbol 231 x 138 at 160, 283 */
+.banner-v2.block.leadership-banner.insurance-guide-banner .banner-v2-visual {
+  inset: auto -6px 20px auto;
+  width: 212px;
+  height: 141px;
+}
+
+.banner-v2.block.leadership-banner.insurance-guide-banner .banner-v2-visual::before {
+  top: 5px;
+  left: 6px;
+  width: 231px;
+  height: 138px;
+}
+
+@media (width >= 600px) {
+  .banner-v2.block.leadership-banner.insurance-guide-banner .banner-v2-visual {
+    inset: auto 24px 0 auto;
+    width: 300px;
+    height: 200px;
+  }
+
+  .banner-v2.block.leadership-banner.insurance-guide-banner .banner-v2-visual::before {
+    top: -7px;
+    left: -9px;
+    width: 327px;
+    height: 197px;
+  }
+}
+
+@media (width >= 900px) {
+  .banner-v2.block.leadership-banner.insurance-guide-banner .banner-v2-visual {
+    inset: 190px auto auto calc(100% - 420px);
+    width: 400px;
+    height: 267px;
+  }
+
+  .banner-v2.block.leadership-banner.insurance-guide-banner .banner-v2-visual::before {
+    top: -9px;
+    left: -12px;
+    width: 436px;
+    height: 262px;
+  }
+}
+
+/* desktop: image 559 x 373 at 623, 151 in the 1200 x 496 frame (it runs past the bottom
+   edge, as in Figma); symbol 610 x 367 at 607, 139 */
+@media (width >= 1200px) {
+  .banner-v2.block.leadership-banner.insurance-guide-banner .banner-v2-visual {
+    inset: 151px auto auto calc(100% - 577px);
+    width: 559px;
+    height: 373px;
+  }
+
+  .banner-v2.block.leadership-banner.insurance-guide-banner .banner-v2-visual::before {
+    top: -12px;
+    left: -16px;
+    width: 610px;
+    height: 367px;
+  }
+
+  .banner-v2.block.leadership-banner.insurance-guide-banner .banner-v2-visual img {
+    object-position: left top;
+  }
+}

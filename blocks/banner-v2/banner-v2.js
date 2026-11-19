@@ -486,4 +486,10 @@ export default async function decorate(block) {
     const { default: decorateLifeAdvisor } = await import('./banner-v2-life-advisor.js');
     await decorateLifeAdvisor(block);
   }
+
+  // Leadership Banner style: the inner page banner with the chess illustration
+  if (block.classList.contains('leadership-banner')) {
+    const { default: decorateLeadership } = await import('./banner-v2-leadership.js');
+    await decorateLeadership(block);
+  }
 }

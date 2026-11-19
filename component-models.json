@@ -1244,6 +1244,10 @@
           {
             "name": "Life Advisor Banner",
             "value": "life-advisor-banner"
+          },
+          {
+            "name": "Leadership Banner",
+            "value": "leadership-banner"
           }
         ]
       },
@@ -7811,6 +7815,111 @@
         "valueType": "string",
         "name": "linkText",
         "label": "Link Text"
+      }
+    ]
+  },
+  {
+    "id": "team-profiles",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "closeLabel",
+        "label": "Close button label",
+        "description": "Read by screen readers on the close button of the open profile"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "previousLabel",
+        "label": "Previous profile label",
+        "description": "Read by screen readers on the previous arrow"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "nextLabel",
+        "label": "Next profile label",
+        "description": "Read by screen readers on the next arrow"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "groupLabel",
+        "label": "Team list label",
+        "description": "Read by screen readers for the list of teams (the side tabs, a dropdown on mobile)"
+      }
+    ]
+  },
+  {
+    "id": "team-profiles-group",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Team name",
+        "description": "Shown as a tab, e.g. Board of Directors. The profiles after it, up to the next team, belong to this team."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "anchor",
+        "label": "Anchor",
+        "description": "Optional, e.g. management-team: a link to #management-team opens this team"
+      }
+    ]
+  },
+  {
+    "id": "team-profiles-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Portrait",
+        "multi": false,
+        "description": "A cut-out portrait on a transparent background works best"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Portrait alt text",
+        "description": "Leave empty to use the person's name"
+      },
+      {
+        "component": "hidden",
+        "valueType": "string",
+        "name": "imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "fullName",
+        "label": "Name",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "designation",
+        "label": "Designation"
+      },
+      {
+        "component": "richtext",
+        "name": "summary",
+        "value": "",
+        "label": "Short description",
+        "description": "Optional, shown on the card under the designation"
+      },
+      {
+        "component": "richtext",
+        "name": "bio",
+        "value": "",
+        "label": "Biography",
+        "description": "Shown when the card is opened"
       }
     ]
   },

@@ -60,6 +60,10 @@
             {
               "name": "Life Advisor Banner",
               "value": "life-advisor-banner"
+            },
+            {
+              "name": "Leadership Banner",
+              "value": "leadership-banner"
             }
           ]
         },

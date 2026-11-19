@@ -84,7 +84,8 @@
       "video-cards",
       "photo-gallery",
       "expand-cards",
-      "job-listing"
+      "job-listing",
+      "team-profiles"
     ]
   },
   {
@@ -530,6 +531,13 @@
     "id": "tag-cards",
     "components": [
       "tag-card"
+    ]
+  },
+  {
+    "id": "team-profiles",
+    "components": [
+      "team-profiles-group",
+      "team-profiles-item"
     ]
   },
   {

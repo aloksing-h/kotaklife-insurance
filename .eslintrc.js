@@ -32,6 +32,7 @@ module.exports = {
       'photo-gallery': 7,
       'job-listing': 20,
       'job-listing-item': 7,
+      'team-profiles-item': 5,
     }],
   },
 };
