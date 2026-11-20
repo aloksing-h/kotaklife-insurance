@@ -1,0 +1,173 @@
+{
+  "definitions": [
+    {
+      "title": "Team Profiles",
+      "id": "team-profiles",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Team Profiles",
+              "model": "team-profiles",
+              "filter": "team-profiles",
+              "closeLabel": "Close profile",
+              "previousLabel": "Previous profile",
+              "nextLabel": "Next profile",
+              "groupLabel": "Choose a team"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Team Group",
+      "id": "team-profiles-group",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Team Group",
+              "model": "team-profiles-group",
+              "title": "Board of Directors",
+              "anchor": "board-of-directors"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Profile",
+      "id": "team-profiles-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Profile",
+              "model": "team-profiles-item",
+              "imageMimeType": "image/png"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "team-profiles",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "closeLabel",
+          "label": "Close button label",
+          "description": "Read by screen readers on the close button of the open profile"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "previousLabel",
+          "label": "Previous profile label",
+          "description": "Read by screen readers on the previous arrow"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "nextLabel",
+          "label": "Next profile label",
+          "description": "Read by screen readers on the next arrow"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "groupLabel",
+          "label": "Team list label",
+          "description": "Read by screen readers for the list of teams (the side tabs, a dropdown on mobile)"
+        }
+      ]
+    },
+    {
+      "id": "team-profiles-group",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Team name",
+          "description": "Shown as a tab, e.g. Board of Directors. The profiles after it, up to the next team, belong to this team."
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "anchor",
+          "label": "Anchor",
+          "description": "Optional, e.g. management-team: a link to #management-team opens this team"
+        }
+      ]
+    },
+    {
+      "id": "team-profiles-item",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Portrait",
+          "multi": false,
+          "description": "A cut-out portrait on a transparent background works best"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Portrait alt text",
+          "description": "Leave empty to use the person's name"
+        },
+        {
+          "component": "hidden",
+          "valueType": "string",
+          "name": "imageMimeType",
+          "value": "image/png"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "fullName",
+          "label": "Name",
+          "required": true
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "designation",
+          "label": "Designation"
+        },
+        {
+          "component": "richtext",
+          "name": "summary",
+          "value": "",
+          "label": "Short description",
+          "description": "Optional, shown on the card under the designation"
+        },
+        {
+          "component": "richtext",
+          "name": "bio",
+          "value": "",
+          "label": "Biography",
+          "description": "Shown when the card is opened"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "team-profiles",
+      "components": [
+        "team-profiles-group",
+        "team-profiles-item"
+      ]
+    }
+  ]
+}

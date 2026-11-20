@@ -78,7 +78,14 @@
       "blog-navigation",
       "contact-help",
       "contact-form",
-      "claim-options"
+      "claim-options",
+      "stats-visual",
+      "earning-chart",
+      "video-cards",
+      "photo-gallery",
+      "expand-cards",
+      "job-listing",
+      "team-profiles"
     ]
   },
   {
@@ -186,10 +193,22 @@
     ]
   },
   {
+    "id": "earning-chart",
+    "components": [
+      "earning-chart-item"
+    ]
+  },
+  {
     "id": "eligibility-tabs",
     "components": [
       "eligibility-tabs-item",
       "eligibility-tabs-row"
+    ]
+  },
+  {
+    "id": "expand-cards",
+    "components": [
+      "expand-cards-item"
     ]
   },
   {
@@ -243,12 +262,24 @@
     ]
   },
   {
+    "id": "job-listing",
+    "components": [
+      "job-listing-item"
+    ]
+  },
+  {
     "id": "life-stages-journey",
     "components": [
       "life-stages-persona",
       "life-stages-milestone",
       "life-stages-outcome",
       "life-stages-disclaimer"
+    ]
+  },
+  {
+    "id": "photo-gallery",
+    "components": [
+      "photo-gallery-item"
     ]
   },
   {
@@ -485,6 +516,12 @@
     ]
   },
   {
+    "id": "stats-visual",
+    "components": [
+      "stats-visual-item"
+    ]
+  },
+  {
     "id": "tabs",
     "components": [
       "tabs-item"
@@ -494,6 +531,13 @@
     "id": "tag-cards",
     "components": [
       "tag-card"
+    ]
+  },
+  {
+    "id": "team-profiles",
+    "components": [
+      "team-profiles-group",
+      "team-profiles-item"
     ]
   },
   {
@@ -508,6 +552,12 @@
     "components": [
       "timeline-item",
       "timeline-card"
+    ]
+  },
+  {
+    "id": "video-cards",
+    "components": [
+      "video-cards-item"
     ]
   },
   {

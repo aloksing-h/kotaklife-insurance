@@ -29,6 +29,10 @@ module.exports = {
       'result-summary-with-canvas': 12,
       'calculator-metrics-grid': 30,
       'blog-listing': 5,
+      'photo-gallery': 7,
+      'job-listing': 20,
+      'job-listing-item': 7,
+      'team-profiles-item': 5,
     }],
   },
 };

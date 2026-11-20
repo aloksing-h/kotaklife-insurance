@@ -1,0 +1,173 @@
+{
+  "definitions": [
+    {
+      "title": "Earning Chart",
+      "id": "earning-chart",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Earning Chart",
+              "model": "earning-chart",
+              "filter": "earning-chart"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Chart Column",
+      "id": "earning-chart-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Chart Column",
+              "model": "earning-chart-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "earning-chart",
+      "fields": [
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "text",
+          "label": "Heading and description",
+          "description": "Section heading as Heading 2 (bold words are shown heavier) followed by a short description",
+          "value": ""
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "avatars",
+          "label": "Advisor photos",
+          "description": "Optional. A small strip of advisor photos shown before the figure below",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "avatarsAlt",
+          "label": "Advisor photos alt text",
+          "description": "Leave empty when the photos are decorative",
+          "value": ""
+        },
+        {
+          "component": "hidden",
+          "name": "avatarsMimeType",
+          "value": "image/png"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "proof_value",
+          "label": "Figure",
+          "description": "For example: 2.5K+",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "proof_label",
+          "label": "Figure label",
+          "description": "For example: New advisors / month",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "highlight_value",
+          "label": "Highlight value",
+          "description": "For example: 3X",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "highlight_heading",
+          "label": "Highlight heading",
+          "description": "For example: growth potential",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "highlight_note",
+          "label": "Highlight note",
+          "description": "For example: As your client base increases",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "earning-chart-item",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "tooltip_amount",
+          "label": "Amount",
+          "description": "Shown above the bar, for example: ₹10K–30K/Month",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "tooltip_note",
+          "label": "Amount note",
+          "description": "For example: Earn on every policy you sell",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "axis_year",
+          "label": "Year",
+          "description": "Shown below the bar, for example: Year 1",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "axis_stage",
+          "label": "Stage",
+          "description": "For example: Start your journey",
+          "value": ""
+        },
+        {
+          "component": "number",
+          "valueType": "number",
+          "name": "bar_height",
+          "label": "Bar height (%)",
+          "description": "Optional, 10 to 100 (the tallest bar is 100). Leave empty to rise evenly from column to column",
+          "min": 10,
+          "max": 100
+        },
+        {
+          "component": "boolean",
+          "valueType": "boolean",
+          "name": "bar_highlighted",
+          "label": "Highlighted",
+          "description": "Shows this column in the dark highlight colour when the page loads (Figma: Year 2)",
+          "value": false
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "earning-chart",
+      "components": [
+        "earning-chart-item"
+      ]
+    }
+  ]
+}

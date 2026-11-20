@@ -620,7 +620,14 @@
         "blog-navigation",
         "contact-help",
         "contact-form",
-        "claim-options"
+        "claim-options",
+        "stats-visual",
+        "earning-chart",
+        "video-cards",
+        "photo-gallery",
+        "expand-cards",
+        "job-listing",
+        "team-profiles"
       ]
     }
   ]

@@ -1,0 +1,375 @@
+/*
+ * Earning Chart: Life Advisor page "Earning potential".
+ * Figma 11291:43979 (desktop 1100, graph 580 x 396) / 11291:44088 (mobile 328, graph 330 high).
+ */
+
+.earning-chart {
+  /* colors */
+  --earning-chart-color-heading: var(--text-primary);
+  --earning-chart-color-body: var(--text-tertiary);
+  --earning-chart-color-muted: var(--text-quaternary);
+  --earning-chart-color-card: var(--blue-25);
+  --earning-chart-color-tooltip: var(--base-white);
+  --earning-chart-color-axis: var(--border-primary);
+  --earning-chart-color-marker: var(--brand-blue-100);
+  --earning-chart-color-marker-active: var(--brand-red-300);
+  --earning-chart-bar-fill: linear-gradient(180deg, var(--blue-200) 0%, var(--blue-100) 50%, var(--blue-50) 100%);
+  --earning-chart-bar-fill-active: linear-gradient(180deg, var(--brand-blue-300) 0%, var(--brand-blue-50) 50%, var(--blue-50) 100%);
+
+  /* typography */
+  --earning-chart-title-size: var(--heading-3-font-size);
+  --earning-chart-title-line: var(--heading-3-line-height);
+  --earning-chart-title-tracking: var(--heading-3-letter-spacing);
+  --earning-chart-text-size: var(--body-2-font-size);
+  --earning-chart-text-line: var(--body-2-line-height);
+  --earning-chart-amount-size: var(--caption-font-size);
+  --earning-chart-amount-line: var(--caption-line-height);
+  --earning-chart-note-size: var(--disclaimer-font-size);
+  --earning-chart-note-line: var(--caption-line-height);
+  --earning-chart-axis-size: var(--disclaimer-font-size);
+  --earning-chart-axis-line: var(--disclaimer-line-height);
+
+  /* chart geometry: plot area above the axis, tallest bar, axis and marker */
+  --earning-chart-plot: 292px;
+  --earning-chart-bar-max: 178px;
+  --earning-chart-axis: 40px;
+  --earning-chart-tooltip-width: 100px;
+  --earning-chart-dot: 6px;
+  --earning-chart-line: 17px;
+  --earning-chart-gap: var(--spacing-lg);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  font-family: var(--heading-font-family);
+}
+
+.earning-chart p {
+  margin: 0;
+}
+
+/* heading and description */
+.earning-chart .earning-chart-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.earning-chart .earning-chart-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.earning-chart .earning-chart-header > * {
+  margin: 0;
+}
+
+.earning-chart .earning-chart-title {
+  color: var(--earning-chart-color-heading);
+  font-size: var(--earning-chart-title-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--earning-chart-title-line);
+  letter-spacing: var(--earning-chart-title-tracking);
+}
+
+.earning-chart .earning-chart-title :is(strong, b) {
+  font-weight: var(--font-weight-semibold);
+}
+
+.earning-chart .earning-chart-description {
+  color: var(--earning-chart-color-body);
+  font-size: var(--earning-chart-text-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--earning-chart-text-line);
+}
+
+/* figure with advisor photos, and the highlight card */
+.earning-chart .earning-chart-facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.earning-chart .earning-chart-proof {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  color: var(--text-secondary);
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-1-line-height);
+}
+
+.earning-chart .earning-chart-photos img {
+  display: block;
+  width: auto;
+  height: 26px;
+}
+
+.earning-chart .earning-chart-proof-value {
+  color: var(--earning-chart-color-heading);
+  font-size: var(--sub-heading-1-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--sub-heading-1-line-height);
+}
+
+/* mobile: value on the left, heading and note on the right */
+.earning-chart .earning-chart-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+  background-color: var(--earning-chart-color-card);
+}
+
+.earning-chart .earning-chart-highlight-value {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--spacing-md);
+  color: var(--earning-chart-color-heading);
+  font-size: var(--heading-3-font-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--heading-3-line-height);
+}
+
+.earning-chart .earning-chart-highlight-icon {
+  display: block;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  background: url('../../icons/arrow-up-circle-red.svg') center / contain no-repeat;
+}
+
+.earning-chart .earning-chart-highlight-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+}
+
+.earning-chart .earning-chart-highlight-heading {
+  color: var(--earning-chart-color-heading);
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-1-line-height);
+}
+
+.earning-chart .earning-chart-highlight-note {
+  color: var(--earning-chart-color-muted);
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--body-2-line-height);
+}
+
+/* chart */
+.earning-chart .earning-chart-graph {
+  position: relative;
+}
+
+.earning-chart .earning-chart-columns {
+  position: relative;
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: var(--earning-chart-gap);
+  height: calc(var(--earning-chart-plot) + var(--earning-chart-axis));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* the axis line runs under all columns */
+.earning-chart .earning-chart-columns::before {
+  position: absolute;
+  right: 0;
+  bottom: var(--earning-chart-axis);
+  left: 0;
+  height: 1px;
+  background-color: var(--earning-chart-color-axis);
+  content: '';
+}
+
+.earning-chart .earning-chart-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+}
+
+.earning-chart .earning-chart-tooltip {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  box-sizing: border-box;
+  width: min(var(--earning-chart-tooltip-width), 100%);
+  padding: 10px;
+  border-radius: var(--radius-md);
+  background-color: var(--earning-chart-color-tooltip);
+  box-shadow: var(--shadow-md);
+}
+
+.earning-chart .earning-chart-amount {
+  color: var(--earning-chart-color-heading);
+  font-size: var(--earning-chart-amount-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--earning-chart-amount-line);
+}
+
+.earning-chart .earning-chart-note {
+  color: var(--earning-chart-color-body);
+  font-size: var(--earning-chart-note-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--earning-chart-note-line);
+}
+
+/* dot on the tooltip's lower edge and a dashed line down to the bar */
+.earning-chart .earning-chart-marker {
+  position: relative;
+  z-index: 3;
+  flex: none;
+  width: var(--earning-chart-dot);
+  height: calc(var(--earning-chart-dot) + var(--earning-chart-line));
+  margin-top: calc(var(--earning-chart-dot) / -2);
+  background:
+    radial-gradient(circle, var(--earning-chart-marker-color) 0 calc(var(--earning-chart-dot) / 2), transparent calc(var(--earning-chart-dot) / 2 + 0.5px)) top / var(--earning-chart-dot) var(--earning-chart-dot) no-repeat,
+    repeating-linear-gradient(180deg, var(--earning-chart-marker-color) 0 3px, transparent 3px 6px) center bottom / 1px var(--earning-chart-line) no-repeat;
+
+  --earning-chart-marker-color: var(--earning-chart-color-marker);
+}
+
+.earning-chart .earning-chart-bar {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  width: 100%;
+  height: calc(var(--earning-chart-bar-max) * var(--earning-chart-bar, 1));
+  background: var(--earning-chart-bar-fill);
+
+  /* Figma: a blue-grey copy of the bar, 5px right and 7px down, behind it */
+  box-shadow: 5px 7px 10px -2px color-mix(in srgb, var(--brand-blue-100) 75%, transparent);
+  transition: background 0.3s ease;
+}
+
+.earning-chart .earning-chart-axis {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--earning-chart-axis);
+  text-align: center;
+}
+
+.earning-chart .earning-chart-year {
+  color: var(--earning-chart-color-heading);
+  font-size: var(--earning-chart-axis-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--earning-chart-axis-line);
+}
+
+.earning-chart .earning-chart-stage {
+  color: var(--earning-chart-color-body);
+  font-size: var(--earning-chart-axis-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--earning-chart-axis-line);
+}
+
+/* the highlighted column; hovering another column moves the highlight to it */
+.earning-chart .earning-chart-column.is-highlighted .earning-chart-bar,
+.earning-chart .earning-chart-columns:hover .earning-chart-column:hover .earning-chart-bar {
+  background: var(--earning-chart-bar-fill-active);
+}
+
+.earning-chart .earning-chart-column.is-highlighted .earning-chart-marker,
+.earning-chart .earning-chart-columns:hover .earning-chart-column:hover .earning-chart-marker {
+  --earning-chart-marker-color: var(--earning-chart-color-marker-active);
+}
+
+.earning-chart .earning-chart-columns:hover .earning-chart-column.is-highlighted:not(:hover) .earning-chart-bar {
+  background: var(--earning-chart-bar-fill);
+}
+
+.earning-chart .earning-chart-columns:hover .earning-chart-column.is-highlighted:not(:hover) .earning-chart-marker {
+  --earning-chart-marker-color: var(--earning-chart-color-marker);
+}
+
+/* growth arrow over the bars, under the tooltips */
+.earning-chart .earning-chart-arrow {
+  position: absolute;
+  inset: 27% 1% calc(var(--earning-chart-axis) + 24%) 4%;
+  z-index: 2;
+  background: url('./growth-arrow.svg') center / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
+@media (width >= 600px) {
+  .earning-chart {
+    --earning-chart-plot: 332px;
+    --earning-chart-bar-max: 227px;
+    --earning-chart-axis: 64px;
+    --earning-chart-tooltip-width: 150px;
+    --earning-chart-dot: 10px;
+    --earning-chart-line: 27px;
+    --earning-chart-gap: var(--spacing-2xl);
+    --earning-chart-amount-size: var(--body-2-font-size);
+    --earning-chart-amount-line: var(--body-2-line-height);
+    --earning-chart-note-size: var(--caption-font-size);
+    --earning-chart-axis-size: var(--body-2-font-size);
+    --earning-chart-axis-line: var(--body-2-line-height);
+  }
+
+  .earning-chart .earning-chart-tooltip {
+    gap: var(--spacing-md);
+  }
+
+  .earning-chart .earning-chart-columns {
+    padding: 0 var(--spacing-2xl);
+  }
+
+  /* Figma: 555 x 265 at 22, 65 in the 580 x 396 graph, ending on the axis */
+  .earning-chart .earning-chart-arrow {
+    inset: 65px 3px var(--earning-chart-axis) 22px;
+  }
+}
+
+/* desktop: text on the left (header at the top, facts at the bottom), graph 580 wide */
+@media (width >= 900px) {
+  .earning-chart {
+    --earning-chart-title-size: var(--heading-1-font-size);
+    --earning-chart-title-line: var(--heading-1-line-height);
+    --earning-chart-title-tracking: normal;
+    --earning-chart-text-size: var(--body-1-font-size);
+    --earning-chart-text-line: var(--body-1-line-height);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 580px);
+    gap: var(--spacing-2xl);
+  }
+
+  .earning-chart .earning-chart-content {
+    justify-content: space-between;
+  }
+
+  .earning-chart .earning-chart-highlight {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    width: 260px;
+    box-sizing: border-box;
+  }
+
+  .earning-chart .earning-chart-highlight-body {
+    padding-left: var(--spacing-4xl);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .earning-chart .earning-chart-bar {
+    transition: none;
+  }
+}

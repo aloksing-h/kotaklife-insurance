@@ -1,0 +1,639 @@
+/*
+ * Team Profiles: Leadership page "Board of Directors" and "Management Team".
+ * Figma Leadership cards layout 8:2420:
+ *   desktop: tabs 260 wide, cards 260 x 298 (portrait 230 x 200 rising 48 above the card),
+ *            3 a row, 20 apart; open profile 820 wide (portrait 144 x 136)
+ *   mobile:  dropdown 328 wide, cards 160 x 214 (portrait 149 x 130 rising 32), 2 a row,
+ *            8 / 12 apart, red arrow on every card; open profile full width (portrait 120 x 112)
+ */
+
+.team-profiles {
+  /* colors */
+  --team-profiles-color-heading: var(--gray-900);
+  --team-profiles-color-body: var(--gray-600);
+  --team-profiles-color-tab: var(--gray-700);
+  --team-profiles-color-border: var(--brand-blue-50);
+  --team-profiles-color-tab-border: var(--gray-300);
+  --team-profiles-color-active: var(--blue-100);
+  --team-profiles-color-active-border: var(--brand-blue-500);
+  --team-profiles-color-accent: var(--brand-red-600);
+  --team-profiles-color-card: var(--base-white);
+  --team-profiles-color-detail: var(--blue-50);
+  --team-profiles-color-detail-border: var(--blue-100);
+  --team-profiles-color-disabled: var(--gray-100);
+  --team-profiles-color-disabled-icon: var(--gray-400);
+  --team-profiles-color-focus: var(--info-500);
+
+  /* card */
+  --team-profiles-card-height: 214px;
+  --team-profiles-rise: 32px;
+  --team-profiles-card-padding: var(--spacing-lg);
+  --team-profiles-visual-bleed: 6px;
+  --team-profiles-visual-ratio: 149 / 130;
+  --team-profiles-visual-gap: var(--spacing-md);
+  --team-profiles-shadow-height: 16px;
+  --team-profiles-arrow-size: 24px;
+  --team-profiles-name-size: var(--body-2-font-size);
+  --team-profiles-name-line: var(--body-2-line-height);
+  --team-profiles-role-size: var(--disclaimer-font-size);
+  --team-profiles-role-line: var(--disclaimer-line-height);
+  --team-profiles-motion: 0.25s ease;
+
+  font-family: var(--body-font-family);
+}
+
+.team-profiles .team-profiles-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.team-profiles button {
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.team-profiles button:focus-visible {
+  outline: 2px solid var(--team-profiles-color-focus);
+  outline-offset: 2px;
+}
+
+/* icons, coloured by the text colour */
+.team-profiles .team-profiles-icon {
+  display: block;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  background-color: currentcolor;
+  mask: var(--team-profiles-icon) center / contain no-repeat;
+}
+
+.team-profiles .team-profiles-icon-tab { --team-profiles-icon: url('../../icons/chevron-right.svg'); }
+.team-profiles .team-profiles-icon-chevron { --team-profiles-icon: url('../../icons/chevron-down.svg'); }
+.team-profiles .team-profiles-icon-close { --team-profiles-icon: url('../../icons/close-red.svg'); }
+
+.team-profiles :is(.team-profiles-icon-arrow, .team-profiles-icon-next, .team-profiles-icon-previous) {
+  --team-profiles-icon: url('../../icons/write-arrow-right.svg');
+}
+
+.team-profiles .team-profiles-icon-previous {
+  transform: rotate(180deg);
+}
+
+/* layout: tabs (or the dropdown) above the cards on mobile, beside them on desktop */
+.team-profiles .team-profiles-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* team tabs: on mobile a dropdown (Figma 2:1016: 16 padding, blue, red chevron) */
+.team-profiles .team-profiles-nav {
+  position: relative;
+  z-index: 3;
+}
+
+.team-profiles .team-profiles-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-xl);
+  border: 1px solid var(--team-profiles-color-active-border);
+  border-radius: var(--radius-md);
+  background: var(--team-profiles-color-active);
+  color: var(--team-profiles-color-heading);
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  text-align: left;
+}
+
+.team-profiles .team-profiles-toggle-label {
+  flex: 1;
+}
+
+/* Figma: a 12 wide chevron in a 20 box */
+.team-profiles .team-profiles-toggle .team-profiles-icon {
+  color: var(--team-profiles-color-accent);
+  mask-size: 12px auto;
+  transition: transform var(--team-profiles-motion);
+}
+
+.team-profiles .team-profiles-nav.is-expanded .team-profiles-toggle .team-profiles-icon {
+  transform: rotate(180deg);
+}
+
+.team-profiles .team-profiles-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+/* mobile: the tabs open under the toggle, over the cards */
+@media (width < 900px) {
+  .team-profiles .team-profiles-tabs {
+    position: absolute;
+    inset: calc(100% + var(--spacing-xs)) 0 auto;
+    padding: var(--spacing-md);
+    border: 1px solid var(--team-profiles-color-tab-border);
+    border-radius: var(--radius-md);
+    background: var(--base-white);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .team-profiles .team-profiles-nav:not(.is-expanded) .team-profiles-tabs {
+    display: none;
+  }
+}
+
+.team-profiles .team-profiles-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border: 1px solid var(--team-profiles-color-tab-border);
+  border-radius: var(--radius-md);
+  background: var(--base-white);
+  color: var(--team-profiles-color-tab);
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  text-align: left;
+  transition: background-color var(--team-profiles-motion), border-color var(--team-profiles-motion);
+}
+
+.team-profiles .team-profiles-tab-label {
+  flex: 1;
+}
+
+.team-profiles .team-profiles-tab:hover {
+  border-color: var(--team-profiles-color-active-border);
+}
+
+.team-profiles .team-profiles-tab.is-active {
+  border-color: var(--team-profiles-color-active-border);
+  background: var(--team-profiles-color-active);
+  color: var(--team-profiles-color-heading);
+}
+
+.team-profiles .team-profiles-tab.is-active .team-profiles-icon-tab {
+  color: var(--team-profiles-color-accent);
+}
+
+/* cards */
+.team-profiles .team-profiles-team[hidden],
+.team-profiles .team-profiles-list[hidden],
+.team-profiles .team-profiles-detail[hidden] {
+  display: none;
+}
+
+.team-profiles .team-profiles-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-lg) var(--spacing-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: team-profiles-in var(--team-profiles-motion);
+}
+
+/* Figma: every card the same height (214 mobile, 298 desktop), taller only for long text */
+.team-profiles .team-profiles-card {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  min-height: var(--team-profiles-card-height);
+  padding-top: var(--team-profiles-rise);
+}
+
+.team-profiles .team-profiles-card-box {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0 var(--team-profiles-card-padding) var(--team-profiles-card-padding);
+  border: 1px solid var(--team-profiles-color-border);
+  border-radius: var(--radius-md);
+  background: var(--team-profiles-color-card);
+  transition: border-color var(--team-profiles-motion), box-shadow var(--team-profiles-motion);
+}
+
+.team-profiles .team-profiles-card.is-interactive {
+  cursor: pointer;
+}
+
+/* the portrait rises above the card; a white fade hides its lower edge */
+.team-profiles .team-profiles-visual {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: var(--team-profiles-visual-ratio);
+  margin: calc(-1 * var(--team-profiles-rise)) calc(-1 * var(--team-profiles-visual-bleed)) 0;
+}
+
+.team-profiles .team-profiles-visual.is-empty {
+  visibility: hidden;
+}
+
+/* the picture fills the fixed-ratio box, so every portrait has the same size */
+.team-profiles .team-profiles-visual picture {
+  position: absolute;
+  inset: 0;
+}
+
+.team-profiles .team-profiles-visual :is(picture, img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.team-profiles .team-profiles-visual img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.team-profiles .team-profiles-visual::after {
+  position: absolute;
+  inset: auto calc(-1 * var(--team-profiles-visual-bleed)) calc(-0.5 * var(--team-profiles-shadow-height));
+  height: var(--team-profiles-shadow-height);
+  background: linear-gradient(180deg, rgb(255 255 255 / 0%) 0%, var(--team-profiles-color-card) 55%);
+  content: '';
+  pointer-events: none;
+}
+
+.team-profiles .team-profiles-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-top: var(--team-profiles-visual-gap);
+  text-align: center;
+}
+
+.team-profiles .team-profiles-name {
+  margin: 0;
+  color: var(--team-profiles-color-heading);
+  font-size: var(--team-profiles-name-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--team-profiles-name-line);
+}
+
+/* the name is the button; it covers the whole card so the card is one target */
+.team-profiles .team-profiles-open {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: inherit;
+}
+
+.team-profiles .team-profiles-open::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: var(--radius-md);
+  content: '';
+}
+
+.team-profiles .team-profiles-open:focus-visible {
+  outline: none;
+}
+
+.team-profiles .team-profiles-open:focus-visible::after {
+  inset: -4px;
+  outline: 2px solid var(--team-profiles-color-focus);
+}
+
+.team-profiles .team-profiles-designation,
+.team-profiles .team-profiles-summary {
+  margin: 0;
+  color: var(--team-profiles-color-body);
+  font-size: var(--team-profiles-role-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--team-profiles-role-line);
+}
+
+.team-profiles .team-profiles-summary > * {
+  margin: 0;
+}
+
+/* the red arrow: on every card on mobile, on hover or focus on desktop (prototype) */
+.team-profiles .team-profiles-card-box > .team-profiles-icon-arrow {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 1;
+  box-sizing: border-box;
+  width: var(--team-profiles-arrow-size);
+  height: var(--team-profiles-arrow-size);
+  border-radius: var(--radius-full);
+  background: var(--team-profiles-color-accent);
+  mask: none;
+  transition: opacity var(--team-profiles-motion);
+}
+
+.team-profiles .team-profiles-card-box > .team-profiles-icon-arrow::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--base-white);
+  content: '';
+  mask: var(--team-profiles-icon) center / 66% no-repeat;
+}
+
+.team-profiles .team-profiles-card.is-interactive:hover .team-profiles-card-box,
+.team-profiles .team-profiles-card:has(.team-profiles-open:focus-visible) .team-profiles-card-box {
+  border-color: var(--team-profiles-color-accent);
+}
+
+/* open profile (Figma 8:2465 / 8:2516) */
+.team-profiles .team-profiles-detail {
+  scroll-margin-top: 120px;
+  animation: team-profiles-in var(--team-profiles-motion);
+}
+
+.team-profiles .team-profiles-detail-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  padding: var(--spacing-xl);
+  border: 1px solid var(--team-profiles-color-detail-border);
+  border-radius: var(--radius-md);
+  background: var(--team-profiles-color-detail);
+  color: var(--team-profiles-color-heading);
+}
+
+.team-profiles .team-profiles-detail-visual {
+  position: relative;
+  width: 120px;
+  height: 112px;
+}
+
+.team-profiles .team-profiles-detail-visual.is-empty {
+  display: none;
+}
+
+.team-profiles .team-profiles-detail-visual :is(picture, img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.team-profiles .team-profiles-detail-visual img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.team-profiles .team-profiles-detail-visual::after {
+  position: absolute;
+  inset: auto -8px -6px;
+  height: 14px;
+  background: linear-gradient(180deg, rgb(239 248 255 / 0%) 0%, var(--team-profiles-color-detail) 55%);
+  content: '';
+}
+
+.team-profiles .team-profiles-detail-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xl);
+  text-align: center;
+}
+
+.team-profiles .team-profiles-detail-name {
+  margin: 0;
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--body-1-line-height);
+}
+
+.team-profiles .team-profiles-detail-name:focus {
+  outline: none;
+}
+
+.team-profiles .team-profiles-detail-name:focus-visible {
+  outline: 2px solid var(--team-profiles-color-focus);
+  outline-offset: 2px;
+}
+
+.team-profiles .team-profiles-detail-designation {
+  margin: 0;
+  color: var(--team-profiles-color-body);
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--caption-line-height);
+}
+
+.team-profiles .team-profiles-close {
+  position: absolute;
+  top: var(--spacing-xl);
+  right: var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: none;
+  color: var(--team-profiles-color-heading);
+}
+
+.team-profiles .team-profiles-close:hover {
+  background: var(--team-profiles-color-active);
+}
+
+.team-profiles .team-profiles-detail-bio {
+  justify-self: stretch;
+  margin-top: var(--spacing-xl);
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+}
+
+.team-profiles .team-profiles-detail-bio > * {
+  margin: 0;
+}
+
+.team-profiles .team-profiles-detail-bio a {
+  color: inherit;
+}
+
+/* previous / next: at both ends on mobile, right-aligned on desktop */
+.team-profiles .team-profiles-detail-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-2xl);
+}
+
+.team-profiles .team-profiles-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--team-profiles-color-accent);
+  color: var(--base-white);
+  transition: background-color var(--team-profiles-motion);
+}
+
+.team-profiles .team-profiles-step:disabled {
+  background: var(--team-profiles-color-disabled);
+  color: var(--team-profiles-color-disabled-icon);
+  cursor: default;
+}
+
+@keyframes team-profiles-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* tablet: three cards a row, still with the dropdown */
+@media (width >= 600px) {
+  .team-profiles .team-profiles-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-2xl) var(--spacing-xl);
+  }
+}
+
+@media (width >= 900px) {
+  .team-profiles {
+    --team-profiles-card-height: 0px;
+    --team-profiles-rise: 48px;
+    --team-profiles-card-padding: 14px;
+    --team-profiles-visual-bleed: 0px;
+    --team-profiles-visual-ratio: 230 / 200;
+    --team-profiles-visual-gap: var(--spacing-2xl);
+    --team-profiles-shadow-height: 28px;
+    --team-profiles-arrow-size: 32px;
+    --team-profiles-name-size: var(--sub-heading-2-font-size);
+    --team-profiles-name-line: var(--sub-heading-2-line-height);
+    --team-profiles-role-size: var(--body-2-font-size);
+    --team-profiles-role-line: var(--body-2-line-height);
+  }
+
+  /* tabs 260 wide on the left, the cards (820 of 1100) on the right */
+  .team-profiles .team-profiles-layout {
+    display: grid;
+    grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--spacing-2xl);
+  }
+
+  .team-profiles .team-profiles-layout.is-single {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .team-profiles .team-profiles-toggle {
+    display: none;
+  }
+
+  .team-profiles .team-profiles-list {
+    gap: var(--spacing-2xl);
+  }
+
+  .team-profiles .team-profiles-card-box {
+    padding-bottom: 18px;
+  }
+
+  .team-profiles .team-profiles-card-box > .team-profiles-icon-arrow {
+    right: 14px;
+    opacity: 0;
+  }
+
+  .team-profiles .team-profiles-card.is-interactive:hover .team-profiles-icon-arrow,
+  .team-profiles .team-profiles-card:has(.team-profiles-open:focus-visible) .team-profiles-icon-arrow {
+    opacity: 1;
+  }
+
+  /* open profile: portrait 144 x 136 on the left, name beside it, the biography below */
+  .team-profiles .team-profiles-detail-panel {
+    grid-template-columns: 144px minmax(0, 1fr);
+    justify-items: start;
+    column-gap: var(--spacing-2xl);
+    padding: var(--spacing-2xl);
+  }
+
+  .team-profiles .team-profiles-detail-visual {
+    width: 144px;
+    height: 136px;
+  }
+
+  .team-profiles .team-profiles-detail-visual::after {
+    inset: auto -10px -8px;
+    height: 18px;
+  }
+
+  .team-profiles .team-profiles-detail-heading {
+    align-self: center;
+    margin: 0;
+    padding-right: 48px;
+    text-align: left;
+  }
+
+  .team-profiles .team-profiles-detail-visual.is-empty + .team-profiles-detail-heading {
+    grid-column: 1 / -1;
+  }
+
+  .team-profiles .team-profiles-detail-name {
+    font-size: var(--sub-heading-1-font-size);
+    line-height: var(--sub-heading-1-line-height);
+  }
+
+  .team-profiles .team-profiles-detail-designation {
+    font-size: var(--body-2-font-size);
+    line-height: var(--body-2-line-height);
+  }
+
+  .team-profiles .team-profiles-close {
+    top: var(--spacing-xl);
+    right: var(--spacing-xl);
+  }
+
+  .team-profiles .team-profiles-detail-bio {
+    grid-column: 1 / -1;
+  }
+
+  .team-profiles .team-profiles-detail-nav {
+    justify-content: flex-end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-profiles .team-profiles-list,
+  .team-profiles .team-profiles-detail {
+    animation: none;
+  }
+
+  .team-profiles .team-profiles-card-box,
+  .team-profiles .team-profiles-tab,
+  .team-profiles .team-profiles-icon {
+    transition: none;
+  }
+}
+
+/* Figma desktop: every card 298 high (narrower cards between 900 and 1200 size to fit) */
+@media (width >= 1200px) {
+  .team-profiles {
+    --team-profiles-card-height: 298px;
+  }
+}

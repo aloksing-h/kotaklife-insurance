@@ -74,11 +74,14 @@ function buildCard(row) {
 /**
  * Desktop carousel: native horizontal scroll with snap (touch / trackpad swipe),
  * mouse drag, and pagination dots for every reachable start position.
+ * The Grid style turns this around: a grid on desktop, a swipe carousel on mobile.
  * @param {HTMLUListElement} track
  * @param {HTMLDivElement} dots
  * @param {string} id
+ * @param {boolean} [mobileCarousel] Grid style: the carousel (and its dots) is mobile only
  */
-function initCarousel(track, dots, id) {
+function initCarousel(track, dots, id, mobileCarousel = false) {
+  const isCarousel = () => (mobileCarousel ? !DESKTOP_QUERY.matches : DESKTOP_QUERY.matches);
   const cards = [...track.children];
   let positions = [];
 
@@ -116,7 +119,7 @@ function initCarousel(track, dots, id) {
       dot.addEventListener('click', () => track.scrollTo({ left, behavior: 'smooth' }));
       return dot;
     }));
-    dots.hidden = !DESKTOP_QUERY.matches || positions.length < 2;
+    dots.hidden = !isCarousel() || positions.length < 2;
     updateDots();
   };
 
@@ -129,7 +132,7 @@ function initCarousel(track, dots, id) {
   // mouse drag; touch and trackpads use native scrolling
   let drag = null;
   track.addEventListener('pointerdown', (e) => {
-    if (e.pointerType !== 'mouse' || e.button !== 0 || !DESKTOP_QUERY.matches) return;
+    if (e.pointerType !== 'mouse' || e.button !== 0 || !isCarousel()) return;
     drag = { x: e.clientX, left: track.scrollLeft, moved: false };
   });
   track.addEventListener('pointermove', (e) => {
@@ -256,11 +259,14 @@ export default function decorate(block) {
     dots.setAttribute('role', 'group');
     dots.setAttribute('aria-label', 'Slides');
     carousel.append(track, dots);
-    const toggle = buildToggle(track, id);
+    // Grid style (Figma Life Advisor 11291:43936 / 11291:44016): a grid on desktop and a
+    // swipe carousel with dots on mobile, so no Show More and no edge bleed
+    const isGrid = block.classList.contains('grid');
+    const toggle = isGrid ? null : buildToggle(track, id);
     if (toggle) carousel.append(toggle);
     content.push(carousel);
-    initCarousel(track, dots, id);
-    bleedRight(carousel);
+    initCarousel(track, dots, id, isGrid);
+    if (!isGrid) bleedRight(carousel);
   }
   block.replaceChildren(...content);
 }

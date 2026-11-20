@@ -718,6 +718,37 @@
           }
         },
         {
+          "title": "Earning Chart",
+          "id": "earning-chart",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Earning Chart",
+                  "model": "earning-chart",
+                  "filter": "earning-chart"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Chart Column",
+          "id": "earning-chart-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Chart Column",
+                  "model": "earning-chart-item"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Eligibility Tabs",
           "id": "eligibility-tabs",
           "plugins": {
@@ -773,6 +804,37 @@
                 "template": {
                   "name": "Embed",
                   "model": "embed"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Expand Cards",
+          "id": "expand-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Expand Cards",
+                  "model": "expand-cards",
+                  "filter": "expand-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Expand Card",
+          "id": "expand-cards-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Expand Card",
+                  "model": "expand-cards-item"
                 }
               }
             }
@@ -1195,6 +1257,56 @@
           }
         },
         {
+          "title": "Job Listing",
+          "id": "job-listing",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Job Listing",
+                  "model": "job-listing",
+                  "filter": "job-listing",
+                  "searchPlaceholder": "Search...",
+                  "searchLabel": "Search jobs",
+                  "filterLabel": "Filter by",
+                  "categoryHeading": "Choose category",
+                  "careerHeading": "Career type",
+                  "applyFilterLabel": "Apply",
+                  "clearLabel": "Clear All",
+                  "filteredByLabel": "Filtered by",
+                  "closeLabel": "Close filters",
+                  "sortLabel": "Sort jobs",
+                  "sortOptions": "Newest=newest, Oldest=oldest, Job title (A-Z)=title",
+                  "pageSize": 8,
+                  "applyLabel": "Apply Now",
+                  "resultsLabel": "{count} jobs found",
+                  "emptyMessage": "No jobs match your search. Try other keywords or filters.",
+                  "previousLabel": "Previous page",
+                  "nextLabel": "Next page",
+                  "pageLabel": "Page",
+                  "removeLabel": "Remove filter"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Job",
+          "id": "job-listing-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Job",
+                  "model": "job-listing-item"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Life Advisor",
           "id": "life-advisor",
           "plugins": {
@@ -1297,6 +1409,43 @@
                   "name": "Offer Banner",
                   "model": "offer-banner",
                   "content_ctaText": "Buy Now"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Photo Gallery",
+          "id": "photo-gallery",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Photo Gallery",
+                  "model": "photo-gallery",
+                  "filter": "photo-gallery",
+                  "pauseLabel": "Pause the photo strip",
+                  "playLabel": "Play the photo strip",
+                  "viewLabel": "View photo",
+                  "previousLabel": "Previous photo",
+                  "nextLabel": "Next photo",
+                  "closeLabel": "Close photo"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Photo",
+          "id": "photo-gallery-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Photo",
+                  "model": "photo-gallery-item"
                 }
               }
             }
@@ -1695,6 +1844,37 @@
           }
         },
         {
+          "title": "Stats Visual",
+          "id": "stats-visual",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Stats Visual",
+                  "model": "stats-visual",
+                  "filter": "stats-visual"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Stat",
+          "id": "stats-visual-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Stat",
+                  "model": "stats-visual-item"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Tab Panel",
           "id": "tab-panel",
           "plugins": {
@@ -1783,6 +1963,59 @@
                 "template": {
                   "name": "Tag Card",
                   "model": "tag-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Team Profiles",
+          "id": "team-profiles",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Team Profiles",
+                  "model": "team-profiles",
+                  "filter": "team-profiles",
+                  "closeLabel": "Close profile",
+                  "previousLabel": "Previous profile",
+                  "nextLabel": "Next profile",
+                  "groupLabel": "Choose a team"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Team Group",
+          "id": "team-profiles-group",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Team Group",
+                  "model": "team-profiles-group",
+                  "title": "Board of Directors",
+                  "anchor": "board-of-directors"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Profile",
+          "id": "team-profiles-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Profile",
+                  "model": "team-profiles-item",
+                  "imageMimeType": "image/png"
                 }
               }
             }
@@ -1890,6 +2123,37 @@
                 "template": {
                   "name": "Video Banner",
                   "model": "video-banner"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Video Cards",
+          "id": "video-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Video Cards",
+                  "model": "video-cards",
+                  "filter": "video-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Video Card",
+          "id": "video-cards-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Video Card",
+                  "model": "video-cards-item"
                 }
               }
             }

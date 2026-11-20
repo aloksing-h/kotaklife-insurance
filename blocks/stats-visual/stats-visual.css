@@ -1,0 +1,141 @@
+/*
+ * Stats Visual: Life Advisor page "Be a Life Advisor and earn from home".
+ * Figma 11291:43980 (desktop 1100) / 11291:44107 (mobile 328).
+ */
+
+.stats-visual {
+  /* colors */
+  --stats-visual-color-heading: var(--text-primary);
+  --stats-visual-color-body: var(--text-tertiary);
+  --stats-visual-color-card: var(--blue-25);
+
+  /* typography */
+  --stats-visual-title-size: var(--heading-3-font-size);
+  --stats-visual-title-line: var(--heading-3-line-height);
+  --stats-visual-title-tracking: var(--heading-3-letter-spacing);
+  --stats-visual-text-size: var(--body-2-font-size);
+  --stats-visual-text-line: var(--body-2-line-height);
+  --stats-visual-value-size: var(--body-1-font-size);
+  --stats-visual-value-line: var(--body-1-line-height);
+  --stats-visual-label-size: var(--disclaimer-font-size);
+  --stats-visual-label-line: var(--disclaimer-line-height);
+
+  /* spacing */
+  --stats-visual-stats-space: 30px;
+  --stats-visual-stats-gap: var(--spacing-md);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  font-family: var(--heading-font-family);
+}
+
+.stats-visual .stats-visual-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.stats-visual .stats-visual-header > * {
+  margin: 0;
+}
+
+.stats-visual .stats-visual-title {
+  color: var(--stats-visual-color-heading);
+  font-size: var(--stats-visual-title-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--stats-visual-title-line);
+  letter-spacing: var(--stats-visual-title-tracking);
+}
+
+.stats-visual .stats-visual-title :is(strong, b) {
+  font-weight: var(--font-weight-semibold);
+}
+
+.stats-visual .stats-visual-description {
+  color: var(--stats-visual-color-body);
+  font-size: var(--stats-visual-text-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--stats-visual-text-line);
+}
+
+/* stat cards: three in a row on every screen, as in Figma */
+.stats-visual .stats-visual-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--stats-visual-stats-gap);
+  margin: var(--stats-visual-stats-space) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stats-visual .stats-visual-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  box-sizing: border-box;
+  min-height: 72px;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  background-color: var(--stats-visual-color-card);
+  color: var(--stats-visual-color-heading);
+}
+
+.stats-visual .stats-visual-stat > p {
+  margin: 0;
+}
+
+.stats-visual .stats-visual-value {
+  font-size: var(--stats-visual-value-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--stats-visual-value-line);
+}
+
+.stats-visual .stats-visual-label {
+  font-size: var(--stats-visual-label-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--stats-visual-label-line);
+}
+
+/* visual: 540 x 374 on desktop, the full content width on mobile */
+.stats-visual .stats-visual-visual picture,
+.stats-visual .stats-visual-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 600px) {
+  .stats-visual {
+    --stats-visual-stats-gap: var(--spacing-lg);
+  }
+
+  .stats-visual .stats-visual-stats {
+    grid-template-columns: repeat(3, minmax(0, 172px));
+  }
+}
+
+/* desktop: text on the left, the visual on the right, both 540 wide in the 1100 column */
+@media (width >= 900px) {
+  .stats-visual {
+    --stats-visual-title-size: var(--heading-1-font-size);
+    --stats-visual-title-line: var(--heading-1-line-height);
+    --stats-visual-title-tracking: normal;
+    --stats-visual-text-size: var(--body-1-font-size);
+    --stats-visual-text-line: var(--body-1-line-height);
+    --stats-visual-value-size: var(--sub-heading-1-font-size);
+    --stats-visual-value-line: var(--sub-heading-1-line-height);
+    --stats-visual-label-size: var(--caption-font-size);
+    --stats-visual-label-line: var(--caption-line-height);
+    --stats-visual-stats-space: var(--spacing-4xl);
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+  }
+
+  .stats-visual .stats-visual-stat {
+    min-height: 74px;
+  }
+}
