@@ -33,6 +33,7 @@ module.exports = {
       'job-listing': 20,
       'job-listing-item': 7,
       'team-profiles-item': 5,
+      'search-results': 14,
     }],
   },
 };

@@ -492,4 +492,10 @@ export default async function decorate(block) {
     const { default: decorateLeadership } = await import('./banner-v2-leadership.js');
     await decorateLeadership(block);
   }
+
+  // Search Banner style: used with Retire Calc Banner on the search results page
+  if (block.classList.contains('search-banner')) {
+    const { default: decorateSearch } = await import('./banner-v2-search.js');
+    await decorateSearch(block);
+  }
 }

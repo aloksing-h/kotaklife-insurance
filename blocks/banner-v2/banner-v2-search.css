@@ -1,0 +1,97 @@
+/*
+ * Banner V2, style "Search Banner" (search-banner), picked together with "Retire Calc Banner":
+ * Figma Search page, Inner page banners 1:1932 (mobile 360 x 439: illustration 154 x 167 at
+ * the bottom right) / 1:1996 (desktop: illustration 403 x 399 at 797, 96; the search bar
+ * starts 16 below the breadcrumb, over the light background).
+ * Every rule carries both classes, so only the search page banner changes.
+ */
+
+.banner-v2.block.retire-calc-banner.search-banner .banner-v2-visual {
+  position: absolute;
+  inset: auto 0 2px auto;
+  z-index: 1;
+  display: block;
+  width: 154px;
+  height: 167px;
+  margin: 0;
+  pointer-events: none;
+}
+
+.banner-v2.block.retire-calc-banner.search-banner .banner-v2-visual :is(.banner-v2-visual-desktop, .banner-v2-visual-mobile, picture) {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+}
+
+.banner-v2.block.retire-calc-banner.search-banner .banner-v2-visual img {
+  position: static;
+  inset: auto;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+/* the breadcrumb closes the banner (Figma: under the text, not above it) */
+main > .section:has(.banner-v2.retire-calc-banner.search-banner) .breadcrumb-container {
+  top: auto;
+  bottom: 0;
+}
+
+@media (width >= 600px) {
+  .banner-v2.block.retire-calc-banner.search-banner .banner-v2-visual {
+    right: 24px;
+    width: 220px;
+    height: 218px;
+  }
+}
+
+/* desktop: the banner ends with the breadcrumb; the illustration runs on below it */
+@media (width >= 900px) {
+  /* the light background (496 high in Figma) runs on behind the search bar: the section
+     paints 210 more below the banner and the next section moves up over it, 16 below */
+  main > .section:has(.banner-v2.retire-calc-banner.search-banner) {
+    overflow: visible;
+    margin-bottom: -210px;
+    padding-bottom: 210px;
+  }
+
+  /* above the banner background (the section is transparent, the illustration shows) */
+  main > .section:has(.banner-v2.retire-calc-banner.search-banner) + .section {
+    position: relative;
+    z-index: 1;
+    margin-top: var(--spacing-xl);
+  }
+
+  main > .section:has(.banner-v2.retire-calc-banner.search-banner) .breadcrumb-container {
+    bottom: 210px;
+  }
+
+  .banner-v2.block.retire-calc-banner.search-banner,
+  .banner-v2.block.retire-calc-banner.search-banner .banner-v2-inner {
+    height: 286px;
+    min-height: 286px;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .banner-v2.block.retire-calc-banner.search-banner .banner-v2-visual {
+    inset: 96px 0 auto auto;
+    width: 300px;
+    height: 297px;
+  }
+
+  .banner-v2.block.retire-calc-banner.search-banner .banner-v2-visual img {
+    object-position: right top;
+  }
+}
+
+@media (width >= 1200px) {
+  .banner-v2.block.retire-calc-banner.search-banner .banner-v2-visual {
+    width: 403px;
+    height: 399px;
+  }
+}

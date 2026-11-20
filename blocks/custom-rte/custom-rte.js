@@ -1123,6 +1123,14 @@ export default async function decorate(block) {
     const inputLbl = block.querySelector('.search-item-3').textContent;
     const searchResultIcon = block.querySelector('.search-item-4 span').cloneNode(true);
     const searchTrendingTxt = block.querySelector('.search-item-5').textContent;
+    // trending searches: an authored bullet list, else the original five
+    const authoredTags = [...block.querySelectorAll('li')]
+      .map((item) => item.textContent.trim()).filter(Boolean);
+    const trendingTags = authoredTags.length ? authoredTags : [
+      'Contact number', 'Manage policy', 'How to file a claim', 'Child plan', 'NRI investment plans',
+    ];
+    // the search results page: an authored link, else /in/en/search
+    const resultsPath = block.querySelector('p > a[href]')?.getAttribute('href') || '/in/en/search';
 
     const globalSearchStr = div(
       { class: 'global-search-container' },
@@ -1142,26 +1150,10 @@ export default async function decorate(block) {
         h2({ class: 'trending-title' }, searchTrendingTxt),
         ul(
           { class: 'trending-tags-list' },
-          li(
+          ...trendingTags.map((tag) => li(
             { class: 'trending-tag-item' },
-            button({ class: 'trending-tag-btn', type: 'button', 'aria-label': 'Search for Contact number' }, 'Contact number'),
-          ),
-          li(
-            { class: 'trending-tag-item' },
-            button({ class: 'trending-tag-btn', type: 'button', 'aria-label': 'Search for Manage policy' }, 'Manage policy'),
-          ),
-          li(
-            { class: 'trending-tag-item' },
-            button({ class: 'trending-tag-btn', type: 'button', 'aria-label': 'Search for How to file a claim' }, 'How to file a claim'),
-          ),
-          li(
-            { class: 'trending-tag-item' },
-            button({ class: 'trending-tag-btn', type: 'button', 'aria-label': 'Search for Child plan' }, 'Child plan'),
-          ),
-          li(
-            { class: 'trending-tag-item' },
-            button({ class: 'trending-tag-btn', type: 'button', 'aria-label': 'Search for NRI investment plans' }, 'NRI investment plans'),
-          ),
+            button({ class: 'trending-tag-btn', type: 'button', 'aria-label': `Search for ${tag}` }, tag),
+          )),
         ),
       ),
     );
@@ -1170,5 +1162,9 @@ export default async function decorate(block) {
     closeIconTemplate.content.append(modalCloseBtn);
     block.innerHTML = '';
     block.append(globalSearchStr, closeIconTemplate);
+
+    // search behaviour (submit, Enter, clear, trending searches): its own module
+    const { default: initGlobalSearch } = await import('./global-search.js');
+    initGlobalSearch(globalSearchStr, { resultsPath });
   }
 }

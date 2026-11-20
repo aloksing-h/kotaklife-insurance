@@ -31,6 +31,8 @@
     background: var(--background-1-default-base, #FCFCFC);
     border-radius: 60px;
     padding: 8px 8px 8px 7px;
+    margin: 0;
+    border: 1px solid transparent;
 }
 
 .modal dialog.global-search-modal .search-field-wrap .icon-search-black {
@@ -51,7 +53,9 @@
     outline: none;
     background-color: transparent;
     padding: 0;
-    color: var(--text-text-placeholder-hover, #D5D7DA);
+    min-width: 0;
+    color: var(--gray-900, #181D27);
+    appearance: none;
     font-family: var(--font-family-font-family-body, Manrope);
     font-size: var(--font-size-body-2, 14px);
     font-weight: 500;
@@ -95,7 +99,7 @@
 .modal dialog.global-search-modal .trending-tags-list .trending-tag-btn {
     outline: none;
     background-color: transparent;
-    padding: 11px 12px;
+    padding: 8px 12px;
     border-radius: var(--radius-full, 999px);
     border: 1px solid var(--border-border-white, #FFF);
     color: var(--text-text-white, #FFF);
@@ -103,6 +107,8 @@
     font-size: var(--font-size-button-2, 14px);
     line-height: var(--line-height-body-2, 16px);
     font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 @media screen and (width >=900px) {
@@ -154,4 +160,64 @@
         font-size: var(--font-size-button-2, 14px);
         line-height: var(--line-height-body-2, 16px);
     }
+}
+
+/* Search behaviour (blocks/custom-rte/global-search.js): typed text, the red field while
+   typing (Figma 1:1732 "on type"), the clear button and focus states */
+
+/* red while typing (Figma "on type") and while focused, the field's focus indicator */
+.modal dialog.global-search-modal .global-search-container .search-field-wrap.has-value,
+.modal dialog.global-search-modal .global-search-container .search-field-wrap:focus-within {
+    border-color: var(--brand-red-500, #FA1432);
+}
+
+/* placeholder: darker than Figma's #D5D7DA so it stays readable (WCAG contrast) */
+.modal dialog.global-search-modal .search-field-wrap .search-inp::placeholder {
+    color: var(--gray-500, #717680);
+    opacity: 1;
+}
+
+.modal dialog.global-search-modal .search-field-wrap .search-inp::-webkit-search-cancel-button {
+    display: none;
+}
+
+.modal dialog.global-search-modal .search-field-wrap .search-clear-btn {
+    flex: none;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-full, 999px);
+    background-color: var(--gray-500, #717680);
+    cursor: pointer;
+    mask: url('../../icons/close-red.svg') center / 16px no-repeat;
+}
+
+.modal dialog.global-search-modal .search-field-wrap .search-clear-btn[hidden] {
+    display: none;
+}
+
+.modal dialog.global-search-modal .search-field-wrap .search-clear-btn:hover {
+    background-color: var(--gray-900, #181D27);
+}
+
+.modal dialog.global-search-modal .search-field-wrap .search-submit-btn {
+    cursor: pointer;
+}
+
+.modal dialog.global-search-modal .search-field-wrap .search-submit-btn:focus-visible,
+.modal dialog.global-search-modal .search-field-wrap .search-clear-btn:focus-visible {
+    outline: 2px solid var(--info-500, #2E90FA);
+    outline-offset: 2px;
+}
+
+.modal dialog.global-search-modal .trending-tags-list .trending-tag-btn:hover {
+    background-color: var(--base-white, #FFF);
+    color: var(--gray-900, #181D27);
+}
+
+.modal dialog.global-search-modal .trending-tags-list .trending-tag-btn:focus-visible {
+    outline: 2px solid var(--base-white, #FFF);
+    outline-offset: 2px;
 }

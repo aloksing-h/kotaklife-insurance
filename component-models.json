@@ -1248,6 +1248,10 @@
           {
             "name": "Leadership Banner",
             "value": "leadership-banner"
+          },
+          {
+            "name": "Search Banner",
+            "value": "search-banner"
           }
         ]
       },
@@ -7511,6 +7515,106 @@
             "value": "fire-table"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "search-results",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "source",
+        "label": "Search index",
+        "description": "The site search index (JSON). Leave as /search-index.json"
+      },
+      {
+        "component": "text",
+        "name": "searchPlaceholder",
+        "label": "Search placeholder",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "searchLabel",
+        "label": "Search field label",
+        "valueType": "string",
+        "description": "Read by screen readers"
+      },
+      {
+        "component": "text",
+        "name": "submitLabel",
+        "label": "Search button label",
+        "valueType": "string",
+        "description": "Read by screen readers on the search icon button"
+      },
+      {
+        "component": "text",
+        "name": "sortLabel",
+        "label": "Sort label",
+        "valueType": "string",
+        "description": "Read by screen readers"
+      },
+      {
+        "component": "text",
+        "name": "sortOptions",
+        "label": "Sort options",
+        "valueType": "string",
+        "description": "Label=value pairs, comma separated; values: newest, oldest, relevance. The first is the default"
+      },
+      {
+        "component": "text",
+        "name": "resultsLabel",
+        "label": "Results count",
+        "valueType": "string",
+        "description": "Use {count} and {query}"
+      },
+      {
+        "component": "text",
+        "name": "resultLabel",
+        "label": "Results count for one result",
+        "valueType": "string",
+        "description": "Use {count} and {query}"
+      },
+      {
+        "component": "text",
+        "name": "emptyMessage",
+        "label": "No results message",
+        "valueType": "string",
+        "description": "Use {query}"
+      },
+      {
+        "component": "text",
+        "name": "promptMessage",
+        "label": "Empty search message",
+        "valueType": "string",
+        "description": "Shown before anything is searched"
+      },
+      {
+        "component": "number",
+        "name": "pageSize",
+        "label": "Results per page",
+        "valueType": "number"
+      },
+      {
+        "component": "text",
+        "name": "previousLabel",
+        "label": "Previous page label",
+        "valueType": "string",
+        "description": "Read by screen readers"
+      },
+      {
+        "component": "text",
+        "name": "nextLabel",
+        "label": "Next page label",
+        "valueType": "string",
+        "description": "Read by screen readers"
+      },
+      {
+        "component": "text",
+        "name": "pageLabel",
+        "label": "Page label",
+        "valueType": "string",
+        "description": "Read by screen readers before each page number, e.g. Page 2"
       }
     ]
   },
