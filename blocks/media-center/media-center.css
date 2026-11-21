@@ -419,11 +419,6 @@
   background: var(--media-center-color-card);
   color: var(--media-center-color-heading);
   text-decoration: none;
-  transition: border-color var(--media-center-motion);
-}
-
-.media-center .media-center-release-link:hover {
-  border-color: var(--media-center-color-active-border);
 }
 
 .media-center .media-center-release-top {
@@ -480,6 +475,34 @@
 /* campaign cards: the Video Cards block, two a row on mobile */
 .media-center .media-center-campaigns .video-cards-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* the prototype's campaign cards stay as they are on hover: the Life Advisor hover preview
+   of the Video Cards block (the card grows, the overlay and blur clear, a DAM video plays)
+   is switched off here only. Two classes, so these win over video-cards.css (loaded later) */
+.media-center .media-center-campaigns.video-cards .video-cards-preview {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .media-center .media-center-campaigns.video-cards .video-cards-card:hover {
+    z-index: auto;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .media-center .media-center-campaigns.video-cards .video-cards-card:hover::before {
+    opacity: 1;
+  }
+
+  .media-center .media-center-campaigns.video-cards .video-cards-card:hover .video-cards-media img {
+    filter: blur(3px);
+    transform: scale(1.06);
+  }
+
+  .media-center .media-center-campaigns.video-cards .video-cards-card:hover :is(.video-cards-body, .video-cards-play) {
+    opacity: 1;
+  }
 }
 
 /* no results */
@@ -716,8 +739,7 @@
   .media-center .media-center-filter-button,
   .media-center .media-center-filter-button .media-center-icon-chevron,
   .media-center .media-center-tab,
-  .media-center .media-center-toggle .media-center-icon-chevron,
-  .media-center .media-center-release-link {
+  .media-center .media-center-toggle .media-center-icon-chevron {
     transition: none;
   }
 }

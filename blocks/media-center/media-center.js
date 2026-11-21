@@ -468,6 +468,11 @@ export default async function decorate(block) {
     });
     decorateVideoCards(cards);
     cards.dataset.blockStatus = 'loaded';
+    // no hover preview here (the prototype's cards stay as they are): the pointer entering a
+    // card is stopped before the Video Cards preview starts loading a DAM video
+    cards.addEventListener('pointerenter', (event) => {
+      if (event.target.classList?.contains('video-cards-card')) event.stopPropagation();
+    }, true);
     return cards;
   };
 
