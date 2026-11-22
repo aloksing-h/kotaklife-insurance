@@ -781,3 +781,118 @@
     font-weight: 800;
   }
 }
+
+/* ==========================================================================
+   Style "FAQ with search" (faq-search): Policy FAQs (Figma 1:3826 desktop,
+   1:3866 mobile). A 726px search pill centred above the questions (full
+   width on mobile); questions that do not match are hidden while searching.
+   ========================================================================== */
+.accordion-wrapper .accordion-search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.accordion-wrapper .accordion-search-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 726px;
+}
+
+.accordion-wrapper .accordion-search-icon {
+  position: absolute;
+  left: var(--spacing-xl);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.accordion-wrapper .accordion-search-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 0 var(--spacing-xl) 0 44px;
+  border: 1px solid var(--gray-300);
+  border-radius: 48px;
+  background: var(--base-white);
+  color: var(--gray-900);
+  font-family: var(--font-family-manrope);
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  appearance: none;
+}
+
+.accordion-wrapper .accordion-search-input::placeholder {
+  color: var(--gray-500);
+  opacity: 1;
+}
+
+.accordion-wrapper .accordion-search-input:focus-visible {
+  outline: 2px solid var(--navy-blue-500);
+  outline-offset: 2px;
+}
+
+.accordion-wrapper .accordion-search-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.accordion.faq-search.block > div.faq-search-miss {
+  display: none;
+}
+
+/* while searching, every matching question shows (Show More does not hide any) */
+.accordion.faq-search.is-searching.block > div.faq-hidden:not(.faq-search-miss) {
+  display: block;
+}
+
+main .section:has(.accordion.faq-search.is-searching) .faq-show-more-wrapper {
+  display: none;
+}
+
+.accordion-wrapper .accordion-search-empty {
+  margin: var(--spacing-xl) 0 0;
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  background: var(--blue-25);
+  color: var(--gray-600);
+  font-family: var(--font-family-manrope);
+  font-size: var(--body-1-font-size);
+  line-height: var(--body-1-line-height);
+  text-align: center;
+}
+
+.accordion-wrapper .accordion-search-empty[hidden] {
+  display: none;
+}
+
+/* the section heading above the search is centred, as in Figma */
+main .section.accordion-container:has(.accordion.faq-search) > .default-content-wrapper:first-child {
+  justify-content: center;
+  text-align: center;
+}
+
+main .section.accordion-container:has(.accordion.faq-search) > .default-content-wrapper:first-child h2 {
+  width: auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+@media (width >= 900px) {
+  .accordion-wrapper .accordion-search {
+    margin-bottom: 40px;
+  }
+
+  .accordion-wrapper .accordion-search-input {
+    height: 48px;
+  }
+}

@@ -87,7 +87,12 @@
       "job-listing",
       "team-profiles",
       "search-results",
-      "media-center"
+      "media-center",
+      "notice-banner",
+      "info-panel",
+      "check-points",
+      "download-center",
+      "advisor-lookup"
     ]
   },
   {
@@ -131,6 +136,12 @@
     "id": "carousel",
     "components": [
       "carousel-slide"
+    ]
+  },
+  {
+    "id": "check-points",
+    "components": [
+      "check-points-item"
     ]
   },
   {
@@ -192,6 +203,13 @@
     "id": "customer-testimonials",
     "components": [
       "customer-testimonials-item"
+    ]
+  },
+  {
+    "id": "download-center",
+    "components": [
+      "download-center-tab",
+      "download-center-item"
     ]
   },
   {
@@ -258,6 +276,14 @@
     ]
   },
   {
+    "id": "info-panel",
+    "components": [
+      "info-panel-row",
+      "info-panel-card",
+      "info-panel-action"
+    ]
+  },
+  {
     "id": "insight-cards",
     "components": [
       "insight-card"
@@ -284,6 +310,12 @@
       "media-center-group",
       "media-center-release",
       "media-center-campaign"
+    ]
+  },
+  {
+    "id": "notice-banner",
+    "components": [
+      "notice-banner-item"
     ]
   },
   {

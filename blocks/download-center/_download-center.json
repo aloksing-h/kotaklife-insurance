@@ -1,0 +1,309 @@
+{
+  "definitions": [
+    {
+      "title": "Download Center",
+      "id": "download-center",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Download Center",
+              "model": "download-center",
+              "filter": "download-center",
+              "searchPlaceholder": "Search...",
+              "filterLabel": "Filter by",
+              "chooseLabel": "Choose topic",
+              "applyLabel": "Apply",
+              "applyMobileLabel": "Apply Filter",
+              "filteredLabel": "Filtered by",
+              "clearLabel": "Clear All",
+              "sortLabel": "Sort by",
+              "newestLabel": "Newest",
+              "oldestLabel": "Oldest",
+              "pageSize": "8"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Download Tab",
+      "id": "download-center-tab",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Download Tab",
+              "model": "download-center-tab"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Download Document",
+      "id": "download-center-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Download Document",
+              "model": "download-center-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "download-center",
+      "fields": [
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "text",
+          "label": "Heading",
+          "description": "Section heading (bold words are shown heavier)",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "searchPlaceholder",
+          "label": "Search placeholder",
+          "description": "Shown in the empty search field",
+          "value": "Search..."
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "searchLabel",
+          "label": "Search label",
+          "description": "Read by screen readers",
+          "value": "Search documents"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "filterLabel",
+          "label": "Filter button",
+          "description": "",
+          "value": "Filter by"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "chooseLabel",
+          "label": "Topic list title",
+          "description": "",
+          "value": "Choose topic"
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "topics",
+          "label": "Topics",
+          "description": "A bulleted list of the topics to filter by. A document belongs to a topic when its topic is the same or the first word (Protection is in Protection Plans). Empty: the documents' own topics",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "applyLabel",
+          "label": "Apply button (desktop)",
+          "description": "",
+          "value": "Apply"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "applyMobileLabel",
+          "label": "Apply button (mobile)",
+          "description": "",
+          "value": "Apply Filter"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "filteredLabel",
+          "label": "Applied filters label",
+          "description": "",
+          "value": "Filtered by"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "clearLabel",
+          "label": "Clear button",
+          "description": "Removes every filter",
+          "value": "Clear All"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "sortLabel",
+          "label": "Sort label",
+          "description": "Read by screen readers",
+          "value": "Sort by"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "newestLabel",
+          "label": "Newest option",
+          "description": "",
+          "value": "Newest"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "oldestLabel",
+          "label": "Oldest option",
+          "description": "",
+          "value": "Oldest"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "closeLabel",
+          "label": "Close button label",
+          "description": "Read by screen readers (mobile topic list)",
+          "value": "Close"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "downloadLabel",
+          "label": "Download label",
+          "description": "Read by screen readers after each document title",
+          "value": "Download"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "emptyMessage",
+          "label": "No results message",
+          "description": "",
+          "value": "No documents match your search."
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "pageSize",
+          "label": "Documents per page",
+          "description": "A number",
+          "value": "8"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "previousLabel",
+          "label": "Previous page label",
+          "description": "Read by screen readers",
+          "value": "Previous page"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "nextLabel",
+          "label": "Next page label",
+          "description": "Read by screen readers",
+          "value": "Next page"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "pageLabel",
+          "label": "Page label",
+          "description": "Read by screen readers (Page 2)",
+          "value": "Page"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "groupLabel",
+          "label": "Tabs label",
+          "description": "Read by screen readers",
+          "value": "Document type"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "resultsLabel",
+          "label": "Results announcement",
+          "description": "Read by screen readers; {count} is the number of documents",
+          "value": "{count} documents found"
+        }
+      ]
+    },
+    {
+      "id": "download-center-tab",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Tab name",
+          "description": "For example Brochures",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "anchor",
+          "label": "Anchor",
+          "description": "Optional: a link to #anchor opens this tab",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "download-center-item",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Title",
+          "description": "For example Kotak Vital Care",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "topic",
+          "label": "Topic",
+          "description": "Shown as the tag, for example Protection",
+          "value": ""
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "document",
+          "label": "Document",
+          "description": "The PDF the card opens"
+        },
+        {
+          "component": "date-time",
+          "valueType": "date-time",
+          "name": "date",
+          "label": "Date",
+          "description": "Used for Newest and Oldest"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "download-center",
+      "components": [
+        "download-center-tab",
+        "download-center-item"
+      ]
+    }
+  ]
+}

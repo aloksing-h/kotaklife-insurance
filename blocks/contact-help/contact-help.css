@@ -121,6 +121,14 @@ main>.section.contact-help-container:has(.contact-help.claim-help) {
   --contact-help-icon-image: url('../../icons/location.svg');
 }
 
+.contact-help .contact-help-icon-form {
+  --contact-help-icon-image: url('./contact-help-form.png');
+}
+
+.contact-help .contact-help-icon-policy {
+  --contact-help-icon-image: url('./contact-help-policy.png');
+}
+
 .contact-help .contact-help-icon-chevron {
   --contact-help-icon-image: url('../../icons/chevron-right.svg');
 }

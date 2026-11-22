@@ -1,0 +1,406 @@
+/* ==========================================================================
+   Info Panel: a card with a light blue header (heading, description and an
+   illustration) above details rows, app cards or check points, a note and a
+   notice box. Figma Pay premium: NEFT 1:3319 (desktop 1100 wide) / 1:3570
+   (mobile 328), UPI 1:3318 / 1:3571, branches 1:3421 / 1:3420.
+   Mobile first: header text above the illustration, rows keep two columns,
+   cards stacked; >= 900px the illustration beside the text, cards in a row.
+   The notice action cards use the Notice Banner styles (notice-banner.css).
+   ========================================================================== */
+
+.info-panel {
+  --ip-pad: var(--spacing-xl);
+  --ip-row-pad-x: var(--spacing-md);
+  --ip-label-width: 116px;
+  --ip-stripe: var(--blue-25);
+
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: linear-gradient(0deg, var(--base-white) 0%, var(--blue-100) 100%);
+  box-shadow: 0 2px 4px -2px rgb(10 13 18 / 6%), 0 4px 6px -1px rgb(10 13 18 / 10%);
+  font-family: var(--font-family-manrope);
+  color: var(--gray-900);
+}
+
+/* header */
+.info-panel .info-panel-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-panel .info-panel-intro {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--ip-pad) var(--ip-pad) 0;
+}
+
+.info-panel .info-panel-intro > * {
+  margin: 0;
+}
+
+.info-panel .info-panel-intro :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-family-manrope);
+  font-size: var(--heading-4-font-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--heading-4-line-height);
+  color: var(--gray-900);
+}
+
+.info-panel .info-panel-intro :is(h1, h2, h3, h4, h5, h6) strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.info-panel .info-panel-intro p {
+  max-width: 190px;
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-600);
+}
+
+/* the illustration sits at the bottom right, behind the end of the description */
+.info-panel .info-panel-media {
+  align-self: flex-end;
+  width: 150px;
+  height: 75px;
+  margin-top: -75px;
+}
+
+.info-panel .info-panel-media picture,
+.info-panel .info-panel-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+/* details rows: label | value, striped */
+.info-panel .info-panel-rows {
+  margin: 0;
+}
+
+.info-panel .info-panel-row {
+  display: grid;
+  grid-template-columns: var(--ip-label-width) minmax(0, 1fr);
+  background: var(--ip-stripe);
+}
+
+.info-panel .info-panel-row:nth-child(even) {
+  background: var(--base-white);
+}
+
+.info-panel .info-panel-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl) var(--ip-row-pad-x) var(--spacing-xl) var(--ip-pad);
+  border-right: 1px solid var(--navy-blue-25);
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--body-2-line-height);
+  color: var(--gray-900);
+}
+
+.info-panel .info-panel-icon {
+  display: flex;
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+.info-panel .info-panel-icon picture,
+.info-panel .info-panel-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.info-panel .info-panel-value {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: var(--spacing-xl) var(--ip-pad) var(--spacing-xl) var(--spacing-lg);
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  line-height: 14px;
+  color: var(--gray-700);
+}
+
+.info-panel .info-panel-value p {
+  margin: 0;
+}
+
+.info-panel .info-panel-value p:first-child {
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+}
+
+.info-panel .info-panel-value p:first-child:not(:only-child) {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* app cards (UPI) */
+.info-panel .info-panel-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-xl);
+  margin: 0;
+  padding: 0 var(--ip-pad) var(--ip-pad);
+  list-style: none;
+}
+
+.info-panel .info-panel-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+  margin: 0;
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  background: var(--base-white);
+  box-shadow: 0 4px 0 #e0eaff;
+}
+
+.info-panel .info-panel-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--base-white);
+  box-shadow: 0 1px 2px rgb(10 13 18 / 6%), 0 1px 3px rgb(10 13 18 / 10%);
+}
+
+.info-panel .info-panel-logo picture,
+.info-panel .info-panel-logo img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.info-panel.block .info-panel-card .info-panel-card-text p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  line-height: 14px;
+  color: var(--gray-700);
+}
+
+/* check points (branch payments) */
+.info-panel .info-panel-points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.info-panel .info-panel-point {
+  position: relative;
+  margin: 0;
+  padding: var(--spacing-xl) var(--ip-pad) var(--spacing-xl) calc(var(--ip-pad) + 28px);
+  background: var(--ip-stripe);
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  color: var(--gray-900);
+}
+
+.info-panel .info-panel-point:nth-child(even) {
+  background: var(--base-white);
+}
+
+.info-panel .info-panel-point::before {
+  content: '';
+  position: absolute;
+  top: calc(50% - 10px);
+  left: var(--ip-pad);
+  width: 20px;
+  height: 20px;
+  background: url('../../icons/check-circle-red.svg') center / contain no-repeat;
+}
+
+.info-panel .info-panel-point a {
+  color: var(--red-600);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+}
+
+.info-panel .info-panel-point a:focus-visible {
+  outline: 2px solid var(--navy-blue-500);
+  outline-offset: 2px;
+}
+
+/* note and notice */
+.info-panel .info-panel-body {
+  background: var(--blue-25);
+}
+
+.info-panel .info-panel-body:has(> .info-panel-cards:first-child) {
+  background: transparent;
+}
+
+.info-panel .info-panel-note {
+  padding: var(--spacing-xl) var(--ip-pad) 0;
+  font-size: 10px;
+  line-height: 12px;
+  color: var(--gray-600);
+}
+
+.info-panel.block .info-panel-body .info-panel-note p {
+  margin: 0;
+}
+
+.info-panel .info-panel-notice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) var(--ip-pad) var(--ip-pad);
+  padding: var(--spacing-xl);
+  border: 1px solid var(--navy-blue-25);
+  border-radius: var(--radius-md);
+  background: var(--blue-50);
+}
+
+.info-panel .info-panel-notice .notice-banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.info-panel .info-panel-notice .notice-banner-content > * {
+  margin: 0;
+}
+
+.info-panel .info-panel-notice .notice-banner-title {
+  font-family: var(--font-family-manrope);
+  font-size: 18px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 20px;
+  color: var(--gray-900);
+}
+
+.info-panel .info-panel-notice .notice-banner-description {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--gray-600);
+}
+
+/* a panel with only points or rows ends at them */
+.info-panel .info-panel-body > :is(.info-panel-rows, .info-panel-points):last-child {
+  margin-bottom: 0;
+}
+
+@media (width >= 600px) {
+  .info-panel {
+    --ip-label-width: 240px;
+  }
+
+  .info-panel .info-panel-intro p {
+    max-width: 60%;
+  }
+
+  .info-panel .info-panel-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .info-panel {
+    --ip-pad: var(--spacing-3xl);
+    --ip-row-pad-x: var(--spacing-3xl);
+    --ip-label-width: 337px;
+  }
+
+  .info-panel .info-panel-header {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    min-height: 132px;
+  }
+
+  .info-panel .info-panel-intro {
+    flex: 0 1 658px;
+    padding: var(--ip-pad);
+  }
+
+  .info-panel .info-panel-intro :is(h1, h2, h3, h4, h5, h6) {
+    font-size: var(--heading-3-font-size);
+    line-height: var(--heading-3-line-height);
+  }
+
+  .info-panel .info-panel-intro p {
+    max-width: none;
+  }
+
+  .info-panel .info-panel-media {
+    flex: 0 0 auto;
+    align-self: flex-end;
+    width: 394px;
+    height: 132px;
+    margin-top: 0;
+  }
+
+  .info-panel .info-panel-label {
+    align-items: center;
+    padding: var(--spacing-xl) var(--ip-row-pad-x) var(--spacing-xl) 40px;
+  }
+
+  .info-panel .info-panel-label:has(+ .info-panel-value p:nth-child(2)) {
+    align-items: flex-start;
+  }
+
+  .info-panel .info-panel-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .info-panel .info-panel-value {
+    padding: var(--spacing-xl) 40px var(--spacing-xl) 36px;
+  }
+
+  .info-panel .info-panel-value p:first-child:not(:only-child) {
+    margin: var(--spacing-xs) 0 var(--spacing-sm);
+  }
+
+  .info-panel .info-panel-cards {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: var(--spacing-2xl);
+  }
+
+  .info-panel .info-panel-card {
+    min-height: 124px;
+    box-sizing: border-box;
+  }
+
+  .info-panel .info-panel-point {
+    padding: var(--spacing-3xl) 40px var(--spacing-3xl) 64px;
+  }
+
+  .info-panel .info-panel-point::before {
+    left: 40px;
+  }
+
+  .info-panel .info-panel-note {
+    padding: var(--spacing-xl) 40px 0;
+  }
+
+  .info-panel .info-panel-notice {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-5xl);
+    padding: var(--spacing-2xl);
+  }
+
+  .info-panel .info-panel-notice .notice-banner-content {
+    flex: 0 1 535px;
+  }
+}

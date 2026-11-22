@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Check Points: centred heading + description, then benefit cards with a red
+   check, joined by curved lines. Figma Pay premium "Why choose ECS?"
+   1:3268 (desktop 1100 wide) / 1:3484 (mobile 328).
+   Mobile first: cards stacked, a curve at the bottom left of the first card and
+   the top left of the others; >= 900px one row, curves at the top of each join.
+   The curves are 40 x 40 corner pieces: a 1px ring on a white square that
+   hides the straight lines behind it.
+   ========================================================================== */
+
+.check-points {
+  --cp-line: var(--gray-300);
+  --cp-curve: var(--red-600);
+  --cp-curve-soft: var(--red-50);
+  --cp-radius: 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xl);
+  font-family: var(--font-family-manrope);
+  color: var(--gray-900);
+}
+
+.check-points .check-points-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  max-width: 726px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.check-points .check-points-header > * {
+  margin: 0;
+}
+
+.check-points .check-points-title {
+  font-family: var(--font-family-manrope);
+  font-size: var(--heading-3-font-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--heading-3-line-height);
+  letter-spacing: var(--heading-3-letter-spacing);
+  color: var(--gray-900);
+}
+
+.check-points .check-points-title strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.check-points .check-points-description {
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-600);
+}
+
+.check-points .check-points-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.check-points .check-points-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  min-height: 80px;
+  margin: 0;
+  padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-xl) 28px;
+  border-left: 1px solid var(--cp-line);
+}
+
+.check-points .check-points-item:not(:last-child) {
+  border-bottom: 1px solid var(--cp-line);
+}
+
+/* mobile curves: the first card's bottom left, the others' top left */
+.check-points .check-points-item::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  width: var(--cp-radius);
+  height: var(--cp-radius);
+  pointer-events: none;
+}
+
+.check-points .check-points-item:first-child::before {
+  bottom: -1px;
+  background: radial-gradient(circle at 100% 0, transparent calc(var(--cp-radius) - 1px), var(--cp-curve) calc(var(--cp-radius) - 1px) var(--cp-radius), var(--base-white) calc(var(--cp-radius) + 0.5px));
+}
+
+.check-points .check-points-item:not(:first-child)::before {
+  top: -1px;
+  background: radial-gradient(circle at 100% 100%, transparent calc(var(--cp-radius) - 1px), var(--cp-curve-soft) calc(var(--cp-radius) - 1px) var(--cp-radius), var(--base-white) calc(var(--cp-radius) + 0.5px));
+}
+
+.check-points .check-points-item:last-child:not(:first-child)::before {
+  background: radial-gradient(circle at 100% 100%, transparent calc(var(--cp-radius) - 1px), var(--cp-curve) calc(var(--cp-radius) - 1px) var(--cp-radius), var(--base-white) calc(var(--cp-radius) + 0.5px));
+}
+
+.check-points .check-points-icon {
+  display: block;
+  flex: none;
+  width: 32px;
+  height: 32px;
+}
+
+.check-points .check-points-text {
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-900);
+}
+
+@media (width >= 900px) {
+  .check-points {
+    gap: var(--spacing-5xl);
+  }
+
+  .check-points .check-points-title {
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+  }
+
+  .check-points .check-points-list {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    border-top: 1px solid var(--cp-line);
+    border-bottom: 1px solid var(--cp-line);
+  }
+
+  .check-points .check-points-item {
+    justify-content: center;
+    min-height: 105px;
+    padding: var(--spacing-xl) var(--spacing-3xl);
+    border-left: 0;
+  }
+
+  .check-points .check-points-item:not(:last-child) {
+    border-right: 1px solid var(--cp-line);
+    border-bottom: 0;
+  }
+
+  /* desktop curves: each join curves into the top line; the outer cards' curves are red */
+  .check-points .check-points-item::before,
+  .check-points .check-points-item::after {
+    top: -1px;
+    bottom: auto;
+  }
+
+  .check-points .check-points-item:first-child::before {
+    content: none;
+  }
+
+  .check-points .check-points-item:not(:first-child)::before {
+    left: -1px;
+    background: radial-gradient(circle at 100% 100%, transparent calc(var(--cp-radius) - 1px), var(--cp-curve-soft) calc(var(--cp-radius) - 1px) var(--cp-radius), var(--base-white) calc(var(--cp-radius) + 0.5px));
+  }
+
+  .check-points .check-points-item:last-child:not(:first-child)::before {
+    background: radial-gradient(circle at 100% 100%, transparent calc(var(--cp-radius) - 1px), var(--cp-curve) calc(var(--cp-radius) - 1px) var(--cp-radius), var(--base-white) calc(var(--cp-radius) + 0.5px));
+  }
+
+  .check-points .check-points-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    width: var(--cp-radius);
+    height: var(--cp-radius);
+    background: radial-gradient(circle at 0 100%, transparent calc(var(--cp-radius) - 1px), var(--cp-line) calc(var(--cp-radius) - 1px) var(--cp-radius), var(--base-white) calc(var(--cp-radius) + 0.5px));
+    pointer-events: none;
+  }
+
+  .check-points .check-points-item:first-child:not(:last-child)::after {
+    background: radial-gradient(circle at 0 100%, transparent calc(var(--cp-radius) - 1px), var(--cp-curve) calc(var(--cp-radius) - 1px) var(--cp-radius), var(--base-white) calc(var(--cp-radius) + 0.5px));
+  }
+}

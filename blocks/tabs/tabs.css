@@ -409,3 +409,229 @@
     line-height: 24px;
   }
 }
+
+/* ==========================================================================
+   Style "Level tabs" (level-tabs): Customer grievances Level one / two / three
+   (Figma 1:3688 desktop, 1:3746 mobile). Centred pill tabs; each panel holds
+   rich text (title, description, checklist, note). When the section also has a
+   Contact Form, the form sits beside the panels on desktop, as in Figma.
+   ========================================================================== */
+.tabs.level-tabs .tabs-list {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto var(--spacing-4xl);
+  padding: 0;
+  gap: 0;
+  border: 1px solid var(--navy-blue-50);
+  border-radius: var(--radius-full);
+  background: var(--gray-100);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs.level-tabs .tabs-list button {
+  flex: none;
+  min-height: 44px;
+  margin: 0;
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--gray-900);
+  font-family: var(--font-family-manrope);
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tabs.level-tabs .tabs-list button[aria-selected='true'] {
+  border-color: var(--blue-300);
+  background: linear-gradient(90deg, var(--blue-200) 0%, var(--base-white) 100%);
+  color: var(--navy-blue-500);
+  font-weight: var(--font-weight-semibold);
+}
+
+.tabs.level-tabs .tabs-list button:focus-visible {
+  outline: 2px solid var(--navy-blue-500);
+  outline-offset: -2px;
+}
+
+.tabs.level-tabs .tabs-panel {
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-family-manrope);
+  color: var(--gray-600);
+}
+
+.tabs.level-tabs .tabs-panel > div > * {
+  margin: 0;
+}
+
+.tabs.level-tabs .tabs-panel :is(h2, h3, h4) {
+  margin: 0 0 var(--spacing-lg);
+  font-family: var(--font-family-manrope);
+  font-size: 20px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 24px;
+  color: var(--gray-900);
+}
+
+.tabs.level-tabs.block .tabs-panel p {
+  margin: 0;
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--body-2-line-height);
+  color: var(--gray-600);
+}
+
+.tabs.level-tabs .tabs-panel ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-3xl) 0 var(--spacing-5xl);
+  padding: 0;
+  list-style: none;
+}
+
+.tabs.level-tabs.block .tabs-panel ul li:nth-child(n) {
+  position: relative;
+  margin: 0;
+  padding-left: 28px;
+  font-size: var(--body-2-font-size);
+  line-height: 20px;
+  color: var(--gray-900);
+}
+
+.tabs.level-tabs.block .tabs-panel ul li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: url('../../icons/check-circle-red.svg') center / contain no-repeat;
+}
+
+/* the section's Contact Form below the panels on mobile, beside them from 900px */
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) > .contact-form-wrapper {
+  margin-top: var(--spacing-3xl);
+}
+
+@media (width >= 900px) {
+  main > .section:has(> .tabs-wrapper .tabs.level-tabs):has(> .contact-form-wrapper) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  main > .section:has(> .tabs-wrapper .tabs.level-tabs):has(> .contact-form-wrapper) > div {
+    grid-column: 1;
+    width: 100%;
+  }
+
+  /* 44px tabs + 2px border + 30px gap above the form */
+  main > .section:has(> .tabs-wrapper .tabs.level-tabs):has(> .contact-form-wrapper) > .contact-form-wrapper {
+    grid-row: 2;
+    place-self: start end;
+    width: calc(353px + 100px);
+    margin: 76px 0 0 auto;
+  }
+
+  main > .section:has(> .tabs-wrapper .tabs.level-tabs) > .tabs-wrapper {
+    grid-row: 2;
+  }
+
+  /* the panels leave room for the 353px form and the 20px gap */
+  main > .section:has(> .tabs-wrapper .tabs.level-tabs):has(> .contact-form-wrapper) .tabs.level-tabs .tabs-panel {
+    max-width: calc(100% - 373px);
+  }
+
+}
+
+@media (width >= 900px) and (width < 1024px) {
+  main > .section:has(> .tabs-wrapper .tabs.level-tabs):has(> .contact-form-wrapper) > .contact-form-wrapper {
+    width: calc(353px + 40px);
+  }
+}
+
+/* the section heading above Level tabs is centred, as in Figma */
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) > .default-content-wrapper {
+  margin-bottom: var(--spacing-5xl);
+  text-align: center;
+}
+
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) > .default-content-wrapper > * {
+  margin: 0;
+}
+
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) > .default-content-wrapper h2 {
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-family-manrope);
+  font-size: var(--heading-3-font-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--heading-3-line-height);
+  color: var(--gray-900);
+}
+
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) > .default-content-wrapper h2 strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) > .default-content-wrapper p {
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-1-line-height);
+  color: var(--gray-600);
+}
+
+@media (width >= 900px) {
+  main > .section:has(> .tabs-wrapper .tabs.level-tabs) > .default-content-wrapper h2 {
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+  }
+}
+
+/* the Request a call back form beside Level tabs (Figma "Form - Variant 1 - Desktop"):
+   a centred title and a full width red button */
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) .contact-form {
+  --contact-form-panel-padding: var(--spacing-3xl);
+  --contact-form-gap: var(--spacing-3xl);
+  --contact-form-button-height: 38px;
+  --contact-form-button-arrow: 30px;
+}
+
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) .contact-form .contact-form-header {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) .contact-form .contact-form-title {
+  font-size: var(--body-1-font-size);
+  line-height: var(--body-1-line-height);
+}
+
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) .contact-form .contact-form-actions {
+  justify-content: stretch;
+}
+
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) .contact-form .contact-form-submit {
+  justify-content: space-between;
+  width: 100%;
+  padding-left: var(--spacing-2xl);
+  background-color: var(--contact-form-color-accent);
+  color: var(--contact-form-color-white);
+  font-size: var(--button-2-font-size);
+  line-height: var(--button-2-line-height);
+}
+
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) .contact-form .contact-form-submit-label {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+main > .section:has(> .tabs-wrapper .tabs.level-tabs) .contact-form .contact-form-submit-arrow {
+  color: var(--contact-form-color-accent);
+}

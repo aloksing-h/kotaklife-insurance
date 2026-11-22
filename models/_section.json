@@ -430,6 +430,10 @@
             {
                 "name":"Contact Us",
                 "value":"contact-us"
+            },
+            {
+                "name":"Video Backdrop",
+                "value":"video-backdrop"
             }
           ]
         },
@@ -629,7 +633,12 @@
         "job-listing",
         "team-profiles",
         "search-results",
-        "media-center"
+        "media-center",
+        "notice-banner",
+        "info-panel",
+        "check-points",
+        "download-center",
+        "advisor-lookup"
       ]
     }
   ]

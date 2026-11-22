@@ -52,6 +52,16 @@ function buildCard(row) {
     card.append(list);
   }
 
+  // further paragraphs after the plan name (Register options style: the option description)
+  const texts = elements.filter((el) => el !== titleEl && el !== list
+    && el.matches('p') && el.textContent.trim());
+  if (texts.length) {
+    const text = document.createElement('div');
+    text.className = 'plan-options-text';
+    text.append(...texts);
+    card.append(text);
+  }
+
   return card;
 }
 

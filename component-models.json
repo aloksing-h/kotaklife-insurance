@@ -800,6 +800,10 @@
           {
             "name": "Contact Us",
             "value": "contact-us"
+          },
+          {
+            "name": "Video Backdrop",
+            "value": "video-backdrop"
           }
         ]
       },
@@ -984,6 +988,10 @@
           {
             "name": "Product Disclaimer",
             "value": "product-disclaimer"
+          },
+          {
+            "name": "FAQ with search",
+            "value": "faq-search"
           }
         ]
       }
@@ -1005,6 +1013,139 @@
         "value": "",
         "label": "Body",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "advisor-lookup",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading",
+        "description": "Centred section heading (bold words are shown heavier)",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "placeholder",
+        "label": "Search placeholder",
+        "description": "Shown in the empty search field",
+        "value": "eg. 98765412"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "searchLabel",
+        "label": "Search label",
+        "description": "Read by screen readers",
+        "value": "Life Advisor ID"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "submitLabel",
+        "label": "Search button label",
+        "description": "Read by screen readers",
+        "value": "Search"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "hint",
+        "label": "Hint",
+        "description": "Below the search field, for example Search by ID eg: 98765412 (bold text is shown darker)",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "resultsLabel",
+        "label": "Results line",
+        "description": "{count} is the number of results, {id} the ID searched",
+        "value": "{count} results found : {id}"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "emptyMessage",
+        "label": "No result message",
+        "description": "{id} is the ID searched",
+        "value": "No Life Advisor was found with the ID {id}. Please check the ID and try again."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "invalidMessage",
+        "label": "Invalid ID message",
+        "description": "",
+        "value": "Please enter a valid Life Advisor ID, using numbers only."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "errorMessage",
+        "label": "Error message",
+        "description": "When the search does not answer",
+        "value": "We could not search right now. Please try again later."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "idLabel",
+        "label": "ID label",
+        "description": "",
+        "value": "ID"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "genderLabel",
+        "label": "Gender label",
+        "description": "",
+        "value": "Gender"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "typeLabel",
+        "label": "Type label",
+        "description": "",
+        "value": "Type"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "appointmentLabel",
+        "label": "Date of appointment label",
+        "description": "",
+        "value": "Date of Appointment"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "validLabel",
+        "label": "Valid till label",
+        "description": "",
+        "value": "Valid till"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "photoLabel",
+        "label": "Photo alt text",
+        "description": "{name} is the advisor name",
+        "value": "Photo of {name}"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "source",
+        "label": "Advisor data",
+        "description": "A URL with {id} (the advisor API) or a spreadsheet JSON with the columns id, name, photo, status, gender, type, appointmentDate, validTill",
+        "value": ""
       }
     ]
   },
@@ -1252,6 +1393,10 @@
           {
             "name": "Search Banner",
             "value": "search-banner"
+          },
+          {
+            "name": "How Do I Banner",
+            "value": "how-do-i-banner"
           }
         ]
       },
@@ -2133,6 +2278,32 @@
     ]
   },
   {
+    "id": "check-points",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Centred section heading (bold words are shown heavier) followed by a short description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "check-points-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text",
+        "description": "A short benefit, shown after a red check",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "claim-options",
     "fields": [
       {
@@ -2700,6 +2871,14 @@
           {
             "name": "Location",
             "value": "location"
+          },
+          {
+            "name": "Query form",
+            "value": "form"
+          },
+          {
+            "name": "Policy manager",
+            "value": "policy"
           }
         ]
       },
@@ -3190,6 +3369,243 @@
             }
           ]
         }
+      }
+    ]
+  },
+  {
+    "id": "download-center",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading",
+        "description": "Section heading (bold words are shown heavier)",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "searchPlaceholder",
+        "label": "Search placeholder",
+        "description": "Shown in the empty search field",
+        "value": "Search..."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "searchLabel",
+        "label": "Search label",
+        "description": "Read by screen readers",
+        "value": "Search documents"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "filterLabel",
+        "label": "Filter button",
+        "description": "",
+        "value": "Filter by"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "chooseLabel",
+        "label": "Topic list title",
+        "description": "",
+        "value": "Choose topic"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "topics",
+        "label": "Topics",
+        "description": "A bulleted list of the topics to filter by. A document belongs to a topic when its topic is the same or the first word (Protection is in Protection Plans). Empty: the documents' own topics",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "applyLabel",
+        "label": "Apply button (desktop)",
+        "description": "",
+        "value": "Apply"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "applyMobileLabel",
+        "label": "Apply button (mobile)",
+        "description": "",
+        "value": "Apply Filter"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "filteredLabel",
+        "label": "Applied filters label",
+        "description": "",
+        "value": "Filtered by"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "clearLabel",
+        "label": "Clear button",
+        "description": "Removes every filter",
+        "value": "Clear All"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "sortLabel",
+        "label": "Sort label",
+        "description": "Read by screen readers",
+        "value": "Sort by"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "newestLabel",
+        "label": "Newest option",
+        "description": "",
+        "value": "Newest"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "oldestLabel",
+        "label": "Oldest option",
+        "description": "",
+        "value": "Oldest"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "closeLabel",
+        "label": "Close button label",
+        "description": "Read by screen readers (mobile topic list)",
+        "value": "Close"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "downloadLabel",
+        "label": "Download label",
+        "description": "Read by screen readers after each document title",
+        "value": "Download"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "emptyMessage",
+        "label": "No results message",
+        "description": "",
+        "value": "No documents match your search."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "pageSize",
+        "label": "Documents per page",
+        "description": "A number",
+        "value": "8"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "previousLabel",
+        "label": "Previous page label",
+        "description": "Read by screen readers",
+        "value": "Previous page"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "nextLabel",
+        "label": "Next page label",
+        "description": "Read by screen readers",
+        "value": "Next page"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "pageLabel",
+        "label": "Page label",
+        "description": "Read by screen readers (Page 2)",
+        "value": "Page"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "groupLabel",
+        "label": "Tabs label",
+        "description": "Read by screen readers",
+        "value": "Document type"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "resultsLabel",
+        "label": "Results announcement",
+        "description": "Read by screen readers; {count} is the number of documents",
+        "value": "{count} documents found"
+      }
+    ]
+  },
+  {
+    "id": "download-center-tab",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Tab name",
+        "description": "For example Brochures",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "anchor",
+        "label": "Anchor",
+        "description": "Optional: a link to #anchor opens this tab",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "download-center-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "description": "For example Kotak Vital Care",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "topic",
+        "label": "Topic",
+        "description": "Shown as the tag, for example Protection",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "document",
+        "label": "Document",
+        "description": "The PDF the card opens"
+      },
+      {
+        "component": "date-time",
+        "valueType": "date-time",
+        "name": "date",
+        "label": "Date",
+        "description": "Used for Newest and Oldest"
       }
     ]
   },
@@ -4767,6 +5183,123 @@
     ]
   },
   {
+    "id": "info-panel",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Panel heading (bold words are shown heavier) followed by a short description",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration",
+        "description": "Shown at the right of the heading (exported 2x, 132px high)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Illustration alt text",
+        "description": "Leave empty when the illustration is decorative",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "points",
+        "label": "Check points",
+        "description": "A bulleted list, each point shown in its own row after a red check (for example the branch payment rules)",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "note",
+        "label": "Note",
+        "description": "Small print below the rows (bold text for the lead-in, for example Please note :)",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "notice",
+        "label": "Notice title and description",
+        "description": "A light blue box at the end of the panel: a title followed by the description. Its buttons are the Info Action items",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "info-panel-row",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Icon alt text",
+        "description": "Leave empty when the icon is decorative",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Label",
+        "description": "For example Beneficiary account",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "value",
+        "label": "Value",
+        "description": "The first paragraph is the value; further paragraphs are shown smaller as notes",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "info-panel-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Logo",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Logo alt text",
+        "description": "The app name, for example PhonePe",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Steps",
+        "description": "For example Select Kotak Life → Enter Details → Pay.",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "insight-cards",
     "fields": [
       {
@@ -5608,6 +6141,72 @@
     ]
   },
   {
+    "id": "notice-banner",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Title and description",
+        "description": "A short title (first line, shown bold) followed by the description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "notice-banner-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Icon alt text",
+        "description": "Leave empty when the icon is decorative",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Label and title",
+        "description": "Two lines: a small label (for example Download) and the title (for example Authorisation form)",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link",
+        "description": "The page or document the action opens"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "action",
+        "label": "Button",
+        "description": "Download shows a download button and opens the document; Arrow goes to a page",
+        "value": "arrow",
+        "options": [
+          {
+            "name": "Arrow",
+            "value": "arrow"
+          },
+          {
+            "name": "Download",
+            "value": "download"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "offer-banner",
     "fields": [
       {
@@ -6048,6 +6647,28 @@
   {
     "id": "plan-options",
     "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "label": "Style",
+        "description": "Default: plan cards beside the heading. Register options: stacked option cards with a description (Pay premium, How to register). Payment methods: the heading above a row of small method cards (Pay premium instantly)",
+        "value": "",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Register options",
+            "value": "register-options"
+          },
+          {
+            "name": "Payment methods",
+            "value": "payment-methods"
+          }
+        ]
+      },
       {
         "component": "richtext",
         "name": "text",
@@ -8075,6 +8696,10 @@
           {
             "name": "Timeline",
             "value": "timeline"
+          },
+          {
+            "name": "Level tabs",
+            "value": "level-tabs"
           }
         ]
       }

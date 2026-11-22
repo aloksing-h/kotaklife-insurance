@@ -277,3 +277,169 @@
     margin-top: 0;
   }
 }
+
+/* ==========================================================================
+   Style "Register options" (register-options): Pay premium "How to register?"
+   Figma 1:3262 (desktop) / 1:3478 (mobile). Option cards stacked in one column:
+   icon and badge, the option name and a description, on light blue.
+   ========================================================================== */
+.plan-options.register-options {
+  --po-card-height: 0;
+  --po-card-pad: var(--spacing-xl);
+  --po-card-gap: var(--spacing-3xl);
+  --po-icon: var(--spacing-5xl);
+}
+
+.plan-options.register-options .plan-options-cards {
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.plan-options.register-options .plan-options-card,
+.plan-options.register-options .plan-options-card:nth-child(even) {
+  justify-content: flex-start;
+  gap: var(--spacing-md);
+  border: 0;
+  border-radius: var(--radius-xl);
+  background: var(--blue-25);
+}
+
+.plan-options.register-options .plan-options-badge {
+  position: absolute;
+  top: var(--spacing-xl);
+  right: var(--spacing-xl);
+  height: 24px;
+  color: var(--gray-700);
+  font-size: var(--body-2-font-size);
+  line-height: var(--body-2-line-height);
+}
+
+.plan-options.register-options .plan-options-card-head {
+  gap: var(--spacing-3xl);
+}
+
+.plan-options.register-options .plan-options-badge + .plan-options-card-head {
+  margin-top: 0;
+}
+
+.plan-options.register-options .plan-options-title {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.plan-options.register-options .plan-options-text p {
+  margin: 0;
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  color: var(--gray-600);
+}
+
+@media (width >= 900px) {
+  .plan-options.register-options .plan-options-header {
+    flex: 0 1 499px;
+  }
+
+  .plan-options.register-options .plan-options-cards {
+    flex: 0 1 540px;
+  }
+}
+
+/* ==========================================================================
+   Style "Payment methods" (payment-methods): Pay premium "Pay premium instantly"
+   Figma 1:3320 (desktop) / 1:3500 (mobile). The heading with the description
+   and CTA on the right, then a row of small method cards (icon and name) on a
+   light blue base that shows below each card.
+   ========================================================================== */
+.plan-options.payment-methods {
+  --po-icon: var(--spacing-3xl);
+
+  gap: var(--spacing-3xl);
+}
+
+.plan-options.payment-methods .plan-options-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.plan-options.payment-methods .plan-options-card:nth-child(n),
+.plan-options.payment-methods .plan-options-card:nth-child(even) {
+  justify-content: flex-start;
+  min-height: 0;
+  padding: 0 0 var(--spacing-xs);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: #e0eaff;
+  overflow: hidden;
+}
+
+.plan-options.payment-methods .plan-options-card .plan-options-card-head {
+  flex: 1 1 auto;
+  justify-content: space-between;
+  gap: var(--spacing-3xl);
+  min-height: 92px;
+  box-sizing: border-box;
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  background: var(--base-white);
+}
+
+/* an odd last card sits centred on mobile, as in Figma */
+.plan-options.payment-methods .plan-options-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - var(--spacing-xl) / 2);
+}
+
+.plan-options.payment-methods .plan-options-title {
+  font-size: var(--body-1-font-size);
+  line-height: var(--body-1-line-height);
+}
+
+@media (width >= 900px) {
+  .plan-options.payment-methods {
+    --po-icon: var(--spacing-3xl);
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-5xl);
+  }
+
+  .plan-options.payment-methods .plan-options-header {
+    display: grid;
+    flex: none;
+    grid-template-columns: minmax(0, 633px) minmax(0, 353px);
+    justify-content: space-between;
+    column-gap: var(--spacing-xl);
+  }
+
+  .plan-options.payment-methods .plan-options-header :is(h1, h2, h3) {
+    grid-row: 1 / span 2;
+    margin: 0;
+  }
+
+  .plan-options.payment-methods .plan-options-header p {
+    text-align: right;
+  }
+
+  .plan-options.payment-methods .plan-options-header .plan-options-cta-wrapper {
+    margin-top: var(--spacing-xl);
+  }
+
+  .plan-options.payment-methods .plan-options-cards {
+    flex: none;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: var(--spacing-2xl);
+  }
+
+  .plan-options.payment-methods .plan-options-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
+  }
+
+  .plan-options.payment-methods .plan-options-card .plan-options-card-head {
+    min-height: 102px;
+    padding: var(--spacing-2xl) var(--spacing-xl);
+  }
+}

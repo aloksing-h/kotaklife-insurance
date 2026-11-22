@@ -68,6 +68,10 @@
             {
               "name": "Search Banner",
               "value": "search-banner"
+            },
+            {
+              "name": "How Do I Banner",
+              "value": "how-do-i-banner"
             }
           ]
         },

@@ -317,4 +317,9 @@ export default function decorate(block) {
       }
     }
   }
+
+  // FAQ with search style: a search field above the questions (Policy FAQs)
+  if (block.classList.contains('faq-search')) {
+    import('./accordion-search.js').then(({ default: decorateSearch }) => decorateSearch(block));
+  }
 }

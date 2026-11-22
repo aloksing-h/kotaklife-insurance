@@ -1,0 +1,380 @@
+/*
+ * Advisor Lookup: How do I "Know your Life Advisor".
+ * Figma How do I 1:4199 / 1:4162 (desktop: heading and 726 search centred, results 914 wide,
+ * card photo 134 beside the details) / 1:4274 / 1:4235 (mobile: 328 wide, the card centred,
+ * details as label : value rows).
+ */
+
+.advisor-lookup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+  max-width: 914px;
+  margin: 0 auto;
+  font-family: var(--font-family-manrope);
+  color: var(--gray-900);
+}
+
+.advisor-lookup .advisor-lookup-header {
+  max-width: 726px;
+  text-align: center;
+}
+
+.advisor-lookup .advisor-lookup-header > * {
+  margin: 0;
+}
+
+.advisor-lookup .advisor-lookup-title {
+  font-family: var(--font-family-manrope);
+  font-size: var(--heading-4-font-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--heading-4-line-height);
+  color: var(--gray-900);
+}
+
+.advisor-lookup .advisor-lookup-title strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* search */
+.advisor-lookup .advisor-lookup-form {
+  width: 100%;
+  max-width: 726px;
+  margin: var(--spacing-xs) 0 0;
+}
+
+.advisor-lookup .advisor-lookup-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.advisor-lookup .advisor-lookup-submit {
+  position: absolute;
+  left: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: none;
+  cursor: pointer;
+}
+
+.advisor-lookup .advisor-lookup-submit img {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.advisor-lookup .advisor-lookup-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  margin: 0;
+  padding: 0 var(--spacing-xl) 0 44px;
+  border: 1px solid var(--gray-300);
+  border-radius: 48px;
+  background: var(--base-white);
+  color: var(--gray-900);
+  font-family: inherit;
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  appearance: none;
+}
+
+.advisor-lookup .advisor-lookup-input::placeholder {
+  color: var(--gray-500);
+  opacity: 1;
+}
+
+.advisor-lookup .advisor-lookup-input[aria-invalid='true'] {
+  border-color: var(--red-600);
+}
+
+.advisor-lookup :is(.advisor-lookup-input, .advisor-lookup-submit):focus-visible {
+  outline: 2px solid var(--navy-blue-500);
+  outline-offset: 2px;
+}
+
+.advisor-lookup .advisor-lookup-hint {
+  color: var(--gray-500);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  line-height: 14px;
+  text-align: center;
+}
+
+.advisor-lookup .advisor-lookup-hint > * {
+  margin: 0;
+}
+
+.advisor-lookup .advisor-lookup-hint strong {
+  color: var(--gray-900);
+  font-weight: var(--font-weight-medium);
+}
+
+/* results */
+.advisor-lookup .advisor-lookup-results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  align-self: stretch;
+}
+
+.advisor-lookup .advisor-lookup-results:empty {
+  display: none;
+}
+
+.advisor-lookup .advisor-lookup-count,
+.advisor-lookup .advisor-lookup-message {
+  margin: 0;
+  color: var(--gray-500);
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+}
+
+.advisor-lookup .advisor-lookup-count strong {
+  color: var(--gray-900);
+  font-weight: var(--font-weight-medium);
+}
+
+.advisor-lookup .advisor-lookup-message {
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  background: var(--blue-50);
+  color: var(--gray-700);
+  text-align: center;
+}
+
+.advisor-lookup .advisor-lookup-message-invalid {
+  padding: 0;
+  background: none;
+  color: var(--red-700);
+}
+
+/* searching */
+.advisor-lookup[aria-busy='true'] .advisor-lookup-results {
+  opacity: 0.6;
+}
+
+/* the advisor card */
+.advisor-lookup .advisor-lookup-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  background: var(--blue-50);
+}
+
+.advisor-lookup .advisor-lookup-photo {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--blue-200);
+  color: var(--navy-blue-500);
+  font-size: var(--heading-4-font-size);
+  font-weight: var(--font-weight-semibold);
+}
+
+.advisor-lookup .advisor-lookup-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.advisor-lookup .advisor-lookup-main {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.advisor-lookup .advisor-lookup-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding-bottom: var(--spacing-xl);
+  border-bottom: 1px solid var(--gray-200);
+  text-align: center;
+}
+
+.advisor-lookup .advisor-lookup-name {
+  margin: 0;
+  font-family: var(--font-family-manrope);
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--body-1-line-height);
+  letter-spacing: 0;
+  color: var(--gray-900);
+}
+
+.advisor-lookup .advisor-lookup-id {
+  margin: 0;
+  color: var(--gray-900);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  line-height: 14px;
+}
+
+.advisor-lookup .advisor-lookup-id-label {
+  color: var(--gray-500);
+}
+
+.advisor-lookup .advisor-lookup-status {
+  position: absolute;
+  top: var(--spacing-xl);
+  right: var(--spacing-xl);
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 24px;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: 1px solid var(--navy-blue-500);
+  border-radius: var(--radius-full);
+  background: linear-gradient(130deg, #8ebbff 0%, var(--base-white) 50%, var(--base-white) 100%);
+  color: var(--gray-700);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+.advisor-lookup .advisor-lookup-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0 0;
+}
+
+.advisor-lookup .advisor-lookup-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--spacing-md);
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+}
+
+.advisor-lookup .advisor-lookup-detail dt {
+  color: var(--gray-500);
+}
+
+.advisor-lookup .advisor-lookup-detail dd {
+  position: relative;
+  margin: 0;
+  padding-left: var(--spacing-xl);
+  color: var(--gray-900);
+}
+
+.advisor-lookup .advisor-lookup-detail dd::before {
+  content: ':';
+  position: absolute;
+  left: 0;
+}
+
+@media (width >= 900px) {
+  .advisor-lookup {
+    gap: var(--spacing-2xl);
+  }
+
+  .advisor-lookup .advisor-lookup-title {
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+  }
+
+  .advisor-lookup .advisor-lookup-form {
+    margin-top: var(--spacing-md);
+  }
+
+  .advisor-lookup .advisor-lookup-input {
+    height: 56px;
+    padding-left: 52px;
+  }
+
+  .advisor-lookup .advisor-lookup-submit {
+    left: var(--spacing-lg);
+  }
+
+  .advisor-lookup .advisor-lookup-results {
+    margin-top: var(--spacing-xs);
+  }
+
+  .advisor-lookup .advisor-lookup-card {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-3xl);
+    padding: var(--spacing-3xl);
+  }
+
+  .advisor-lookup .advisor-lookup-photo {
+    width: 134px;
+    height: 134px;
+  }
+
+  .advisor-lookup .advisor-lookup-main {
+    flex: 1;
+  }
+
+  .advisor-lookup .advisor-lookup-top {
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: 0 120px var(--spacing-xl) 0;
+    text-align: left;
+  }
+
+  .advisor-lookup .advisor-lookup-name {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .advisor-lookup .advisor-lookup-id {
+    font-size: var(--body-2-font-size);
+    line-height: var(--body-2-line-height);
+  }
+
+  .advisor-lookup .advisor-lookup-status {
+    top: var(--spacing-3xl);
+    right: var(--spacing-3xl);
+    height: 32px;
+    font-size: var(--body-2-font-size);
+    line-height: var(--body-2-line-height);
+  }
+
+  .advisor-lookup .advisor-lookup-details {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 30px;
+  }
+
+  .advisor-lookup .advisor-lookup-detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .advisor-lookup .advisor-lookup-detail dd {
+    padding: 0;
+  }
+
+  .advisor-lookup .advisor-lookup-detail dd::before {
+    content: none;
+  }
+}

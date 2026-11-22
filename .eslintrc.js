@@ -36,6 +36,9 @@ module.exports = {
       'search-results': 14,
       'media-center': 19,
       'media-center-campaign': 5,
+      'download-center': 22,
+      'info-panel': 5,
+      'advisor-lookup': 16,
     }],
   },
 };

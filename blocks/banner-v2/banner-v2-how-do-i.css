@@ -1,0 +1,132 @@
+/*
+ * Banner V2, style "How Do I Banner" (how-do-i-banner):
+ * Figma How do I, Inner page banners (desktop 1200 x 496, mobile 360 x 439).
+ * Builds on the Insurance Guide style (banner-v2-insurance-guide.css, added by
+ * banner-v2-how-do-i.js). The illustration is authored on a 1280 x 792 canvas (2x of the
+ * 640 x 396 banner area at 560, 100 of the desktop frame), so one box fits every page.
+ * Every rule carries both classes, so it wins over the Insurance Guide rules it adjusts.
+ */
+
+/* mobile: canvas 294 x 182 at 88, 262 in the 360 x 439 frame; symbol 231 x 138 at 160, 283 */
+.banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-visual {
+  inset: auto -22px -5px auto;
+  width: 294px;
+  height: 182px;
+}
+
+.banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-visual::before {
+  top: 21px;
+  left: 72px;
+  width: 231px;
+  height: 138px;
+}
+
+.banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-visual img {
+  object-fit: cover;
+  object-position: left top;
+}
+
+/* the illustration stays below the text and CTAs on narrow screens */
+.banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-inner {
+  padding-bottom: 170px;
+}
+
+@media (width >= 600px) {
+  .banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-inner {
+    padding-bottom: 60px;
+  }
+
+  .banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-visual {
+    inset: auto 0 0 auto;
+    width: 360px;
+    height: 223px;
+  }
+
+  .banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-visual::before {
+    top: 22px;
+    left: 26px;
+    width: 343px;
+    height: 206px;
+  }
+
+  .banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-visual img {
+    object-position: left top;
+  }
+}
+
+@media (width >= 900px) {
+  .banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-inner {
+    padding-bottom: 0;
+  }
+
+  .banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-visual {
+    inset: auto 0 0 auto;
+    width: 480px;
+    height: 297px;
+  }
+
+  .banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-visual::before {
+    top: 29px;
+    left: 35px;
+    width: 458px;
+    height: 275px;
+  }
+}
+
+/* the page header is up to 523px wide (Customer grievances), as in Figma */
+@media (width >= 1200px) {
+  .banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-content {
+    max-width: 523px;
+  }
+}
+
+/* desktop: canvas 640 x 396 at 560, 100 in the 1200 x 496 frame (the illustration may run
+   to the bottom edge, as in Figma); symbol 610 x 367 at 607, 139 */
+@media (width >= 1200px) {
+  .banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-visual {
+    inset: 100px auto auto calc(100% - 640px);
+    width: 640px;
+    height: 396px;
+  }
+
+  .banner-v2.block.how-do-i-banner.insurance-guide-banner .banner-v2-visual::before {
+    top: 39px;
+    left: 47px;
+    width: 610px;
+    height: 367px;
+  }
+}
+
+/* a second CTA is the outline button (Customer grievances: Complaint Status), Figma 1:3742 */
+.banner-v2.block.how-do-i-banner .banner-v2-actions {
+  gap: var(--spacing-lg);
+}
+
+.banner-v2.block.how-do-i-banner .banner-v2-actions .banner-v2-cta:focus-visible {
+  outline: 2px solid var(--base-white);
+  outline-offset: 2px;
+}
+
+.banner-v2.block.how-do-i-banner .banner-v2-actions .banner-v2-cta + .banner-v2-cta {
+  padding: 0 var(--spacing-xl);
+  border: 1px solid var(--base-white);
+  background: transparent;
+  color: var(--base-white);
+}
+
+.banner-v2.block.how-do-i-banner .banner-v2-actions .banner-v2-cta + .banner-v2-cta:is(:hover, :focus-visible) {
+  background: rgb(255 255 255 / 12%);
+  color: var(--base-white);
+}
+
+.banner-v2.block.how-do-i-banner .banner-v2-actions .banner-v2-cta + .banner-v2-cta .banner-v2-cta-icon {
+  display: none;
+}
+
+/* mobile: the CTAs stack, as in Figma */
+@media (width < 600px) {
+  .banner-v2.block.how-do-i-banner .banner-v2-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

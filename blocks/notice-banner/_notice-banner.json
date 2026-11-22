@@ -1,0 +1,112 @@
+{
+  "definitions": [
+    {
+      "title": "Notice Banner",
+      "id": "notice-banner",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Notice Banner",
+              "model": "notice-banner",
+              "filter": "notice-banner"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Notice Action",
+      "id": "notice-banner-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Notice Action",
+              "model": "notice-banner-item",
+              "action": "arrow"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "notice-banner",
+      "fields": [
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "text",
+          "label": "Title and description",
+          "description": "A short title (first line, shown bold) followed by the description",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "notice-banner-item",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Icon",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Icon alt text",
+          "description": "Leave empty when the icon is decorative",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "text",
+          "label": "Label and title",
+          "description": "Two lines: a small label (for example Download) and the title (for example Authorisation form)",
+          "value": ""
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "link",
+          "label": "Link",
+          "description": "The page or document the action opens"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "action",
+          "label": "Button",
+          "description": "Download shows a download button and opens the document; Arrow goes to a page",
+          "value": "arrow",
+          "options": [
+            {
+              "name": "Arrow",
+              "value": "arrow"
+            },
+            {
+              "name": "Download",
+              "value": "download"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "notice-banner",
+      "components": [
+        "notice-banner-item"
+      ]
+    }
+  ]
+}

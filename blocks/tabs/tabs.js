@@ -201,6 +201,28 @@ async function decorateDefaultTabs(block) {
 
   block.prepend(tablist);
 
+  // Level tabs style: arrow keys, Home and End move between the tabs (WAI-ARIA tabs pattern)
+  if (block.classList.contains('level-tabs')) {
+    const buttons = [...tablist.querySelectorAll('[role=tab]')];
+    const sync = () => buttons.forEach((btn) => {
+      btn.tabIndex = btn.getAttribute('aria-selected') === 'true' ? 0 : -1;
+    });
+    sync();
+    tablist.addEventListener('click', sync);
+    tablist.addEventListener('keydown', (e) => {
+      const index = buttons.indexOf(document.activeElement);
+      if (index < 0) return;
+      const moves = {
+        ArrowRight: index + 1, ArrowLeft: index - 1, Home: 0, End: buttons.length - 1,
+      };
+      if (!(e.key in moves)) return;
+      e.preventDefault();
+      const next = buttons[(moves[e.key] + buttons.length) % buttons.length];
+      next.click();
+      next.focus();
+    });
+  }
+
   if (block.closest('.find-a-plan')) {
     decorateFindAPlan(block);
   }

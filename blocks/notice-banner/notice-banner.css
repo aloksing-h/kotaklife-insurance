@@ -1,0 +1,168 @@
+/* ==========================================================================
+   Notice Banner: light blue notice (title, description) with action cards.
+   Figma "Report Banner": Pay premium 1:3267 (desktop 1100 wide) / 1:3478 (mobile 328),
+   Customer grievances 1:3684. Mobile first: actions stacked below the text;
+   >= 900px the text and the actions side by side.
+   The card styles (.notice-banner-actions) are shared with the Info Panel block.
+   ========================================================================== */
+
+.notice-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  box-sizing: border-box;
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  background: var(--blue-50);
+  font-family: var(--font-family-manrope);
+  color: var(--gray-900);
+}
+
+.notice-banner .notice-banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.notice-banner .notice-banner-content > * {
+  margin: 0;
+}
+
+.notice-banner .notice-banner-title {
+  font-family: var(--font-family-manrope);
+  font-size: 18px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 20px;
+  color: var(--gray-900);
+}
+
+.notice-banner .notice-banner-description {
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  line-height: 14px;
+  color: var(--gray-600);
+}
+
+/* action cards (also used inside the Info Panel block) */
+:is(.notice-banner, .info-panel) .notice-banner-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:is(.notice-banner, .info-panel) .notice-banner-action {
+  margin: 0;
+}
+
+:is(.notice-banner, .info-panel) .notice-banner-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  min-height: 52px;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border: 1px solid var(--navy-blue-50);
+  border-radius: var(--radius-md);
+  background: var(--base-white);
+  color: var(--gray-800);
+  text-decoration: none;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+:is(.notice-banner, .info-panel) a.notice-banner-card:hover {
+  border-color: var(--red-600);
+  box-shadow: 0 4px 12px rgb(10 13 18 / 8%);
+}
+
+:is(.notice-banner, .info-panel) a.notice-banner-card:focus-visible {
+  outline: 2px solid var(--navy-blue-500);
+  outline-offset: 2px;
+}
+
+:is(.notice-banner, .info-panel) .notice-banner-icon {
+  display: flex;
+  flex: none;
+  width: 22px;
+  height: 22px;
+}
+
+:is(.notice-banner, .info-panel) .notice-banner-icon picture,
+:is(.notice-banner, .info-panel) .notice-banner-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+:is(.notice-banner, .info-panel) .notice-banner-card-text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+:is(.notice-banner, .info-panel) .notice-banner-card-label {
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  line-height: 14px;
+  color: var(--gray-600);
+}
+
+:is(.notice-banner, .info-panel) .notice-banner-card-title {
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 18px;
+  color: var(--gray-800);
+}
+
+:is(.notice-banner, .info-panel) .notice-banner-button {
+  display: flex;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+}
+
+:is(.notice-banner, .info-panel) .notice-banner-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (width >= 900px) {
+  .notice-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-5xl);
+    padding: var(--spacing-2xl);
+  }
+
+  .notice-banner .notice-banner-content {
+    flex: 0 1 535px;
+  }
+
+  :is(.notice-banner, .info-panel) .notice-banner-actions {
+    flex-direction: row;
+    flex: none;
+    align-items: stretch;
+  }
+
+  :is(.notice-banner, .info-panel) .notice-banner-card {
+    height: 100%;
+  }
+
+  :is(.notice-banner, .info-panel) .notice-banner-card-text {
+    flex: 0 1 auto;
+    max-width: 150px;
+  }
+}
+
+/* a notice after other content of its section (Pay premium: below the register options) */
+main .section > .notice-banner-wrapper:not(:first-child) {
+  margin-top: var(--spacing-4xl);
+}

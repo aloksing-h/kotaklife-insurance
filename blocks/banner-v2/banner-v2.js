@@ -498,4 +498,10 @@ export default async function decorate(block) {
     const { default: decorateSearch } = await import('./banner-v2-search.js');
     await decorateSearch(block);
   }
+
+  // How Do I Banner style: the inner page banner of the How do I pages
+  if (block.classList.contains('how-do-i-banner')) {
+    const { default: decorateHowDoI } = await import('./banner-v2-how-do-i.js');
+    await decorateHowDoI(block);
+  }
 }

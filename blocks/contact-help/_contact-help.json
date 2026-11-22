@@ -120,6 +120,14 @@
             {
               "name": "Location",
               "value": "location"
+            },
+            {
+              "name": "Query form",
+              "value": "form"
+            },
+            {
+              "name": "Policy manager",
+              "value": "policy"
             }
           ]
         },

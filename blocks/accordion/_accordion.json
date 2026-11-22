@@ -59,6 +59,10 @@
             {
               "name": "Product Disclaimer",
               "value": "product-disclaimer"
+            },
+            {
+              "name": "FAQ with search",
+              "value": "faq-search"
             }
           ]
         }

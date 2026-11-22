@@ -338,3 +338,65 @@
     display: none;
   }
 }
+
+/* ==========================================================================
+   Section style "Video Backdrop" (video-backdrop): Pay premium "Watch the 7-step
+   ECS registration guide" (Figma 1:3261 desktop / 1:3477 mobile). The video sits
+   on a red block that runs out below and right of it. Scoped to the section
+   style, so other video sections are unchanged.
+   ========================================================================== */
+.section.video-backdrop .how-it-works.video {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-5xl);
+}
+
+.section.video-backdrop .how-it-works.video .how-it-works-video {
+  position: relative;
+  z-index: 1;
+  grid-row: 2;
+  grid-column: 1;
+  aspect-ratio: 312 / 228;
+  border-radius: var(--radius-md);
+}
+
+/* mobile: 288 x 164 from 56px right of the video's left edge to the screen edge, 32px below */
+.section.video-backdrop .how-it-works.video::after {
+  content: '';
+  grid-row: 2;
+  grid-column: 1;
+  place-self: end end;
+  width: calc(100% - 56px + var(--spacing-xl));
+  height: 72%;
+  margin: 0 calc(-1 * var(--spacing-xl)) calc(-1 * var(--spacing-4xl)) 0;
+  background: linear-gradient(180deg, var(--red-800) 0%, var(--red-600) 100%);
+}
+
+.section.video-backdrop .how-it-works.video .how-it-works-subtitle {
+  color: var(--gray-600);
+}
+
+@media (width >= 900px) {
+  .section.video-backdrop .how-it-works.video {
+    grid-template-columns: minmax(0, 540fr) minmax(0, 540fr);
+    gap: var(--spacing-2xl);
+  }
+
+  .section.video-backdrop .how-it-works.video .how-it-works-video,
+  .section.video-backdrop .how-it-works.video::after {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .section.video-backdrop .how-it-works.video .how-it-works-video {
+    aspect-ratio: 540 / 392;
+  }
+
+  /* desktop: 497 x 278, 93px right of the video's left edge, running 50px past it */
+  .section.video-backdrop .how-it-works.video::after {
+    width: calc(100% - 93px + 50px);
+    height: auto;
+    aspect-ratio: 497 / 278;
+    margin: 0 -50px -50px 0;
+  }
+}

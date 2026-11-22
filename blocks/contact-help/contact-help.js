@@ -7,7 +7,7 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 import { connectFormTrigger } from '../contact-form/contact-form.js';
 
-const ICONS = ['phone', 'whatsapp', 'advisor', 'headset', 'mail', 'location'];
+const ICONS = ['phone', 'whatsapp', 'advisor', 'headset', 'mail', 'location', 'form', 'policy'];
 
 function icon(name) {
   const span = document.createElement('span');

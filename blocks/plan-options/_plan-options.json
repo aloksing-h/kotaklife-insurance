@@ -37,6 +37,28 @@
       "id": "plan-options",
       "fields": [
         {
+          "component": "select",
+          "valueType": "string",
+          "name": "classes",
+          "label": "Style",
+          "description": "Default: plan cards beside the heading. Register options: stacked option cards with a description (Pay premium, How to register). Payment methods: the heading above a row of small method cards (Pay premium instantly)",
+          "value": "",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Register options",
+              "value": "register-options"
+            },
+            {
+              "name": "Payment methods",
+              "value": "payment-methods"
+            }
+          ]
+        },
+        {
           "component": "richtext",
           "name": "text",
           "label": "Heading & Subtitle",

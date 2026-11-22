@@ -146,6 +146,23 @@
           }
         },
         {
+          "title": "Advisor Lookup",
+          "id": "advisor-lookup",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Advisor Lookup",
+                  "model": "advisor-lookup",
+                  "placeholder": "eg. 98765412",
+                  "resultsLabel": "{count} results found : {id}"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Agentic Search Banner",
           "id": "agentic-search",
           "plugins": {
@@ -402,6 +419,37 @@
                   "name": "Category Links",
                   "model": "category-links",
                   "title": "Explore other categories"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Check Points",
+          "id": "check-points",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Check Points",
+                  "model": "check-points",
+                  "filter": "check-points"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Check Point",
+          "id": "check-points-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Check Point",
+                  "model": "check-points-item"
                 }
               }
             }
@@ -712,6 +760,63 @@
                   "format": "text",
                   "person_role": "Kotak Life Customer",
                   "media_source": "dam"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Download Center",
+          "id": "download-center",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Download Center",
+                  "model": "download-center",
+                  "filter": "download-center",
+                  "searchPlaceholder": "Search...",
+                  "filterLabel": "Filter by",
+                  "chooseLabel": "Choose topic",
+                  "applyLabel": "Apply",
+                  "applyMobileLabel": "Apply Filter",
+                  "filteredLabel": "Filtered by",
+                  "clearLabel": "Clear All",
+                  "sortLabel": "Sort by",
+                  "newestLabel": "Newest",
+                  "oldestLabel": "Oldest",
+                  "pageSize": "8"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Download Tab",
+          "id": "download-center-tab",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Download Tab",
+                  "model": "download-center-tab"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Download Document",
+          "id": "download-center-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Download Document",
+                  "model": "download-center-item"
                 }
               }
             }
@@ -1194,6 +1299,68 @@
           }
         },
         {
+          "title": "Info Panel",
+          "id": "info-panel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Info Panel",
+                  "model": "info-panel",
+                  "filter": "info-panel"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Info Row",
+          "id": "info-panel-row",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Info Row",
+                  "model": "info-panel-row"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Info Card",
+          "id": "info-panel-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Info Card",
+                  "model": "info-panel-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Info Action",
+          "id": "info-panel-action",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Info Action",
+                  "model": "notice-banner-item",
+                  "action": "arrow"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Insight Cards",
           "id": "insight-cards",
           "plugins": {
@@ -1475,6 +1642,38 @@
                   "name": "Campaign",
                   "model": "media-center-campaign",
                   "imageMimeType": "image/jpeg"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Notice Banner",
+          "id": "notice-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Notice Banner",
+                  "model": "notice-banner",
+                  "filter": "notice-banner"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Notice Action",
+          "id": "notice-banner-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Notice Action",
+                  "model": "notice-banner-item",
+                  "action": "arrow"
                 }
               }
             }
