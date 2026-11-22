@@ -64,6 +64,10 @@
             {
               "name": "Leadership Banner",
               "value": "leadership-banner"
+            },
+            {
+              "name": "Search Banner",
+              "value": "search-banner"
             }
           ]
         },

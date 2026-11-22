@@ -85,7 +85,9 @@
       "photo-gallery",
       "expand-cards",
       "job-listing",
-      "team-profiles"
+      "team-profiles",
+      "search-results",
+      "media-center"
     ]
   },
   {
@@ -274,6 +276,14 @@
       "life-stages-milestone",
       "life-stages-outcome",
       "life-stages-disclaimer"
+    ]
+  },
+  {
+    "id": "media-center",
+    "components": [
+      "media-center-group",
+      "media-center-release",
+      "media-center-campaign"
     ]
   },
   {

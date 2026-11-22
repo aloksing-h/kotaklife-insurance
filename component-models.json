@@ -1248,6 +1248,10 @@
           {
             "name": "Leadership Banner",
             "value": "leadership-banner"
+          },
+          {
+            "name": "Search Banner",
+            "value": "search-banner"
           }
         ]
       },
@@ -5377,6 +5381,233 @@
     ]
   },
   {
+    "id": "media-center",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Heading",
+        "description": "The section heading, e.g. Our <strong>media</strong> center",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "name": "searchPlaceholder",
+        "label": "Search placeholder",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "searchLabel",
+        "label": "Search field label",
+        "valueType": "string",
+        "description": "Read by screen readers"
+      },
+      {
+        "component": "text",
+        "name": "yearLabel",
+        "label": "Year filter label",
+        "valueType": "string",
+        "description": "Read by screen readers on the year filter"
+      },
+      {
+        "component": "text",
+        "name": "allYearsLabel",
+        "label": "All years option",
+        "valueType": "string",
+        "description": "The first year option; it clears the year filter"
+      },
+      {
+        "component": "text",
+        "name": "monthLabel",
+        "label": "Month filter label",
+        "valueType": "string",
+        "description": "Shown on the month filter when no month is picked"
+      },
+      {
+        "component": "text",
+        "name": "allMonthsLabel",
+        "label": "All months option",
+        "valueType": "string",
+        "description": "The first month option; it clears the month filter"
+      },
+      {
+        "component": "text",
+        "name": "chooseLabel",
+        "label": "Filter list heading (mobile)",
+        "valueType": "string",
+        "description": "Shown above the options in the full screen list on mobile"
+      },
+      {
+        "component": "text",
+        "name": "closeLabel",
+        "label": "Close label",
+        "valueType": "string",
+        "description": "Read by screen readers on the close button of the mobile list"
+      },
+      {
+        "component": "text",
+        "name": "downloadLabel",
+        "label": "Download label",
+        "valueType": "string",
+        "description": "Read by screen readers on press release cards"
+      },
+      {
+        "component": "text",
+        "name": "resultsLabel",
+        "label": "Results count",
+        "valueType": "string",
+        "description": "Read by screen readers when the results change; use {count}"
+      },
+      {
+        "component": "text",
+        "name": "emptyMessage",
+        "label": "No results message",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "clearLabel",
+        "label": "Clear filters label",
+        "valueType": "string"
+      },
+      {
+        "component": "number",
+        "name": "pressPageSize",
+        "label": "Press releases per page",
+        "valueType": "number"
+      },
+      {
+        "component": "number",
+        "name": "campaignPageSize",
+        "label": "Campaigns per page",
+        "valueType": "number"
+      },
+      {
+        "component": "text",
+        "name": "previousLabel",
+        "label": "Previous page label",
+        "valueType": "string",
+        "description": "Read by screen readers"
+      },
+      {
+        "component": "text",
+        "name": "nextLabel",
+        "label": "Next page label",
+        "valueType": "string",
+        "description": "Read by screen readers"
+      },
+      {
+        "component": "text",
+        "name": "pageLabel",
+        "label": "Page label",
+        "valueType": "string",
+        "description": "Read by screen readers before each page number"
+      },
+      {
+        "component": "text",
+        "name": "groupLabel",
+        "label": "Media type list label",
+        "valueType": "string",
+        "description": "Read by screen readers for the tabs (a dropdown on mobile)"
+      }
+    ]
+  },
+  {
+    "id": "media-center-group",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Tab name",
+        "valueType": "string",
+        "description": "e.g. Press Releases. The items after it, up to the next tab, belong to it."
+      },
+      {
+        "component": "text",
+        "name": "anchor",
+        "label": "Anchor",
+        "valueType": "string",
+        "description": "Optional, e.g. our-campaigns: a link to #our-campaigns opens this tab"
+      }
+    ]
+  },
+  {
+    "id": "media-center-release",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "date-time",
+        "name": "date",
+        "label": "Release date",
+        "description": "Shown on the card and used by the year and month filters",
+        "valueType": "date"
+      },
+      {
+        "component": "aem-content",
+        "name": "document",
+        "label": "Document",
+        "description": "The press release PDF (opens and downloads from the card)"
+      }
+    ]
+  },
+  {
+    "id": "media-center-campaign",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Thumbnail",
+        "multi": false,
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Thumbnail alt text",
+        "valueType": "string"
+      },
+      {
+        "component": "hidden",
+        "valueType": "string",
+        "name": "imageMimeType",
+        "value": "image/jpeg"
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "text",
+        "name": "description",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "video",
+        "label": "Video",
+        "description": "A DAM video, YouTube or Vimeo link; it plays in a dialog"
+      },
+      {
+        "component": "date-time",
+        "name": "date",
+        "label": "Campaign date",
+        "description": "Used by the year and month filters",
+        "valueType": "date"
+      }
+    ]
+  },
+  {
     "id": "offer-banner",
     "fields": [
       {
@@ -7511,6 +7742,106 @@
             "value": "fire-table"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "search-results",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "source",
+        "label": "Search index",
+        "description": "The site search index (JSON). Leave as /search-index.json"
+      },
+      {
+        "component": "text",
+        "name": "searchPlaceholder",
+        "label": "Search placeholder",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "searchLabel",
+        "label": "Search field label",
+        "valueType": "string",
+        "description": "Read by screen readers"
+      },
+      {
+        "component": "text",
+        "name": "submitLabel",
+        "label": "Search button label",
+        "valueType": "string",
+        "description": "Read by screen readers on the search icon button"
+      },
+      {
+        "component": "text",
+        "name": "sortLabel",
+        "label": "Sort label",
+        "valueType": "string",
+        "description": "Read by screen readers"
+      },
+      {
+        "component": "text",
+        "name": "sortOptions",
+        "label": "Sort options",
+        "valueType": "string",
+        "description": "Label=value pairs, comma separated; values: newest, oldest, relevance. The first is the default"
+      },
+      {
+        "component": "text",
+        "name": "resultsLabel",
+        "label": "Results count",
+        "valueType": "string",
+        "description": "Use {count} and {query}"
+      },
+      {
+        "component": "text",
+        "name": "resultLabel",
+        "label": "Results count for one result",
+        "valueType": "string",
+        "description": "Use {count} and {query}"
+      },
+      {
+        "component": "text",
+        "name": "emptyMessage",
+        "label": "No results message",
+        "valueType": "string",
+        "description": "Use {query}"
+      },
+      {
+        "component": "text",
+        "name": "promptMessage",
+        "label": "Empty search message",
+        "valueType": "string",
+        "description": "Shown before anything is searched"
+      },
+      {
+        "component": "number",
+        "name": "pageSize",
+        "label": "Results per page",
+        "valueType": "number"
+      },
+      {
+        "component": "text",
+        "name": "previousLabel",
+        "label": "Previous page label",
+        "valueType": "string",
+        "description": "Read by screen readers"
+      },
+      {
+        "component": "text",
+        "name": "nextLabel",
+        "label": "Next page label",
+        "valueType": "string",
+        "description": "Read by screen readers"
+      },
+      {
+        "component": "text",
+        "name": "pageLabel",
+        "label": "Page label",
+        "valueType": "string",
+        "description": "Read by screen readers before each page number, e.g. Page 2"
       }
     ]
   },
