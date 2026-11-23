@@ -1,12 +1,33 @@
 /*
  * Impact Cards Block
  * Section heading with a button, then a grid of an optional quote card and stat cards.
- * The first two cards are tall, the next two share a column (as in Figma).
+ * With a quote the first two cards are tall and the next two share a column (as in Figma).
+ * Stats only grids use a 3 card (all tall), 4 card (2 tall, 2 short) or 5 card (1 tall, 4 short)
+ * layout, picked by the author or by the number of cards.
  */
 
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 const ITEM_IDS = ['impact-stat', 'impact-quote'];
+
+// tall and short card pattern of each stats layout (as in Figma); it repeats for extra cards
+const LAYOUTS = {
+  3: ['tall', 'tall', 'tall'],
+  4: ['tall', 'tall', 'short', 'short'],
+  5: ['tall', 'short', 'short', 'short', 'short'],
+};
+
+/**
+ * Picks the stats layout: the authored option, else the number of cards.
+ * @param {Element} block
+ * @param {number} count
+ * @returns {number}
+ */
+function layoutOf(block, count) {
+  const authored = Object.keys(LAYOUTS).find((size) => block.classList.contains(`layout-${size}`));
+  if (authored) return Number(authored);
+  return LAYOUTS[count] ? count : 4;
+}
 
 function imgOf(image) {
   return image?.tagName === 'IMG' ? image : image?.querySelector('img');
@@ -165,9 +186,14 @@ export default function decorate(block) {
     const isQuote = itemId ? itemId === 'impact-quote' : !['light', 'red'].includes(theme);
     return isQuote ? buildQuote(row) : buildStat(row);
   });
-  // the first two cards are tall; the next two share the last column
-  cards.forEach((card, i) => card.classList.add(i % 4 < 2 ? 'impact-cards-tall' : 'impact-cards-short'));
-  block.classList.add(cards[0]?.classList.contains('impact-cards-quote') ? 'impact-cards-with-quote' : 'impact-cards-stats-only');
+  // with a quote the first two cards are tall and the next two share the last column;
+  // stats only cards follow the 3, 4 or 5 card layout
+  const withQuote = cards[0]?.classList.contains('impact-cards-quote');
+  const size = withQuote ? 4 : layoutOf(block, cards.length);
+  const pattern = LAYOUTS[size];
+  cards.forEach((card, i) => card.classList.add(`impact-cards-${pattern[i % pattern.length]}`));
+  block.classList.add(withQuote ? 'impact-cards-with-quote' : 'impact-cards-stats-only');
+  if (!withQuote) block.classList.add(`impact-cards-layout-${size}`);
 
   const grid = document.createElement('ul');
   grid.className = 'impact-cards-grid';

@@ -4405,6 +4405,32 @@
     "id": "impact-cards",
     "fields": [
       {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "label": "Card layout",
+        "description": "Automatic picks the layout from the number of stat cards. Layouts apply when the first card is a stat card; a quote card always uses the quote layout",
+        "value": "",
+        "options": [
+          {
+            "name": "Automatic (by number of cards)",
+            "value": ""
+          },
+          {
+            "name": "3 cards - three tall cards",
+            "value": "layout-3"
+          },
+          {
+            "name": "4 cards - two tall cards, two short cards",
+            "value": "layout-4"
+          },
+          {
+            "name": "5 cards - one tall card, four short cards",
+            "value": "layout-5"
+          }
+        ]
+      },
+      {
         "component": "richtext",
         "valueType": "string",
         "name": "text",
