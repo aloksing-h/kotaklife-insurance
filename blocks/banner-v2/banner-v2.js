@@ -303,17 +303,21 @@ export default async function decorate(block) {
     }
 
     // Append Product Card at top of content (Figma 7738:26173 / 7738:26496)
-    if (badgeText || productTitleText) {
+    // The product name is a tag above the title (Figma 11229:15444); the word
+    // "Badge" only marks the banner as a product banner, so it is not shown
+    const showBadge = badgeText && badgeText.toLowerCase() !== 'badge';
+    if (showBadge || productTitleText) {
       const card = document.createElement('div');
       card.className = 'banner-v2-product-card';
-      if (badgeText) {
+      if (showBadge) {
         const badge = document.createElement('span');
         badge.className = 'banner-v2-badge';
         badge.textContent = badgeText;
         card.appendChild(badge);
       }
       if (productTitleText) {
-        const prodTitle = document.createElement('h3');
+        // a paragraph, not a heading: it sits above the page h1
+        const prodTitle = document.createElement('p');
         prodTitle.className = 'banner-v2-product-title';
         prodTitle.textContent = productTitleText;
         card.appendChild(prodTitle);

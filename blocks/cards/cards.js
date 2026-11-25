@@ -201,6 +201,11 @@ export default async function decorate(block) {
   if (section) {
     const isMakeDifferent = section.classList.contains('make-different');
     const rightWrapClass = isMakeDifferent ? 'make-different-right' : 'growing-insurance-right';
+    // the make-different grid has a 3, 4 or 5 card layout, picked by the number of cards
+    if (isMakeDifferent) {
+      const count = ul.children.length;
+      if (count === 3 || count === 5) block.classList.add(`make-different-cards-${count}`);
+    }
     const defaultContent = section.querySelector('.default-content-wrapper');
     if (defaultContent && !defaultContent.querySelector(`.${rightWrapClass}`)) {
       const rightWrap = document.createElement('div');

@@ -1053,18 +1053,14 @@ main>.section:has(.banner-v2.retire-calc-banner){
   color: var(--base-white, #fff);
 }
 
-/* Product Card: Badge + Product Name */
+/* Product Card: optional badge + product name tag (Figma 11229:15444) */
 .banner-v2.block.product-banner .banner-v2-product-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
   width: max-content;
-  max-width: 470px;
-  padding: 12px;
-  border-radius: 12px;
-  background: rgb(255 255 255 / 10%);
-  backdrop-filter: blur(8px);
+  max-width: 100%;
   margin-bottom: 16px;
   box-sizing: border-box;
 }
@@ -1087,13 +1083,19 @@ main>.section:has(.banner-v2.retire-calc-banner){
 }
 
 .banner-v2.block.product-banner .banner-v2-product-title {
-  font-family: var(--heading-font-family, 'Manrope', sans-serif);
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 28px;
-  color: var(--base-white, #fff);
+  max-width: 100%;
   margin: 0;
-  letter-spacing: -0.01em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--gray-100, #f5f5f5);
+  color: var(--text-primary, #181d27);
+  font-family: var(--heading-font-family, 'Manrope', sans-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
 }
 
 /* Main Heading */
@@ -1219,14 +1221,13 @@ main>.section:has(.banner-v2.retire-calc-banner){
 
   .banner-v2.block.product-banner .banner-v2-product-card {
     gap: 4px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     box-sizing: border-box;
   }
 
   .banner-v2.block.product-banner .banner-v2-product-title {
-    font-size: 20px;
-    line-height: 24px;
-    overflow-wrap: break-word;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .banner-v2.block.product-banner .banner-v2-title {
@@ -1296,13 +1297,9 @@ main>.section:has(.banner-v2.retire-calc-banner){
     padding: 108px 12px 20px;
   }
 
-  .banner-v2.block.product-banner .banner-v2-product-card {
-    padding: 8px 10px;
-  }
-
   .banner-v2.block.product-banner .banner-v2-product-title {
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 14px;
+    line-height: 18px;
   }
 
   .banner-v2.block.product-banner .banner-v2-title {

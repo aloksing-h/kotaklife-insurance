@@ -424,9 +424,70 @@ async function initializeDatePicker(input) {
  * Loads the authored form, then wires up validation and submission
  * @param {Element} block The invest-form block element
  */
+/**
+ * Optional collapsed state (Figma 11229:15330 desktop, 11229:15661 mobile): rows after
+ * the text and form URL hold the collapsed text and the expand button label. With a
+ * label the section starts collapsed and the button expands it to show the form.
+ * The rows are removed before the form reads its links.
+ * @param {Element} block
+ * @returns {Function|null} called once the form is built, to move focus into it
+ */
+function decorateCollapsed(block) {
+  const [textRow, labelRow] = [...block.children].slice(2);
+  const text = textRow?.textContent.trim();
+  const label = labelRow?.textContent.trim();
+  [textRow, labelRow].forEach((row) => row?.remove());
+  const section = block.closest('.section');
+  if (!label || !section) return null;
+
+  block.id = block.id || `invest-form-${document.querySelectorAll('.invest-form-teaser').length + 1}`;
+  const teaser = createElement('div', 'invest-form-teaser');
+  if (text) {
+    const p = createElement('p', 'invest-form-teaser-text');
+    p.textContent = text;
+    teaser.append(p);
+  }
+  const button = createElement('button', 'invest-form-teaser-cta');
+  button.type = 'button';
+  button.setAttribute('aria-expanded', 'false');
+  button.setAttribute('aria-controls', block.id);
+  const buttonLabel = createElement('span', 'invest-form-teaser-label');
+  buttonLabel.textContent = label;
+  const icon = createElement('span', 'invest-form-teaser-icon');
+  icon.setAttribute('aria-hidden', 'true');
+  button.append(buttonLabel, icon);
+  teaser.append(button);
+
+  section.classList.add('invest-form-collapsible', 'invest-form-collapsed');
+  block.hidden = true;
+  block.before(teaser);
+
+  let ready = false;
+  let pendingFocus = false;
+  const focusForm = () => {
+    const field = block.querySelector('input, select, textarea, button');
+    if (field) field.focus();
+  };
+  button.addEventListener('click', () => {
+    section.classList.remove('invest-form-collapsed');
+    button.setAttribute('aria-expanded', 'true');
+    block.hidden = false;
+    teaser.hidden = true;
+    if (ready) focusForm();
+    else pendingFocus = true;
+  });
+
+  return () => {
+    ready = true;
+    if (pendingFocus) focusForm();
+  };
+}
+
 export default async function decorate(block) {
+  const onFormReady = decorateCollapsed(block);
   const form = await loadForm(block);
   if (!form) return;
+  onFormReady?.();
 
   const nameInput = form.querySelector('.text-field input');
   const emailInput = form.querySelector('.email-field input');

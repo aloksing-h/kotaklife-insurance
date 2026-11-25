@@ -48,6 +48,35 @@
               "value":"blog-form"
             }
           ]
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "expert_image",
+          "label": "Expert card illustration",
+          "description": "Optional card shown before the form, for example a headset illustration",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "expert_imageAlt",
+          "label": "Expert card illustration alt text",
+          "description": "Leave empty when the illustration is decorative",
+          "value": ""
+        },
+        {
+          "component": "hidden",
+          "name": "expert_imageMimeType",
+          "value": "image/png"
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "expert_description",
+          "label": "Expert card text and button",
+          "description": "Optional. A heading (Heading 3), a short description and, on its own line, the button as a link, for example Talk to An Expert linking to #. With a button the form stays hidden until it is clicked. Leave empty to show the form straight away",
+          "value": ""
         }
       ]
     }

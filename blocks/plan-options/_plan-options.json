@@ -55,6 +55,14 @@
           "name": "linkText",
           "label": "Button Text",
           "value": "Buy Online"
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "glossary",
+          "label": "Glossary",
+          "description": "Optional. One term per line as term: definition, for example maturity: The end of the policy term. Each term is underlined in the card benefits and shows its definition on hover or focus",
+          "value": ""
         }
       ]
     },

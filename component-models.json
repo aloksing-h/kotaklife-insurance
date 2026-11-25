@@ -3615,6 +3615,35 @@
             "value": "blog-form"
           }
         ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "expert_image",
+        "label": "Expert card illustration",
+        "description": "Optional card shown before the form, for example a headset illustration",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "expert_imageAlt",
+        "label": "Expert card illustration alt text",
+        "description": "Leave empty when the illustration is decorative",
+        "value": ""
+      },
+      {
+        "component": "hidden",
+        "name": "expert_imageMimeType",
+        "value": "image/png"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "expert_description",
+        "label": "Expert card text and button",
+        "description": "Optional. A heading (Heading 3), a short description and, on its own line, the button as a link, for example Talk to An Expert linking to #. With a button the form stays hidden until it is clicked. Leave empty to show the form straight away",
+        "value": ""
       }
     ]
   },
@@ -5009,6 +5038,22 @@
         "component": "aem-content",
         "name": "link",
         "label": "form URL"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "collapsedDescription",
+        "label": "Collapsed text",
+        "description": "Optional. Shown next to the button while the form is collapsed, for example: Our experts help you find a life insurance plan that fits your goals.",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "expandLabel",
+        "label": "Expand button label",
+        "description": "For example: Talk to An Expert. When set, the section starts collapsed and this button expands it to show the form. Leave empty to show the form straight away",
+        "value": ""
       }
     ]
   },
@@ -6093,6 +6138,14 @@
         "name": "linkText",
         "label": "Button Text",
         "value": "Buy Online"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "glossary",
+        "label": "Glossary",
+        "description": "Optional. One term per line as term: definition, for example maturity: The end of the policy term. Each term is underlined in the card benefits and shows its definition on hover or focus",
+        "value": ""
       }
     ]
   },

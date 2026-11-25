@@ -1572,3 +1572,195 @@
         padding-bottom: 0;
     }
 }
+
+/* ==========================================================================
+   Make Different: 3 and 5 card layouts (Figma 19:9930 / 19:10000, mobile 19:10119 / 19:10197)
+   4 cards keep the layout above. 3 cards: all tall. 5 cards: one tall, four short.
+   Colours follow Figma: 3 = light, red, light; 5 = light, red, light, light, red.
+   ========================================================================== */
+
+/* 3 cards (mobile): the third card is tall like the second */
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-3 ul li:nth-child(3) {
+    grid-row: 2 / 4;
+    height: 154px;
+    min-height: 154px;
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-3 ul li:nth-child(3) .cards-card-body {
+    padding: 12px 12px 0;
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-3 ul li:nth-child(3) .cards-card-body h4 {
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0 0 4px;
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-3 ul li:nth-child(3) .cards-card-image {
+    left: 0;
+    height: 74px;
+}
+
+/* 5 cards (mobile): four short cards in two rows below the first */
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(2) {
+    grid-row: 2 / 3;
+    height: 71px;
+    min-height: 71px;
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(n + 2) .cards-card-body {
+    padding: 8px 8px 0;
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(n + 2) .cards-card-body :is(h3, h4) {
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 0 2px;
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(2) .cards-card-image {
+    left: auto;
+    width: 60%;
+    height: 36px;
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(4) {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    background: var(--blue-50, #eff8ff);
+    color: var(--text-primary, #181d27);
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(4) .cards-card-body :is(h3, h4, p) {
+    color: var(--text-primary, #181d27);
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(4) .cards-card-image {
+    bottom: 0;
+    width: 60%;
+    height: 30px;
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(4) .cards-card-image img {
+    padding-bottom: 0;
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(5) {
+    position: relative;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    height: 71px;
+    min-height: 71px;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(7.21deg, #E1122D -43.93%, #E1122D 34.03%, #7F2224 88.98%);
+    color: var(--base-white, #fff);
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(5) .cards-card-body :is(h3, h4) {
+    font-family: var(--font-family-font-family-display, Manrope);
+    font-weight: 600;
+    color: var(--base-white, #fff);
+}
+
+.growing-insurance-company.make-different.section .cards-wrapper .make-different-cards-5 ul li:nth-child(5) .cards-card-body p {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    color: var(--base-white, #fff);
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(5) .cards-card-image {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    width: 100%;
+    height: 58px;
+}
+
+.growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(5) .cards-card-image img {
+    object-position: bottom right;
+    padding-bottom: 10px;
+}
+
+@media (width >=900px) {
+    /* 3 cards: the third card is tall */
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-3 ul li:nth-child(3) {
+        grid-row: 1 / 3;
+        height: 276px;
+        min-height: 276px;
+    }
+
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-3 ul li:nth-child(3) .cards-card-body {
+        padding: 20px 20px 0;
+    }
+
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-3 ul li:nth-child(3) .cards-card-body h4 {
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-3 ul li:nth-child(3) .cards-card-image {
+        left: 0;
+        width: 100%;
+        height: 152px;
+    }
+
+    /* 5 cards: the second and fourth share the middle column, the third and fifth the last */
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(2) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        height: 132px;
+        min-height: 132px;
+    }
+
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(4) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(5) {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+        height: 132px;
+        min-height: 132px;
+    }
+
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(n + 2) .cards-card-body {
+        padding: 20px 20px 0;
+    }
+
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(n + 2) .cards-card-body :is(h3, h4) {
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 36px;
+        margin: 0 0 4px;
+    }
+
+    .growing-insurance-company.make-different.section .cards-wrapper .make-different-cards-5 ul li:nth-child(5) .cards-card-body p {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+    }
+
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(2) .cards-card-image {
+        width: 146px;
+        height: 132px;
+    }
+
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(4) .cards-card-image {
+        width: 176px;
+        height: 109px;
+    }
+
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(5) .cards-card-image {
+        bottom: 0;
+        width: 197px;
+        height: 132px;
+    }
+
+    .growing-insurance-company.make-different .cards-wrapper .make-different-cards-5 ul li:nth-child(5) .cards-card-image img {
+        padding-bottom: 0;
+    }
+}

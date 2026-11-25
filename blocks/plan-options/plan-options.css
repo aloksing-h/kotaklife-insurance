@@ -277,3 +277,62 @@
     margin-top: 0;
   }
 }
+
+/* glossary: an underlined term shows its definition above the benefit (Figma doc 11229:15917) */
+.plan-options .plan-options-term-trigger {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+.plan-options .plan-options-term-trigger:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--info-500, #2e90fa);
+  outline-offset: 2px;
+}
+
+.plan-options .plan-options-tooltip {
+  position: absolute;
+  z-index: 2;
+  inset-inline-start: var(--spacing-3xl);
+  bottom: calc(100% + var(--spacing-xs));
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(190px, calc(100% - var(--spacing-3xl)));
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  background: var(--base-white);
+  box-shadow: var(--shadow-lg);
+  color: var(--gray-700);
+  font-size: var(--po-item-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--po-item-line);
+  text-align: start;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.plan-options .plan-options-tooltip-term {
+  color: var(--gray-900);
+  font-weight: var(--font-weight-semibold);
+}
+
+.plan-options .plan-options-term:is(:hover, :has(:focus-visible), .is-open):not(.is-dismissed) .plan-options-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plan-options .plan-options-tooltip {
+    transition: none;
+  }
+}

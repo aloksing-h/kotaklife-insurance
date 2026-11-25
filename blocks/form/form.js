@@ -677,7 +677,81 @@ function buildForm(fields, submit) {
  * Initializes form block with data from JSON endpoint
  * @param {HTMLElement} block - Form block element
  */
+let expertCount = 0;
+
+/**
+ * Optional expert card shown before the form (Figma 11229:15446): the row after the
+ * form definition and submit URL holds the illustration, the heading and description,
+ * and the button as a link on its own line. With a button the form stays hidden until
+ * it is clicked. The row is removed before the form reads its links.
+ * @param {Element} block
+ */
+function decorateExpertCard(block) {
+  const rows = [...block.children].slice(2);
+  rows.forEach((row) => row.remove());
+  const cell = rows[0]?.firstElementChild;
+  const link = cell && [...cell.querySelectorAll('a')].reverse()
+    .find((a) => a.closest('p, div')?.textContent.trim() === a.textContent.trim());
+  const label = link?.textContent.trim();
+  if (!label) return;
+  const linkLine = link.closest('p');
+  if (linkLine && linkLine !== cell) linkLine.remove();
+  else link.remove();
+
+  const card = document.createElement('div');
+  card.className = 'form-expert';
+
+  const picture = cell.querySelector('picture');
+  if (picture) {
+    const visual = document.createElement('div');
+    visual.className = 'form-expert-visual';
+    // the picture may sit in its own paragraph
+    const pictureLine = picture.parentElement !== cell && picture.parentElement;
+    visual.append(picture);
+    if (pictureLine && !pictureLine.textContent.trim() && !pictureLine.children.length) {
+      pictureLine.remove();
+    }
+    card.append(visual);
+  }
+
+  if (cell.textContent.trim()) {
+    cell.className = 'form-expert-text';
+    card.append(cell);
+  }
+
+  expertCount += 1;
+  block.id = block.id || `form-expert-${expertCount}`;
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'form-expert-cta';
+  button.setAttribute('aria-expanded', 'false');
+  button.setAttribute('aria-controls', block.id);
+  button.innerHTML = '<span class="form-expert-cta-label"></span><span class="form-expert-cta-icon" aria-hidden="true"></span>';
+  button.querySelector('.form-expert-cta-label').textContent = label;
+  card.append(button);
+
+  button.addEventListener('click', () => {
+    button.setAttribute('aria-expanded', 'true');
+    block.hidden = false;
+    card.hidden = true;
+    block.closest('.section')?.classList.add('form-expert-open');
+    // move focus into the form so keyboard users continue from there
+    const focusable = block.querySelector('input, select, textarea, button');
+    if (focusable) focusable.focus();
+    else {
+      block.tabIndex = -1;
+      block.focus();
+    }
+  });
+
+  block.hidden = true;
+  block.classList.add('form-has-expert');
+  block.before(card);
+}
+
 export default function decorate(block) {
+  decorateExpertCard(block);
+
   // the Request a Call Back skin has its own independent build/validation pipeline
   if (block.classList.contains('request-call-back')
     || block.classList.contains('buy-term-insurance')

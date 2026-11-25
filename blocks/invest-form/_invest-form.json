@@ -31,6 +31,22 @@
           "component": "aem-content",
           "name": "link",
           "label": "form URL"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "collapsedDescription",
+          "label": "Collapsed text",
+          "description": "Optional. Shown next to the button while the form is collapsed, for example: Our experts help you find a life insurance plan that fits your goals.",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "expandLabel",
+          "label": "Expand button label",
+          "description": "For example: Talk to An Expert. When set, the section starts collapsed and this button expands it to show the form. Leave empty to show the form straight away",
+          "value": ""
         }
       ]
     }

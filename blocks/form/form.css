@@ -286,3 +286,143 @@
     background-position: center;
     background-size: 16px;
 }
+
+/* ==========================================================================
+   Expert card shown before the form (Figma 11229:15446 desktop, 11229:15762 mobile)
+   ========================================================================== */
+.form-wrapper > .form.block.form-has-expert[hidden],
+.form-wrapper > .form-expert[hidden] {
+    display: none;
+}
+
+.form-wrapper > .form-expert {
+    --form-expert-glow: var(--brand-red-50, #fed0d6);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 420px;
+    padding: 40px 16px;
+    background: linear-gradient(180deg, var(--base-white, #fff) 0%, var(--form-expert-glow) 100%);
+    text-align: center;
+}
+
+.form-wrapper > .form-expert .form-expert-visual {
+    width: 200px;
+    height: 200px;
+    margin-bottom: -40px;
+}
+
+.form-wrapper > .form-expert .form-expert-visual :is(picture, img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.form-wrapper > .form-expert .form-expert-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm, 8px);
+    max-width: 304px;
+}
+
+.form-wrapper > .form-expert .form-expert-text > * {
+    margin: 0;
+}
+
+.form-wrapper > .form-expert .form-expert-text :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--text-primary, #181d27);
+    font-family: var(--heading-font-family, 'Manrope', sans-serif);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.form-wrapper > .form-expert .form-expert-text p {
+    max-width: 276px;
+    color: var(--gray-700, #414651);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.form-wrapper > .form-expert .form-expert-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 238px;
+    max-width: 100%;
+    height: 40px;
+    margin-top: var(--spacing-2xl, 24px);
+    padding: 4px 44px;
+    border: none;
+    border-radius: var(--radius-full, 999px);
+    background-color: var(--brand-red-600, #e1122d);
+    color: var(--base-white, #fff);
+    font-family: var(--heading-font-family, 'Manrope', sans-serif);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.form-wrapper > .form-expert .form-expert-cta-icon {
+    position: absolute;
+    inset-inline-end: 4px;
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--base-white, #fff);
+    transition: translate 0.2s ease;
+}
+
+.form-wrapper > .form-expert .form-expert-cta-icon::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: var(--text-primary, #181d27);
+    mask: url('../../icons/write-arrow-right.svg') center / 20px no-repeat;
+}
+
+.form-wrapper > .form-expert .form-expert-cta:hover .form-expert-cta-icon {
+    translate: 4px 0;
+}
+
+.form-wrapper > .form-expert .form-expert-cta:focus-visible {
+    outline: 2px solid var(--info-500, #2e90fa);
+    outline-offset: 2px;
+}
+
+@media (width >= 1150px) {
+    .form-wrapper > .form-expert {
+        min-height: 446px;
+        padding: 40px;
+        border-radius: 16px;
+        background:
+            radial-gradient(60% 40% at 50% 100%, var(--form-expert-glow) 0%, rgb(254 208 214 / 0%) 100%),
+            linear-gradient(180deg, var(--base-white, #fff) 0%, var(--gray-50, #fafafa) 100%);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .form-wrapper > .form-expert .form-expert-visual {
+        margin-bottom: -50px;
+    }
+
+    .form-wrapper > .form-expert .form-expert-cta {
+        margin-top: 26px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .form-wrapper > .form-expert .form-expert-cta-icon {
+        transition: none;
+    }
+}
