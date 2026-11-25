@@ -1,0 +1,190 @@
+/*
+ * Banner V2, style "Error Banner" (error-banner): the 404 page banner.
+ * Figma 404 - M 12130:7972 (mobile 360, 439 high) / 404 - D 12130:7946 (desktop 1200, 496 high).
+ * Loaded only for this style. Every rule is scoped to the class and sets each property
+ * the shared banner-v2 rules touch, so those never leak in.
+ */
+
+/* Figma BG: white under blurred #d1e9ff ellipses at the top left and right */
+.banner-v2.block.error-banner {
+  --error-banner-illustration-top: 92px;
+  --error-banner-illustration-width: 618px;
+  --error-banner-illustration-height: 321px;
+  --error-banner-text-top: 291px;
+  --error-banner-text-gap: 20px;
+
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  min-height: 439px;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  color: var(--gray-700, #414651);
+  background:
+    radial-gradient(ellipse 70% 55% at 0 0, var(--blue-100, #d1e9ff) 0%, rgb(209 233 255 / 0%) 100%),
+    radial-gradient(ellipse 60% 45% at 100% 30%, rgb(209 233 255 / 70%) 0%, rgb(209 233 255 / 0%) 100%),
+    linear-gradient(180deg, var(--blue-25, #f5faff) 0%, var(--base-white, #fff) 100%);
+}
+
+.banner-v2.block.error-banner .banner-v2-inner {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  min-height: inherit;
+  margin: 0;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* illustration: centred on the page, the cables run off both sides */
+.banner-v2.block.error-banner .banner-v2-visual {
+  position: absolute;
+  z-index: 1;
+  top: var(--error-banner-illustration-top);
+  left: 50%;
+  display: block;
+  width: var(--error-banner-illustration-width);
+  height: var(--error-banner-illustration-height);
+  margin: 0;
+  translate: -50% 0;
+  pointer-events: none;
+}
+
+.banner-v2.block.error-banner .banner-v2-visual .banner-v2-visual-desktop {
+  display: none;
+}
+
+.banner-v2.block.error-banner .banner-v2-visual .banner-v2-visual-mobile,
+.banner-v2.block.error-banner .banner-v2-visual .banner-v2-visual-single {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+}
+
+.banner-v2.block.error-banner .banner-v2-visual picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-v2.block.error-banner .banner-v2-visual img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: center top;
+}
+
+/* message and button below the 404 numerals of the illustration */
+.banner-v2.block.error-banner .banner-v2-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  align-self: auto;
+  gap: var(--error-banner-text-gap);
+  width: 100%;
+  max-width: 286px;
+  margin: 0 auto;
+  padding: var(--error-banner-text-top) 0 48px;
+  color: var(--gray-700, #414651);
+  text-align: center;
+}
+
+.banner-v2.block.error-banner .banner-v2-content :is(.banner-v2-title, .banner-v2-description) {
+  max-width: 100%;
+  margin: 0;
+  color: var(--gray-700, #414651);
+  font-family: var(--heading-font-family, 'Manrope', sans-serif);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.banner-v2.block.error-banner .banner-v2-title :is(strong, b) {
+  font-weight: 600;
+}
+
+.banner-v2.block.error-banner .banner-v2-actions {
+  justify-content: center;
+  margin: 0;
+}
+
+/* Back to Home: red pill with the arrow in a white circle (Figma Button 166:4835) */
+.banner-v2.block.error-banner .banner-v2-cta,
+.banner-v2.block.error-banner .banner-v2-cta:hover,
+.banner-v2.block.error-banner .banner-v2-cta:focus-visible {
+  align-self: center;
+  height: 40px;
+  margin: 0;
+  padding: 0 4px 0 20px;
+  background: var(--brand-red-600, #e1122d);
+  color: var(--base-white, #fff);
+  font-size: 16px;
+  line-height: 18px;
+  gap: 12px;
+}
+
+.banner-v2.block.error-banner .banner-v2-cta:hover,
+.banner-v2.block.error-banner .banner-v2-cta:focus-visible {
+  gap: 18px;
+}
+
+.banner-v2.block.error-banner .banner-v2-cta:focus-visible {
+  outline: 2px solid var(--info-500, #2e90fa);
+  outline-offset: 2px;
+}
+
+.banner-v2.block.error-banner .banner-v2-cta-icon {
+  width: 32px;
+  height: 32px;
+}
+
+@media (width >= 900px) {
+  .banner-v2.block.error-banner {
+    --error-banner-illustration-top: 117px;
+    --error-banner-illustration-width: 1416px;
+    --error-banner-illustration-height: 328px;
+    --error-banner-text-top: 335px;
+    --error-banner-text-gap: 24px;
+
+    min-height: 496px;
+  }
+
+  .banner-v2.block.error-banner .banner-v2-content {
+    padding-bottom: 57px;
+  }
+
+  .banner-v2.block.error-banner .banner-v2-content :is(.banner-v2-title, .banner-v2-description) {
+    font-size: 18px;
+  }
+
+  .banner-v2.block.error-banner .banner-v2-visual .banner-v2-visual-desktop {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+  }
+
+  .banner-v2.block.error-banner .banner-v2-visual .banner-v2-visual-mobile {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-v2.block.error-banner .banner-v2-cta {
+    transition: none;
+  }
+}

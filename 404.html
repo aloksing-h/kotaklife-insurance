@@ -14,22 +14,54 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="Page not found">
-  <script nonce="aem" src="/scripts/scripts.js" type="module"></script>
+  <!-- the same navigation and footer as the site pages (bulk metadata does not apply here) -->
+  <meta name="nav" content="/in/en/nav">
+  <meta name="footer" content="/in/en/footer">
+  <!-- the authored 404 content (Figma 404 - D 12130:7920 / 404 - M 12130:7949) -->
+  <meta name="error-fragment" content="/in/en/fragments/404">
   <script nonce="aem" type="module">
-    window.addEventListener('load', () => {
-      if (document.referrer) {
-        const { origin, pathname } = new URL(document.referrer);
-        if (origin === window.location.origin) {
-          const backBtn = document.createElement('a');
-          backBtn.classList.add('button', 'error-button-back');
-          backBtn.href = pathname;
-          backBtn.textContent = 'Go back';
-          backBtn.title = 'Go back';
-          const btnContainer = document.querySelector('.button-container');
-          btnContainer.append(backBtn);
+    /*
+     * Loads the authored 404 page into <main> before the page scripts decorate it, so its
+     * sections (banner, contact help, popular searches) render like any other page.
+     * When the authored page is missing, the built-in message below stays.
+     */
+    const main = document.querySelector('main');
+    const path = document.querySelector('meta[name="error-fragment"]')?.content;
+    try {
+      const url = new URL(`${path}.plain.html`, window.location.origin);
+      const resp = path && path.startsWith('/') ? await fetch(url) : null;
+      if (resp?.ok) {
+        const html = await resp.text();
+        if (html.trim()) {
+          const content = document.createElement('div');
+          content.innerHTML = html;
+          // media paths are relative to the authored page
+          content.querySelectorAll('img[src^="./media_"], source[srcset^="./media_"]').forEach((el) => {
+            const attr = el.tagName === 'IMG' ? 'src' : 'srcset';
+            el.setAttribute(attr, new URL(el.getAttribute(attr), url).href);
+          });
+          main.classList.remove('error');
+          main.replaceChildren(...content.children);
         }
       }
-    });
+    } catch (e) {
+      // keep the built-in message
+    }
+    await import('/scripts/scripts.js');
+
+    // the built-in message offers a way back to the previous page
+    const btnContainer = main.querySelector('.error-fallback .button-container');
+    if (btnContainer && document.referrer) {
+      const { origin, pathname } = new URL(document.referrer);
+      if (origin === window.location.origin) {
+        const backBtn = document.createElement('a');
+        backBtn.classList.add('button', 'error-button-back');
+        backBtn.href = pathname;
+        backBtn.textContent = 'Go back';
+        backBtn.title = 'Go back';
+        btnContainer.append(backBtn);
+      }
+    }
   </script>
   <script nonce="aem" type="module">
     import { sampleRUM } from '/scripts/aem.js';
@@ -57,11 +89,11 @@
 <body>
   <header></header>
   <main class="error">
-    <div class="section">
-      <svg viewBox="1 0 38 18" class="error-number">
+    <div class="section error-fallback">
+      <svg viewBox="1 0 38 18" class="error-number" aria-hidden="true">
         <text x="0" y="17">404</text>
       </svg>
-      <h2 class="error-message">Page Not Found</h2>
+      <h1 class="error-message">Page Not Found</h1>
       <p class="button-container">
         <a href="/" class="button secondary error-button-home">Go home</a>
       </p>

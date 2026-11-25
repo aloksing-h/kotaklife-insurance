@@ -504,4 +504,10 @@ export default async function decorate(block) {
     const { default: decorateHowDoI } = await import('./banner-v2-how-do-i.js');
     await decorateHowDoI(block);
   }
+
+  // Error Banner style: the 404 page banner
+  if (block.classList.contains('error-banner')) {
+    const { default: decorateError } = await import('./banner-v2-error.js');
+    await decorateError(block);
+  }
 }

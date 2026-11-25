@@ -1397,6 +1397,10 @@
           {
             "name": "How Do I Banner",
             "value": "how-do-i-banner"
+          },
+          {
+            "name": "Error Banner (404)",
+            "value": "error-banner"
           }
         ]
       },
