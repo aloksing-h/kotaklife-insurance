@@ -1,0 +1,357 @@
+/*
+ * Report Cards: CSR "Kotak Life CSR impact assessment reports".
+ * Figma CSR 12130:9352 (desktop) / 12130:9443 (mobile):
+ *   desktop: centred heading (726 wide), the pill tabs centred, cards 260 x 208 four a row,
+ *            20 apart
+ *   mobile:  the tabs scroll with a chevron, cards 328 x 186 stacked 16 apart with a
+ *            download icon, the first four shown, then Show More
+ */
+
+.report-cards {
+  --report-cards-color-heading: var(--gray-900, #181d27);
+  --report-cards-color-body: var(--gray-600, #535862);
+  --report-cards-color-card: var(--blue-50, #eff8ff);
+  --report-cards-color-border: var(--brand-blue-50, #d2dae4);
+  --report-cards-color-tabs: var(--gray-100, #f5f5f5);
+  --report-cards-color-active: var(--brand-blue-500, #1e4679);
+  --report-cards-color-accent: var(--brand-red-600, #e1122d);
+  --report-cards-color-focus: var(--info-500, #2e90fa);
+  --report-cards-card-height: 186px;
+  --report-cards-gap: var(--spacing-xl, 16px);
+
+  font-family: var(--body-font-family);
+}
+
+/* heading and description */
+.report-cards .report-cards-header {
+  margin: 0 auto 30px;
+  max-width: 726px;
+  text-align: center;
+}
+
+.report-cards .report-cards-header > * {
+  margin: 0;
+}
+
+.report-cards .report-cards-header :is(h1, h2, h3) {
+  color: var(--report-cards-color-heading);
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: var(--font-weight-light, 300);
+  line-height: 36px;
+  letter-spacing: 0;
+}
+
+.report-cards .report-cards-header :is(h1, h2, h3) strong {
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.report-cards .report-cards-header p {
+  margin-top: var(--spacing-md, 8px);
+  color: var(--report-cards-color-body);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  line-height: 18px;
+}
+
+/* category tabs: a pill bar; on mobile it scrolls, with a chevron at the end */
+.report-cards .report-cards-tabbar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.report-cards .report-cards-tabs {
+  display: flex;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--report-cards-color-border);
+  border-radius: var(--radius-full, 999px);
+  background: var(--report-cards-color-tabs);
+  scrollbar-width: none;
+}
+
+.report-cards .report-cards-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.report-cards .report-cards-tab {
+  position: relative;
+  flex: 0 0 auto;
+  height: 36px;
+  margin: 0;
+  padding: 0 var(--spacing-lg, 12px);
+  border: 0;
+  border-radius: var(--radius-full, 999px);
+  background: none;
+  color: var(--report-cards-color-heading);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  line-height: 18px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* the active tab: blue glow fading to white (Figma _Tab button base) */
+.report-cards .report-cards-tab[aria-selected='true'] {
+  overflow: hidden;
+  background:
+    radial-gradient(28px 28px at 20% 100%, rgb(83 177 253 / 55%), rgb(83 177 253 / 0%)),
+    radial-gradient(28px 17px at 70% 100%, rgb(132 202 255 / 55%), rgb(132 202 255 / 0%)),
+    linear-gradient(90deg, rgb(46 144 250 / 35%) 0%, var(--base-white, #fff) 100%);
+  box-shadow: inset 0 0 0 1px var(--blue-200, #b2ddff);
+  color: var(--report-cards-color-active);
+  font-weight: var(--font-weight-semibold);
+}
+
+.report-cards .report-cards-scroll {
+  position: absolute;
+  inset: 1px 1px 1px auto;
+  display: none;
+  width: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0 var(--radius-full, 999px) var(--radius-full, 999px) 0;
+  background: linear-gradient(90deg, rgb(245 245 245 / 0%) 0%, var(--report-cards-color-tabs) 40%);
+  cursor: pointer;
+}
+
+.report-cards .report-cards-scroll::after {
+  position: absolute;
+  inset: 50% 14px auto auto;
+  width: 16px;
+  height: 16px;
+  background: var(--report-cards-color-heading);
+  content: '';
+  mask: url('../../icons/chevron-right.svg') center / contain no-repeat;
+  translate: 0 -50%;
+}
+
+.report-cards .report-cards-tabbar.can-scroll .report-cards-scroll {
+  display: block;
+}
+
+.report-cards .report-cards-panel[hidden] {
+  display: none;
+}
+
+/* the report cards */
+.report-cards .report-cards-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--report-cards-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.report-cards .report-cards-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: var(--report-cards-card-height);
+  padding: var(--spacing-xl, 16px);
+  border: 1px solid var(--report-cards-color-border);
+  border-radius: var(--radius-xl, 16px);
+  background: var(--report-cards-color-card);
+}
+
+.report-cards .report-cards-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 32px;
+  margin-bottom: var(--spacing-xl, 16px);
+}
+
+.report-cards .report-cards-icon {
+  width: 28px;
+  height: 28px;
+  background: url('../../icons/pdf-img.svg') center / contain no-repeat;
+}
+
+/* the download icon in a white circle (mobile only, as in Figma) */
+.report-cards .report-cards-download {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--base-white, #fff) url('../../icons/red-download-icon.svg') center / 20px no-repeat;
+}
+
+.report-cards .report-cards-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.report-cards .report-cards-title {
+  margin: 0;
+  color: var(--report-cards-color-heading);
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+/* the link covers the whole card, so the card is one target */
+.report-cards .report-cards-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.report-cards .report-cards-link::after {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl, 16px);
+  content: '';
+}
+
+.report-cards .report-cards-card:has(.report-cards-link:hover) {
+  border-color: var(--report-cards-color-active);
+}
+
+.report-cards .report-cards-link:focus-visible {
+  outline: none;
+}
+
+.report-cards .report-cards-card:has(.report-cards-link:focus-visible) {
+  outline: 2px solid var(--report-cards-color-focus);
+  outline-offset: 2px;
+}
+
+.report-cards .report-cards-category {
+  margin: 0;
+  color: var(--report-cards-color-body);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  line-height: 16px;
+}
+
+.report-cards .report-cards-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: auto 0 0;
+  padding: var(--spacing-xl, 16px) 0 0;
+  list-style: none;
+}
+
+.report-cards .report-cards-facts li {
+  position: relative;
+  min-height: 16px;
+  padding-left: 20px;
+  color: var(--base-black, #000);
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.report-cards .report-cards-facts li::before {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  content: '';
+}
+
+.report-cards .report-cards-facts .report-cards-code::before {
+  background: url('../../icons/report-id.svg') center / contain no-repeat;
+}
+
+.report-cards .report-cards-facts .report-cards-location::before {
+  background: var(--report-cards-color-accent);
+  mask: url('../../icons/location.svg') center / contain no-repeat;
+}
+
+/* mobile: the first four reports, then Show More */
+.report-cards .report-cards-list.is-collapsed > li:nth-child(n + 5) {
+  display: none;
+}
+
+.report-cards .report-cards-more {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md, 8px);
+  margin: 20px auto 0;
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  color: var(--report-cards-color-heading);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: var(--font-weight-extrabold, 800);
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.report-cards .report-cards-more-icon {
+  width: 20px;
+  height: 20px;
+  background: url('../../icons/add-circle.svg') center / contain no-repeat;
+}
+
+.report-cards .report-cards-more[aria-expanded='true'] .report-cards-more-icon {
+  background-image: url('../../icons/minus-circle.svg');
+}
+
+.report-cards .report-cards-tab:focus-visible,
+.report-cards .report-cards-more:focus-visible {
+  outline: 2px solid var(--report-cards-color-focus);
+  outline-offset: 2px;
+}
+
+@media (width >= 900px) {
+  .report-cards {
+    --report-cards-card-height: 208px;
+    --report-cards-gap: 20px;
+  }
+
+  .report-cards .report-cards-header {
+    margin-bottom: 40px;
+  }
+
+  .report-cards .report-cards-header :is(h1, h2, h3) {
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  .report-cards .report-cards-header p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .report-cards .report-cards-tabbar {
+    margin-bottom: 30px;
+  }
+
+  .report-cards .report-cards-tab {
+    height: 44px;
+    padding: 0 20px;
+  }
+
+  .report-cards .report-cards-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* every report shows on desktop, so no Show More */
+  .report-cards .report-cards-list.is-collapsed > li:nth-child(n + 5) {
+    display: flex;
+  }
+
+  .report-cards .report-cards-more {
+    display: none;
+  }
+
+  .report-cards .report-cards-top {
+    min-height: 28px;
+    margin-bottom: 24px;
+  }
+
+  .report-cards .report-cards-download {
+    display: none;
+  }
+}

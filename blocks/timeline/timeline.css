@@ -645,3 +645,322 @@
     margin: -11px 0 0 122px;
   }
 }
+
+/* the Initiatives rules override the Awards card rules above on purpose */
+/* stylelint-disable no-descending-specificity */
+
+/* ==========================================================================
+   Style "Initiatives" (initiatives): CSR "Our initiatives".
+   Figma CSR 12130:9366 (desktop) / 12130:9452 (mobile). Builds on the Awards timeline
+   (the block adds the awards class): the same year slider, year arrows and panels, with
+   initiative cards in a horizontal track paged by the card arrows.
+     desktop: cards 423 x 182 (visual 178 wide) in two rows 48 apart, the lower row 230 in
+     mobile:  cards 323 x 172 (visual 127 wide) three a column, the middle one 21 in
+   Every rule carries the initiatives class, so it wins over the Awards card rules.
+   ========================================================================== */
+.timeline.awards.initiatives.block {
+  --initiative-card-width: 323px;
+  --initiative-card-height: 172px;
+  --initiative-visual: 127px;
+  --initiative-gap: 10px;
+  --initiative-column-gap: 24px;
+  --initiative-shift: 21px;
+  --initiative-title-size: 14px;
+  --initiative-title-line: 18px;
+  --initiative-code-size: 10px;
+  --initiative-code-line: 14px;
+  --initiative-arrow: 24px;
+}
+
+.timeline.awards.initiatives.block .timeline-cards {
+  max-width: none;
+  margin: 0;
+  padding: 0 0 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.timeline.awards.initiatives.block .timeline-cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* mobile: columns of three cards, scrolled one column at a time */
+.timeline.awards.initiatives.block .timeline-cards-list {
+  display: grid;
+  grid-auto-columns: calc(var(--initiative-card-width) + var(--initiative-shift));
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, auto);
+  gap: var(--initiative-gap) var(--initiative-column-gap);
+  width: max-content;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline.awards.initiatives.block .timeline-card-item,
+.timeline.awards.initiatives.block .timeline-card-item:nth-child(n) {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  width: var(--initiative-card-width);
+  max-width: none;
+  height: auto;
+  min-height: var(--initiative-card-height);
+  max-height: none;
+  margin: 0;
+  overflow: visible;
+  border: 1px solid var(--gray-200, #e9eaeb);
+  border-radius: var(--radius-md, 8px);
+  background: var(--base-white, #fff);
+  box-shadow: 0 1px 12px 0 rgb(0 0 0 / 6%);
+  scroll-snap-align: start;
+}
+
+.timeline.awards.initiatives.block .timeline-card-item.initiative-shift {
+  margin-left: var(--initiative-shift);
+}
+
+/* the blue glow under the card */
+.timeline.awards.initiatives.block .timeline-card-item::before {
+  inset: auto auto -20px 50%;
+  top: auto;
+  left: 50%;
+  width: 116px;
+  height: 40px;
+  transform: translateX(-50%);
+}
+
+.timeline.awards.initiatives.block .timeline-card-item .card-image {
+  position: relative;
+  inset: auto;
+  flex: 0 0 var(--initiative-visual);
+  align-self: flex-end;
+  width: var(--initiative-visual);
+  max-width: none;
+  height: 80%;
+  max-height: none;
+  overflow: hidden;
+  border-radius: 0 0 0 var(--radius-md, 8px);
+  transform: none;
+}
+
+.timeline.awards.initiatives.block .timeline-card-item .card-image :is(picture, img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.timeline.awards.initiatives.block .timeline-card-item .card-image img {
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.timeline.awards.initiatives.block .timeline-card-item .card-body {
+  position: static;
+  inset: auto;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: none;
+  padding: 12px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  transform: none;
+}
+
+.timeline.awards.initiatives.block .timeline-card-item .card-body > * {
+  margin: 0;
+}
+
+.timeline.awards.initiatives.block .timeline-card-item .card-body p {
+  color: var(--gray-600, #535862);
+  font-family: var(--body-font-family);
+  font-size: var(--initiative-code-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--initiative-code-line);
+}
+
+.timeline.awards.initiatives.block .card-body .initiative-category {
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  border: 1px solid var(--brand-blue-500, #1e4679);
+  border-radius: var(--radius-full, 999px);
+  background: linear-gradient(130deg, #8ebbff 0%, var(--base-white, #fff) 50%, var(--base-white, #fff) 100%);
+  color: var(--gray-700, #414651);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  line-height: 14px;
+}
+
+.timeline.awards.initiatives.block .card-body .initiative-title {
+  color: var(--gray-900, #181d27);
+  font-family: var(--heading-font-family);
+  font-size: var(--initiative-title-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--initiative-title-line);
+  letter-spacing: 0;
+}
+
+.timeline.awards.initiatives.block .card-body .initiative-code {
+  margin-top: 2px;
+}
+
+.timeline.awards.initiatives.block .card-body .initiative-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline.awards.initiatives.block .initiative-facts li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--gray-900, #181d27);
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.timeline.awards.initiatives.block .initiative-facts li::before {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: center / contain no-repeat;
+  content: '';
+}
+
+.timeline.awards.initiatives.block .initiative-facts li.initiative-status-ongoing::before {
+  background-image: url('../../icons/status-ongoing.svg');
+}
+
+.timeline.awards.initiatives.block .initiative-facts li.initiative-status-completed::before {
+  background-image: url('../../icons/check-circle-red.svg');
+}
+
+.timeline.awards.initiatives.block .initiative-facts li.initiative-status-other::before {
+  background-image: url('../../icons/status-other.svg');
+}
+
+.timeline.awards.initiatives.block .initiative-facts li.initiative-location::before {
+  background: var(--brand-red-600, #e1122d);
+  mask: url('../../icons/location.svg') center / contain no-repeat;
+}
+
+/* the card arrows under the track */
+.timeline.awards.initiatives.block .timeline-card-arrows {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.timeline.awards.initiatives.block .timeline-card-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--initiative-arrow);
+  height: var(--initiative-arrow);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--brand-red-600, #e1122d);
+  cursor: pointer;
+}
+
+.timeline.awards.initiatives.block .timeline-card-arrow::before {
+  width: 60%;
+  height: 60%;
+  background: var(--base-white, #fff);
+  mask: url('../../icons/chevron-right.svg') center / contain no-repeat;
+  content: '';
+}
+
+.timeline.awards.initiatives.block .timeline-card-prev::before {
+  transform: scaleX(-1);
+}
+
+.timeline.awards.initiatives.block .timeline-card-arrow:disabled {
+  background: var(--gray-100, #f5f5f5);
+  cursor: default;
+}
+
+.timeline.awards.initiatives.block .timeline-card-arrow:disabled::before {
+  background: var(--gray-400, #a4a7ae);
+}
+
+.timeline.awards.initiatives.block .timeline-card-arrow:focus-visible {
+  outline: 2px solid var(--info-500, #2e90fa);
+  outline-offset: 2px;
+}
+
+@media (width >= 900px) {
+  .timeline.awards.initiatives.block {
+    --initiative-card-width: 423px;
+    --initiative-card-height: 182px;
+    --initiative-visual: 178px;
+    --initiative-gap: 48px;
+    --initiative-column-gap: 48px;
+    --initiative-title-size: 16px;
+    --initiative-title-line: 20px;
+    --initiative-code-size: 11px;
+    --initiative-code-line: 16px;
+    --initiative-arrow: 32px;
+  }
+
+  /* the track runs to the right edge of the window, as in Figma */
+  .timeline.awards.initiatives.block .timeline-cards {
+    margin-right: calc(50% - 50vw);
+    padding: 40px 0 48px;
+  }
+
+  /* two rows: the first half of the cards on top, the lower row 230 in */
+  .timeline.awards.initiatives.block .timeline-cards-list {
+    grid-template-columns: repeat(var(--initiative-columns, 3), var(--initiative-card-width));
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    padding-right: 280px;
+  }
+
+  .timeline.awards.initiatives.block .timeline-card-item.initiative-shift {
+    margin-left: 0;
+  }
+
+  .timeline.awards.initiatives.block .timeline-card-item.initiative-lower {
+    margin-left: 230px;
+  }
+
+  .timeline.awards.initiatives.block .timeline-card-item::before {
+    bottom: -24px;
+    width: 216px;
+    height: 75px;
+  }
+
+  .timeline.awards.initiatives.block .timeline-card-item .card-body {
+    padding: 16px;
+  }
+
+  .timeline.awards.initiatives.block .card-body .initiative-category {
+    margin-bottom: 12px;
+  }
+
+  .timeline.awards.initiatives.block .timeline-card-arrows {
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline.awards.initiatives.block .timeline-cards {
+    scroll-behavior: auto;
+  }
+}
+/* stylelint-enable no-descending-specificity */

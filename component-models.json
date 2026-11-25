@@ -758,6 +758,10 @@
             "value": "make-different"
           },
           {
+            "name": "Featured profiles (CSR)",
+            "value": "featured-profiles"
+          },
+          {
             "name": "Intro Animation",
             "value": "intro-animation"
           },
@@ -7210,6 +7214,107 @@
     ]
   },
   {
+    "id": "report-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Heading and description",
+        "description": "Section heading (bold words are shown heavier) and a short description",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tabsLabel",
+        "label": "Category tabs label",
+        "description": "Read by screen readers on the category tabs, for example: Report categories",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "moreLabel",
+        "label": "Show more label",
+        "description": "Mobile button that shows all the reports of a category",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "lessLabel",
+        "label": "Show less label",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "report-cards-category",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Category name",
+        "description": "A tab; the reports after it belong to this category",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "anchor",
+        "label": "Anchor (optional)",
+        "description": "Opens this tab when the page address ends with #anchor",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "report-cards-item",
+    "fields": [
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "document",
+        "label": "Report document",
+        "description": "The report PDF; the whole card links to it"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "documentText",
+        "label": "Report name",
+        "description": "For example: The Eastern India Heartcare & Research Foundation",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "category",
+        "label": "Category shown on the card",
+        "description": "For example: Healthcare",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "code",
+        "label": "Report code",
+        "description": "For example: KLI202223001",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "location",
+        "label": "Location",
+        "description": "For example: Kolkata, West Bengal",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "result-summary-panel-v2",
     "fields": [
       {
@@ -9050,6 +9155,10 @@
           {
             "name": "Awards",
             "value": "awards"
+          },
+          {
+            "name": "Initiatives (CSR)",
+            "value": "initiatives"
           }
         ]
       }
@@ -9087,7 +9196,34 @@
         "name": "text",
         "value": "",
         "label": "Text",
+        "description": "Initiatives style: the category (first line), the initiative name (heading), the project code, then a bulleted list with the status and the location",
         "valueType": "string"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "status",
+        "label": "Status icon",
+        "description": "Initiatives style only: the icon shown before the first bullet (the status)",
+        "value": "",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "Ongoing",
+            "value": "ongoing"
+          },
+          {
+            "name": "Completed",
+            "value": "completed"
+          },
+          {
+            "name": "Other than ongoing",
+            "value": "other"
+          }
+        ]
       }
     ]
   },
