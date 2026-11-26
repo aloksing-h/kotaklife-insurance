@@ -183,6 +183,23 @@
   color: var(--gray-700);
 }
 
+/* the optional date at the end of the customer type line (it runs under the stars) */
+.customer-testimonials .customer-testimonials-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-inline-end: -64px;
+}
+
+.customer-testimonials .customer-testimonials-date {
+  flex-shrink: 0;
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  color: var(--gray-700);
+}
+
 .customer-testimonials .customer-testimonials-text {
   max-height: calc(var(--ct-quote-lines) * var(--ct-text-line));
   margin: 0;

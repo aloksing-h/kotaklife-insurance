@@ -3251,6 +3251,22 @@
         }
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "person_date",
+        "label": "Date",
+        "description": "Optional, shown beside the customer type, for example 23 Jun 2026",
+        "value": "",
+        "condition": {
+          "===": [
+            {
+              "var": "format"
+            },
+            "text"
+          ]
+        }
+      },
+      {
         "component": "richtext",
         "name": "quote",
         "label": "Testimonial",

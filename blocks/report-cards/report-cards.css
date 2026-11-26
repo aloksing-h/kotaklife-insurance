@@ -175,10 +175,19 @@
 
 /* the download icon in a white circle (mobile only, as in Figma) */
 .report-cards .report-cards-download {
+  position: relative;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--base-white, #fff) url('../../icons/red-download-icon.svg') center / 20px no-repeat;
+  background: var(--base-white, #fff);
+}
+
+.report-cards .report-cards-download::after {
+  position: absolute;
+  inset: 6px;
+  background: var(--gray-700, #414651);
+  content: '';
+  mask: url('../../icons/download.svg') center / contain no-repeat;
 }
 
 .report-cards .report-cards-body {
