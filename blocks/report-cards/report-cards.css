@@ -7,6 +7,13 @@
  *            download icon, the first four shown, then Show More
  */
 
+/* a registered percentage, so the border colour eases (without support it switches at once) */
+@property --report-cards-hover {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
 .report-cards {
   --report-cards-color-heading: var(--gray-900, #181d27);
   --report-cards-color-body: var(--gray-600, #535862);
@@ -22,9 +29,9 @@
   /* card hover (Figma Download cards 7:1312), the Branch Locator card hover reused:
      dark red at the top to red from 60% down, a 12px lift with Figma's ease out */
   --report-cards-color-hover-dark: color-mix(in srgb,
-      color-mix(in srgb, var(--red-900, #7a271a) 75%, var(--brand-red-600, #e1122d)) 85%,
-      var(--red-900, #7a271a));
-  --report-cards-color-hover: linear-gradient(180deg, var(--report-cards-color-hover-dark) 0%, var(--brand-red-600, #e1122d) 60%);
+      color-mix(in srgb, var(--red-900, #7f2224) 75%, var(--brand-red-600, #e1122d)) 85%,
+      var(--red-900, #7f2224));
+  --report-cards-color-hover: var(--brand-red-600, #e1122d);
   --report-cards-lift: 12px;
   --report-cards-motion: 0.45s cubic-bezier(0, 0, 0.58, 1);
 
@@ -156,51 +163,42 @@
   list-style: none;
 }
 
+/* the border is one gradient drawn by the card itself, so it follows the rounded corners
+   exactly; on hover it eases from the resting grey to the red gradient (--report-cards-hover) */
 .report-cards .report-cards-card {
+  --report-cards-hover: 0%;
+
   position: relative;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   min-height: var(--report-cards-card-height);
   padding: var(--spacing-xl, 16px);
-  border: 1px solid var(--report-cards-color-border);
+  border: 1px solid transparent;
   border-radius: var(--radius-xl, 16px);
-  background: var(--report-cards-color-card);
-  transition: transform var(--report-cards-motion);
-}
-
-/* the hover border fades in over the resting one, a gradient cannot transition itself */
-.report-cards .report-cards-card::after {
-  position: absolute;
-  inset: -1px;
-  padding: 1px;
-  border-radius: inherit;
-  background: var(--report-cards-color-hover);
-  content: '';
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--report-cards-motion);
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  background:
+    linear-gradient(var(--report-cards-color-card), var(--report-cards-color-card)) padding-box,
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--report-cards-color-hover-dark) var(--report-cards-hover), var(--report-cards-color-border)) 0%,
+      color-mix(in srgb, var(--report-cards-color-hover) var(--report-cards-hover), var(--report-cards-color-border)) 60%)
+      border-box;
+  transition: transform var(--report-cards-motion), --report-cards-hover var(--report-cards-motion);
 }
 
 /* keyboard focus gets the hover state too */
 .report-cards .report-cards-card:focus-within {
-  transform: translateY(calc(-1 * var(--report-cards-lift)));
-}
+  --report-cards-hover: 100%;
 
-.report-cards .report-cards-card:focus-within::after {
-  opacity: 1;
+  transform: translateY(calc(-1 * var(--report-cards-lift)));
 }
 
 /* touch screens get no hover state */
 @media (hover: hover) {
   .report-cards .report-cards-card:hover {
+    --report-cards-hover: 100%;
+
     z-index: 1;
     transform: translateY(calc(-1 * var(--report-cards-lift)));
-  }
-
-  .report-cards .report-cards-card:hover::after {
-    opacity: 1;
   }
 
   /* the lifted card keeps its hover area down to where it rests, so it does not flicker */
@@ -216,7 +214,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .report-cards .report-cards-card,
-  .report-cards .report-cards-card::after,
   .report-cards .report-cards-download {
     transition: none;
   }
