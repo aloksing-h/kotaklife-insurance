@@ -19,6 +19,15 @@
   --report-cards-card-height: 186px;
   --report-cards-gap: var(--spacing-xl, 16px);
 
+  /* card hover (Figma Download cards 7:1312), the Branch Locator card hover reused:
+     dark red at the top to red from 60% down, a 12px lift with Figma's ease out */
+  --report-cards-color-hover-dark: color-mix(in srgb,
+      color-mix(in srgb, var(--red-900, #7a271a) 75%, var(--brand-red-600, #e1122d)) 85%,
+      var(--red-900, #7a271a));
+  --report-cards-color-hover: linear-gradient(180deg, var(--report-cards-color-hover-dark) 0%, var(--brand-red-600, #e1122d) 60%);
+  --report-cards-lift: 12px;
+  --report-cards-motion: 0.45s cubic-bezier(0, 0, 0.58, 1);
+
   font-family: var(--body-font-family);
 }
 
@@ -157,6 +166,60 @@
   border: 1px solid var(--report-cards-color-border);
   border-radius: var(--radius-xl, 16px);
   background: var(--report-cards-color-card);
+  transition: transform var(--report-cards-motion);
+}
+
+/* the hover border fades in over the resting one, a gradient cannot transition itself */
+.report-cards .report-cards-card::after {
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  border-radius: inherit;
+  background: var(--report-cards-color-hover);
+  content: '';
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--report-cards-motion);
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+
+/* keyboard focus gets the hover state too */
+.report-cards .report-cards-card:focus-within {
+  transform: translateY(calc(-1 * var(--report-cards-lift)));
+}
+
+.report-cards .report-cards-card:focus-within::after {
+  opacity: 1;
+}
+
+/* touch screens get no hover state */
+@media (hover: hover) {
+  .report-cards .report-cards-card:hover {
+    z-index: 1;
+    transform: translateY(calc(-1 * var(--report-cards-lift)));
+  }
+
+  .report-cards .report-cards-card:hover::after {
+    opacity: 1;
+  }
+
+  /* the lifted card keeps its hover area down to where it rests, so it does not flicker */
+  .report-cards .report-cards-card:hover::before {
+    position: absolute;
+    right: 0;
+    bottom: calc(-1 * var(--report-cards-lift));
+    left: 0;
+    height: var(--report-cards-lift);
+    content: '';
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .report-cards .report-cards-card,
+  .report-cards .report-cards-card::after,
+  .report-cards .report-cards-download {
+    transition: none;
+  }
 }
 
 .report-cards .report-cards-top {
@@ -173,13 +236,15 @@
   background: url('../../icons/pdf-img.svg') center / contain no-repeat;
 }
 
-/* the download icon in a white circle (mobile only, as in Figma) */
+/* the download icon in a white circle: always shown on mobile and touch screens,
+   on hover or focus on desktop */
 .report-cards .report-cards-download {
   position: relative;
   width: 32px;
   height: 32px;
   border-radius: 50%;
   background: var(--base-white, #fff);
+  transition: opacity var(--report-cards-motion);
 }
 
 .report-cards .report-cards-download::after {
@@ -217,10 +282,6 @@
   inset: 0;
   border-radius: var(--radius-xl, 16px);
   content: '';
-}
-
-.report-cards .report-cards-card:has(.report-cards-link:hover) {
-  border-color: var(--report-cards-color-active);
 }
 
 .report-cards .report-cards-link:focus-visible {
@@ -360,7 +421,18 @@
     margin-bottom: 24px;
   }
 
+  /* the 32px button sits in the 28px icon row, so showing it moves nothing */
   .report-cards .report-cards-download {
-    display: none;
+    margin-block: -2px;
+  }
+}
+
+@media (width >= 900px) and (hover: hover) {
+  .report-cards .report-cards-download {
+    opacity: 0;
+  }
+
+  .report-cards .report-cards-card:is(:hover, :focus-within) .report-cards-download {
+    opacity: 1;
   }
 }
