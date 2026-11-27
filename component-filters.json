@@ -92,7 +92,8 @@
       "info-panel",
       "check-points",
       "download-center",
-      "advisor-lookup"
+      "advisor-lookup",
+      "report-cards"
     ]
   },
   {
@@ -371,6 +372,13 @@
     "id": "rating-banner",
     "components": [
       "rating-banner"
+    ]
+  },
+  {
+    "id": "report-cards",
+    "components": [
+      "report-cards-category",
+      "report-cards-item"
     ]
   },
   {

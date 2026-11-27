@@ -82,8 +82,15 @@ function portrait(img, alt, width) {
   return createOptimizedPicture(img.getAttribute('src'), alt, false, [{ width }]);
 }
 
-/** One profile card; the name is the button that opens the profile. */
-function buildCard(profile, headingLevel, detailId) {
+/**
+ * One profile card; the name is the button that opens the profile.
+ * @param {object} profile
+ * @param {number} headingLevel
+ * @param {string} detailId
+ * @param {boolean} [summaryOpens] the summary alone opens the profile (not in the Featured
+ *   style, where the summary is shown on the card)
+ */
+function buildCard(profile, headingLevel, detailId, summaryOpens = true) {
   const card = element('li', 'team-profiles-card');
   if (profile.row) moveInstrumentation(profile.row, card);
   const box = element('div', 'team-profiles-card-box');
@@ -94,7 +101,7 @@ function buildCard(profile, headingLevel, detailId) {
   else visual.classList.add('is-empty');
 
   const name = element(`h${headingLevel}`, 'team-profiles-name');
-  const opens = !!(profile.bio || profile.summary);
+  const opens = !!(profile.bio || (summaryOpens && profile.summary));
   if (opens) {
     const button = element('button', 'team-profiles-open', profile.name);
     button.type = 'button';
@@ -178,7 +185,11 @@ export default async function decorate(block) {
   blockCount += 1;
   const uid = `team-profiles-${blockCount}`;
   const tabbed = teams.length > 1 || !!teams[0].title;
-  const headingLevel = teams.some((team) => team.title) ? 3 : 2;
+  // Featured style (CSR): the first profile large with its description, the others beside it
+  // picked with the section style "Featured profiles"
+  const featured = block.classList.contains('featured') || !!block.closest('.featured-profiles');
+  if (featured) block.classList.add('featured');
+  const headingLevel = featured || teams.some((team) => team.title) ? 3 : 2;
   const parts = buildDetail(`${uid}-profile`, labels);
 
   const layout = element('div', 'team-profiles-layout');
@@ -195,8 +206,10 @@ export default async function decorate(block) {
       panel.append(title);
     }
     const list = element('ul', 'team-profiles-list');
-    team.profiles.forEach((profile) => {
-      list.append(buildCard(profile, headingLevel, parts.detail.id));
+    team.profiles.forEach((profile, i) => {
+      const card = buildCard(profile, headingLevel, parts.detail.id, !featured);
+      if (featured && i === 0) card.classList.add('team-profiles-featured');
+      list.append(card);
     });
     panel.append(list);
     team.list = list;

@@ -64,6 +64,9 @@ function readMore(description) {
   }).observe(description.parentElement);
   MOBILE_QUERY.addEventListener('change', update);
   document.fonts?.ready.then(update);
+  // on mobile the web fonts load after the banner, so measure again once they have
+  // (the fallback font is wider and would cut the text too soon)
+  document.fonts?.addEventListener?.('loadingdone', update);
 }
 
 /**

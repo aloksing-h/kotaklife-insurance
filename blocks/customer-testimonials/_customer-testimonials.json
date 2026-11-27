@@ -95,8 +95,14 @@
           "valueType": "string",
           "value": "text",
           "options": [
-            { "name": "Text", "value": "text" },
-            { "name": "Video", "value": "video" }
+            {
+              "name": "Text",
+              "value": "text"
+            },
+            {
+              "name": "Video",
+              "value": "video"
+            }
           ]
         },
         {
@@ -105,7 +111,14 @@
           "name": "person_name",
           "label": "Customer Name",
           "value": "",
-          "condition": { "===": [{ "var": "format" }, "text"] }
+          "condition": {
+            "===": [
+              {
+                "var": "format"
+              },
+              "text"
+            ]
+          }
         },
         {
           "component": "text",
@@ -113,7 +126,30 @@
           "name": "person_role",
           "label": "Customer Type",
           "value": "Kotak Life Customer",
-          "condition": { "===": [{ "var": "format" }, "text"] }
+          "condition": {
+            "===": [
+              {
+                "var": "format"
+              },
+              "text"
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "person_date",
+          "label": "Date",
+          "description": "Optional, shown beside the customer type, for example 23 Jun 2026",
+          "value": "",
+          "condition": {
+            "===": [
+              {
+                "var": "format"
+              },
+              "text"
+            ]
+          }
         },
         {
           "component": "richtext",
@@ -122,7 +158,14 @@
           "description": "Long testimonials are shortened with a Read more link",
           "value": "",
           "valueType": "string",
-          "condition": { "===": [{ "var": "format" }, "text"] }
+          "condition": {
+            "===": [
+              {
+                "var": "format"
+              },
+              "text"
+            ]
+          }
         },
         {
           "component": "reference",
@@ -131,7 +174,14 @@
           "label": "Poster Image",
           "description": "Shown until the video plays. Optional for YouTube (the YouTube thumbnail is used)",
           "multi": false,
-          "condition": { "===": [{ "var": "format" }, "video"] }
+          "condition": {
+            "===": [
+              {
+                "var": "format"
+              },
+              "video"
+            ]
+          }
         },
         {
           "component": "text",
@@ -140,7 +190,14 @@
           "label": "Video Description",
           "description": "Describes the video for screen readers, e.g. Pankaj Kumar shares his experience",
           "value": "",
-          "condition": { "===": [{ "var": "format" }, "video"] }
+          "condition": {
+            "===": [
+              {
+                "var": "format"
+              },
+              "video"
+            ]
+          }
         },
         {
           "component": "select",
@@ -149,10 +206,23 @@
           "valueType": "string",
           "value": "dam",
           "options": [
-            { "name": "AEM Assets (DAM)", "value": "dam" },
-            { "name": "YouTube", "value": "youtube" }
+            {
+              "name": "AEM Assets (DAM)",
+              "value": "dam"
+            },
+            {
+              "name": "YouTube",
+              "value": "youtube"
+            }
           ],
-          "condition": { "===": [{ "var": "format" }, "video"] }
+          "condition": {
+            "===": [
+              {
+                "var": "format"
+              },
+              "video"
+            ]
+          }
         },
         {
           "component": "aem-content",
@@ -162,8 +232,22 @@
           "description": "MP4 from Assets, e.g. /content/dam/kotaklife-eds/customer-video.mp4. Previews muted on hover (desktop)",
           "condition": {
             "and": [
-              { "===": [{ "var": "format" }, "video"] },
-              { "!==": [{ "var": "media_source" }, "youtube"] }
+              {
+                "===": [
+                  {
+                    "var": "format"
+                  },
+                  "video"
+                ]
+              },
+              {
+                "!==": [
+                  {
+                    "var": "media_source"
+                  },
+                  "youtube"
+                ]
+              }
             ]
           }
         },
@@ -176,8 +260,22 @@
           "value": "",
           "condition": {
             "and": [
-              { "===": [{ "var": "format" }, "video"] },
-              { "===": [{ "var": "media_source" }, "youtube"] }
+              {
+                "===": [
+                  {
+                    "var": "format"
+                  },
+                  "video"
+                ]
+              },
+              {
+                "===": [
+                  {
+                    "var": "media_source"
+                  },
+                  "youtube"
+                ]
+              }
             ]
           }
         }
