@@ -43,8 +43,79 @@ function showYear(block, index, shouldScroll = true) {
   }
 }
 
+/**
+ * Initiatives style (CSR "Our initiatives", Figma 12130:9366 / 12130:9452): the card text is
+ * the category, the initiative name (heading), the project code and a bulleted list with
+ * the status and the location; the status icon comes from the card's Status icon field.
+ * @param {HTMLElement} body the card body
+ * @param {string} status ongoing, completed, other or empty
+ */
+function decorateInitiativeCard(body, status) {
+  const heading = body.querySelector('h1, h2, h3, h4, h5, h6');
+  const elements = [...body.children];
+  const headingIndex = heading ? elements.indexOf(heading) : -1;
+  elements.forEach((el, i) => {
+    if (el === heading) el.classList.add('initiative-title');
+    else if (el.matches('ul, ol')) el.classList.add('initiative-facts');
+    else if (el.matches('p') && headingIndex > -1 && i < headingIndex) el.classList.add('initiative-category');
+    else if (el.matches('p')) el.classList.add('initiative-code');
+  });
+  const [statusItem, locationItem] = body.querySelectorAll('.initiative-facts > li');
+  if (statusItem) {
+    statusItem.classList.add('initiative-status');
+    if (status) statusItem.classList.add(`initiative-status-${status}`);
+  }
+  if (locationItem) locationItem.classList.add('initiative-location');
+}
+
+/**
+ * Previous / next buttons that page the initiative cards of the year shown.
+ * @param {Element} block
+ * @returns {HTMLDivElement}
+ */
+function buildCardArrows(block) {
+  const arrows = document.createElement('div');
+  arrows.className = 'timeline-card-arrows';
+  const list = () => block.querySelector('.timeline-panel[aria-hidden="false"] .timeline-cards');
+  const step = (cards) => {
+    const item = cards.querySelector('.timeline-card-item');
+    const gap = parseFloat(getComputedStyle(cards.firstElementChild).columnGap) || 0;
+    return item ? item.getBoundingClientRect().width + gap : cards.clientWidth;
+  };
+  const update = () => {
+    const cards = list();
+    if (!cards) return;
+    const max = cards.scrollWidth - cards.clientWidth - 1;
+    arrows.querySelector('.timeline-card-prev').disabled = cards.scrollLeft <= 0;
+    arrows.querySelector('.timeline-card-next').disabled = cards.scrollLeft >= max;
+  };
+  [['prev', 'Previous initiatives', -1], ['next', 'Next initiatives', 1]].forEach(([name, label, dir]) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `timeline-card-arrow timeline-card-${name}`;
+    button.setAttribute('aria-label', label);
+    button.addEventListener('click', () => {
+      const cards = list();
+      if (cards) cards.scrollBy({ left: dir * step(cards), behavior: 'smooth' });
+    });
+    arrows.append(button);
+  });
+  block.querySelectorAll('.timeline-cards').forEach((cards) => {
+    cards.addEventListener('scroll', update, { passive: true });
+  });
+  block.addEventListener('click', (event) => {
+    if (event.target.closest('.timeline-marker-btn, .timeline-arrow')) requestAnimationFrame(update);
+  });
+  window.addEventListener('resize', update, { passive: true });
+  requestAnimationFrame(update);
+  return arrows;
+}
+
 export default function decorate(block) {
-  if (block.classList.contains('awards')) {
+  const initiatives = block.classList.contains('initiatives');
+  // Initiatives builds on the Awards timeline (its year slider, arrows and panels)
+  if (initiatives) block.classList.add('awards');
+  if (block.classList.contains('awards') || initiatives) {
     const items = [...block.children];
     const years = [];
     let currentYear = null;
@@ -158,11 +229,21 @@ export default function decorate(block) {
             cardBody.append(textContainer.firstElementChild);
           }
           cardItem.appendChild(cardBody);
+          if (initiatives) decorateInitiativeCard(cardBody, card.children[2]?.textContent.trim() || '');
         }
 
         cardsList.appendChild(cardItem);
       });
 
+      if (initiatives) {
+        // desktop: two rows, the first half of the cards on top; mobile: three a column
+        const columns = Math.max(1, Math.ceil(year.cards.length / 2));
+        cardsList.style.setProperty('--initiative-columns', columns);
+        [...cardsList.children].forEach((item, position) => {
+          if (position >= columns) item.classList.add('initiative-lower');
+          if (position % 3 === 1) item.classList.add('initiative-shift');
+        });
+      }
       cardsContainer.appendChild(cardsList);
       panel.appendChild(cardsContainer);
       fragment.appendChild(panel);
@@ -206,6 +287,7 @@ export default function decorate(block) {
     block.prepend(tablist);
     block.append(arrows);
     block.append(fragment);
+    if (initiatives) block.append(buildCardArrows(block));
 
     showYear(block, 0, false);
   }

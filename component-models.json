@@ -9050,6 +9050,10 @@
           {
             "name": "Awards",
             "value": "awards"
+          },
+          {
+            "name": "Initiatives (CSR)",
+            "value": "initiatives"
           }
         ]
       }
@@ -9087,7 +9091,34 @@
         "name": "text",
         "value": "",
         "label": "Text",
+        "description": "Initiatives style: the category (first line), the initiative name (heading), the project code, then a bulleted list with the status and the location",
         "valueType": "string"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "status",
+        "label": "Status icon",
+        "description": "Initiatives style only: the icon shown before the first bullet (the status)",
+        "value": "",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "Ongoing",
+            "value": "ongoing"
+          },
+          {
+            "name": "Completed",
+            "value": "completed"
+          },
+          {
+            "name": "Other than ongoing",
+            "value": "other"
+          }
+        ]
       }
     ]
   },
