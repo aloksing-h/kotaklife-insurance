@@ -1,0 +1,163 @@
+{
+  "definitions": [
+    {
+      "title": "Report Cards",
+      "id": "report-cards",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Report Cards",
+              "model": "report-cards",
+              "filter": "report-cards",
+              "tabsLabel": "Report categories",
+              "moreLabel": "Show More",
+              "lessLabel": "Show Less"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Report Category",
+      "id": "report-cards-category",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Report Category",
+              "model": "report-cards-category",
+              "title": "Healthcare"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Report",
+      "id": "report-cards-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Report",
+              "model": "report-cards-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "report-cards",
+      "fields": [
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "text",
+          "label": "Heading and description",
+          "description": "Section heading (bold words are shown heavier) and a short description",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "tabsLabel",
+          "label": "Category tabs label",
+          "description": "Read by screen readers on the category tabs, for example: Report categories",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "moreLabel",
+          "label": "Show more label",
+          "description": "Mobile button that shows all the reports of a category",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "lessLabel",
+          "label": "Show less label",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "report-cards-category",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Category name",
+          "description": "A tab; the reports after it belong to this category",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "anchor",
+          "label": "Anchor (optional)",
+          "description": "Opens this tab when the page address ends with #anchor",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "report-cards-item",
+      "fields": [
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "document",
+          "label": "Report document",
+          "description": "The report PDF; the whole card links to it"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "documentText",
+          "label": "Report name",
+          "description": "For example: The Eastern India Heartcare & Research Foundation",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "category",
+          "label": "Category shown on the card",
+          "description": "For example: Healthcare",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "code",
+          "label": "Report code",
+          "description": "For example: KLI202223001",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "location",
+          "label": "Location",
+          "description": "For example: Kolkata, West Bengal",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "report-cards",
+      "components": ["report-cards-category", "report-cards-item"]
+    }
+  ]
+}
