@@ -93,6 +93,7 @@
       "check-points",
       "download-center",
       "advisor-lookup",
+      "report-cards",
       "csr-initiatives"
     ]
   },
@@ -379,6 +380,13 @@
     "id": "rating-banner",
     "components": [
       "rating-banner"
+    ]
+  },
+  {
+    "id": "report-cards",
+    "components": [
+      "report-cards-category",
+      "report-cards-item"
     ]
   },
   {

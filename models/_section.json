@@ -388,6 +388,10 @@
               "value": "make-different"
             },
             {
+              "name": "Featured profiles (CSR)",
+              "value": "featured-profiles"
+            },
+            {
               "name": "Intro Animation",
               "value": "intro-animation"
             },
@@ -639,6 +643,7 @@
         "check-points",
         "download-center",
         "advisor-lookup",
+        "report-cards",
         "csr-initiatives"
       ]
     }

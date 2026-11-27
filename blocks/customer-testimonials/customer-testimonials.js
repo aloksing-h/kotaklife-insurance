@@ -353,7 +353,7 @@ function buildTextCard(row, data, labels) {
       .map((el) => el.textContent.trim()).filter(Boolean)
     : [];
   if (!parts.length && personCell?.textContent.trim()) parts.push(personCell.textContent.trim());
-  const [name, role] = parts;
+  const [name, role, date] = parts;
 
   const figure = document.createElement('figure');
   figure.className = 'customer-testimonials-figure';
@@ -370,6 +370,18 @@ function buildTextCard(row, data, labels) {
     roleEl.className = 'customer-testimonials-role';
     roleEl.textContent = role;
     caption.append(roleEl);
+  }
+  // optional date, shown at the end of the customer type line
+  if (date) {
+    const meta = document.createElement('div');
+    meta.className = 'customer-testimonials-meta';
+    const dateEl = document.createElement('p');
+    dateEl.className = 'customer-testimonials-date';
+    dateEl.textContent = date;
+    const roleEl = caption.querySelector('.customer-testimonials-role');
+    if (roleEl) meta.append(roleEl);
+    meta.append(dateEl);
+    caption.append(meta);
   }
 
   const quote = document.createElement('blockquote');
