@@ -388,6 +388,10 @@
               "value": "make-different"
             },
             {
+              "name": "Featured profiles (CSR)",
+              "value": "featured-profiles"
+            },
+            {
               "name": "Intro Animation",
               "value": "intro-animation"
             },
