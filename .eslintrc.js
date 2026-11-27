@@ -39,6 +39,7 @@ module.exports = {
       'download-center': 22,
       'info-panel': 5,
       'advisor-lookup': 16,
+      'csr-initiatives-card': 7,
     }],
   },
 };

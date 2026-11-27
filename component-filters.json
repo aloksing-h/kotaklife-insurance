@@ -92,7 +92,8 @@
       "info-panel",
       "check-points",
       "download-center",
-      "advisor-lookup"
+      "advisor-lookup",
+      "csr-initiatives"
     ]
   },
   {
@@ -182,6 +183,13 @@
     "id": "contact-help",
     "components": [
       "contact-help-card"
+    ]
+  },
+  {
+    "id": "csr-initiatives",
+    "components": [
+      "csr-initiatives-year",
+      "csr-initiatives-card"
     ]
   },
   {

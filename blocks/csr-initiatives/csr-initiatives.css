@@ -1,0 +1,566 @@
+/*
+ * CSR Initiatives: heading, financial year ruler and initiative cards (Figma 12130:9366).
+ * Mobile first, flexbox layout. Card rows stagger (3 + 2) from 1200px.
+ */
+
+.csr-initiatives {
+  /* colors */
+  --csr-initiatives-heading: var(--text-primary);
+  --csr-initiatives-text: var(--gray-900);
+  --csr-initiatives-muted: var(--gray-600);
+  --csr-initiatives-border: var(--gray-200);
+  --csr-initiatives-tick: var(--gray-300);
+  --csr-initiatives-accent: var(--brand-red-500);
+  --csr-initiatives-accent-dark: var(--brand-red-600);
+  --csr-initiatives-navy: var(--brand-blue-500);
+  --csr-initiatives-focus: var(--info-500);
+  --csr-initiatives-active-year: linear-gradient(-36deg, var(--brand-red-600) 0%, var(--brand-red-600) 59%, var(--red-900) 100%);
+  --csr-initiatives-pill: linear-gradient(130deg, #8ebbff 0%, var(--base-white) 50%, var(--base-white) 100%);
+  --csr-initiatives-card-shadow: 0 1px 12px 0 rgb(0 0 0 / 6%), 0 16px 28px -14px rgb(132 202 255 / 75%);
+
+  /* year ruler: label box, gap and dot, the tick line runs through the dots */
+  --csr-initiatives-label-height: 28px;
+  --csr-initiatives-dot-gap: 10px;
+  --csr-initiatives-dot: 12px;
+
+  /* cards */
+  --csr-initiatives-card-gap: 16px;
+  --csr-initiatives-motion: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+
+  font-family: var(--body-font-family);
+  color: var(--csr-initiatives-text);
+}
+
+/* cards may run past the content width on desktop (as in Figma): clip at the viewport */
+main > .section.csr-initiatives-container {
+  overflow-x: clip;
+}
+
+/* header */
+
+.csr-initiatives .csr-initiatives-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 12px;
+  margin-bottom: 24px;
+}
+
+.csr-initiatives .csr-initiatives-title {
+  flex: 1 1 0;
+  min-width: 0;
+  order: 1;
+  margin: 0;
+
+  /* two lines on mobile, as in Figma */
+  max-width: 5.5em;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-3-font-size);
+  font-weight: var(--font-weight-light);
+  line-height: var(--heading-3-line-height);
+  letter-spacing: var(--heading-3-letter-spacing);
+  color: var(--csr-initiatives-heading);
+}
+
+.csr-initiatives .csr-initiatives-title strong,
+.csr-initiatives .csr-initiatives-title b {
+  font-weight: var(--font-weight-semibold);
+}
+
+.csr-initiatives .csr-initiatives-year-nav {
+  display: flex;
+  order: 2;
+  gap: 2px;
+  margin-left: auto;
+}
+
+/* year ruler */
+
+.csr-initiatives .csr-initiatives-years {
+  position: relative;
+  flex: 0 0 100%;
+  order: 3;
+  overflow: auto hidden;
+  padding: 6px 0 10px;
+  scrollbar-width: none;
+}
+
+.csr-initiatives .csr-initiatives-years::-webkit-scrollbar {
+  display: none;
+}
+
+.csr-initiatives .csr-initiatives-years-list {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  width: max-content;
+  min-width: 100%;
+  padding: 0 8px;
+  box-sizing: border-box;
+
+  /* keeps the red ticks of the selected year above the grey tick line */
+  isolation: isolate;
+}
+
+/* dotted tick line through the dots */
+.csr-initiatives .csr-initiatives-years-list::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--csr-initiatives-label-height) + var(--csr-initiatives-dot-gap) + (var(--csr-initiatives-dot) / 2) - 3px);
+  left: 0;
+  right: 0;
+  z-index: -2;
+  height: 6px;
+  background-image: repeating-linear-gradient(to right, var(--csr-initiatives-tick) 0, var(--csr-initiatives-tick) 1px, transparent 1px, transparent 8px);
+  pointer-events: none;
+}
+
+.csr-initiatives .csr-initiatives-year {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--csr-initiatives-dot-gap);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.csr-initiatives .csr-initiatives-year-label {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: var(--csr-initiatives-label-height);
+  padding: 4px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-xl);
+  font-size: var(--body-2-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--body-2-line-height);
+  white-space: nowrap;
+  color: var(--csr-initiatives-muted);
+  transition: color var(--csr-initiatives-motion), background var(--csr-initiatives-motion);
+}
+
+.csr-initiatives .csr-initiatives-year:hover .csr-initiatives-year-label {
+  color: var(--csr-initiatives-text);
+}
+
+.csr-initiatives .csr-initiatives-year[aria-selected='true'] .csr-initiatives-year-label {
+  border-color: var(--brand-red-50);
+  background: var(--csr-initiatives-active-year);
+  font-weight: var(--font-weight-semibold);
+  color: var(--base-white);
+}
+
+.csr-initiatives .csr-initiatives-year-dot {
+  position: relative;
+  box-sizing: border-box;
+  width: var(--csr-initiatives-dot);
+  height: var(--csr-initiatives-dot);
+  border: 1px solid var(--csr-initiatives-navy);
+  border-radius: 50%;
+  background: var(--base-white);
+  transform: scale(0.84);
+  transition: transform var(--csr-initiatives-motion), background-color var(--csr-initiatives-motion);
+}
+
+.csr-initiatives .csr-initiatives-year[aria-selected='true'] .csr-initiatives-year-dot {
+  border-color: var(--csr-initiatives-accent);
+  background: var(--csr-initiatives-accent);
+  box-shadow: 0 0 15px 6px rgb(250 20 50 / 25%);
+  transform: none;
+}
+
+/* red ticks either side of the selected year */
+.csr-initiatives .csr-initiatives-year[aria-selected='true'] .csr-initiatives-year-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  width: 56px;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  background-color: var(--base-white);
+  background-image: repeating-linear-gradient(to right, transparent 0, transparent 3px, var(--csr-initiatives-accent) 3px, var(--csr-initiatives-accent) 5px, transparent 5px, transparent 8px);
+}
+
+.csr-initiatives .csr-initiatives-year:focus-visible {
+  outline: none;
+}
+
+.csr-initiatives .csr-initiatives-year:focus-visible .csr-initiatives-year-label {
+  outline: 2px solid var(--csr-initiatives-focus);
+  outline-offset: 2px;
+}
+
+/* arrows */
+
+.csr-initiatives .csr-initiatives-arrow {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: none;
+  color: var(--csr-initiatives-accent-dark);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.csr-initiatives .csr-initiatives-arrow:disabled {
+  color: var(--gray-400);
+  cursor: default;
+}
+
+.csr-initiatives .csr-initiatives-arrow:focus-visible {
+  outline: 2px solid var(--csr-initiatives-focus);
+  outline-offset: 2px;
+}
+
+.csr-initiatives .csr-initiatives-arrow-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url('../../icons/chevron-right.svg') center / contain no-repeat;
+}
+
+.csr-initiatives .csr-initiatives-arrow-icon.csr-initiatives-arrow-left {
+  mask-image: url('../../icons/chevron-left.svg');
+}
+
+.csr-initiatives .csr-initiatives-arrow-small {
+  width: 24px;
+  height: 24px;
+}
+
+.csr-initiatives .csr-initiatives-arrow-small:not(:disabled):hover {
+  color: var(--brand-red-700);
+}
+
+.csr-initiatives .csr-initiatives-arrow-large {
+  width: 32px;
+  height: 32px;
+  background-color: var(--csr-initiatives-accent-dark);
+  color: var(--base-white);
+}
+
+.csr-initiatives .csr-initiatives-arrow-large .csr-initiatives-arrow-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.csr-initiatives .csr-initiatives-arrow-large:disabled {
+  background-color: var(--gray-100);
+  color: var(--gray-400);
+}
+
+.csr-initiatives .csr-initiatives-arrow-large:not(:disabled):hover {
+  background-color: var(--brand-red-700);
+}
+
+.csr-initiatives .csr-initiatives-card-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.csr-initiatives .csr-initiatives-card-nav[hidden] {
+  display: none;
+}
+
+/* cards */
+
+.csr-initiatives .csr-initiatives-panel:focus-visible {
+  outline: 2px solid var(--csr-initiatives-focus);
+  outline-offset: 4px;
+  border-radius: var(--radius-md);
+}
+
+.csr-initiatives .csr-initiatives-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--csr-initiatives-card-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.csr-initiatives .csr-initiatives-card {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  box-sizing: border-box;
+  min-height: 150px;
+  margin: 0;
+  padding: 0 12px 0 0;
+  border: 1px solid var(--csr-initiatives-border);
+  border-radius: var(--radius-md);
+  background: var(--base-white);
+  box-shadow: var(--csr-initiatives-card-shadow);
+  animation: csr-initiatives-card-in var(--csr-initiatives-motion) both;
+  transition: box-shadow 0.2s ease;
+}
+
+.csr-initiatives .csr-initiatives-card[hidden] {
+  display: none;
+}
+
+.csr-initiatives .csr-initiatives-card-no-image {
+  padding-left: 12px;
+}
+
+.csr-initiatives .csr-initiatives-card-visual {
+  flex: 0 0 38%;
+  max-width: 178px;
+  align-self: flex-end;
+  aspect-ratio: 178 / 160;
+  overflow: hidden;
+  border-bottom-left-radius: var(--radius-md);
+}
+
+.csr-initiatives .csr-initiatives-card-visual picture,
+.csr-initiatives .csr-initiatives-card-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.csr-initiatives .csr-initiatives-card-visual img {
+  object-fit: contain;
+  object-position: left bottom;
+}
+
+.csr-initiatives .csr-initiatives-card-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+  padding: 12px 0;
+}
+
+.csr-initiatives .csr-initiatives-card-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.csr-initiatives .csr-initiatives-card-category {
+  box-sizing: border-box;
+  margin: 0 0 10px;
+  padding: 4px 8px;
+  border: 1px solid var(--csr-initiatives-navy);
+  border-radius: var(--radius-full);
+  background: var(--csr-initiatives-pill);
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--caption-line-height);
+  color: var(--csr-initiatives-navy);
+}
+
+.csr-initiatives .csr-initiatives-card-title {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-1-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--body-1-line-height);
+  letter-spacing: 0;
+  color: var(--csr-initiatives-text);
+  overflow-wrap: anywhere;
+}
+
+.csr-initiatives .csr-initiatives-card-code {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1rem;
+  color: var(--csr-initiatives-muted);
+}
+
+.csr-initiatives .csr-initiatives-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.csr-initiatives .csr-initiatives-card-meta li {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  margin: 0;
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-regular);
+  line-height: 0.75rem;
+  color: var(--csr-initiatives-text);
+}
+
+.csr-initiatives .csr-initiatives-card-meta .icon {
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin-top: -2px;
+}
+
+/* optional link: the whole card is clickable through the name */
+.csr-initiatives .csr-initiatives-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.csr-initiatives .csr-initiatives-card-link::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-md);
+}
+
+.csr-initiatives .csr-initiatives-card-link:focus-visible {
+  outline: none;
+}
+
+.csr-initiatives .csr-initiatives-card-link:focus-visible::after {
+  outline: 2px solid var(--csr-initiatives-focus);
+  outline-offset: 2px;
+}
+
+.csr-initiatives .csr-initiatives-card-linked:hover {
+  box-shadow: 0 4px 20px 0 rgb(0 0 0 / 12%), 0 16px 28px -14px rgb(132 202 255 / 75%);
+}
+
+.csr-initiatives .csr-initiatives-card-linked:hover .csr-initiatives-card-link {
+  color: var(--csr-initiatives-accent-dark);
+  text-decoration: underline;
+}
+
+@keyframes csr-initiatives-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* small desktop: heading and ruler side by side, cards in 2 columns */
+@media (width >= 900px) {
+  .csr-initiatives .csr-initiatives-header {
+    align-items: flex-start;
+    gap: 16px 48px;
+    margin-bottom: 40px;
+  }
+
+  .csr-initiatives .csr-initiatives-title {
+    flex: 0 0 auto;
+    max-width: none;
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+    letter-spacing: 0;
+  }
+
+  .csr-initiatives .csr-initiatives-years {
+    flex: 1 1 0;
+    order: 2;
+    min-width: 0;
+    max-width: 734px;
+    margin-left: auto;
+  }
+
+  .csr-initiatives .csr-initiatives-years-list {
+    gap: 64px;
+  }
+
+  .csr-initiatives .csr-initiatives-year-nav {
+    flex: 0 0 100%;
+    order: 3;
+    justify-content: flex-end;
+    margin-top: -8px;
+  }
+
+  .csr-initiatives .csr-initiatives-cards {
+    flex-flow: row wrap;
+    gap: 48px 24px;
+  }
+
+  .csr-initiatives .csr-initiatives-card {
+    flex: 0 0 calc(50% - 12px);
+    min-height: 182px;
+    gap: 16px;
+    padding-right: 16px;
+  }
+
+  .csr-initiatives .csr-initiatives-card-no-image {
+    padding-left: 16px;
+  }
+
+  .csr-initiatives .csr-initiatives-card-visual {
+    flex-basis: 178px;
+  }
+
+  .csr-initiatives .csr-initiatives-card-body {
+    padding: 16px 0;
+  }
+
+  .csr-initiatives .csr-initiatives-card-category {
+    margin-bottom: 12px;
+  }
+
+  .csr-initiatives .csr-initiatives-card-nav {
+    margin-top: 30px;
+  }
+}
+
+/* desktop: 423px cards in two staggered rows of 3 + 2 (as in Figma) */
+@media (width >= 1200px) {
+  .csr-initiatives .csr-initiatives-cards {
+    gap: 48px;
+    width: calc(3 * 423px + 2 * 48px);
+  }
+
+  .csr-initiatives .csr-initiatives-card {
+    flex: 0 0 423px;
+    height: 182px;
+  }
+
+  .csr-initiatives .csr-initiatives-card-visual {
+    max-width: none;
+  }
+
+  .csr-initiatives .csr-initiatives-card-offset {
+    margin-left: 230px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .csr-initiatives .csr-initiatives-card {
+    animation: none;
+  }
+
+  .csr-initiatives .csr-initiatives-year-label,
+  .csr-initiatives .csr-initiatives-year-dot,
+  .csr-initiatives .csr-initiatives-arrow,
+  .csr-initiatives .csr-initiatives-card {
+    transition: none;
+  }
+}

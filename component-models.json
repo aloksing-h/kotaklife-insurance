@@ -2941,6 +2941,120 @@
     ]
   },
   {
+    "id": "csr-initiatives",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "heading",
+        "label": "Heading",
+        "description": "For example: Our initiatives. Bold words are shown heavier",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "csr-initiatives-year",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "year",
+        "label": "Financial year",
+        "description": "For example: 2024 - 23. Add the initiatives of this year right after it",
+        "value": ""
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "active",
+        "label": "Selected on load",
+        "description": "Shows this year first. When no year is selected, the first year is shown",
+        "value": false
+      }
+    ]
+  },
+  {
+    "id": "csr-initiatives-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Illustration alt text",
+        "description": "Leave empty when the illustration is decorative",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "category",
+        "label": "Category",
+        "description": "For example: Healthcare, Sports, Education",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Organisation name",
+        "description": "For example: Wockhardt Foundation",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "code",
+        "label": "Project code",
+        "description": "For example: KLI202122002",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "status",
+        "label": "Status",
+        "value": "ongoing",
+        "options": [
+          {
+            "name": "Ongoing",
+            "value": "ongoing"
+          },
+          {
+            "name": "Other than ongoing",
+            "value": "other"
+          },
+          {
+            "name": "Completed",
+            "value": "completed"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "location",
+        "label": "Location",
+        "description": "For example: Kolkata, West Bengal",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link (optional)",
+        "description": "Makes the whole card clickable"
+      }
+    ]
+  },
+  {
     "id": "custom-cards",
     "fields": [
       {
