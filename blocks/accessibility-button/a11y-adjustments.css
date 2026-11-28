@@ -1,0 +1,212 @@
+/*
+ * Accessibility tool: the effects of each setting on the page.
+ * Loaded only when at least one setting is on. Every rule is keyed to a data-a11y-* attribute
+ * on <html> that the tool sets, so removing the attribute restores the original styling.
+ * Text rules are limited to the page regions (header, main, footer); the tool's own panel sits
+ * outside them and is not resized or reflowed.
+ */
+
+@font-face {
+  font-family: OpenDyslexic;
+  font-style: normal;
+  font-weight: 100 550;
+  font-display: swap;
+  src: url("../../fonts/OpenDyslexic-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: OpenDyslexic;
+  font-style: normal;
+  font-weight: 551 900;
+  font-display: swap;
+  src: url("../../fonts/OpenDyslexic-Bold.woff2") format("woff2");
+}
+
+/* ---------- Colour filters (contrast, saturation, colour vision), combined in one filter ---------- */
+
+/* A filter on the root element does not change how fixed or sticky elements are positioned. */
+html[data-a11y-filter] {
+  filter: var(--a11y-vision-filter, opacity(1)) var(--a11y-saturation-filter, saturate(1)) var(--a11y-contrast-filter, contrast(1));
+}
+
+html[data-a11y-contrast="high"] { --a11y-contrast-filter: contrast(1.4); }
+html[data-a11y-contrast="light"] { --a11y-contrast-filter: contrast(0.8) brightness(1.08); }
+
+html[data-a11y-contrast="dark"] {
+  --a11y-contrast-filter: invert(1) hue-rotate(180deg);
+
+  background-color: #FFF;
+}
+
+/* dark contrast: photos, videos and embeds are inverted back so they keep their real colours;
+   SVG icons and logos stay inverted so they remain visible on the dark background */
+html[data-a11y-contrast="dark"] :is(img:not([src*=".svg"]), video, iframe, canvas):not(.accessibility-button-panel *) {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html[data-a11y-saturation="low"] { --a11y-saturation-filter: saturate(0.5); }
+html[data-a11y-saturation="high"] { --a11y-saturation-filter: saturate(1.8); }
+html[data-a11y-saturation="gray"] { --a11y-saturation-filter: grayscale(1); }
+
+/* colour vision correction filters are inline SVG, available once the tool has added them */
+html[data-a11y-ready][data-a11y-vision="protanopia"] { --a11y-vision-filter: url("#a11y-protanopia"); }
+html[data-a11y-ready][data-a11y-vision="deuteranopia"] { --a11y-vision-filter: url("#a11y-deuteranopia"); }
+html[data-a11y-ready][data-a11y-vision="tritanopia"] { --a11y-vision-filter: url("#a11y-tritanopia"); }
+
+/* ---------- Bigger Text: each text element scales from its own recorded original size ---------- */
+
+/* body text grows by the full percentage; large headings by at most the cap, so fixed-height
+   banners and cards keep their headings in place */
+html[data-a11y-text="1"] {
+  --a11y-text-scale: 1.125;
+  --a11y-text-cap: 4px;
+  --a11y-header-cap: 2px;
+}
+
+html[data-a11y-text="2"] {
+  --a11y-text-scale: 1.25;
+  --a11y-text-cap: 8px;
+  --a11y-header-cap: 3px;
+}
+
+html[data-a11y-text="3"] {
+  --a11y-text-scale: 1.5;
+  --a11y-text-cap: 12px;
+  --a11y-header-cap: 3px;
+}
+
+html[data-a11y-text] :is(header, main, footer) [style*="--a11y-fs"] {
+  font-size: min(calc(var(--a11y-fs) * var(--a11y-text-scale)), calc(var(--a11y-fs) + var(--a11y-text-cap))) !important;
+}
+
+/* the header's compact menus grow by a small fixed amount so they stay on one line on phones */
+html[data-a11y-text] header [style*="--a11y-fs"] {
+  font-size: min(calc(var(--a11y-fs) * var(--a11y-text-scale)), calc(var(--a11y-fs) + var(--a11y-header-cap))) !important;
+}
+
+html[data-a11y-text] :is(header, main, footer) :is(p, li, h1, h2, h3, h4, h5, h6, dd, td, th, figcaption, blockquote) {
+  overflow-wrap: break-word;
+}
+
+/* single-line trails (the breadcrumb on banners) may wrap once text is larger, wider or spaced */
+html:is([data-a11y-text], [data-a11y-spacing], [data-a11y-dyslexia]) main .breadcrumb > nav {
+  flex-wrap: wrap !important;
+  white-space: normal !important;
+}
+
+/* ---------- Line Height ---------- */
+
+html[data-a11y-line-height="1"] { --a11y-line-height: 1.5; }
+html[data-a11y-line-height="2"] { --a11y-line-height: 1.75; }
+html[data-a11y-line-height="3"] { --a11y-line-height: 2; }
+
+/* reading text only: large display headings (h1-h3) keep their line height */
+html[data-a11y-line-height] :is(main, footer) :is(p, li, dt, dd, h4, h5, h6, blockquote, td, th, figcaption, label, legend, summary) {
+  line-height: var(--a11y-line-height) !important;
+}
+
+/* ---------- Text Spacing (level 3 = the WCAG 1.4.12 text spacing values) ---------- */
+
+html[data-a11y-spacing="1"] {
+  --a11y-letter-spacing: 0.04em;
+  --a11y-word-spacing: 0.06em;
+  --a11y-paragraph-spacing: 0.75em;
+}
+
+html[data-a11y-spacing="2"] {
+  --a11y-letter-spacing: 0.08em;
+  --a11y-word-spacing: 0.11em;
+  --a11y-paragraph-spacing: 1.25em;
+}
+
+html[data-a11y-spacing="3"] {
+  --a11y-letter-spacing: 0.12em;
+  --a11y-word-spacing: 0.16em;
+  --a11y-paragraph-spacing: 2em;
+}
+
+/* reading text in the page and footer; the header's menus keep their spacing */
+html[data-a11y-spacing] :is(main, footer) :is(p, li, dt, dd, h1, h2, h3, h4, h5, h6, blockquote, td, th, figcaption, label, legend, summary, a, button) {
+  letter-spacing: var(--a11y-letter-spacing) !important;
+  word-spacing: var(--a11y-word-spacing) !important;
+}
+
+html[data-a11y-spacing] main p:not(:last-child) {
+  margin-block-end: var(--a11y-paragraph-spacing) !important;
+}
+
+/* ---------- Text Align (page content only, not navigation or controls) ---------- */
+
+html[data-a11y-align] main :is(p, li, dt, dd, h1, h2, h3, h4, h5, h6, blockquote, figcaption, td, th) {
+  text-align: var(--a11y-align) !important;
+}
+
+html[data-a11y-align="left"] { --a11y-align: left; }
+html[data-a11y-align="center"] { --a11y-align: center; }
+html[data-a11y-align="right"] { --a11y-align: right; }
+
+/* ---------- Highlight Links: underline plus outline, never colour alone ---------- */
+
+html[data-a11y-links] :is(header, main, footer) a[href]:not(.button, [role="button"], [role="tab"]) {
+  text-decoration-line: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-decoration-color: currentcolor !important;
+  text-underline-offset: 0.2em !important;
+}
+
+/* links that only wrap an image (logos, cards) get the outline but no underline */
+html[data-a11y-links] a[href]:has(> :is(img, picture, svg):only-child) {
+  text-decoration-line: none !important;
+}
+
+/* Motor impaired: inline padding enlarges the clickable area of text links without moving text */
+html[data-a11y-targets] main :is(p, li, dd, td) a[href]:not(.button, [role="button"]) {
+  padding-block: 0.35em;
+  /* stylelint-disable-next-line property-no-vendor-prefix -- Safari supports only the prefixed form */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+html[data-a11y-links] :is(header, main, footer) a[href]:not(.button, [role="button"], [role="tab"]):is(:hover, :focus-visible) {
+  outline: 2px solid #1E4679 !important;
+  outline-offset: 2px !important;
+  background-color: #FFF3C4 !important;
+  color: #181D27 !important;
+}
+
+/* ---------- Large cursor ---------- */
+
+html[data-a11y-cursor],
+html[data-a11y-cursor] * {
+  cursor: url("../../icons/a11y-cursor-arrow.svg") 8 4, auto !important;
+}
+
+html[data-a11y-cursor] :is(a[href], button, [role="button"], [role="tab"], label, select, summary, input:is([type="checkbox"], [type="radio"], [type="submit"], [type="button"], [type="range"])),
+html[data-a11y-cursor] :is(a[href], button, [role="button"], [role="tab"], label, summary) * {
+  cursor: url("../../icons/a11y-cursor-pointer.svg") 17 4, pointer !important;
+}
+
+/* text fields keep the text cursor so selecting and typing still feel normal */
+html[data-a11y-cursor] :is(input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"], [type="range"]), textarea, [contenteditable="true"]) {
+  cursor: text !important;
+}
+
+/* ---------- Dyslexia friendly font ---------- */
+
+html[data-a11y-dyslexia] :is(header, main, footer),
+html[data-a11y-dyslexia] :is(header, main, footer) :not(svg, svg *) {
+  font-family: OpenDyslexic, var(--body-font-family, sans-serif) !important;
+}
+
+html[data-a11y-dyslexia] :is(header, main, footer) :is(p, li, dd, td, blockquote) {
+  word-spacing: max(0.08em, var(--a11y-word-spacing, 0em)) !important;
+}
+
+/* ---------- Motor impaired: strong focus ring (larger link targets are with the link rules) ---------- */
+
+html[data-a11y-focus] :is(a[href], button, input, select, textarea, summary, [tabindex]:not([tabindex="-1"])):focus-visible,
+html[data-a11y-focus][data-keyboard-navigation] :is(a[href], button, input, select, textarea, summary, [tabindex]:not([tabindex="-1"])):focus {
+  outline: 3px solid #1E4679 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px #FFF !important;
+}

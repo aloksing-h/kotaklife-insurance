@@ -1,3 +1,5 @@
+/* Accessibility tool: launcher and panel (Figma "Accessibility pop up" desktop and mobile) */
+
 .accessibility-button {
   position: static;
   width: 0;
@@ -5,6 +7,8 @@
   margin: 0;
   padding: 0;
 }
+
+/* ---------- Launcher ---------- */
 
 .accessibility-button-control {
   position: fixed;
@@ -22,14 +26,8 @@
   place-items: center;
 }
 
-.accessibility-button-control.is-before-fold {
-  opacity: 0;
-  pointer-events: none;
-}
-
 .accessibility-button-control.position-left {
   left: 0;
-  border-right: 1px solid var(--brand-red-200, #FD8A99);
   border-left: 0;
   border-radius: 0 999px 999px 0;
 }
@@ -37,7 +35,6 @@
 .accessibility-button-control.position-right {
   right: 0;
   border-right: 0;
-  border-left: 1px solid var(--brand-red-200, #FD8A99);
   border-radius: 999px 0 0 999px;
 }
 
@@ -47,118 +44,377 @@
   height: 28px;
 }
 
+.accessibility-button-control:hover,
+.accessibility-button-control[aria-expanded="true"] {
+  background: var(--blue-light-100, #D1E9FF);
+}
+
 .accessibility-button-control:focus-visible {
   outline: 3px solid #1E4679;
   outline-offset: 3px;
 }
 
+/* ---------- Panel ---------- */
+
 .accessibility-button-panel {
+  --accessibility-panel-top: 108px;
+  --accessibility-panel-side: 48px;
+
   position: fixed;
-  top: 50%;
-  left: 48px;
-  z-index: 1001;
-  width: min(200px, calc(100vw - 64px));
-  padding: 6px;
-  border: 1px solid var(--gray-300, #D5D7DA);
-  border-radius: 8px;
+  inset: var(--accessibility-panel-top) auto auto var(--accessibility-panel-side);
+  box-sizing: border-box;
+  display: none;
+  flex-direction: column;
+  width: 234px;
+  max-width: calc(100vw - 16px);
+  max-height: calc(100vh - var(--accessibility-panel-top) - 12px);
+  max-height: calc(100dvh - var(--accessibility-panel-top) - 12px);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
   background: var(--base-white, #FFF);
-  box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
-  transform: translateY(-50%);
+  box-shadow: 0 1px 6px rgb(0 0 0 / 20%);
+  color: #121212;
+  font-family: var(--body-font-family, Manrope, sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+  letter-spacing: normal;
+  text-align: left;
 }
 
-.accessibility-button-panel[hidden] {
-  display: none;
+.accessibility-button-panel[open] {
+  display: flex;
+  animation: accessibility-panel-in 150ms ease-out;
+}
+
+.accessibility-button-panel.is-right {
+  inset: var(--accessibility-panel-top) var(--accessibility-panel-side) auto auto;
+}
+
+.accessibility-button-panel::backdrop {
+  background: transparent;
+}
+
+@keyframes accessibility-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accessibility-button-panel[open] {
+    animation: none;
+  }
 }
 
 .accessibility-button-panel-header {
   display: flex;
+  flex: none;
   align-items: center;
   justify-content: space-between;
-  gap: 9px;
+  gap: 8px;
+  padding: 12px 12px 10px;
 }
 
-.accessibility-button-panel h2 {
+.accessibility-button-panel .accessibility-button-title {
   margin: 0;
-  font-size: 14px;
+  color: #000;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: normal;
+}
+
+.accessibility-button-panel button {
+  margin: 0;
+  font-family: inherit;
+  letter-spacing: normal;
+  cursor: pointer;
 }
 
 .accessibility-button-close {
-  border: 0;
-  background: transparent;
-  color: var(--text-color, #131313);
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.accessibility-button-options {
   display: grid;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.accessibility-button-options button {
-  /* min-height: 40px; */
-  padding: 6px 12px;
-  border: 1px solid var(--gray-300, #D5D7DA);
+  flex: none;
+  width: 24px;
+  height: 24px;
+  margin: -2px !important;
+  padding: 0;
+  border: 0;
   border-radius: 4px;
-  background: var(--base-white, #FFF);
-  text-align: left;
-  color: var(--text-text-primary, #181D27);
-  font-family: var(--font-family-font-family-body, Manrope);
-  font-size: var(--font-size-body-2, 12px);
-  font-style: normal;
-  font-weight: 400;
-  line-height: var(--line-height-body-1, 14px);
-  cursor: pointer;
+  background: transparent;
+  place-items: center;
 }
 
-.accessibility-button-options button:hover {
-  background: #D1E9FF;
-  font-size: var(--font-size-body-2, 12.5px);
+.accessibility-button-close:hover {
+  background: #F2F4F7;
 }
 
-.accessibility-button-close:focus-visible,
-.accessibility-button-options button:focus-visible {
-  outline: 3px solid #1E4679;
-  outline-offset: 3px;
+.accessibility-button-panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 12px 12px;
 }
 
-.a11y-contrast body {
-  background: #000;
-  color: #FFF;
+/* profiles box */
+.accessibility-button-profiles {
+  padding: 7.2px 7.2px 9.2px;
+  border: 0.8px solid #D2DAE4;
+  border-radius: 4px;
 }
 
-.a11y-contrast a:any-link {
-  color: #FF0;
+.accessibility-button-profiles-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 }
 
-.a11y-large-text body {
-  font-size: 112.5%;
+.accessibility-button-panel .accessibility-button-profiles-title {
+  display: flex;
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
-.a11y-underline-links a:any-link {
+.accessibility-button-profiles-toggle,
+.accessibility-button-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 14px;
+
+  /* 24px tall touch target that takes up only the 14px row of the design */
+  margin: -5px -2px !important;
+  padding: 5px 2px;
+  box-sizing: content-box;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: #121212;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
+.accessibility-button-chevron {
+  transition: transform 150ms ease;
+}
+
+.accessibility-button-profiles-toggle[aria-expanded="false"] .accessibility-button-chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accessibility-button-chevron,
+  .accessibility-button-tile {
+    transition: none;
+  }
+}
+
+.accessibility-button-reset:hover,
+.accessibility-button-profiles-toggle:hover {
   text-decoration: underline;
 }
 
-.a11y-reduced-motion *,
-.a11y-reduced-motion *::before,
-.a11y-reduced-motion *::after {
-  animation-duration: 0.01ms !important;
-  animation-iteration-count: 1 !important;
-  scroll-behavior: auto !important;
-  transition-duration: 0.01ms !important;
+.accessibility-button-profiles-list {
+  margin-top: 11px;
 }
 
-@media (width <=600px) {
+.accessibility-button-profiles-list[hidden] {
+  display: none;
+}
+
+/* tiles */
+.accessibility-button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.accessibility-button-grid.is-settings {
+  gap: 6px 4px;
+}
+
+.accessibility-button-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  box-sizing: border-box;
+  min-height: 51px;
+  padding: 7px 4px 6px;
+  border: 0.8px solid #D2DAE4;
+  border-radius: 4px;
+  background: var(--base-white, #FFF);
+  color: #121212;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+  text-align: center;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.accessibility-button-tile img {
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+.accessibility-button-tile:hover {
+  border-color: #A4BCFD;
+  background: #F5FAFF;
+}
+
+.accessibility-button-tile[aria-pressed="true"] {
+  border-color: #A4BCFD;
+  background: #D1E9FF;
+}
+
+.accessibility-button-grid.is-settings .accessibility-button-tile {
+  min-height: 53px;
+  padding-top: 8px;
+}
+
+.accessibility-button-grid.is-settings .accessibility-button-tile.is-wide {
+  flex-direction: row;
+  grid-column: 1 / -1;
+  justify-content: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 7px 8px;
+}
+
+/* level steps for settings with several levels */
+.accessibility-button-tile-steps {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  gap: 2px;
+}
+
+.accessibility-button-tile-steps i {
+  width: 4px;
+  height: 4px;
+  border: 0.8px solid #A4BCFD;
+  border-radius: 50%;
+}
+
+.accessibility-button-tile:not([aria-pressed="true"]) .accessibility-button-tile-steps {
+  display: none;
+}
+
+.accessibility-button-tile[data-level="1"] .accessibility-button-tile-steps i:nth-child(-n+1),
+.accessibility-button-tile[data-level="2"] .accessibility-button-tile-steps i:nth-child(-n+2),
+.accessibility-button-tile[data-level="3"] .accessibility-button-tile-steps i:nth-child(-n+3) {
+  border-color: #1E4679;
+  background: #1E4679;
+}
+
+/* colour blindness type (shown while the Color Blind profile is on) */
+.accessibility-button-vision {
+  display: flex;
+  gap: 4px;
+  min-width: 0;
+  margin: 8px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.accessibility-button-vision[hidden] {
+  display: none;
+}
+
+.accessibility-button-vision-option {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 11px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.accessibility-button-vision-option input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.accessibility-button-vision-option span {
+  display: block;
+  padding: 6px 3px;
+  border: 0.8px solid #D2DAE4;
+  border-radius: 4px;
+}
+
+.accessibility-button-vision-option input:checked + span {
+  border-color: #A4BCFD;
+  background: #D1E9FF;
+}
+
+.accessibility-button-vision-option input:focus-visible + span {
+  outline: 2px solid #1E4679;
+  outline-offset: 1px;
+}
+
+/* focus ring for every control in the panel */
+.accessibility-button-panel button:focus-visible {
+  outline: 2px solid #1E4679;
+  outline-offset: 2px;
+}
+
+.accessibility-button-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Mobile: the panel sits 16px from the right edge, as in the mobile design */
+@media (width <= 599px) {
   .accessibility-button-control {
     top: 45%;
   }
 
   .accessibility-button-panel {
-    right: 48px;
-    left: 48px;
-    width: 200px;
-    transform: translateY(-50%);
+    inset: var(--accessibility-panel-top) 16px auto auto;
+  }
+
+  .accessibility-button-panel.is-right {
+    inset: var(--accessibility-panel-top) 48px auto auto;
+  }
+}
+
+@media (forced-colors: active) {
+  .accessibility-button-tile[aria-pressed="true"],
+  .accessibility-button-vision-option input:checked + span {
+    outline: 2px solid Highlight;
   }
 }

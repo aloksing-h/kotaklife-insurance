@@ -11,6 +11,8 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  decorateBlock,
+  loadBlock,
 } from './aem.js';
 
 /**
@@ -490,11 +492,44 @@ function decorateSvgAltText(container) {
 }
 
 /**
+ * Re-applies the visitor's saved accessibility settings before the first paint, so pages don't
+ * flash without them. The settings' styles are only loaded when a setting is on.
+ */
+function applySavedAccessibility() {
+  try {
+    const { applied } = JSON.parse(localStorage.getItem('kotak-a11y')) || {};
+    const entries = Object.entries(applied || {})
+      .filter(([key, value]) => /^[a-z-]+$/.test(key) && /^[a-z0-9-]+$/.test(value));
+    if (!entries.length) return;
+    entries.forEach(([key, value]) => document.documentElement.setAttribute(`data-a11y-${key}`, value));
+    loadCSS(`${window.hlx.codeBasePath}/blocks/accessibility-button/a11y-adjustments.css`);
+  } catch (e) {
+    // storage unavailable: the tool applies the settings when it loads
+  }
+}
+
+/**
+ * Adds the accessibility tool to every page. A page that has an authored Accessibility Button
+ * block keeps it (it sets the launcher icon, side and label).
+ * @param {Element} main The main element
+ */
+async function loadAccessibilityTool(main) {
+  if (main?.querySelector('.accessibility-button')) return;
+  const block = buildBlock('accessibility-button', []);
+  const wrapper = document.createElement('div');
+  wrapper.append(block);
+  document.body.append(wrapper);
+  decorateBlock(block);
+  await loadBlock(block);
+}
+
+/**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
+  applySavedAccessibility();
   doc.addEventListener('keydown', (event) => {
     if (event.key === 'Tab') doc.documentElement.setAttribute('data-keyboard-navigation', '');
   }, { capture: true });
@@ -542,6 +577,7 @@ async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadSections(main);
   decorateSvgAltText(doc);
+  loadAccessibilityTool(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
